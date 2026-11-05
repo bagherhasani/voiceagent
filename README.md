@@ -1,6 +1,6 @@
-# Open Slot AI — pitch deck
+# voiceagent — Open Slot AI pitch deck
 
-Browser presentation (deck-kit). **Live site:** enable GitHub Pages on this repo (see below).
+Browser presentation (deck-kit). **Live site:** GitHub Pages → `https://bagherhasani.github.io/voiceagent/`
 
 ## Update the live link
 
