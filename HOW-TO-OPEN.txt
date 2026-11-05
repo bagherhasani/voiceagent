@@ -1,0 +1,10 @@
+Open Slot AI — pitch deck (offline)
+
+1. Unzip this entire folder (keep index.html and the assets folder together).
+2. Open index.html in Google Chrome or Microsoft Edge.
+   (Do not open inside Outlook/Word preview — use a browser.)
+3. Advance: arrow keys, Space, or click. On the demo slide, press Play (~30s).
+
+No install required. Works offline after unzip.
+
+Presenter view (optional): press P in the browser.
