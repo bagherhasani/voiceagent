@@ -404,14 +404,26 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .s9-bar-key span:first-child::before { background: #10B981; }
 .s9-bar-key span:last-child::before { background: #6EE7B7; }
 .s9-pct { font: 600 15px/1.4 'Inter', sans-serif; color: #64748B; margin-top: 20px; max-width: 420px; }
-.s9-right { display: flex; flex-direction: column; min-height: 0; }
-.s9-visual { position: relative; flex: 1; min-height: 320px; border-radius: 16px; overflow: hidden; background: #E2E8F0; }
-.s9-visual img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) contrast(1.02); }
-.s9-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(15,23,42,.75) 100%); pointer-events: none; }
-.s9-points { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 28px 28px; z-index: 1; color: #fff; }
-.s9-jack { font: 700 18px/1.3 'Inter', sans-serif; margin: 0 0 16px; opacity: .95; }
-.s9-point { font: 600 15px/1.45 'Inter', sans-serif; margin: 0 0 10px; padding-left: 0; }
-.s9-point b { font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; color: #6EE7B7; margin-right: 8px; }
+.s9-right { display: flex; align-items: center; justify-content: center; min-height: 0; }
+.s9-persona {
+  width: 100%; max-width: 480px; background: #fff; border: 1px solid #E2E8F0; border-radius: 20px;
+  padding: 32px 32px 28px; box-shadow: 0 16px 48px rgba(15,23,42,.07);
+}
+.s9-persona-lead { font: 700 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 0 0 24px; }
+.s9-scene {
+  height: 140px; border-radius: 12px; background: linear-gradient(145deg, #F1F5F9 0%, #E2E8F0 100%);
+  display: flex; align-items: center; justify-content: center; gap: 28px; margin-bottom: 24px;
+}
+.s9-scene svg { flex: none; }
+.s9-persona-lines { list-style: none; margin: 0; padding: 0; border-top: 1px solid #E2E8F0; }
+.s9-persona-lines li {
+  font: 600 17px/1.45 'Inter', sans-serif; color: #334155; padding: 16px 0; border-bottom: 1px solid #F1F5F9;
+  display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: start;
+}
+.s9-persona-lines li span {
+  font: 700 10px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #10B981; padding-top: 4px;
+}
+.s9-persona-note { font: 500 12px/1.4 'IBM Plex Mono', monospace; color: #94A3B8; margin: 16px 0 0; }
 .s9-expand { margin-top: 22px; padding-top: 22px; border-top: 1px solid #E2E8F0; text-align: center; }
 .s9-route { display: flex; justify-content: center; align-items: center; gap: 16px 24px; flex-wrap: wrap; font: 800 14px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; }
 .s9-route .on { color: #10B981; font-size: 16px; }
@@ -981,14 +993,18 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
           <p class="s9-pct">77% of Tulsa's 424 employer HVAC/plumbing establishments have fewer than 10 employees.</p>
         </div>
         <div class="s9-right" data-anim="rise" data-delay=".26">
-          <div class="s9-visual">
-            <img src="assets/demo-poster.jpg" width="640" height="480" alt="">
-            <div class="s9-points">
-              <p class="s9-jack">Businesses like Jack's.</p>
-              <p class="s9-point"><b>WHO</b> Owner-operated HVAC and plumbing shops</p>
-              <p class="s9-point"><b>PAIN</b> Busy on a job. Missing calls.</p>
-              <p class="s9-point"><b>VALUE</b> Recover opportunities without hiring a receptionist</p>
+          <div class="s9-persona">
+            <p class="s9-persona-lead">Businesses like Jack's.</p>
+            <div class="s9-scene" aria-hidden="true">
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="28" stroke="#94A3B8" stroke-width="2"/><path d="M36 22v20M28 34h16" stroke="#64748B" stroke-width="2.5" stroke-linecap="round"/><path d="M24 48c0-8 5-14 12-14s12 6 12 14" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg width="56" height="88" viewBox="0 0 56 88" fill="none"><rect x="8" y="4" width="40" height="80" rx="8" stroke="#0F172A" stroke-width="2.2"/><circle cx="28" cy="68" r="2" fill="#10B981"/><path d="M38 12c2 2 3.5 4.5 4 7.5" stroke="#10B981" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
+            <ul class="s9-persona-lines">
+              <li><span>WHO</span> Owner-operated HVAC and plumbing shops</li>
+              <li><span>PAIN</span> On the job. Calls go unanswered.</li>
+              <li><span>VALUE</span> Recover jobs without hiring a receptionist</li>
+            </ul>
+            <p class="s9-persona-note">Illustrative persona · not a paying customer</p>
           </div>
         </div>
       </div>
