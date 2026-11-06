@@ -330,20 +330,31 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 /* —— Market & beachhead (light investor, shared with business model) —— */
 #market.bm-slide, #beachhead.bm-slide { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
 .inv-num { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #94A3B8; margin: 0 0 8px; }
-.mk-tiers { flex: 1; display: flex; align-items: flex-end; gap: 16px; margin-top: 44px; padding-bottom: 8px; }
-.mk-block { flex: 1; background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px 22px 28px; box-shadow: 0 8px 32px rgba(15,23,42,.05); display: flex; flex-direction: column; min-height: 320px; }
-.mk-block--tam { flex: 1.08; min-height: 340px; }
-.mk-block--sam { flex: 1.12; min-height: 360px; border: 2px solid #10B981; box-shadow: 0 0 0 1px rgba(16,185,129,.08), 0 12px 40px rgba(16,185,129,.12); transform: translateY(-8px); }
-.mk-block--som { flex: .94; min-height: 300px; border-color: rgba(16,185,129,.35); background: linear-gradient(180deg, #fff 0%, rgba(16,185,129,.04) 100%); }
-.mk-tier { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: #64748B; margin: 0; }
-.mk-block--sam .mk-tier, .mk-block--som .mk-tier { color: #10B981; }
-.mk-val { font: 800 clamp(32px, 3.2vw, 48px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 14px 0 0; font-variant-numeric: tabular-nums; }
-.mk-block--sam .mk-val, .mk-block--som .mk-val { color: #059669; }
-.mk-count { font: 700 clamp(15px, 1.35vw, 18px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 12px 0 0; }
-.mk-desc { font: 500 14px/1.45 'Inter', sans-serif; color: #64748B; margin: 14px 0 0; flex: 1; }
-.mk-som-tag { font: 600 13px/1.4 'IBM Plex Mono', monospace; color: #10B981; margin: 10px 0 0; letter-spacing: .02em; }
-.mk-takeaway { margin-top: 36px; text-align: center; font: 800 clamp(28px, 2.6vw, 40px)/1.2 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; max-width: 920px; margin-left: auto; margin-right: auto; }
+.mk-title { font: 800 clamp(44px, 4.2vw, 64px)/1.05 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 8px 0 0; max-width: 720px; }
+.mk-body { flex: 1; display: grid; grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); gap: 48px; margin-top: 36px; align-items: center; min-height: 0; }
+.mk-legend { display: flex; flex-direction: column; gap: 36px; padding-right: 12px; }
+.mk-leg { display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; }
+.mk-dot { width: 28px; height: 28px; border-radius: 50%; margin-top: 4px; }
+.mk-dot--tam { background: #A7F3D0; box-shadow: inset 0 0 0 1px rgba(16,185,129,.25); }
+.mk-dot--sam { background: #34D399; box-shadow: inset 0 0 0 1px rgba(5,150,105,.2); }
+.mk-dot--som { background: #059669; }
+.mk-leg h3 { font: 700 clamp(20px, 1.85vw, 26px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 0; }
+.mk-leg p { font: 500 15px/1.45 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; }
+.mk-leg-meta { font: 600 14px/1.35 'Inter', sans-serif; color: #334155; margin: 6px 0 0; }
+.mk-diagram { display: flex; align-items: center; justify-content: center; padding: 8px 0; }
+.mk-diagram svg { width: min(520px, 100%); height: auto; overflow: visible; }
+.mk-ring-label { font: 700 13px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; fill: #0F172A; text-transform: uppercase; opacity: .55; }
+.mk-ring-val { font: 800 36px/1 'Inter', sans-serif; fill: #0F172A; letter-spacing: -.02em; }
+.mk-ring-val--sam { fill: #065F46; font-size: 32px; }
+.mk-ring-val--som { fill: #fff; font-size: 26px; font-weight: 800; }
+.mk-beach { margin-top: 28px; padding-top: 20px; border-top: 1px solid #E2E8F0; text-align: center; font: 600 16px/1.4 'Inter', sans-serif; color: #0F172A; }
+.mk-beach u { text-decoration: underline; text-decoration-color: #10B981; text-underline-offset: 4px; }
+.mk-takeaway { margin-top: 24px; text-align: center; font: 800 clamp(24px, 2.2vw, 34px)/1.25 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; }
 .mk-takeaway em { font-style: normal; color: #10B981; font-weight: 800; }
+.bm-plan { position: relative; padding-top: 36px; min-height: 400px; display: flex; flex-direction: column; }
+.bm-plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: #0F172A; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+.bm-plan-price { font-size: clamp(42px, 3.8vw, 52px); margin-top: 8px; }
+.bm-plans { gap: 22px; }
 .bh-grid { flex: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; margin-top: 40px; align-items: start; }
 .bh-left { padding-right: 24px; border-right: 1px solid #E2E8F0; }
 .bh-k { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0; }
@@ -366,7 +377,6 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .bh-path i { font-style: normal; color: #CBD5E1; font-weight: 700; }
 .bh-close { font: 700 clamp(20px, 1.85vw, 26px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 28px 0 0; max-width: 1000px; }
 .bh-close em { font-style: normal; color: #64748B; font-weight: 600; }
-
 
 /* —— II · Solution (dark, simple) —— */
 #phone.sol-reveal-slide { padding: 0; }
@@ -835,9 +845,9 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
           <h2 class="bm-head" data-anim="mask" data-delay=".08">One extra job could pay for Open Slot.</h2>
           <p class="bm-sub" data-anim="fade" data-delay=".16">Simple, predictable monthly subscriptions for service businesses.</p>
         </div>
-        <img class="bm-mark" src="assets/mark.png" width="88" height="88" alt="" data-anim="scale" data-delay=".2">
       </div>
-      <div class="bm-main">
+      <p class="bm-label" style="margin-top:28px" data-anim="fade" data-delay=".2">Pricing models</p>
+      <div class="bm-main" style="margin-top:20px">
         <div class="bm-plans">
           <article class="bm-plan" data-anim="rise" data-delay=".24">
             <p class="bm-plan-tier">Solo</p>
@@ -850,6 +860,7 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
             </ul>
           </article>
           <article class="bm-plan bm-plan--growth" data-anim="rise" data-delay=".32">
+            <span class="bm-plan-badge">Most popular</span>
             <p class="bm-plan-tier">Growth</p>
             <p class="bm-plan-price">$229 <span>/ month</span></p>
             <ul>
@@ -891,41 +902,60 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
       <p>And for Open Slot, each subscription creates recurring revenue. Based on our initial cost model, we are targeting around 58% contribution margins at full included usage — not net profit. We have not charged these plans yet.</p></aside>
   </section>
 
-  <section class="slide bm-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
+  <section class="slide bm-slide" id="market" data-title="Market analysis" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
     <div class="bm-wrap">
       <p class="inv-num" data-anim="fade">Open Slot · 08</p>
-      <p class="bm-label" data-anim="fade">Market opportunity</p>
-      <h2 class="bm-head" data-anim="mask" data-delay=".06">A $246M starting market. We need less than 1%.</h2>
-      <p class="bm-sub" data-anim="fade" data-delay=".14">Starting with independent HVAC and plumbing businesses. Built to expand into electrical services and beyond.</p>
-      <div class="mk-tiers">
-        <article class="mk-block mk-block--tam" data-anim="rise" data-delay=".2">
-          <p class="mk-tier">TAM</p>
-          <p class="mk-val">$974M</p>
-          <p class="mk-count">510,263 small trade operators and establishments</p>
-          <p class="mk-desc">U.S. plumbing, HVAC, and electrical contractors with no paid employees or fewer than 10 employees.</p>
-        </article>
-        <article class="mk-block mk-block--sam" data-anim="rise" data-delay=".28">
-          <p class="mk-tier">SAM</p>
-          <p class="mk-val">$246M</p>
-          <p class="mk-count">128,764 priority HVAC and plumbing prospects</p>
-          <p class="mk-desc">85,458 small employer establishments plus 43,306 nonemployer businesses with annual receipts of $100K or more.</p>
-        </article>
-        <article class="mk-block mk-block--som" data-anim="rise" data-delay=".36">
-          <p class="mk-tier">SOM</p>
-          <p class="mk-val">$878K ARR</p>
-          <p class="mk-count">460 paying customers by Year 5 — target</p>
-          <p class="mk-som-tag">≈ 0.36% of SAM prospect count</p>
-          <p class="mk-desc">Five-year goal, not existing revenue.</p>
-        </article>
+      <h2 class="mk-title" data-anim="mask" data-delay=".06">Market analysis</h2>
+      <div class="mk-body">
+        <div class="mk-legend">
+          <article class="mk-leg" data-anim="rise" data-delay=".14">
+            <span class="mk-dot mk-dot--tam" aria-hidden="true"></span>
+            <div>
+              <h3>Total addressable market</h3>
+              <p class="mk-leg-meta">510,263 small trade operators · $974M</p>
+              <p>U.S. plumbing, HVAC, and electrical contractors with no paid employees or fewer than 10.</p>
+            </div>
+          </article>
+          <article class="mk-leg" data-anim="rise" data-delay=".22">
+            <span class="mk-dot mk-dot--sam" aria-hidden="true"></span>
+            <div>
+              <h3>Serviceable addressable market</h3>
+              <p class="mk-leg-meta">128,764 HVAC &amp; plumbing prospects · $246M</p>
+              <p>Small employers plus nonemployers with $100K+ receipts — our first focus.</p>
+            </div>
+          </article>
+          <article class="mk-leg" data-anim="rise" data-delay=".3">
+            <span class="mk-dot mk-dot--som" aria-hidden="true"></span>
+            <div>
+              <h3>Serviceable obtainable market</h3>
+              <p class="mk-leg-meta">460 customers by Year 5 · $878K ARR target</p>
+              <p>≈0.36% of SAM — a goal, not existing revenue.</p>
+            </div>
+          </article>
+        </div>
+        <div class="mk-diagram" data-anim="scale" data-delay=".18" data-dur="1.1">
+          <svg viewBox="0 0 520 520" aria-label="TAM SAM SOM nested market sizing">
+            <circle cx="260" cy="268" r="228" fill="#A7F3D0" opacity=".55"/>
+            <text class="mk-ring-label" x="260" y="118" text-anchor="middle">TAM</text>
+            <text class="mk-ring-val" x="260" y="162" text-anchor="middle">$974M</text>
+            <circle cx="260" cy="288" r="168" fill="#34D399" opacity=".72"/>
+            <text class="mk-ring-label" x="260" y="228" text-anchor="middle">SAM</text>
+            <text class="mk-ring-val mk-ring-val--sam" x="260" y="272" text-anchor="middle">$246M</text>
+            <circle cx="260" cy="308" r="98" fill="#059669"/>
+            <text class="mk-ring-label" x="260" y="292" text-anchor="middle" fill="#fff" opacity=".85">SOM</text>
+            <text class="mk-ring-val mk-ring-val--som" x="260" y="328" text-anchor="middle">$878K</text>
+          </svg>
+        </div>
       </div>
-      <p class="mk-takeaway" data-anim="rise" data-delay=".44">We don't need the whole market. We need <em>460 customers.</em></p>
-      <p class="bm-foot" style="margin-top:28px">U.S. Census Bureau, County Business Patterns 2023 (NAICS 238220/238210), Nonemployer Statistics 2024, and Open Slot's proposed $159 average monthly subscription. Market values = prospect count × $159 × 12. Employer and nonemployer units differ; pools are not verified paying customers.</p>
+      <p class="mk-takeaway" data-anim="rise" data-delay=".38">We don't need the whole market. We need <em>460 customers.</em></p>
+      <p class="mk-beach" data-anim="fade" data-delay=".44"><u>Beachhead:</u> Independent HVAC &amp; plumbing in Tulsa — 325 small establishments to start.</p>
+      <p class="bm-foot" style="margin-top:20px">U.S. Census CBP 2023 (NAICS 238220/238210), Nonemployer Statistics 2024 · $159/mo × 12. Prospect pools, not paying customers.</p>
     </div>
     <aside class="notes"><p>We're starting with small HVAC and plumbing companies, but the opportunity goes much further. Based on U.S. Census business counts and our proposed pricing, our initial serviceable market is about $246 million a year.</p>
       <p>And here's what matters: our five-year goal is just 460 customers. That's less than half of one percent of that market. Say goal, not pipeline.</p></aside>
   </section>
 
-  <section class="slide bm-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
+  <section class="slide bm-slide" id="beachhead"  <section class="slide bm-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
     <div class="bm-wrap">
       <p class="inv-num" data-anim="fade">Open Slot · 09</p>
       <p class="bm-label" data-anim="fade">Beachhead market</p>
