@@ -329,7 +329,7 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 
 
 /* —— Investor slides 7–9 (Open Slot · JOLT) —— */
-#model.inv-slide, #market.inv-slide, #beachhead.inv-slide {
+#model.inv-slide, #market.inv-slide, #beachhead.inv-slide, #gtm.inv-slide, #finance.inv-slide, #team.inv-slide, #advisors.inv-slide {
   background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif;
 }
 .inv-wrap {
@@ -430,35 +430,154 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .s9-route .off { color: #0F172A; opacity: .45; }
 .s9-route i { font-style: normal; color: #CBD5E1; font-weight: 700; }
 
-/* Slide 10 — competitive advantage */
-#compete.inv-slide { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
-.s10-main { flex: 1; display: grid; grid-template-columns: 46fr 54fr; gap: 40px; margin-top: 28px; align-items: stretch; min-height: 0; }
-.s10-table-wrap { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,23,42,.05); align-self: center; }
-.s10-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.s10-table th { text-align: left; font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; padding: 14px 16px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
-.s10-table td { padding: 13px 16px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
-.s10-table tr:last-child td { border-bottom: none; }
-.s10-table .co { font: 700 15px/1.25 'Inter', sans-serif; color: #0F172A; }
-.s10-table .pr { font: 600 14px/1.3 'Inter', sans-serif; color: #475569; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.s10-table .pos { font: 500 13px/1.45 'Inter', sans-serif; color: #64748B; }
-.s10-table tr.is-us { background: linear-gradient(90deg, rgba(16,185,129,.1) 0%, #fff 28%); }
-.s10-table tr.is-us .co { color: #059669; }
-.s10-table tr.is-us td:first-child { box-shadow: inset 3px 0 0 #10B981; }
-.s10-strategy { display: flex; flex-direction: column; justify-content: center; padding: 8px 0 8px 8px; }
-.s10-strategy-h { font: 800 clamp(26px, 2.4vw, 34px)/1.15 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0 0 28px; max-width: 480px; }
-.s10-strategy-h em { font-style: normal; color: #10B981; }
-.s10-flow { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 3px solid #10B981; display: flex; flex-direction: column; gap: 0; }
-.s10-flow li { position: relative; padding: 18px 0 18px 24px; border-bottom: 1px solid #E2E8F0; }
-.s10-flow li:last-child { border-bottom: none; }
-.s10-flow li::before { content: ''; position: absolute; left: -31px; top: 26px; width: 12px; height: 12px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 4px #F8FAFC; }
-.s10-flow li.is-road::before { background: #fff; border: 2px solid #10B981; }
-.s10-flow-t { font: 700 18px/1.3 'Inter', sans-serif; color: #0F172A; margin: 0; }
-.s10-flow-d { font: 500 14px/1.4 'Inter', sans-serif; color: #64748B; margin: 6px 0 0; }
-.s10-flow-tag { font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #94A3B8; margin-left: 8px; }
-.s10-punch { margin-top: 32px; font: 800 clamp(20px, 1.85vw, 26px)/1.3 'Inter', sans-serif; letter-spacing: -.02em; color: #0F172A; max-width: 520px; padding-top: 24px; border-top: 2px solid #0F172A; }
-.s10-punch em { font-style: normal; color: #10B981; }
+/* Slide 10 — competitive analysis grid (reference layout) */
+#compete.inv-slide { background: #FAFAF8; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+#compete .inv-wrap { padding: 52px 72px 36px; }
+.s10-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; margin-bottom: 8px; }
+.s10-title { font: 500 clamp(34px, 3.2vw, 48px)/1.1 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 0; }
+.s10-tagline { font: 600 clamp(17px, 1.5vw, 20px)/1.35 'Inter', sans-serif; color: #475569; margin: 10px 0 0; max-width: 720px; }
+.s10-logo { width: 72px; height: 72px; object-fit: contain; flex: none; margin-top: 4px; }
+.s10-main { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; margin-top: 20px; }
+.s10-grid-wrap { background: #fff; border: 2.5px solid #0F172A; margin: 0 auto; width: 100%; max-width: 1680px; box-sizing: border-box; }
+.s10-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.s10-grid th, .s10-grid td { border: 2px solid #0F172A; vertical-align: middle; }
+.s10-grid thead th {
+  font: 500 clamp(15px, 1.35vw, 19px)/1.35 'Inter', sans-serif; color: #334155; text-align: center;
+  padding: 22px 14px; font-weight: 500; background: #fff;
+}
+.s10-grid thead th:first-child { border-bottom: 2px solid #0F172A; background: #fff; }
+.s10-grid tbody td { padding: 0; height: 88px; text-align: center; background: #fff; }
+.s10-grid tbody td.s10-co { text-align: left; padding: 12px 20px; height: auto; min-height: 88px; }
+.s10-co-us img { width: 56px; height: 56px; display: block; }
+.s10-co-name { font: 700 clamp(17px, 1.5vw, 22px)/1.2 'Inter', sans-serif; color: #0F172A; margin: 0; letter-spacing: -.01em; }
+.s10-co-name--jobber { font-size: clamp(15px, 1.35vw, 19px); font-weight: 800; letter-spacing: -.02em; }
+.s10-co-name--smith { font-weight: 700; }
+.s10-co-name--sameday { font: 800 clamp(16px, 1.45vw, 20px)/1 'IBM Plex Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.s10-mark { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; margin: 0 auto; }
+.s10-mark svg { width: 22px; height: 22px; }
+.s10-mark--yes { background: #10B981; color: #fff; box-shadow: 0 2px 0 rgba(5,150,105,.35); }
+.s10-mark--muted { background: #94A3B8; color: #fff; opacity: .85; }
+.s10-mark--road { background: #10B981; color: #fff; position: relative; }
+.s10-mark--road::after {
+  content: 'R'; position: absolute; right: -4px; bottom: -2px; width: 16px; height: 16px; border-radius: 50%;
+  background: #0F172A; color: #fff; font: 700 9px/16px 'IBM Plex Mono', monospace; text-align: center;
+}
+.s10-close { text-align: center; margin-top: 28px; font: 800 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; }
+.s10-close em { font-style: normal; color: #10B981; }
 
 .s9-close { text-align: center; font: 700 clamp(17px, 1.55vw, 20px)/1.4 'Inter', sans-serif; color: #0F172A; margin-top: 14px; }
+/* Slide 11 — go-to-market · trial centerpiece */
+#gtm.inv-slide { background: #F8FAFC; }
+.s11-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; margin-top: 18px; min-height: 0; }
+.s11-hero {
+  display: grid; grid-template-columns: 1fr auto; gap: 32px 48px; align-items: center;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 55%, #0F172A 100%);
+  border-radius: 22px; padding: 40px 48px 36px; color: #F8FAFC;
+  box-shadow: 0 20px 56px rgba(15,23,42,.18); position: relative; overflow: hidden;
+}
+.s11-hero::after {
+  content: ''; position: absolute; left: -60px; bottom: -80px; width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(16,185,129,.25) 0%, transparent 68%); pointer-events: none;
+}
+.s11-hero-copy { position: relative; z-index: 1; }
+.s11-hero-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: #94A3B8; margin: 0 0 12px; }
+.s11-hero-big { font: 900 clamp(64px, 7vw, 108px)/.92 'Inter', sans-serif; letter-spacing: -.04em; margin: 0; color: #F8FAFC; }
+.s11-hero-big span { color: #34D399; }
+.s11-hero-sub { font: 600 clamp(18px, 1.65vw, 24px)/1.35 'Inter', sans-serif; color: #CBD5E1; margin: 14px 0 0; }
+.s11-hero-note { font: 500 13px/1.45 'Inter', sans-serif; color: #94A3B8; margin: 12px 0 0; max-width: 520px; }
+.s11-perks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; min-width: 240px; }
+.s11-perks li {
+  font: 600 15px/1.35 'Inter', sans-serif; color: #F8FAFC; padding: 14px 18px; border-radius: 12px;
+  background: rgba(248,250,252,.08); border: 1px solid rgba(248,250,252,.14);
+}
+.s11-perks li strong { display: block; font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: #10B981; margin-bottom: 6px; }
+.s11-funnel-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; color: #64748B; margin: 0 0 14px; text-align: center; }
+.s11-funnel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+.s11-step { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px 22px 20px; box-shadow: 0 6px 24px rgba(15,23,42,.05); }
+.s11-step-num { font: 700 12px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; color: #10B981; margin: 0 0 10px; }
+.s11-step-t { font: 800 clamp(22px, 2vw, 28px)/1.15 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0; }
+.s11-step-d { font: 500 14px/1.45 'Inter', sans-serif; color: #64748B; margin: 10px 0 0; }
+.s11-step-d em { font-style: normal; font-weight: 600; color: #334155; }
+.s11-arrow { display: none; }
+.s11-road { background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; padding: 18px 28px; text-align: center; }
+.s11-road-k { font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #94A3B8; margin: 0 0 10px; }
+.s11-road-line { display: flex; justify-content: center; align-items: center; gap: 16px 28px; flex-wrap: wrap; font: 800 clamp(15px, 1.35vw, 18px)/1 'IBM Plex Mono', monospace; letter-spacing: .06em; color: #0F172A; }
+.s11-road-line i { font-style: normal; color: #10B981; font-size: 20px; }
+.s11-road-line .dim { color: #64748B; font-weight: 600; }
+.s11-emote { text-align: center; font: 700 clamp(17px, 1.55vw, 21px)/1.4 'Inter', sans-serif; color: #334155; margin: 0; padding: 0 40px; }
+.s11-emote em { font-style: normal; color: #059669; }
+
+/* Slide 12 — financial model */
+#finance.inv-slide { background: #F8FAFC; }
+.s12-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; margin-top: 16px; min-height: 0; }
+.s12-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.s12-kpi { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px 24px 20px; box-shadow: 0 8px 28px rgba(15,23,42,.05); }
+.s12-kpi--hero { border-color: rgba(16,185,129,.4); background: linear-gradient(135deg, #fff 0%, rgba(16,185,129,.06) 100%); }
+.s12-kpi b { display: block; font: 800 clamp(36px, 3.4vw, 52px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; }
+.s12-kpi--hero b { color: #059669; font-size: clamp(40px, 3.8vw, 56px); }
+.s12-kpi span { display: block; font: 600 13px/1.35 'Inter', sans-serif; color: #64748B; margin-top: 8px; max-width: 220px; }
+.s12-main { display: grid; grid-template-columns: 58fr 42fr; gap: 28px; align-items: stretch; min-height: 0; }
+.s12-chart-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 18px; padding: 24px 28px 20px; box-shadow: 0 8px 32px rgba(15,23,42,.05); display: flex; flex-direction: column; }
+.s12-chart-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0 0 16px; }
+.s12-chart { flex: 1; min-height: 260px; }
+.s12-chart svg { width: 100%; height: 100%; display: block; }
+.s12-chart-y { font: 500 11px/1 'IBM Plex Mono', monospace; fill: #94A3B8; }
+.s12-chart-x { font: 600 12px/1 'Inter', sans-serif; fill: #475569; }
+.s12-chart-val { font: 700 11px/1 'IBM Plex Mono', monospace; fill: #059669; }
+.s12-table-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,23,42,.05); display: flex; flex-direction: column; }
+.s12-table { width: 100%; border-collapse: collapse; }
+.s12-table th { text-align: left; font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; padding: 14px 16px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
+.s12-table td { padding: 13px 16px; border-bottom: 1px solid #F1F5F9; font: 600 15px/1.3 'Inter', sans-serif; color: #0F172A; font-variant-numeric: tabular-nums; }
+.s12-table td:last-child { color: #059669; font-weight: 700; }
+.s12-table tr:last-child td { border-bottom: none; background: rgba(16,185,129,.06); }
+.s12-table-note { font: 500 11px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; padding: 12px 16px 14px; margin-top: auto; border-top: 1px solid #F1F5F9; }
+.s12-assump { display: flex; flex-wrap: wrap; gap: 10px 12px; justify-content: center; }
+.s12-assump span { font: 600 12px/1.35 'Inter', sans-serif; color: #334155; background: #fff; border: 1px solid #E2E8F0; border-radius: 999px; padding: 8px 14px; }
+.s12-assump span em { font-style: normal; color: #10B981; font-weight: 700; }
+.s12-tagline { text-align: center; font: 700 clamp(16px, 1.45vw, 19px)/1.4 'Inter', sans-serif; color: #475569; margin: 0; }
+.s12-arr { text-align: center; font: 500 12px/1.45 'IBM Plex Mono', monospace; color: #64748B; margin: 0; max-width: 960px; margin-left: auto; margin-right: auto; }
+
+/* Slide 13 — founding team */
+#team.inv-slide { background: #FAFAF8; }
+.s13-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 4px; }
+.s13-title { font: 500 clamp(34px, 3.2vw, 48px)/1.08 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 0; }
+.s13-logo { width: 64px; height: 64px; object-fit: contain; flex: none; }
+.s13-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; margin-top: 12px; min-height: 0; }
+.s13-lead { font: 800 clamp(28px, 2.5vw, 40px)/1.12 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 0; max-width: 920px; }
+.s13-lead-sub { font: 600 clamp(16px, 1.45vw, 19px)/1.4 'Inter', sans-serif; color: #475569; margin: 10px 0 0; }
+.s13-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 56px; align-items: start; }
+.s13-person { display: grid; grid-template-columns: 200px 1fr; gap: 24px 28px; align-items: start; }
+.s13-photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 100%); border: 3px solid #fff; box-shadow: 0 12px 36px rgba(15,23,42,.12); flex: none; }
+.s13-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.s13-ph { width: 100%; height: 100%; display: grid; place-content: center; text-align: center; padding: 16px; box-sizing: border-box; font: 600 13px/1.45 'Inter', sans-serif; color: #64748B; }
+.s13-ph span { display: block; font: 500 11px/1.35 'IBM Plex Mono', monospace; color: #94A3B8; margin-top: 8px; }
+.s13-name { font: 800 clamp(26px, 2.2vw, 34px)/1.15 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0; padding-bottom: 10px; border-bottom: 2px solid #0F172A; }
+.s13-tag { font: 600 13px/1.4 'Inter', sans-serif; color: #10B981; margin: 12px 0 0; }
+.s13-list { list-style: none; margin: 16px 0 0; padding: 0; }
+.s13-list li { font: 500 16px/1.45 'Inter', sans-serif; color: #334155; padding: 7px 0 7px 18px; position: relative; }
+.s13-list li::before { content: '•'; position: absolute; left: 0; color: #10B981; font-weight: 700; }
+.s13-roles { margin-top: 8px; font: 600 14px/1.45 'Inter', sans-serif; color: #64748B; }
+.s13-advisor { text-align: center; font: 600 14px/1.45 'Inter', sans-serif; color: #64748B; background: #fff; border: 1px dashed #CBD5E1; border-radius: 12px; padding: 14px 20px; max-width: 720px; margin: 0 auto; }
+.s13-advisor em { font-style: normal; color: #0F172A; font-weight: 700; }
+
+/* Slide 14 — advisory board */
+#advisors.inv-slide { background: #FAFAF8; }
+.s14-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.s14-title { font: 500 clamp(38px, 3.5vw, 52px)/1.05 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 0; }
+.s14-logo { width: 64px; height: 64px; object-fit: contain; flex: none; }
+.s14-body { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 24px; min-height: 0; }
+.s14-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 48px; align-items: start; max-width: 1560px; margin: 0 auto; width: 100%; }
+.s14-card { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.s14-photo { width: 220px; height: 220px; border-radius: 50%; overflow: hidden; background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 100%); box-shadow: 0 14px 40px rgba(15,23,42,.1); margin: 0 auto; }
+.s14-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.s14-ph { width: 100%; height: 100%; display: grid; place-content: center; padding: 18px; box-sizing: border-box; font: 600 13px/1.45 'Inter', sans-serif; color: #64748B; }
+.s14-ph span { display: block; font: 500 10px/1.35 'IBM Plex Mono', monospace; color: #94A3B8; margin-top: 8px; word-break: break-all; }
+.s14-name { font: 800 clamp(22px, 2vw, 28px)/1.2 'Inter', sans-serif; letter-spacing: -.02em; color: #0F172A; margin: 22px 0 0; max-width: 320px; }
+.s14-line { font: 500 15px/1.45 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; max-width: 300px; }
+.s14-orgs { margin-top: 36px; display: flex; justify-content: center; align-items: center; gap: 40px 56px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid #E2E8F0; }
+.s14-org { font: 700 13px/1.35 'Inter', sans-serif; letter-spacing: -.01em; color: #475569; text-align: center; max-width: 200px; }
+
+
 
 
 /* —— II · Solution (dark, simple) —— */
@@ -1048,45 +1167,281 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
 
   <section class="slide inv-slide" id="compete" data-title="Competitive advantage" data-pos="3 2.21" data-transition="camera" data-hold="3.4">
     <div class="inv-wrap">
-      <p class="inv-kicker" data-anim="fade">Open Slot · 10 · Competitive advantage</p>
-      <h2 class="inv-h1" data-anim="mask" data-delay=".06">Others answer calls. We focus on winning jobs.</h2>
-      <p class="inv-sub" data-anim="fade" data-delay=".12">Purpose-built for independent HVAC and plumbing contractors.</p>
+      <div class="s10-head" data-anim="fade">
+        <div>
+          <h2 class="s10-title" data-anim="mask" data-delay=".04">Competitive Analysis</h2>
+          <p class="s10-tagline" data-anim="fade" data-delay=".1">Others answer calls. We focus on winning jobs.</p>
+        </div>
+        <img class="s10-logo" src="assets/mark.png" width="72" height="72" alt="Open Slot AI">
+      </div>
       <div class="s10-main">
-        <div class="s10-table-wrap" data-anim="rise" data-delay=".18">
-          <table class="s10-table">
-            <thead><tr><th>Offer</th><th>Pricing</th><th>Positioning</th></tr></thead>
+        <div class="s10-grid-wrap" data-anim="rise" data-delay=".16">
+          <table class="s10-grid">
+            <colgroup>
+              <col style="width:19%">
+              <col style="width:16.2%">
+              <col style="width:16.2%">
+              <col style="width:16.2%">
+              <col style="width:16.2%">
+              <col style="width:16.2%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">AI call answering</th>
+                <th scope="col">Independent HVAC / plumbing focus</th>
+                <th scope="col">Owner-first line forwarding</th>
+                <th scope="col">Verified appointment scheduling</th>
+                <th scope="col">Measurable owner workflow</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td class="co">Rosie</td><td class="pr">From $49/mo</td><td class="pos">Accessible AI receptionist · broad small business</td></tr>
-              <tr><td class="co">Goodcall</td><td class="pr">From $79/mo</td><td class="pos">Flexible AI phone agent</td></tr>
-              <tr><td class="co">Smith.ai</td><td class="pr">From $150/mo</td><td class="pos">AI receptionist · optional human backup</td></tr>
-              <tr><td class="co">Sameday AI</td><td class="pr">From $449/mo</td><td class="pos">Trade-oriented · scheduling-focused</td></tr>
-              <tr><td class="co">Jobber Receptionist</td><td class="pr">$29/mo add-on</td><td class="pos">Jobber customers · integrated scheduling</td></tr>
-              <tr class="is-us"><td class="co">Open Slot AI</td><td class="pr">$129/mo proposed</td><td class="pos">Independent HVAC/plumbing · measurable owner workflow</td></tr>
+              <tr>
+                <td class="s10-co s10-co-us"><img src="assets/mark.png" width="56" height="56" alt="Open Slot AI"></td>
+                <td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              </tr>
+              <tr>
+                <td class="s10-co"><p class="s10-co-name">Rosie</p></td>
+                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td class="s10-co"><p class="s10-co-name">Goodcall</p></td>
+                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td class="s10-co"><p class="s10-co-name s10-co-name--smith">Smith.ai</p></td>
+                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td class="s10-co"><p class="s10-co-name s10-co-name--sameday">Sameday AI</p></td>
+                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td>
+              </tr>
+              <tr>
+                <td class="s10-co"><p class="s10-co-name s10-co-name--jobber">Jobber Receptionist</p></td>
+                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <div class="s10-strategy" data-anim="rise" data-delay=".26">
-          <h3 class="s10-strategy-h">Built around the <em>independent contractor.</em></h3>
-          <ol class="s10-flow">
-            <li><p class="s10-flow-t">Owner-first call forwarding</p><p class="s10-flow-d">Uses the line they already publish — no new hardware.</p></li>
-            <li class="is-road"><p class="s10-flow-t">Shop-defined urgent escalation<span class="s10-flow-tag">Roadmap</span></p><p class="s10-flow-d">Their rule, their contact — not a script we invent.</p></li>
-            <li><p class="s10-flow-t">Verified appointment scheduling</p><p class="s10-flow-d">Calendar write when an event id returns — prototype today.</p></li>
-            <li class="is-road"><p class="s10-flow-t">Recovered-job reporting<span class="s10-flow-tag">Roadmap</span></p><p class="s10-flow-d">Tie answered calls to opportunities owners can measure.</p></li>
-          </ol>
-          <p class="s10-punch">From missed call to <em>measurable</em> business opportunity.</p>
-        </div>
+        <p class="s10-close" data-anim="fade" data-delay=".32">From missed call to <em>measurable</em> business opportunity.</p>
       </div>
-      <p class="inv-foot">Competitor pricing from official pages, November 2026. Plans differ by minutes, features, and contracts. Open Slot pricing proposed, not sold.</p>
+      <p class="inv-foot">Gray checks = advertised overlap on positioning, not a scorecard. Green row = Open Slot workflow (R = roadmap). Competitor info from official sites, Nov 2026.</p>
     </div>
     <aside class="notes"><p>We are not claiming we beat Rosie on price or Smith on humans. Our bet is workflow for owner-operators: forward the line, escalate on their rules, book when the calendar confirms, eventually report recovered jobs. Say roadmap honestly.</p></aside>
   </section>
 
 
-  <section class="slide" id="ask" data-title="The ask" data-pos="3 2.28" data-transition="tear" data-hold="4.2">
+
+  <section class="slide inv-slide" id="gtm" data-title="Go-to-market" data-pos="3 2.24" data-transition="tear" data-hold="3.6">
+    <div class="inv-wrap">
+      <p class="inv-kicker" data-anim="fade">Open Slot · 11 · Go-to-market strategy</p>
+      <h2 class="inv-h1" data-anim="mask" data-delay=".06">Don't take our word for it. Let Open Slot answer.</h2>
+      <p class="inv-sub" data-anim="fade" data-delay=".12">A 14-day free trial lets small contractors experience the value before paying.</p>
+      <div class="s11-body">
+        <div class="s11-hero" data-anim="rise" data-delay=".18">
+          <div class="s11-hero-copy">
+            <p class="s11-hero-k">Proposed offer · not live self-serve signup</p>
+            <p class="s11-hero-big"><span>14</span> DAYS FREE</p>
+            <p class="s11-hero-sub">100 call minutes · No credit card · No commitment</p>
+            <p class="s11-hero-note">Real calls on their forwarded line. If minutes run out, routing falls back to the owner — calls are not dropped.</p>
+          </div>
+          <ul class="s11-perks">
+            <li><strong>Trial</strong>Enough time for real inbound volume</li>
+            <li><strong>Minutes</strong>100 included · controlled usage</li>
+            <li><strong>Number</strong>Keep the line they publish · switch back anytime</li>
+            <li><strong>Day 15</strong>$129 Solo or stop · no auto-bill without yes</li>
+          </ul>
+        </div>
+        <p class="s11-funnel-k" data-anim="fade" data-delay=".24">Customer acquisition funnel · Tulsa first</p>
+        <div class="s11-funnel" data-anim="rise" data-delay=".28">
+          <article class="s11-step"><p class="s11-step-num">01 · Try</p><p class="s11-step-t">5 pilots</p><p class="s11-step-d"><em>Five</em> Tulsa HVAC/plumbing shops · 14-day guided setup · forward selected calls</p></article>
+          <article class="s11-step"><p class="s11-step-num">02 · Prove</p><p class="s11-step-t">Show results</p><p class="s11-step-d">Answered calls, qualified requests, and calendar writes they can verify on day 14</p></article>
+          <article class="s11-step"><p class="s11-step-num">03 · Convert</p><p class="s11-step-t">Subscribe</p><p class="s11-step-d">$129/mo Solo or $229/mo Growth · extend to 30 days if call volume is too thin</p></article>
+        </div>
+        <div class="s11-road" data-anim="fade" data-delay=".36">
+          <p class="s11-road-k">Planned milestones · not achieved</p>
+          <p class="s11-road-line"><span class="dim">5 pilots</span><i>→</i><span>25 paying customers</span><i>→</i><span>Oklahoma expansion</span></p>
+        </div>
+        <p class="s11-emote" data-anim="fade" data-delay=".42">We don't have to convince Jack that AI works — we can <em>show him</em> what Open Slot does on his line.</p>
+      </div>
+      <p class="inv-foot">Trial is free to the shop, not free to Open Slot (usage, setup labor, telephony). Capacity, fallback routing, and signup automation subject to operational readiness. ~$14 max AI usage per pilot at $0.14/min planning assumption.</p>
+    </div>
+    <aside class="notes"><p>Start with five personally managed Tulsa pilots. No credit card, no commitment. Day 1: you configure services and routing; Jack keeps his number. Days 1–14: real calls; if minutes cap, revert routing safely. Day 14: review counts and any verified bookings. Day 15: $129 or stop. Rosie advertises 7-day trial; others use 14-day — we are proposing 14 with 100 minutes. The win is retention after trial, not the trial itself. Zero paying shops today.</p></aside>
+  </section>
+
+
+  <section class="slide inv-slide" id="finance" data-title="Financial model" data-pos="3 2.28" data-transition="camera" data-hold="3.8">
+    <div class="inv-wrap">
+      <p class="inv-kicker" data-anim="fade">Open Slot · 12 · Financial model</p>
+      <h2 class="inv-h1" data-anim="mask" data-delay=".06">A path to $1 million in annual revenue.</h2>
+      <p class="inv-sub" data-anim="fade" data-delay=".1" style="max-width:880px">Subscription-led growth. Disciplined costs. A scalable sales strategy.</p>
+      <div class="s12-body">
+        <div class="s12-kpis" data-anim="rise" data-delay=".16">
+          <div class="s12-kpi s12-kpi--hero"><b>$150K</b><span>Proposed pre-seed raise · fund commercial launch (not the JOLT prize pool)</span></div>
+          <div class="s12-kpi"><b>$100K+</b><span>Year 1 subscription revenue target · ~55–65 paying shops ramped</span></div>
+          <div class="s12-kpi"><b>$1.03M</b><span>Year 5 revenue in growth scenario · 680 customers EOY</span></div>
+        </div>
+        <div class="s12-main" data-anim="rise" data-delay=".22">
+          <div class="s12-chart-card">
+            <p class="s12-chart-k">Proposed revenue growth · avg active customers × $159/mo</p>
+            <div class="s12-chart">
+              <svg viewBox="0 0 640 280" role="img" aria-label="Bar chart of proposed annual revenue from Year 1 through Year 5">
+                <text class="s12-chart-y" x="8" y="36">$1.2M</text>
+                <text class="s12-chart-y" x="8" y="96">$900K</text>
+                <text class="s12-chart-y" x="8" y="156">$600K</text>
+                <text class="s12-chart-y" x="8" y="216">$300K</text>
+                <text class="s12-chart-y" x="8" y="252">$0</text>
+                <line x1="52" y1="32" x2="52" y2="248" stroke="#E2E8F0" stroke-width="1"/>
+                <line x1="52" y1="248" x2="620" y2="248" stroke="#E2E8F0" stroke-width="1"/>
+                <line x1="52" y1="92" x2="620" y2="92" stroke="#F1F5F9" stroke-width="1"/>
+                <line x1="52" y1="152" x2="620" y2="152" stroke="#F1F5F9" stroke-width="1"/>
+                <line x1="52" y1="212" x2="620" y2="212" stroke="#F1F5F9" stroke-width="1"/>
+                <rect x="88" y="230" width="72" height="18" rx="6" fill="#94A3B8"/>
+                <rect x="196" y="209" width="72" height="39" rx="6" fill="#64748B"/>
+                <rect x="304" y="172" width="72" height="76" rx="6" fill="#10B981" opacity=".55"/>
+                <rect x="412" y="93" width="72" height="155" rx="6" fill="#10B981" opacity=".75"/>
+                <rect x="520" y="36" width="72" height="212" rx="6" fill="#059669"/>
+                <text class="s12-chart-val" x="124" y="222" text-anchor="middle">$100K</text>
+                <text class="s12-chart-val" x="232" y="201" text-anchor="middle">$230K</text>
+                <text class="s12-chart-val" x="340" y="164" text-anchor="middle">$420K</text>
+                <text class="s12-chart-val" x="448" y="85" text-anchor="middle">$860K</text>
+                <text class="s12-chart-val" x="556" y="28" text-anchor="middle">$1.03M</text>
+                <text class="s12-chart-x" x="124" y="268" text-anchor="middle">Year 1</text>
+                <text class="s12-chart-x" x="232" y="268" text-anchor="middle">Year 2</text>
+                <text class="s12-chart-x" x="340" y="268" text-anchor="middle">Year 3</text>
+                <text class="s12-chart-x" x="448" y="268" text-anchor="middle">Year 4</text>
+                <text class="s12-chart-x" x="556" y="268" text-anchor="middle">Year 5</text>
+              </svg>
+            </div>
+          </div>
+          <div class="s12-table-card">
+            <table class="s12-table">
+              <thead><tr><th>Year</th><th>Customers (EOY)</th><th>Revenue</th></tr></thead>
+              <tbody>
+                <tr><td>Year 1</td><td>55</td><td>$100K</td></tr>
+                <tr><td>Year 2</td><td>120</td><td>$230K</td></tr>
+                <tr><td>Year 3</td><td>220</td><td>$420K</td></tr>
+                <tr><td>Year 4</td><td>450</td><td>$860K</td></tr>
+                <tr><td>Year 5</td><td>680</td><td>$1.03M</td></tr>
+              </tbody>
+            </table>
+            <p class="s12-table-note">Year 1 ≈ $159/mo × ramped active customers · Year 4 operating break-even target · 680 EOY ≈ $1.03M earned in Y5</p>
+          </div>
+        </div>
+        <div class="s12-assump" data-anim="fade" data-delay=".3">
+          <span><em>$159</em> avg/mo · Solo &amp; Growth mix</span>
+          <span>14-day free trials → paid</span>
+          <span><em>~58%</em> modeled contribution margin</span>
+          <span>~40 new payers/mo in Y5 · ~3% churn</span>
+          <span><em>$150K</em> pre-seed · trials, sales, ops · not the $25K competition prize pool</span>
+        </div>
+        <p class="s12-arr" data-anim="fade" data-delay=".34">680 customers × $159/mo ≈ <strong>$1.30M ARR</strong> at Year 5 exit · distinct from ~$1.03M revenue recognized in Year 5.</p>
+      </div>
+      <p class="inv-foot">Illustrative forecast only — not traction or a guarantee. Hurricane/JOLT distributes ~$25,000 in prizes across winning teams; that is not our $150K pre-seed ask. Requires trial conversion, referrals, and disciplined spend.</p>
+    </div>
+    <aside class="notes"><p>Walk the customer ladder: 55, 120, 220, 450, 680 — tied to $100K Year 1 and $150K pre-seed for launch (pilots, first hire, telephony/AI usage, light marketing). Prize pool ≠ investment round. Break-even targeted Year 4. Zero paying customers today. Year 5 needs ~40 net new paying shops per month at ~3% churn — ambitious. Break-even targeted Year 4 if we control headcount and marketing. ARR at exit is higher than revenue earned in Year 5 because customers ramp through the year. Zero paying customers today. If judges push, say this is the scenario we are trying to earn, not a forecast we have data for.</p></aside>
+  </section>
+
+
+  <section class="slide inv-slide" id="team" data-title="Founding team" data-pos="3 2.32" data-transition="camera" data-hold="3.4">
+    <div class="inv-wrap">
+      <div class="s13-head" data-anim="fade">
+        <p class="s13-title" data-anim="mask" data-delay=".04">Founding Team</p>
+        <img class="s13-logo" src="assets/mark.png" width="64" height="64" alt="">
+      </div>
+      <p class="s13-lead" data-anim="mask" data-delay=".08">Built by people who know how to build reliable systems.</p>
+      <p class="s13-lead-sub" data-anim="fade" data-delay=".12">We personally lead product development and Tulsa pilot onboarding.</p>
+      <div class="s13-body">
+        <div class="s13-row" data-anim="rise" data-delay=".18">
+          <article class="s13-person">
+            <div class="s13-photo" data-anim="scale" data-delay=".22">
+              <div class="s13-ph">Headshot<span>assets/founder.jpg</span></div>
+            </div>
+            <div>
+              <h3 class="s13-name">Baqer Hassani</h3>
+              <p class="s13-tag">Co-Founder · Open Slot AI</p>
+              <p class="s13-roles">AI · Software engineering · Infrastructure</p>
+              <ul class="s13-list">
+                <li>University of Tulsa · Computer Science</li>
+                <li>Meta × MLH · Software reliability &amp; production infrastructure</li>
+                <li>AI &amp; robotics · Intelligent software &amp; automation</li>
+                <li>Previous JOLT Challenge winner · startup experience</li>
+              </ul>
+            </div>
+          </article>
+          <article class="s13-person">
+            <div class="s13-photo" data-anim="scale" data-delay=".28">
+              <div class="s13-ph">Headshot<span>assets/isaac-neal.jpg</span></div>
+            </div>
+            <div>
+              <h3 class="s13-name">Isaac Neal</h3>
+              <p class="s13-tag">Co-Founder · Open Slot AI</p>
+              <p class="s13-roles">Electrical engineering · Computer engineering</p>
+              <ul class="s13-list">
+                <li>University of Tulsa · EE &amp; Computer Engineering</li>
+                <li>Systems integration · hardware–software interfaces</li>
+                <li>Building automation &amp; intelligent systems</li>
+                <li>Engineering lead on prototype infrastructure</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+      <p class="inv-foot">Replace placeholder headshots before competition.</p>
+    </div>
+    <aside class="notes"><p>15–20 seconds: We're CS and EE/CompE at the University of Tulsa. I've shipped through Meta's MLH fellowship and robotics work, and I've won JOLT before. Isaac builds the systems layer with us. We're building Open Slot because small shops deserve the same reliability big companies buy — and we'll run the first Tulsa pilots ourselves. Don't invent advisors on stage; say HVAC advisor is who we're recruiting.</p></aside>
+  </section>
+
+
+  <section class="slide inv-slide" id="advisors" data-title="Advisory board" data-pos="3 2.36" data-transition="camera" data-hold="3.2">
+    <div class="inv-wrap">
+      <div class="s14-head" data-anim="fade">
+        <h2 class="s14-title" data-anim="mask" data-delay=".04">Advisory Board</h2>
+        <img class="s14-logo" src="assets/mark.png" width="64" height="64" alt="">
+      </div>
+      <div class="s14-body">
+        <div class="s14-grid" data-anim="rise" data-delay=".16">
+          <article class="s14-card">
+            <div class="s14-photo" data-anim="scale" data-delay=".2">
+              <div class="s14-ph">Photo<span>assets/chris-wright.jpg</span></div>
+            </div>
+            <h3 class="s14-name">Chris Wright, PhD</h3>
+            <p class="s14-line">Director of Entrepreneurship</p>
+            <p class="s14-line">The University of Tulsa</p>
+          </article>
+          <article class="s14-card">
+            <div class="s14-photo" data-anim="scale" data-delay=".26">
+              <div class="s14-ph">Photo<span>assets/dallas-e.jpg</span></div>
+            </div>
+            <h3 class="s14-name">Dallas E.</h3>
+            <p class="s14-line">PhD Student · Cyber Studies</p>
+            <p class="s14-line">Secure &amp; trustworthy AI · University of Tulsa Cyber Fellows</p>
+          </article>
+          <article class="s14-card">
+            <div class="s14-photo" data-anim="scale" data-delay=".32">
+              <div class="s14-ph">Photo<span>assets/bradford-kerst.jpg</span></div>
+            </div>
+            <h3 class="s14-name">Bradford Kerst, PhD</h3>
+            <p class="s14-line">Research Engineer · Robotics R&amp;D</p>
+            <p class="s14-line">UT Institute for Robotics &amp; Automation · NSF I-Corps alum</p>
+          </article>
+        </div>
+        <div class="s14-orgs" data-anim="fade" data-delay=".38">
+          <p class="s14-org">The University of Tulsa</p>
+          <p class="s14-org">TU Cyber Fellows</p>
+          <p class="s14-org">Institute for Robotics &amp; Automation</p>
+        </div>
+      </div>
+      <p class="inv-foot">Advisors listed with permission. HVAC trade mentor still being recruited separately from this board.</p>
+    </div>
+    <aside class="notes"><p>Chris Wright — entrepreneurship and startup formation at TU. Dallas — cyber / trustworthy AI lens on what we ship. Bradford — robotics, I-Corps, building things that work in the real world. One sentence each; don't overclaim formal advisory agreements if you only have informal mentorship — say these are TU mentors supporting Open Slot.</p></aside>
+  </section>
+
+  <section class="slide" id="ask" data-title="The ask" data-pos="3 2.44" data-transition="tear" data-hold="4.2">
     <p class="kick" data-anim="fade"><b>VI</b> · The ask</p>
-    <h2 data-fit="2" data-anim="mask" data-delay=".1" style="max-width:1000px">Ten Tulsa conversations.<br>Hard read on pricing.</h2>
-    <p class="body" style="margin-top:36px; max-width:980px" data-anim="rise" data-delay=".45">Answer the call that used to ring out.</p>
-    <p class="small" style="margin-top:28px; max-width:980px" data-anim="fade" data-delay=".7">Proposed from $129/mo. Zero paying shops. Tulsa first.</p>
+    <h2 data-fit="2" data-anim="mask" data-delay=".1" style="max-width:1000px">$150,000 pre-seed<br>to fund a serious commercial launch.</h2>
+    <p class="body" style="margin-top:36px; max-width:980px" data-anim="rise" data-delay=".45">Year 1 target: $100K+ subscription revenue · Tulsa pilots first.</p>
+    <p class="small" style="margin-top:28px; max-width:980px" data-anim="fade" data-delay=".7">Proposed pricing from $129/mo · zero paying shops today · JOLT prize pool is not this raise.</p>
     <p class="body" style="margin-top:36px" data-anim="fade" data-delay=".9"><b>Open Slot AI · Tulsa, Oklahoma</b></p>
     <div class="handset" data-anim="scale" data-delay=".2">
       <div class="bezel"><i class="ear"></i><i class="side"></i>
@@ -1098,7 +1453,7 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
         </div>
       </div>
     </div>
-    <aside class="notes"><p>Leave this frame up for every question. The handset that opened on a miss now reads booked, and the id on the glass is a stand-in, not a customer record. The ask is ten introductions to owners of small HVAC or plumbing shops in Tulsa, and a hard read on whether Solo and Growth pricing is the right place to start. Put your real name and number on this slide before you walk in. Then stop talking.</p></aside>
+    <aside class="notes"><p>Primary ask: $150K pre-seed to run 14-day trials at scale, cover usage and telephony, add part-time GTM/support, and reach $100K+ Year 1 subscription revenue. Secondary: ten Tulsa owner intros to validate pricing and workflow. Clarify if asked: Hurricane Pitch ~$25K total prizes across teams — separate from building the company. Handset BOOKED is prototype fiction. Put contact info on slide. Then stop.</p></aside>
   </section>
 
 </div>
