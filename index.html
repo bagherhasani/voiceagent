@@ -927,7 +927,7 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
     <aside class="notes"><p>Walk the calculation left to right. We have not charged these plans yet. Contribution margin is not net profit.</p></aside>
   </section>
 
-  <section class="slide  <section class="slide inv-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
+  <section class="slide inv-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
     <div class="inv-wrap">
       <p class="inv-kicker" data-anim="fade">Open Slot · 08 · Market opportunity</p>
       <h2 class="inv-h1" data-anim="mask" data-delay=".06">A $246M starting market. We need less than 1%.</h2>
@@ -964,7 +964,7 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
     <aside class="notes"><p>510,263 TAM; 128,764 SAM; 460 customer SOM. Less than 1% of SAM. Prospect pools, not verified buyers.</p></aside>
   </section>
 
-  <section class="slide  <section class="slide inv-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
+  <section class="slide inv-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
     <div class="inv-wrap">
       <p class="inv-kicker" data-anim="fade">Open Slot · 09 · Beachhead</p>
       <h2 class="inv-h1" data-anim="mask" data-delay=".06">Our first customers are right here in Tulsa.</h2>
@@ -3221,56 +3221,6 @@ Deck.slide('loop', {
       el._heroVis.style.transform = `scale(${s.toFixed(4)})`;
     }
   },
-});
-
-Deck.slide('rules', {
-  steps: 2,
-  setup(el) {
-    const g = art(el);
-    svg('path', { d: 'M960,560 C960,680 460,680 460,760', fill: 'none', stroke: C.ink, 'stroke-width': 4, 'data-step': 1, 'data-anim': 'draw', 'data-dur': .7 }, g);
-    svg('path', { d: 'M960,560 C960,680 1400,680 1400,760', fill: 'none', stroke: C.ink, 'stroke-width': 4, 'data-step': 2, 'data-anim': 'draw', 'data-dur': .7 }, g);
-  },
-});
-
-Deck.slide('tulsa', {
-  steps: 2,
-  setup(el) {
-    const g = art(el), cx = 1400, base = 1000;
-    const rings = [[280, C.soft, C.ink, 'Later', 500, 0], [185, '#2a2622', C.ink, 'Oklahoma', 700, 1], [100, C.hot, C.onHot, 'Tulsa', 912, 2]];
-    for (const [r, fill, ink, lab, ty, s] of rings) {
-      const gg = svg('g', { 'data-step': s, 'data-anim': 'pop', 'data-delay': .1 }, g);
-      svg('circle', { cx, cy: base - r, r, fill, stroke: C.ink, 'stroke-width': 3 }, gg);
-      text(gg, cx, ty, lab, { 'text-anchor': 'middle', 'font-size': s === 2 ? 36 : 28, 'font-weight': 600, fill: ink });
-    }
-  },
-});
-
-Deck.slide('field', {
-  steps: 1, ambient: 10,
-  setup(el) {
-    const g = art(el), L = 170, T = 460, S = 980, H = 460;
-    const px = v => L + v * S, py = v => T + H - v * H;
-    svg('rect', { x: L, y: T, width: S, height: H, fill: 'none', stroke: C.ink, 'stroke-width': 3 }, g);
-    svg('line', { x1: L + S / 2, x2: L + S / 2, y1: T, y2: T + H, stroke: C.rule, 'stroke-width': 2, 'stroke-dasharray': '4 10' }, g);
-    svg('line', { x1: L, x2: L + S, y1: T + H / 2, y2: T + H / 2, stroke: C.rule, 'stroke-width': 2, 'stroke-dasharray': '4 10' }, g);
-    text(g, L, T + H + 44, 'Takes a message', { class: 'lab', 'font-size': 22 });
-    text(g, L + S, T + H + 44, 'Books the job', { class: 'lab', 'font-size': 22, 'text-anchor': 'end' });
-    text(g, L + 16, T + 36, 'Runs while they work', { class: 'lab', 'font-size': 22 });
-    text(g, L + 16, T + H - 18, 'Needs them free', { class: 'lab', 'font-size': 22 });
-    const dots = [['Voicemail', .18, .74], ['Answering desk', .36, .56], ["Owner's cell", .7, .24]];
-    const dg = svg('g', { 'data-stagger': .12, 'data-anim': 'pop', 'data-delay': .25 }, g);
-    for (const [k, a, b] of dots) {
-      const d = svg('g', {}, dg);
-      svg('circle', { cx: px(a), cy: py(b), r: 13, fill: C.ink }, d);
-      const left = a > .55;
-      text(d, px(a) + (left ? -24 : 24), py(b) + 8, k, { 'text-anchor': left ? 'end' : 'start', 'font-size': 24 });
-    }
-    const t = svg('g', { 'data-step': 1, 'data-anim': 'pop' }, g);
-    el._halo = svg('circle', { cx: px(.84), cy: py(.8), r: 34, fill: 'none', stroke: C.hot, 'stroke-width': 3 }, t);
-    svg('circle', { cx: px(.84), cy: py(.8), r: 16, fill: C.hot }, t);
-    text(t, px(.84) - 64, py(.8) + 8, 'Open Slot', { 'text-anchor': 'end', fill: C.yes, 'font-weight': 700, 'font-size': 32 });
-  },
-  frame(el, st) { el._halo.setAttribute('r', 34 + st.life(2.4, 4)); },
 });
 
 Deck.slide('road', {
