@@ -8,4 +8,4 @@ Open Slot AI — pitch deck (offline)
 No install required. Works offline after unzip.
 
 Presenter view (optional): press P in the browser.
-f
+fff
