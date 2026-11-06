@@ -327,6 +327,46 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .bm-metric-lbl { font: 500 14px/1.4 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; max-width: 220px; }
 .bm-foot { font: 500 11px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; margin: 0; grid-column: 1 / -1; max-width: 1100px; }
 
+/* —— Market & beachhead (light investor, shared with business model) —— */
+#market.bm-slide, #beachhead.bm-slide { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+.inv-num { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #94A3B8; margin: 0 0 8px; }
+.mk-tiers { flex: 1; display: flex; align-items: flex-end; gap: 16px; margin-top: 44px; padding-bottom: 8px; }
+.mk-block { flex: 1; background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px 22px 28px; box-shadow: 0 8px 32px rgba(15,23,42,.05); display: flex; flex-direction: column; min-height: 320px; }
+.mk-block--tam { flex: 1.08; min-height: 340px; }
+.mk-block--sam { flex: 1.12; min-height: 360px; border: 2px solid #10B981; box-shadow: 0 0 0 1px rgba(16,185,129,.08), 0 12px 40px rgba(16,185,129,.12); transform: translateY(-8px); }
+.mk-block--som { flex: .94; min-height: 300px; border-color: rgba(16,185,129,.35); background: linear-gradient(180deg, #fff 0%, rgba(16,185,129,.04) 100%); }
+.mk-tier { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: #64748B; margin: 0; }
+.mk-block--sam .mk-tier, .mk-block--som .mk-tier { color: #10B981; }
+.mk-val { font: 800 clamp(32px, 3.2vw, 48px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 14px 0 0; font-variant-numeric: tabular-nums; }
+.mk-block--sam .mk-val, .mk-block--som .mk-val { color: #059669; }
+.mk-count { font: 700 clamp(15px, 1.35vw, 18px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 12px 0 0; }
+.mk-desc { font: 500 14px/1.45 'Inter', sans-serif; color: #64748B; margin: 14px 0 0; flex: 1; }
+.mk-som-tag { font: 600 13px/1.4 'IBM Plex Mono', monospace; color: #10B981; margin: 10px 0 0; letter-spacing: .02em; }
+.mk-takeaway { margin-top: 36px; text-align: center; font: 800 clamp(28px, 2.6vw, 40px)/1.2 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; max-width: 920px; margin-left: auto; margin-right: auto; }
+.mk-takeaway em { font-style: normal; color: #10B981; font-weight: 800; }
+.bh-grid { flex: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; margin-top: 40px; align-items: start; }
+.bh-left { padding-right: 24px; border-right: 1px solid #E2E8F0; }
+.bh-k { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0; }
+.bh-stat { font: 800 clamp(120px, 12vw, 168px)/.85 'Inter', sans-serif; letter-spacing: -.04em; color: #10B981; margin: 20px 0 0; font-variant-numeric: tabular-nums; }
+.bh-stat-lbl { font: 600 clamp(20px, 1.85vw, 26px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 16px 0 0; max-width: 480px; }
+.bh-break { margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid #E2E8F0; }
+.bh-break li { font: 600 17px/1.4 'Inter', sans-serif; color: #334155; padding: 16px 0; border-bottom: 1px solid #E2E8F0; }
+.bh-note { font: 500 13px/1.45 'IBM Plex Mono', monospace; color: #64748B; margin: 20px 0 0; max-width: 520px; }
+.bh-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 28px 28px 32px; box-shadow: 0 10px 36px rgba(15,23,42,.06); }
+.bh-card-head { font: 700 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid #E2E8F0; }
+.bh-row { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid #F1F5F9; align-items: start; }
+.bh-row:last-of-type { border-bottom: none; }
+.bh-rows { margin: 0; padding: 0; }
+.bh-row dt { font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #10B981; margin: 0; }
+.bh-row dd { font: 600 16px/1.45 'Inter', sans-serif; color: #334155; margin: 0; }
+.bh-icon { width: 48px; height: 48px; margin-bottom: 20px; color: #64748B; stroke: #94A3B8; }
+.bh-path { margin-top: 40px; padding-top: 28px; border-top: 1px solid #E2E8F0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.bh-path span { font: 700 15px/1 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: #64748B; }
+.bh-path span.is-on { color: #10B981; }
+.bh-path i { font-style: normal; color: #CBD5E1; font-weight: 700; }
+.bh-close { font: 700 clamp(20px, 1.85vw, 26px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 28px 0 0; max-width: 1000px; }
+.bh-close em { font-style: normal; color: #64748B; font-weight: 600; }
+
 
 /* —— II · Solution (dark, simple) —— */
 #phone.sol-reveal-slide { padding: 0; }
@@ -788,6 +828,7 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
 
   <section class="slide bm-slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="3.2">
     <div class="bm-wrap">
+      <p class="inv-num" data-anim="fade">Open Slot · 07</p>
       <div class="bm-top">
         <div class="bm-top-copy">
           <p class="bm-label" data-anim="fade">Business model</p>
@@ -848,6 +889,80 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
     <aside class="notes"><p>Our business model is pretty simple. Small businesses pay a monthly subscription, starting at $129.</p>
       <p>For someone like Jack, even one additional repair job could pay for the entire month — if that job is truly incremental and he has capacity.</p>
       <p>And for Open Slot, each subscription creates recurring revenue. Based on our initial cost model, we are targeting around 58% contribution margins at full included usage — not net profit. We have not charged these plans yet.</p></aside>
+  </section>
+
+  <section class="slide bm-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
+    <div class="bm-wrap">
+      <p class="inv-num" data-anim="fade">Open Slot · 08</p>
+      <p class="bm-label" data-anim="fade">Market opportunity</p>
+      <h2 class="bm-head" data-anim="mask" data-delay=".06">A $246M starting market. We need less than 1%.</h2>
+      <p class="bm-sub" data-anim="fade" data-delay=".14">Starting with independent HVAC and plumbing businesses. Built to expand into electrical services and beyond.</p>
+      <div class="mk-tiers">
+        <article class="mk-block mk-block--tam" data-anim="rise" data-delay=".2">
+          <p class="mk-tier">TAM</p>
+          <p class="mk-val">$974M</p>
+          <p class="mk-count">510,263 small trade operators and establishments</p>
+          <p class="mk-desc">U.S. plumbing, HVAC, and electrical contractors with no paid employees or fewer than 10 employees.</p>
+        </article>
+        <article class="mk-block mk-block--sam" data-anim="rise" data-delay=".28">
+          <p class="mk-tier">SAM</p>
+          <p class="mk-val">$246M</p>
+          <p class="mk-count">128,764 priority HVAC and plumbing prospects</p>
+          <p class="mk-desc">85,458 small employer establishments plus 43,306 nonemployer businesses with annual receipts of $100K or more.</p>
+        </article>
+        <article class="mk-block mk-block--som" data-anim="rise" data-delay=".36">
+          <p class="mk-tier">SOM</p>
+          <p class="mk-val">$878K ARR</p>
+          <p class="mk-count">460 paying customers by Year 5 — target</p>
+          <p class="mk-som-tag">≈ 0.36% of SAM prospect count</p>
+          <p class="mk-desc">Five-year goal, not existing revenue.</p>
+        </article>
+      </div>
+      <p class="mk-takeaway" data-anim="rise" data-delay=".44">We don't need the whole market. We need <em>460 customers.</em></p>
+      <p class="bm-foot" style="margin-top:28px">U.S. Census Bureau, County Business Patterns 2023 (NAICS 238220/238210), Nonemployer Statistics 2024, and Open Slot's proposed $159 average monthly subscription. Market values = prospect count × $159 × 12. Employer and nonemployer units differ; pools are not verified paying customers.</p>
+    </div>
+    <aside class="notes"><p>We're starting with small HVAC and plumbing companies, but the opportunity goes much further. Based on U.S. Census business counts and our proposed pricing, our initial serviceable market is about $246 million a year.</p>
+      <p>And here's what matters: our five-year goal is just 460 customers. That's less than half of one percent of that market. Say goal, not pipeline.</p></aside>
+  </section>
+
+  <section class="slide bm-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
+    <div class="bm-wrap">
+      <p class="inv-num" data-anim="fade">Open Slot · 09</p>
+      <p class="bm-label" data-anim="fade">Beachhead market</p>
+      <h2 class="bm-head" data-anim="mask" data-delay=".06">We start with the businesses that can't stop to answer.</h2>
+      <p class="bm-sub" data-anim="fade" data-delay=".14">Our first market: independent HVAC and plumbing businesses in Tulsa, Oklahoma.</p>
+      <div class="bh-grid">
+        <div class="bh-left" data-anim="rise" data-delay=".22">
+          <p class="bh-k">Our beachhead market</p>
+          <p class="bh-stat" data-anim="count" data-delay=".3">325</p>
+          <p class="bh-stat-lbl">Small HVAC and plumbing contractor establishments in the Tulsa metro area</p>
+          <ul class="bh-break">
+            <li>243 establishments with fewer than 5 employees</li>
+            <li>82 establishments with 5–9 employees</li>
+          </ul>
+          <p class="bh-note">77% of Tulsa's 424 employer HVAC/plumbing establishments have fewer than 10 employees. Census CBP 2023, Tulsa MSA, NAICS 238220. Nonemployer firms not included.</p>
+        </div>
+        <div class="bh-right" data-anim="rise" data-delay=".28">
+          <svg class="bh-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="14" y="8" width="20" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M22 36h4" stroke="#10B981" stroke-width="2" stroke-linecap="round"/><path d="M30 12c2 1.5 3.5 3.5 4 6" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div class="bh-card">
+            <p class="bh-card-head">Meet Jack. He's our first customer.</p>
+            <dl class="bh-rows">
+              <div class="bh-row"><dt>WHO</dt><dd>Independent HVAC or plumbing business, fewer than 10 employees.</dd></div>
+              <div class="bh-row"><dt>PROBLEM</dt><dd>The owner is on jobs; phones go unanswered; customers need fast responses.</dd></div>
+              <div class="bh-row"><dt>WHY BUY</dt><dd>One recovered service job could justify a month of Open Slot.</dd></div>
+            </dl>
+          </div>
+          <p class="bh-note" style="margin-top:16px">Target persona — illustrative composite, not a paying customer.</p>
+        </div>
+      </div>
+      <div class="bh-path" data-anim="fade" data-delay=".4">
+        <span class="is-on">Tulsa</span><i>→</i><span>Oklahoma</span><i>→</i><span>Nationwide</span>
+      </div>
+      <p class="bh-close" data-anim="fade" data-delay=".48"><em>Start where missed calls hurt.</em> Expand where the same problem exists.</p>
+    </div>
+    <aside class="notes"><p>But we're not trying to reach the entire country tomorrow.</p>
+      <p>We're starting right here in Tulsa, where Census data shows 325 small HVAC and plumbing establishments with fewer than ten employees.</p>
+      <p>Our ideal customer is someone like Jack: a business owner doing the work, answering his own phone, and losing opportunities when he can't pick up. We'll start here, learn from real customers, and expand from there.</p></aside>
   </section>
 
 
