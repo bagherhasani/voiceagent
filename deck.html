@@ -327,89 +327,98 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .bm-metric-lbl { font: 500 14px/1.4 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; max-width: 220px; }
 .bm-foot { font: 500 11px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; margin: 0; grid-column: 1 / -1; max-width: 1100px; }
 
-/* —— Market & beachhead (light investor, shared with business model) —— */
-#market.bm-slide, #beachhead.bm-slide { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
-.inv-num { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #94A3B8; margin: 0 0 8px; }
-.mk-title { font: 800 clamp(44px, 4.2vw, 64px)/1.05 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 8px 0 0; max-width: 720px; }
-.mk-body { flex: 1; display: grid; grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); gap: 48px; margin-top: 36px; align-items: center; min-height: 0; }
-.mk-legend { display: flex; flex-direction: column; gap: 36px; padding-right: 12px; }
-.mk-leg { display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; }
-.mk-dot { width: 28px; height: 28px; border-radius: 50%; margin-top: 4px; }
-.mk-dot--tam { background: #A7F3D0; box-shadow: inset 0 0 0 1px rgba(16,185,129,.25); }
-.mk-dot--sam { background: #34D399; box-shadow: inset 0 0 0 1px rgba(5,150,105,.2); }
-.mk-dot--som { background: #059669; }
-.mk-leg h3 { font: 700 clamp(20px, 1.85vw, 26px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 0; }
-.mk-leg p { font: 500 15px/1.45 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; }
-.mk-leg-meta { font: 600 14px/1.35 'Inter', sans-serif; color: #334155; margin: 6px 0 0; }
-.mk-diagram { display: flex; align-items: center; justify-content: center; padding: 8px 0; }
-.mk-diagram svg { width: min(520px, 100%); height: auto; overflow: visible; }
-.mk-ring-label { font: 700 13px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; fill: #0F172A; text-transform: uppercase; opacity: .55; }
-.mk-ring-val { font: 800 36px/1 'Inter', sans-serif; fill: #0F172A; letter-spacing: -.02em; }
-.mk-ring-val--sam { fill: #065F46; font-size: 32px; }
-.mk-ring-val--som { fill: #fff; font-size: 26px; font-weight: 800; }
-.mk-beach { margin-top: 28px; padding-top: 20px; border-top: 1px solid #E2E8F0; text-align: center; font: 600 16px/1.4 'Inter', sans-serif; color: #0F172A; }
-.mk-beach u { text-decoration: underline; text-decoration-color: #10B981; text-underline-offset: 4px; }
-.mk-takeaway { margin-top: 24px; text-align: center; font: 800 clamp(24px, 2.2vw, 34px)/1.25 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; }
 
-#model.bm-slide .bm-wrap--simple { padding: 72px 100px 64px; }
-.bm-page-title { font: 800 clamp(48px, 4.5vw, 72px)/1.05 'Inter', sans-serif; letter-spacing: -.04em; color: #0F172A; margin: 12px 0 0; }
-.bm-page-sub { font: 500 clamp(18px, 1.65vw, 22px)/1.4 'Inter', sans-serif; color: #64748B; margin: 16px 0 0; max-width: 560px; }
-.bm-pricing-row { flex: 1; display: flex; align-items: center; justify-content: center; gap: 28px; margin-top: 48px; max-width: 920px; margin-left: auto; margin-right: auto; width: 100%; }
-.bm-pricing-row .bm-plan { flex: 1; max-width: 420px; min-height: 420px; padding: 32px 28px 36px; }
-.bm-pricing-row .bm-plan ul { margin-top: 28px; gap: 14px; }
-.bm-pricing-row .bm-plan li { font-size: 16px; color: #475569; }
-.bm-one-liner { text-align: center; font: 700 clamp(22px, 2vw, 28px)/1.35 'Inter', sans-serif; color: #0F172A; margin-top: 44px; }
-.bm-one-liner em { font-style: normal; color: #10B981; }
-.bm-mini-metrics { display: flex; justify-content: center; gap: 64px; margin-top: 32px; }
-.bm-mini-metrics span { font: 600 15px/1.4 'Inter', sans-serif; color: #64748B; text-align: center; }
-.bm-mini-metrics b { font-weight: 800; color: #0F172A; font-size: 22px; display: block; margin-bottom: 4px; }
-.mk-body { margin-top: 48px; gap: 64px; }
-.mk-legend { gap: 44px; }
-.mk-leg h3 { font-size: clamp(22px, 2vw, 28px); }
-.mk-leg p { font-size: 16px; margin-top: 10px; max-width: 340px; }
-.mk-leg-meta { display: none; }
-.mk-diagram svg { width: min(560px, 100%); }
-.mk-ring-val { font-size: 42px; }
-.mk-ring-val--sam { font-size: 38px; }
-.mk-ring-val--som { font-size: 30px; }
-.mk-ring-label { display: none; }
-.mk-beach { margin-top: 48px; font-size: 18px; border: none; padding-top: 0; }
-.mk-takeaway { display: none; }
-.bh-simple { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 56px; align-items: center; }
-.bh-stat { margin-top: 8px; font-size: clamp(140px, 14vw, 200px); }
-.bh-stat-lbl { font-size: 22px; max-width: 360px; color: #64748B; font-weight: 500; }
-.bh-jack { font: 700 clamp(26px, 2.4vw, 34px)/1.2 'Inter', sans-serif; color: #0F172A; margin: 0 0 28px; }
-.bh-lines { margin: 0; padding: 0; list-style: none; border-top: 1px solid #E2E8F0; }
-.bh-lines li { font: 600 18px/1.45 'Inter', sans-serif; color: #334155; padding: 20px 0; border-bottom: 1px solid #E2E8F0; }
-.bh-path { justify-content: center; margin-top: 56px; border: none; padding-top: 0; }
+/* —— Investor slides 7–9 (Open Slot · JOLT) —— */
+#model.inv-slide, #market.inv-slide, #beachhead.inv-slide {
+  background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif;
+}
+.inv-wrap {
+  min-height: 1080px; box-sizing: border-box; padding: 56px 88px 44px;
+  display: flex; flex-direction: column;
+}
+.inv-kicker { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .22em; text-transform: uppercase; color: #94A3B8; margin: 0; }
+.inv-h1 { font: 800 clamp(36px, 3.5vw, 52px)/1.08 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 14px 0 0; max-width: 920px; }
+.inv-sub { font: 500 clamp(17px, 1.55vw, 21px)/1.4 'Inter', sans-serif; color: #64748B; margin: 12px 0 0; max-width: 640px; }
+.inv-foot { font: 500 10px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; margin: auto 0 0; padding-top: 16px; max-width: 1200px; }
 
-.mk-takeaway em { font-style: normal; color: #10B981; font-weight: 800; }
-.bm-plan { position: relative; padding-top: 36px; min-height: 400px; display: flex; flex-direction: column; }
-.bm-plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: #0F172A; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
-.bm-plan-price { font-size: clamp(42px, 3.8vw, 52px); margin-top: 8px; }
-.bm-plans { gap: 22px; }
-.bh-grid { flex: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; margin-top: 40px; align-items: start; }
-.bh-left { padding-right: 24px; border-right: 1px solid #E2E8F0; }
-.bh-k { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0; }
-.bh-stat { font: 800 clamp(120px, 12vw, 168px)/.85 'Inter', sans-serif; letter-spacing: -.04em; color: #10B981; margin: 20px 0 0; font-variant-numeric: tabular-nums; }
-.bh-stat-lbl { font: 600 clamp(20px, 1.85vw, 26px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 16px 0 0; max-width: 480px; }
-.bh-break { margin: 28px 0 0; padding: 0; list-style: none; border-top: 1px solid #E2E8F0; }
-.bh-break li { font: 600 17px/1.4 'Inter', sans-serif; color: #334155; padding: 16px 0; border-bottom: 1px solid #E2E8F0; }
-.bh-note { font: 500 13px/1.45 'IBM Plex Mono', monospace; color: #64748B; margin: 20px 0 0; max-width: 520px; }
-.bh-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 28px 28px 32px; box-shadow: 0 10px 36px rgba(15,23,42,.06); }
-.bh-card-head { font: 700 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid #E2E8F0; }
-.bh-row { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid #F1F5F9; align-items: start; }
-.bh-row:last-of-type { border-bottom: none; }
-.bh-rows { margin: 0; padding: 0; }
-.bh-row dt { font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #10B981; margin: 0; }
-.bh-row dd { font: 600 16px/1.45 'Inter', sans-serif; color: #334155; margin: 0; }
-.bh-icon { width: 48px; height: 48px; margin-bottom: 20px; color: #64748B; stroke: #94A3B8; }
-.bh-path { margin-top: 40px; padding-top: 28px; border-top: 1px solid #E2E8F0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
-.bh-path span { font: 700 15px/1 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: #64748B; }
-.bh-path span.is-on { color: #10B981; }
-.bh-path i { font-style: normal; color: #CBD5E1; font-weight: 700; }
-.bh-close { font: 700 clamp(20px, 1.85vw, 26px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 28px 0 0; max-width: 1000px; }
-.bh-close em { font-style: normal; color: #64748B; font-weight: 600; }
+/* Slide 7 — business model · calculation hero */
+.s7-main { flex: 1; display: grid; grid-template-columns: 55fr 45fr; gap: 40px; margin-top: 28px; align-items: stretch; min-height: 0; }
+.s7-story { display: flex; flex-direction: column; justify-content: center; padding: 8px 0; }
+.s7-flow { max-width: 440px; }
+.s7-step { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 14px 0; border-bottom: 1px solid #E2E8F0; }
+.s7-step:last-child { border-bottom: none; }
+.s7-amt { font: 800 clamp(40px, 3.8vw, 56px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; }
+.s7-amt--sub { font-size: clamp(32px, 3vw, 44px); color: #475569; }
+.s7-amt--minus { color: #64748B; }
+.s7-amt--win { color: #10B981; font-size: clamp(44px, 4vw, 60px); }
+.s7-cap { font: 500 15px/1.35 'Inter', sans-serif; color: #64748B; max-width: 360px; }
+.s7-arrow { text-align: center; font: 700 20px/1 'Inter', sans-serif; color: #CBD5E1; padding: 6px 0; letter-spacing: .05em; }
+.s7-tagline { margin-top: 20px; font: 700 clamp(18px, 1.65vw, 22px)/1.35 'Inter', sans-serif; color: #0F172A; max-width: 400px; }
+.s7-tagline em { font-style: normal; color: #10B981; }
+.s7-charge { display: flex; flex-direction: column; justify-content: center; gap: 14px; border-left: 1px solid #E2E8F0; padding-left: 36px; }
+.s7-charge-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; color: #64748B; margin: 0 0 8px; }
+.s7-tier { background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; padding: 18px 20px 20px; box-shadow: 0 4px 20px rgba(15,23,42,.04); }
+.s7-tier--growth { border-color: rgba(16,185,129,.35); background: linear-gradient(135deg, #fff 0%, rgba(16,185,129,.04) 100%); }
+.s7-tier-head { font: 700 13px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; margin: 0; }
+.s7-tier-price { font: 800 28px/1 'Inter', sans-serif; color: #0F172A; margin: 8px 0 0; }
+.s7-tier ul { margin: 12px 0 0; padding: 0; list-style: none; }
+.s7-tier li { font: 500 14px/1.4 'Inter', sans-serif; color: #475569; padding: 5px 0 5px 12px; position: relative; }
+.s7-tier li::before { content: ''; position: absolute; left: 0; top: 11px; width: 4px; height: 4px; border-radius: 50%; background: #10B981; }
+.s7-strip { margin-top: 24px; padding: 20px 28px; background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.s7-metrics { display: flex; gap: 48px; }
+.s7-metric b { display: block; font: 800 36px/1 'Inter', sans-serif; color: #0F172A; letter-spacing: -.02em; }
+.s7-metric span { font: 500 13px/1.35 'Inter', sans-serif; color: #64748B; margin-top: 6px; display: block; max-width: 200px; }
+.s7-disc { font: 500 10px/1.4 'IBM Plex Mono', monospace; color: #94A3B8; max-width: 420px; flex: 1; min-width: 200px; }
+
+/* Slide 8 — market · stepped editorial */
+.s8-main { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 20px; gap: 0; }
+.s8-level { display: grid; grid-template-columns: 120px 1fr; gap: 28px; align-items: center; padding: 22px 28px; border-left: 4px solid #E2E8F0; background: #fff; margin-bottom: 2px; }
+.s8-level--tam { border-left-color: #CBD5E1; }
+.s8-level--sam {
+  border-left-color: #10B981; padding: 36px 32px; margin: 8px 0;
+  background: linear-gradient(90deg, rgba(16,185,129,.08) 0%, #fff 45%);
+  box-shadow: 0 12px 40px rgba(15,23,42,.06);
+}
+.s8-level--som { border-left-color: #059669; background: rgba(16,185,129,.06); padding: 20px 28px; }
+.s8-tag { font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0; }
+.s8-level--sam .s8-tag { color: #10B981; }
+.s8-val { font: 800 clamp(36px, 3.5vw, 48px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; margin: 0; }
+.s8-level--sam .s8-val { font-size: clamp(56px, 5.5vw, 80px); color: #059669; }
+.s8-level--som .s8-val { font-size: clamp(32px, 3vw, 42px); color: #047857; }
+.s8-desc { font: 600 clamp(16px, 1.45vw, 19px)/1.4 'Inter', sans-serif; color: #334155; margin: 8px 0 0; max-width: 780px; }
+.s8-meta { font: 500 14px/1.45 'Inter', sans-serif; color: #64748B; margin: 6px 0 0; }
+.s8-punch { text-align: center; font: 800 clamp(26px, 2.4vw, 36px)/1.2 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 28px 0 0; padding: 0 40px; }
+.s8-punch em { font-style: normal; color: #10B981; }
+
+/* Slide 9 — beachhead · place + persona */
+.s9-main { flex: 1; display: grid; grid-template-columns: 52fr 48fr; gap: 48px; margin-top: 24px; align-items: stretch; min-height: 0; }
+.s9-local { display: flex; flex-direction: column; justify-content: center; }
+.s9-num { font: 800 clamp(120px, 11vw, 160px)/.82 'Inter', sans-serif; letter-spacing: -.04em; color: #10B981; margin: 0; font-variant-numeric: tabular-nums; }
+.s9-num-cap { font: 600 clamp(18px, 1.65vw, 22px)/1.35 'Inter', sans-serif; color: #334155; margin: 12px 0 0; max-width: 400px; }
+.s9-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; margin-top: 28px; max-width: 400px; background: #E2E8F0; }
+.s9-bar i { display: block; height: 100%; }
+.s9-bar i:first-child { width: 74.8%; background: #10B981; }
+.s9-bar i:last-child { flex: 1; background: #6EE7B7; }
+.s9-bar-key { display: flex; gap: 24px; margin-top: 14px; font: 600 14px/1.35 'Inter', sans-serif; color: #475569; flex-wrap: wrap; }
+.s9-bar-key span::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.s9-bar-key span:first-child::before { background: #10B981; }
+.s9-bar-key span:last-child::before { background: #6EE7B7; }
+.s9-pct { font: 600 15px/1.4 'Inter', sans-serif; color: #64748B; margin-top: 20px; max-width: 420px; }
+.s9-right { display: flex; flex-direction: column; min-height: 0; }
+.s9-visual { position: relative; flex: 1; min-height: 320px; border-radius: 16px; overflow: hidden; background: #E2E8F0; }
+.s9-visual img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) contrast(1.02); }
+.s9-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(15,23,42,.75) 100%); pointer-events: none; }
+.s9-points { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 28px 28px; z-index: 1; color: #fff; }
+.s9-jack { font: 700 18px/1.3 'Inter', sans-serif; margin: 0 0 16px; opacity: .95; }
+.s9-point { font: 600 15px/1.45 'Inter', sans-serif; margin: 0 0 10px; padding-left: 0; }
+.s9-point b { font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; color: #6EE7B7; margin-right: 8px; }
+.s9-expand { margin-top: 22px; padding-top: 22px; border-top: 1px solid #E2E8F0; text-align: center; }
+.s9-route { display: flex; justify-content: center; align-items: center; gap: 16px 24px; flex-wrap: wrap; font: 800 14px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; }
+.s9-route .on { color: #10B981; font-size: 16px; }
+.s9-route .off { color: #0F172A; opacity: .45; }
+.s9-route i { font-style: normal; color: #CBD5E1; font-weight: 700; }
+.s9-close { text-align: center; font: 700 clamp(17px, 1.55vw, 20px)/1.4 'Inter', sans-serif; color: #0F172A; margin-top: 14px; }
+
 
 /* —— II · Solution (dark, simple) —— */
 #phone.sol-reveal-slide { padding: 0; }
@@ -869,158 +878,130 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
     <aside class="notes"><p>Before: imagine calling Jack's shop. After: customer called, Open Slot handled it — Jack never put down his tools.</p></aside>
   </section>
 
-  <section class="slide bm-slide" id="model" data-title="Pricing models" data-pos="3 2.05" data-transition="tear" data-hold="3.2">
-    <div class="bm-wrap bm-wrap--simple">
-      <p class="inv-num" data-anim="fade">Open Slot · 07</p>
-      <h2 class="bm-page-title" data-anim="mask" data-delay=".06">Pricing models</h2>
-      <p class="bm-page-sub" data-anim="fade" data-delay=".12">Monthly subscriptions for HVAC and plumbing shops.</p>
-      <div class="bm-pricing-row">
-        <article class="bm-plan" data-anim="rise" data-delay=".2">
-          <p class="bm-plan-tier">Solo</p>
-          <p class="bm-plan-price">$129 <span>/ mo</span></p>
-          <ul>
-            <li>250 minutes</li>
-            <li>24/7 answering</li>
-            <li>Service requests</li>
-          </ul>
-        </article>
-        <article class="bm-plan bm-plan--growth" data-anim="rise" data-delay=".28">
-          <span class="bm-plan-badge">Most popular</span>
-          <p class="bm-plan-tier">Growth</p>
-          <p class="bm-plan-price">$229 <span>/ mo</span></p>
-          <ul>
-            <li>600 minutes</li>
-            <li>Calendar booking</li>
-            <li>Priority support</li>
-          </ul>
-        </article>
-      </div>
-      <p class="bm-one-liner" data-anim="rise" data-delay=".36">One extra job can <em>pay for the month.</em></p>
-      <div class="bm-mini-metrics" data-anim="fade" data-delay=".42">
-        <span><b>$159</b>avg revenue / customer</span>
-        <span><b>~58%</b>modeled contribution margin</span>
-      </div>
-    </div>
-    <aside class="notes"><p>Our business model is simple. Small businesses pay a monthly subscription, starting at $129.</p>
-      <p>For Jack: one additional $350 repair at ~50% gross margin minus $129 Solo leaves $46 — if the job is incremental. We have not charged these plans yet.</p>
-      <p>$159 blended avg and ~58% contribution at full included usage — modeled, not measured net profit.</p></aside>
-  </section>
-
-  <section class="slide bm-slide" id="market" data-title="Market analysis" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
-    <div class="bm-wrap bm-wrap--simple">
-      <p class="inv-num" data-anim="fade">Open Slot · 08</p>
-      <h2 class="bm-page-title" data-anim="mask" data-delay=".06">Market analysis</h2>
-      <div class="mk-body">
-        <div class="mk-legend">
-          <article class="mk-leg" data-anim="rise" data-delay=".14">
-            <span class="mk-dot mk-dot--tam" aria-hidden="true"></span>
-            <div>
-              <h3>Total addressable market</h3>
-              <p>Small U.S. plumbing, HVAC, and electrical contractors.</p>
-            </div>
-          </article>
-          <article class="mk-leg" data-anim="rise" data-delay=".22">
-            <span class="mk-dot mk-dot--sam" aria-hidden="true"></span>
-            <div>
-              <h3>Serviceable addressable market</h3>
-              <p>Priority HVAC and plumbing prospects we can reach first.</p>
-            </div>
-          </article>
-          <article class="mk-leg" data-anim="rise" data-delay=".3">
-            <span class="mk-dot mk-dot--som" aria-hidden="true"></span>
-            <div>
-              <h3>Serviceable obtainable market</h3>
-              <p>460 customers by Year 5 — our target, not today.</p>
-            </div>
-          </article>
-        </div>
-        <div class="mk-diagram" data-anim="scale" data-delay=".18" data-dur="1.05">
-          <svg viewBox="0 0 520 520" aria-hidden="true">
-            <circle cx="260" cy="268" r="228" fill="#A7F3D0" opacity=".5"/>
-            <text class="mk-ring-val" x="260" y="150" text-anchor="middle">$974M</text>
-            <circle cx="260" cy="288" r="168" fill="#34D399" opacity=".75"/>
-            <text class="mk-ring-val mk-ring-val--sam" x="260" y="268" text-anchor="middle">$246M</text>
-            <circle cx="260" cy="308" r="98" fill="#059669"/>
-            <text class="mk-ring-val mk-ring-val--som" x="260" y="318" text-anchor="middle">$878K</text>
-          </svg>
-        </div>
-      </div>
-      <p class="mk-beach" data-anim="fade" data-delay=".38"><u>Beachhead market:</u> Independent HVAC and plumbing in Tulsa — start where missed calls hurt.</p>
-    </div>
-    <aside class="notes"><p>510,263 trade operators TAM $974M; SAM 128,764 prospects $246M; SOM 460 customers $878K ARR — Census CBP 2023, nonemployer 2024, × $159/mo × 12. Prospect pools, not paying customers.</p>
-      <p>Five-year goal is 460 customers — less than 1% of SAM. Say goal, not pipeline.</p></aside>
-  </section>
-
-  <section class="slide bm-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
-    <div class="bm-wrap">
-      <p class="inv-num" data-anim="fade">Open Slot · 09</p>
-      <p class="bm-label" data-anim="fade">Beachhead market</p>
-      <h2 class="bm-head" data-anim="mask" data-delay=".06">We start with the businesses that can't stop to answer.</h2>
-      <p class="bm-sub" data-anim="fade" data-delay=".14">Our first market: independent HVAC and plumbing businesses in Tulsa, Oklahoma.</p>
-      <div class="bh-grid">
-        <div class="bh-left" data-anim="rise" data-delay=".22">
-          <p class="bh-k">Our beachhead market</p>
-          <p class="bh-stat" data-anim="count" data-delay=".3">325</p>
-          <p class="bh-stat-lbl">Small HVAC and plumbing contractor establishments in the Tulsa metro area</p>
-          <ul class="bh-break">
-            <li>243 establishments with fewer than 5 employees</li>
-            <li>82 establishments with 5–9 employees</li>
-          </ul>
-          <p class="bh-note">77% of Tulsa's 424 employer HVAC/plumbing establishments have fewer than 10 employees. Census CBP 2023, Tulsa MSA, NAICS 238220. Nonemployer firms not included.</p>
-        </div>
-        <div class="bh-right" data-anim="rise" data-delay=".28">
-          <svg class="bh-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="14" y="8" width="20" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M22 36h4" stroke="#10B981" stroke-width="2" stroke-linecap="round"/><path d="M30 12c2 1.5 3.5 3.5 4 6" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <div class="bh-card">
-            <p class="bh-card-head">Meet Jack. He's our first customer.</p>
-            <dl class="bh-rows">
-              <div class="bh-row"><dt>WHO</dt><dd>Independent HVAC or plumbing business, fewer than 10 employees.</dd></div>
-              <div class="bh-row"><dt>PROBLEM</dt><dd>The owner is on jobs; phones go unanswered; customers need fast responses.</dd></div>
-              <div class="bh-row"><dt>WHY BUY</dt><dd>One recovered service job could justify a month of Open Slot.</dd></div>
-            </dl>
+  <section class="slide inv-slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="3.4">
+    <div class="inv-wrap">
+      <p class="inv-kicker" data-anim="fade">Open Slot · 07 · Business model</p>
+      <h2 class="inv-h1" data-anim="mask" data-delay=".06">One recovered job could pay for the month.</h2>
+      <p class="inv-sub" data-anim="fade" data-delay=".12">Predictable subscriptions for service businesses.</p>
+      <div class="s7-main">
+        <div class="s7-story" data-anim="rise" data-delay=".18">
+          <div class="s7-flow">
+            <div class="s7-step"><p class="s7-amt">$350</p><p class="s7-cap">Illustrative HVAC repair revenue</p></div>
+            <p class="s7-arrow" aria-hidden="true">↓</p>
+            <div class="s7-step"><p class="s7-amt s7-amt--sub">$175</p><p class="s7-cap">Gross profit at 50% job margin</p></div>
+            <p class="s7-arrow" aria-hidden="true">↓</p>
+            <div class="s7-step"><p class="s7-amt s7-amt--minus">− $129</p><p class="s7-cap">Open Slot Solo subscription</p></div>
+            <p class="s7-arrow" aria-hidden="true">↓</p>
+            <div class="s7-step"><p class="s7-amt s7-amt--win">$46 left over</p><p class="s7-cap">Before other incremental costs · job must be incremental</p></div>
           </div>
-          <p class="bh-note" style="margin-top:16px">Target persona — illustrative composite, not a paying customer.</p>
+          <p class="s7-tagline">One extra completed repair could <em>cover the subscription.</em></p>
+        </div>
+        <div class="s7-charge" data-anim="rise" data-delay=".26">
+          <p class="s7-charge-k">How we charge</p>
+          <div class="s7-tier">
+            <p class="s7-tier-head">Solo · $129/month</p>
+            <p class="s7-tier-price">250 call minutes</p>
+            <ul>
+              <li>24/7 AI answering</li>
+              <li>Service requests &amp; notifications</li>
+            </ul>
+          </div>
+          <div class="s7-tier s7-tier--growth">
+            <p class="s7-tier-head">Growth · $229/month</p>
+            <p class="s7-tier-price">600 call minutes</p>
+            <ul>
+              <li>Calendar booking</li>
+              <li>Priority support</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="bh-path" data-anim="fade" data-delay=".4">
-        <span class="is-on">Tulsa</span><i>→</i><span>Oklahoma</span><i>→</i><span>Nationwide</span>
+      <div class="s7-strip" data-anim="fade" data-delay=".34">
+        <div class="s7-metrics">
+          <div class="s7-metric"><b>$159</b><span>Modeled monthly revenue per customer</span></div>
+          <div class="s7-metric"><b>~58%</b><span>Modeled contribution margin</span></div>
+        </div>
+        <p class="s7-disc">Proposed pricing and illustrative economics. Assumes a $350 job, 50% job gross margin, and modeled service costs; not actual sales results.</p>
       </div>
-      <p class="bh-close" data-anim="fade" data-delay=".48"><em>Start where missed calls hurt.</em> Expand where the same problem exists.</p>
     </div>
-    <aside class="notes"><p>But we're not trying to reach the entire country tomorrow.</p>
-      <p>We're starting right here in Tulsa, where Census data shows 325 small HVAC and plumbing establishments with fewer than ten employees.</p>
-      <p>Our ideal customer is someone like Jack: a business owner doing the work, answering his own phone, and losing opportunities when he can't pick up. We'll start here, learn from real customers, and expand from there.</p></aside>
+    <aside class="notes"><p>Walk the calculation left to right. We have not charged these plans yet. Contribution margin is not net profit.</p></aside>
   </section>
 
-
-  <section class="slide" id="slip" data-pos="3 2.24" data-transition="zoom" data-origin="1360 700" data-hold="2.6 2.4 2.8">
-    <div class="slip" data-anim="feed" data-delay=".15" data-bleed>
-      <div class="sl-top"><b>OPEN SLOT</b><span>SLIP</span></div>
-      <p class="sl-sub">ILLUSTRATIVE · NOT A CUSTOMER</p>
-      <div class="sl-rule"></div>
-      <div class="sl-row"><span>Caller</span><b>Sam Ortiz</b></div>
-      <div class="sl-row"><span>Number</span><b>555-0100</b></div>
-      <div class="sl-row"><span>Job</span><b>No cool air. Upstairs.</b></div>
-      <div class="sl-row"><span>Window</span><b>Tomorrow, 2–4 pm</b></div>
-      <div class="sl-rule"></div>
-      <p class="sl-k">Calendar</p>
-      <p class="sl-line" data-out="1">Writing the event…</p>
-      <p class="sl-line hot" data-step="1" data-out="2">Holding. No event id.</p>
-      <p class="sl-line yes" data-step="2">evt_8k2q · Booked</p>
+  <section class="slide  <section class="slide inv-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
+    <div class="inv-wrap">
+      <p class="inv-kicker" data-anim="fade">Open Slot · 08 · Market opportunity</p>
+      <h2 class="inv-h1" data-anim="mask" data-delay=".06">A $246M starting market. We need less than 1%.</h2>
+      <p class="inv-sub" data-anim="fade" data-delay=".12">Starting with independent HVAC and plumbing contractors.</p>
+      <div class="s8-main">
+        <article class="s8-level s8-level--tam" data-anim="rise" data-delay=".16">
+          <p class="s8-tag">TAM</p>
+          <div>
+            <p class="s8-val">$974M</p>
+            <p class="s8-desc">510,263 small U.S. plumbing, HVAC, and electrical operators / establishments</p>
+            <p class="s8-meta">Fewer than 10 employees · broader trade lane</p>
+          </div>
+        </article>
+        <article class="s8-level s8-level--sam" data-anim="rise" data-delay=".24">
+          <p class="s8-tag">SAM · our focus</p>
+          <div>
+            <p class="s8-val">$246M</p>
+            <p class="s8-desc">128,764 priority U.S. HVAC and plumbing prospects</p>
+            <p class="s8-meta">Size and receipt filters · initial target segment</p>
+          </div>
+        </article>
+        <article class="s8-level s8-level--som" data-anim="rise" data-delay=".32">
+          <p class="s8-tag">Year 5 target</p>
+          <div>
+            <p class="s8-val">$878K ARR</p>
+            <p class="s8-desc">460 paying customers · 0.36% of modeled SAM prospects</p>
+            <p class="s8-meta">Five-year goal — not revenue today</p>
+          </div>
+        </article>
+      </div>
+      <p class="s8-punch" data-anim="rise" data-delay=".4">We don't need the entire market. We need <em>460 customers.</em></p>
+      <p class="inv-foot">Source: U.S. Census Bureau CBP 2023, NES 2024. Estimates use proposed $159/mo × 12. TAM/SAM = modeled prospect counts; SOM = five-year target.</p>
     </div>
-    <p class="kick abs" style="left:900px; top:120px"><b>III</b> · Product</p>
-    <h2 class="abs" data-fit="2" style="left:900px; top:156px; width:860px">No event id.<br>No “booked.”</h2>
-    <p class="body abs" style="left:900px; top:430px; width:840px" data-anim="rise" data-delay=".45">The caller is not told they are booked while the write is open.</p>
-    <p class="body hot abs" style="left:900px; top:620px; width:840px" data-step="1" data-out="2">Holding. No event id came back.</p>
-    <div class="abs" style="left:900px; top:600px" data-step="2" data-anim="pop">
-      <div class="disp yes" style="font-size:168px">Booked</div>
-      <p class="body" style="margin-top:12px">Now it can be said.</p>
-    </div>
-    <aside class="notes"><p>We are inside the write. Sam Ortiz and the 555 number are fiction, not a customer. The first state is a write in progress.</p>
-      <p class="click">It fails. Holding. No event id. The caller has not been told they are booked. A talking agent is not a booking.</p>
-      <p class="click">The calendar returns an id. The one on the slip is a stand-in. Only now does green appear. In the prototype, confirmation waits on that response.</p></aside>
+    <aside class="notes"><p>510,263 TAM; 128,764 SAM; 460 customer SOM. Less than 1% of SAM. Prospect pools, not verified buyers.</p></aside>
   </section>
 
-  <section class="slide" id="rules" data-pos="3 3.36" data-hold="2.2 2 2.4">
+  <section class="slide  <section class="slide inv-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
+    <div class="inv-wrap">
+      <p class="inv-kicker" data-anim="fade">Open Slot · 09 · Beachhead</p>
+      <h2 class="inv-h1" data-anim="mask" data-delay=".06">Our first customers are right here in Tulsa.</h2>
+      <p class="inv-sub" data-anim="fade" data-delay=".12">Independent HVAC and plumbing companies with fewer than 10 employees.</p>
+      <div class="s9-main">
+        <div class="s9-local" data-anim="rise" data-delay=".18">
+          <p class="s9-num" data-anim="count" data-delay=".24">325</p>
+          <p class="s9-num-cap">Small HVAC and plumbing employer establishments · Tulsa metro</p>
+          <div class="s9-bar" aria-hidden="true"><i></i><i></i></div>
+          <div class="s9-bar-key">
+            <span>243 with &lt;5 employees</span>
+            <span>82 with 5–9 employees</span>
+          </div>
+          <p class="s9-pct">77% of Tulsa's 424 employer HVAC/plumbing establishments have fewer than 10 employees.</p>
+        </div>
+        <div class="s9-right" data-anim="rise" data-delay=".26">
+          <div class="s9-visual">
+            <img src="assets/demo-poster.jpg" width="640" height="480" alt="">
+            <div class="s9-points">
+              <p class="s9-jack">Businesses like Jack's.</p>
+              <p class="s9-point"><b>WHO</b> Owner-operated HVAC and plumbing shops</p>
+              <p class="s9-point"><b>PAIN</b> Busy on a job. Missing calls.</p>
+              <p class="s9-point"><b>VALUE</b> Recover opportunities without hiring a receptionist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s9-expand" data-anim="fade" data-delay=".36">
+        <p class="s9-route"><span class="on">Tulsa</span><i>→</i><span class="off">Oklahoma</span><i>→</i><span class="off">Nationwide</span></p>
+        <p class="s9-close">Start local. Prove the value. Scale nationally.</p>
+      </div>
+      <p class="inv-foot">U.S. Census CBP 2023, Tulsa MSA, NAICS 238220. Establishments only; excludes nonemployer firms. Not confirmed qualified customers.</p>
+    </div>
+    <aside class="notes"><p>Jack is an illustrative composite — not a paying customer. 243 + 82 = 325. Start Tulsa, learn, expand.</p></aside>
+  </section>
+
+  <section class="slide  <section class="slide" id="rules" data-pos="3 3.36" data-hold="2.2 2 2.4">
     <p class="kick"><b>III</b> · Product</p>
     <h2 data-fit="2">Routine books.<br>Urgent escalates.</h2>
     <svg class="art" viewBox="0 0 1920 1080"></svg>
