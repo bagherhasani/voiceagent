@@ -429,6 +429,35 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .s9-route .on { color: #10B981; font-size: 16px; }
 .s9-route .off { color: #0F172A; opacity: .45; }
 .s9-route i { font-style: normal; color: #CBD5E1; font-weight: 700; }
+
+/* Slide 10 — competitive advantage */
+#compete.inv-slide { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+.s10-main { flex: 1; display: grid; grid-template-columns: 46fr 54fr; gap: 40px; margin-top: 28px; align-items: stretch; min-height: 0; }
+.s10-table-wrap { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,23,42,.05); align-self: center; }
+.s10-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.s10-table th { text-align: left; font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; padding: 14px 16px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
+.s10-table td { padding: 13px 16px; border-bottom: 1px solid #F1F5F9; vertical-align: top; }
+.s10-table tr:last-child td { border-bottom: none; }
+.s10-table .co { font: 700 15px/1.25 'Inter', sans-serif; color: #0F172A; }
+.s10-table .pr { font: 600 14px/1.3 'Inter', sans-serif; color: #475569; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.s10-table .pos { font: 500 13px/1.45 'Inter', sans-serif; color: #64748B; }
+.s10-table tr.is-us { background: linear-gradient(90deg, rgba(16,185,129,.1) 0%, #fff 28%); }
+.s10-table tr.is-us .co { color: #059669; }
+.s10-table tr.is-us td:first-child { box-shadow: inset 3px 0 0 #10B981; }
+.s10-strategy { display: flex; flex-direction: column; justify-content: center; padding: 8px 0 8px 8px; }
+.s10-strategy-h { font: 800 clamp(26px, 2.4vw, 34px)/1.15 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0 0 28px; max-width: 480px; }
+.s10-strategy-h em { font-style: normal; color: #10B981; }
+.s10-flow { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 3px solid #10B981; display: flex; flex-direction: column; gap: 0; }
+.s10-flow li { position: relative; padding: 18px 0 18px 24px; border-bottom: 1px solid #E2E8F0; }
+.s10-flow li:last-child { border-bottom: none; }
+.s10-flow li::before { content: ''; position: absolute; left: -31px; top: 26px; width: 12px; height: 12px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 4px #F8FAFC; }
+.s10-flow li.is-road::before { background: #fff; border: 2px solid #10B981; }
+.s10-flow-t { font: 700 18px/1.3 'Inter', sans-serif; color: #0F172A; margin: 0; }
+.s10-flow-d { font: 500 14px/1.4 'Inter', sans-serif; color: #64748B; margin: 6px 0 0; }
+.s10-flow-tag { font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #94A3B8; margin-left: 8px; }
+.s10-punch { margin-top: 32px; font: 800 clamp(20px, 1.85vw, 26px)/1.3 'Inter', sans-serif; letter-spacing: -.02em; color: #0F172A; max-width: 520px; padding-top: 24px; border-top: 2px solid #0F172A; }
+.s10-punch em { font-style: normal; color: #10B981; }
+
 .s9-close { text-align: center; font: 700 clamp(17px, 1.55vw, 20px)/1.4 'Inter', sans-serif; color: #0F172A; margin-top: 14px; }
 
 
@@ -1017,7 +1046,43 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
     <aside class="notes"><p>Jack is an illustrative composite — not a paying customer. 243 + 82 = 325. Start Tulsa, learn, expand.</p></aside>
   </section>
 
-  <section class="slide" id="ask" data-pos="3 2.24" data-transition="tear" data-hold="4.2">
+  <section class="slide inv-slide" id="compete" data-title="Competitive advantage" data-pos="3 2.21" data-transition="camera" data-hold="3.4">
+    <div class="inv-wrap">
+      <p class="inv-kicker" data-anim="fade">Open Slot · 10 · Competitive advantage</p>
+      <h2 class="inv-h1" data-anim="mask" data-delay=".06">Others answer calls. We focus on winning jobs.</h2>
+      <p class="inv-sub" data-anim="fade" data-delay=".12">Purpose-built for independent HVAC and plumbing contractors.</p>
+      <div class="s10-main">
+        <div class="s10-table-wrap" data-anim="rise" data-delay=".18">
+          <table class="s10-table">
+            <thead><tr><th>Offer</th><th>Pricing</th><th>Positioning</th></tr></thead>
+            <tbody>
+              <tr><td class="co">Rosie</td><td class="pr">From $49/mo</td><td class="pos">Accessible AI receptionist · broad small business</td></tr>
+              <tr><td class="co">Goodcall</td><td class="pr">From $79/mo</td><td class="pos">Flexible AI phone agent</td></tr>
+              <tr><td class="co">Smith.ai</td><td class="pr">From $150/mo</td><td class="pos">AI receptionist · optional human backup</td></tr>
+              <tr><td class="co">Sameday AI</td><td class="pr">From $449/mo</td><td class="pos">Trade-oriented · scheduling-focused</td></tr>
+              <tr><td class="co">Jobber Receptionist</td><td class="pr">$29/mo add-on</td><td class="pos">Jobber customers · integrated scheduling</td></tr>
+              <tr class="is-us"><td class="co">Open Slot AI</td><td class="pr">$129/mo proposed</td><td class="pos">Independent HVAC/plumbing · measurable owner workflow</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="s10-strategy" data-anim="rise" data-delay=".26">
+          <h3 class="s10-strategy-h">Built around the <em>independent contractor.</em></h3>
+          <ol class="s10-flow">
+            <li><p class="s10-flow-t">Owner-first call forwarding</p><p class="s10-flow-d">Uses the line they already publish — no new hardware.</p></li>
+            <li class="is-road"><p class="s10-flow-t">Shop-defined urgent escalation<span class="s10-flow-tag">Roadmap</span></p><p class="s10-flow-d">Their rule, their contact — not a script we invent.</p></li>
+            <li><p class="s10-flow-t">Verified appointment scheduling</p><p class="s10-flow-d">Calendar write when an event id returns — prototype today.</p></li>
+            <li class="is-road"><p class="s10-flow-t">Recovered-job reporting<span class="s10-flow-tag">Roadmap</span></p><p class="s10-flow-d">Tie answered calls to opportunities owners can measure.</p></li>
+          </ol>
+          <p class="s10-punch">From missed call to <em>measurable</em> business opportunity.</p>
+        </div>
+      </div>
+      <p class="inv-foot">Competitor pricing from official pages, November 2026. Plans differ by minutes, features, and contracts. Open Slot pricing proposed, not sold.</p>
+    </div>
+    <aside class="notes"><p>We are not claiming we beat Rosie on price or Smith on humans. Our bet is workflow for owner-operators: forward the line, escalate on their rules, book when the calendar confirms, eventually report recovered jobs. Say roadmap honestly.</p></aside>
+  </section>
+
+
+  <section class="slide" id="ask" data-title="The ask" data-pos="3 2.28" data-transition="tear" data-hold="4.2">
     <p class="kick" data-anim="fade"><b>VI</b> · The ask</p>
     <h2 data-fit="2" data-anim="mask" data-delay=".1" style="max-width:1000px">Ten Tulsa conversations.<br>Hard read on pricing.</h2>
     <p class="body" style="margin-top:36px; max-width:980px" data-anim="rise" data-delay=".45">Answer the call that used to ring out.</p>
