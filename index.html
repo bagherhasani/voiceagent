@@ -350,6 +350,39 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .mk-beach { margin-top: 28px; padding-top: 20px; border-top: 1px solid #E2E8F0; text-align: center; font: 600 16px/1.4 'Inter', sans-serif; color: #0F172A; }
 .mk-beach u { text-decoration: underline; text-decoration-color: #10B981; text-underline-offset: 4px; }
 .mk-takeaway { margin-top: 24px; text-align: center; font: 800 clamp(24px, 2.2vw, 34px)/1.25 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; }
+
+#model.bm-slide .bm-wrap--simple { padding: 72px 100px 64px; }
+.bm-page-title { font: 800 clamp(48px, 4.5vw, 72px)/1.05 'Inter', sans-serif; letter-spacing: -.04em; color: #0F172A; margin: 12px 0 0; }
+.bm-page-sub { font: 500 clamp(18px, 1.65vw, 22px)/1.4 'Inter', sans-serif; color: #64748B; margin: 16px 0 0; max-width: 560px; }
+.bm-pricing-row { flex: 1; display: flex; align-items: center; justify-content: center; gap: 28px; margin-top: 48px; max-width: 920px; margin-left: auto; margin-right: auto; width: 100%; }
+.bm-pricing-row .bm-plan { flex: 1; max-width: 420px; min-height: 420px; padding: 32px 28px 36px; }
+.bm-pricing-row .bm-plan ul { margin-top: 28px; gap: 14px; }
+.bm-pricing-row .bm-plan li { font-size: 16px; color: #475569; }
+.bm-one-liner { text-align: center; font: 700 clamp(22px, 2vw, 28px)/1.35 'Inter', sans-serif; color: #0F172A; margin-top: 44px; }
+.bm-one-liner em { font-style: normal; color: #10B981; }
+.bm-mini-metrics { display: flex; justify-content: center; gap: 64px; margin-top: 32px; }
+.bm-mini-metrics span { font: 600 15px/1.4 'Inter', sans-serif; color: #64748B; text-align: center; }
+.bm-mini-metrics b { font-weight: 800; color: #0F172A; font-size: 22px; display: block; margin-bottom: 4px; }
+.mk-body { margin-top: 48px; gap: 64px; }
+.mk-legend { gap: 44px; }
+.mk-leg h3 { font-size: clamp(22px, 2vw, 28px); }
+.mk-leg p { font-size: 16px; margin-top: 10px; max-width: 340px; }
+.mk-leg-meta { display: none; }
+.mk-diagram svg { width: min(560px, 100%); }
+.mk-ring-val { font-size: 42px; }
+.mk-ring-val--sam { font-size: 38px; }
+.mk-ring-val--som { font-size: 30px; }
+.mk-ring-label { display: none; }
+.mk-beach { margin-top: 48px; font-size: 18px; border: none; padding-top: 0; }
+.mk-takeaway { display: none; }
+.bh-simple { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 56px; align-items: center; }
+.bh-stat { margin-top: 8px; font-size: clamp(140px, 14vw, 200px); }
+.bh-stat-lbl { font-size: 22px; max-width: 360px; color: #64748B; font-weight: 500; }
+.bh-jack { font: 700 clamp(26px, 2.4vw, 34px)/1.2 'Inter', sans-serif; color: #0F172A; margin: 0 0 28px; }
+.bh-lines { margin: 0; padding: 0; list-style: none; border-top: 1px solid #E2E8F0; }
+.bh-lines li { font: 600 18px/1.45 'Inter', sans-serif; color: #334155; padding: 20px 0; border-bottom: 1px solid #E2E8F0; }
+.bh-path { justify-content: center; margin-top: 56px; border: none; padding-top: 0; }
+
 .mk-takeaway em { font-style: normal; color: #10B981; font-weight: 800; }
 .bm-plan { position: relative; padding-top: 36px; min-height: 400px; display: flex; flex-direction: column; }
 .bm-plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: #0F172A; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
@@ -836,126 +869,89 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
     <aside class="notes"><p>Before: imagine calling Jack's shop. After: customer called, Open Slot handled it — Jack never put down his tools.</p></aside>
   </section>
 
-  <section class="slide bm-slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="3.2">
-    <div class="bm-wrap">
+  <section class="slide bm-slide" id="model" data-title="Pricing models" data-pos="3 2.05" data-transition="tear" data-hold="3.2">
+    <div class="bm-wrap bm-wrap--simple">
       <p class="inv-num" data-anim="fade">Open Slot · 07</p>
-      <div class="bm-top">
-        <div class="bm-top-copy">
-          <p class="bm-label" data-anim="fade">Business model</p>
-          <h2 class="bm-head" data-anim="mask" data-delay=".08">One extra job could pay for Open Slot.</h2>
-          <p class="bm-sub" data-anim="fade" data-delay=".16">Simple, predictable monthly subscriptions for service businesses.</p>
-        </div>
+      <h2 class="bm-page-title" data-anim="mask" data-delay=".06">Pricing models</h2>
+      <p class="bm-page-sub" data-anim="fade" data-delay=".12">Monthly subscriptions for HVAC and plumbing shops.</p>
+      <div class="bm-pricing-row">
+        <article class="bm-plan" data-anim="rise" data-delay=".2">
+          <p class="bm-plan-tier">Solo</p>
+          <p class="bm-plan-price">$129 <span>/ mo</span></p>
+          <ul>
+            <li>250 minutes</li>
+            <li>24/7 answering</li>
+            <li>Service requests</li>
+          </ul>
+        </article>
+        <article class="bm-plan bm-plan--growth" data-anim="rise" data-delay=".28">
+          <span class="bm-plan-badge">Most popular</span>
+          <p class="bm-plan-tier">Growth</p>
+          <p class="bm-plan-price">$229 <span>/ mo</span></p>
+          <ul>
+            <li>600 minutes</li>
+            <li>Calendar booking</li>
+            <li>Priority support</li>
+          </ul>
+        </article>
       </div>
-      <p class="bm-label" style="margin-top:28px" data-anim="fade" data-delay=".2">Pricing models</p>
-      <div class="bm-main" style="margin-top:20px">
-        <div class="bm-plans">
-          <article class="bm-plan" data-anim="rise" data-delay=".24">
-            <p class="bm-plan-tier">Solo</p>
-            <p class="bm-plan-price">$129 <span>/ month</span></p>
-            <ul>
-              <li>250 call minutes included</li>
-              <li>24/7 AI receptionist</li>
-              <li>Service requests captured</li>
-              <li>Owner notifications</li>
-            </ul>
-          </article>
-          <article class="bm-plan bm-plan--growth" data-anim="rise" data-delay=".32">
-            <span class="bm-plan-badge">Most popular</span>
-            <p class="bm-plan-tier">Growth</p>
-            <p class="bm-plan-price">$229 <span>/ month</span></p>
-            <ul>
-              <li>600 call minutes included</li>
-              <li>Everything in Solo</li>
-              <li>Calendar integration</li>
-              <li>Priority support</li>
-            </ul>
-          </article>
-        </div>
-        <div class="bm-roi" data-anim="rise" data-delay=".28">
-          <p class="bm-roi-k">Why businesses pay</p>
-          <p class="bm-roi-lead">1 extra HVAC repair = <em>$350</em> revenue</p>
-          <p class="bm-roi-note">Illustrative job · 50% gross margin · incremental work</p>
-          <div class="bm-roi-stack">
-            <div class="bm-roi-row"><span>Gross profit from repair</span><b>$175</b></div>
-            <div class="bm-roi-row minus"><span>Open Slot Solo</span><b>− $129</b></div>
-            <div class="bm-roi-eq"><span>Remaining contribution</span><b>$46</b></div>
-          </div>
-          <p class="bm-roi-punch">Just one <em>recovered</em> repair can cover the month.</p>
-        </div>
-      </div>
-      <div class="bm-bottom" data-anim="fade" data-delay=".42">
-        <div class="bm-metrics">
-          <div class="bm-metric">
-            <p class="bm-metric-val" data-anim="count" data-delay=".48">$159</p>
-            <p class="bm-metric-lbl">Projected average monthly revenue per customer</p>
-          </div>
-          <div class="bm-metric">
-            <p class="bm-metric-val"><em>~58%</em></p>
-            <p class="bm-metric-lbl">Modeled contribution margin at full included-minute usage</p>
-          </div>
-        </div>
-        <p class="bm-foot">Proposed pricing and illustrative unit economics; customer demand, actual call costs, and margins subject to pilot validation.</p>
+      <p class="bm-one-liner" data-anim="rise" data-delay=".36">One extra job can <em>pay for the month.</em></p>
+      <div class="bm-mini-metrics" data-anim="fade" data-delay=".42">
+        <span><b>$159</b>avg revenue / customer</span>
+        <span><b>~58%</b>modeled contribution margin</span>
       </div>
     </div>
-    <aside class="notes"><p>Our business model is pretty simple. Small businesses pay a monthly subscription, starting at $129.</p>
-      <p>For someone like Jack, even one additional repair job could pay for the entire month — if that job is truly incremental and he has capacity.</p>
-      <p>And for Open Slot, each subscription creates recurring revenue. Based on our initial cost model, we are targeting around 58% contribution margins at full included usage — not net profit. We have not charged these plans yet.</p></aside>
+    <aside class="notes"><p>Our business model is simple. Small businesses pay a monthly subscription, starting at $129.</p>
+      <p>For Jack: one additional $350 repair at ~50% gross margin minus $129 Solo leaves $46 — if the job is incremental. We have not charged these plans yet.</p>
+      <p>$159 blended avg and ~58% contribution at full included usage — modeled, not measured net profit.</p></aside>
   </section>
 
   <section class="slide bm-slide" id="market" data-title="Market analysis" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
-    <div class="bm-wrap">
+    <div class="bm-wrap bm-wrap--simple">
       <p class="inv-num" data-anim="fade">Open Slot · 08</p>
-      <h2 class="mk-title" data-anim="mask" data-delay=".06">Market analysis</h2>
+      <h2 class="bm-page-title" data-anim="mask" data-delay=".06">Market analysis</h2>
       <div class="mk-body">
         <div class="mk-legend">
           <article class="mk-leg" data-anim="rise" data-delay=".14">
             <span class="mk-dot mk-dot--tam" aria-hidden="true"></span>
             <div>
               <h3>Total addressable market</h3>
-              <p class="mk-leg-meta">510,263 small trade operators · $974M</p>
-              <p>U.S. plumbing, HVAC, and electrical contractors with no paid employees or fewer than 10.</p>
+              <p>Small U.S. plumbing, HVAC, and electrical contractors.</p>
             </div>
           </article>
           <article class="mk-leg" data-anim="rise" data-delay=".22">
             <span class="mk-dot mk-dot--sam" aria-hidden="true"></span>
             <div>
               <h3>Serviceable addressable market</h3>
-              <p class="mk-leg-meta">128,764 HVAC &amp; plumbing prospects · $246M</p>
-              <p>Small employers plus nonemployers with $100K+ receipts — our first focus.</p>
+              <p>Priority HVAC and plumbing prospects we can reach first.</p>
             </div>
           </article>
           <article class="mk-leg" data-anim="rise" data-delay=".3">
             <span class="mk-dot mk-dot--som" aria-hidden="true"></span>
             <div>
               <h3>Serviceable obtainable market</h3>
-              <p class="mk-leg-meta">460 customers by Year 5 · $878K ARR target</p>
-              <p>≈0.36% of SAM — a goal, not existing revenue.</p>
+              <p>460 customers by Year 5 — our target, not today.</p>
             </div>
           </article>
         </div>
-        <div class="mk-diagram" data-anim="scale" data-delay=".18" data-dur="1.1">
-          <svg viewBox="0 0 520 520" aria-label="TAM SAM SOM nested market sizing">
-            <circle cx="260" cy="268" r="228" fill="#A7F3D0" opacity=".55"/>
-            <text class="mk-ring-label" x="260" y="118" text-anchor="middle">TAM</text>
-            <text class="mk-ring-val" x="260" y="162" text-anchor="middle">$974M</text>
-            <circle cx="260" cy="288" r="168" fill="#34D399" opacity=".72"/>
-            <text class="mk-ring-label" x="260" y="228" text-anchor="middle">SAM</text>
-            <text class="mk-ring-val mk-ring-val--sam" x="260" y="272" text-anchor="middle">$246M</text>
+        <div class="mk-diagram" data-anim="scale" data-delay=".18" data-dur="1.05">
+          <svg viewBox="0 0 520 520" aria-hidden="true">
+            <circle cx="260" cy="268" r="228" fill="#A7F3D0" opacity=".5"/>
+            <text class="mk-ring-val" x="260" y="150" text-anchor="middle">$974M</text>
+            <circle cx="260" cy="288" r="168" fill="#34D399" opacity=".75"/>
+            <text class="mk-ring-val mk-ring-val--sam" x="260" y="268" text-anchor="middle">$246M</text>
             <circle cx="260" cy="308" r="98" fill="#059669"/>
-            <text class="mk-ring-label" x="260" y="292" text-anchor="middle" fill="#fff" opacity=".85">SOM</text>
-            <text class="mk-ring-val mk-ring-val--som" x="260" y="328" text-anchor="middle">$878K</text>
+            <text class="mk-ring-val mk-ring-val--som" x="260" y="318" text-anchor="middle">$878K</text>
           </svg>
         </div>
       </div>
-      <p class="mk-takeaway" data-anim="rise" data-delay=".38">We don't need the whole market. We need <em>460 customers.</em></p>
-      <p class="mk-beach" data-anim="fade" data-delay=".44"><u>Beachhead:</u> Independent HVAC &amp; plumbing in Tulsa — 325 small establishments to start.</p>
-      <p class="bm-foot" style="margin-top:20px">U.S. Census CBP 2023 (NAICS 238220/238210), Nonemployer Statistics 2024 · $159/mo × 12. Prospect pools, not paying customers.</p>
+      <p class="mk-beach" data-anim="fade" data-delay=".38"><u>Beachhead market:</u> Independent HVAC and plumbing in Tulsa — start where missed calls hurt.</p>
     </div>
-    <aside class="notes"><p>We're starting with small HVAC and plumbing companies, but the opportunity goes much further. Based on U.S. Census business counts and our proposed pricing, our initial serviceable market is about $246 million a year.</p>
-      <p>And here's what matters: our five-year goal is just 460 customers. That's less than half of one percent of that market. Say goal, not pipeline.</p></aside>
+    <aside class="notes"><p>510,263 trade operators TAM $974M; SAM 128,764 prospects $246M; SOM 460 customers $878K ARR — Census CBP 2023, nonemployer 2024, × $159/mo × 12. Prospect pools, not paying customers.</p>
+      <p>Five-year goal is 460 customers — less than 1% of SAM. Say goal, not pipeline.</p></aside>
   </section>
 
-  <section class="slide bm-slide" id="beachhead"  <section class="slide bm-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
+  <section class="slide bm-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
     <div class="bm-wrap">
       <p class="inv-num" data-anim="fade">Open Slot · 09</p>
       <p class="bm-label" data-anim="fade">Beachhead market</p>
