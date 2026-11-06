@@ -205,6 +205,9 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 </style>
 <style id="open-slot-theme">
 /* Open Slot deck theme — Inter only; do not override .dk-* */
+:root {
+  --dk-ui-accent: #0F9D6E;
+}
 .deck {
   --os-paper: #FAFAF7;
   --os-dark: #0E1116;
@@ -222,7 +225,7 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
   --dk-number-font: Inter, system-ui, sans-serif;
   --dk-mark: rgba(15, 157, 110, 0.35);
   --dk-strike: var(--os-red);
-  --dk-ui-accent: var(--os-green);
+  --dk-ui-accent: #0F9D6E;
   --dk-ov-accent: var(--os-green);
 }
 
@@ -257,7 +260,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   left: 120px;
   right: 120px;
   margin: 0;
-  font: 400 17px/1.45 Inter, system-ui, sans-serif;
+  font: 400 22px/1.45 Inter, system-ui, sans-serif;
   color: var(--os-muted);
 }
 
@@ -328,7 +331,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #title .t1-head-sub em { font-style: normal; color: var(--os-green-d); font-weight: 600; }
 #title .t1-byline {
-  font: 500 20px/1.45 Inter, system-ui, sans-serif;
+  font: 500 28px/1.45 Inter, system-ui, sans-serif;
   color: var(--os-muted);
   margin: 20px 0 0;
 }
@@ -368,9 +371,9 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   display: flex;
   flex-direction: column;
 }
-#jack .pb-split-k { position: absolute; top: 64px; left: 0; right: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-split-k { position: absolute; top: -56px; left: 120px; right: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #jack .pb-split-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#jack .pb-split-head { font: 700 68px/1.08 Inter, system-ui, sans-serif; letter-spacing: -0.035em; color: var(--os-ink); margin: 84px 0 0; max-width: 520px; }
+#jack .pb-split-head { font: 700 68px/1.08 Inter, system-ui, sans-serif; letter-spacing: -0.035em; color: var(--os-ink); margin: 0; max-width: 520px; }
 #jack .pb-split-head + .pb-split-head { margin-top: 4px; }
 #jack .pb-miss {
   margin-top: 36px;
@@ -378,14 +381,14 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   padding: 18px 20px;
   max-width: 480px;
 }
-#jack .pb-miss-icon { width: 40px; height: 40px; display: grid; place-items: center; background: var(--os-green); flex-shrink: 0; }
+#jack .pb-miss-icon { width: 40px; height: 40px; display: grid; place-items: center; background: var(--os-green); flex-shrink: 0; border-radius: 50%; }
 #jack .pb-miss-icon svg { width: 22px; height: 22px; color: #fff; }
-#jack .pb-miss-title { font: 700 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); }
-#jack .pb-miss-time { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
-#jack .pb-miss-sub { font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0 52px; }
+#jack .pb-miss-title { font: 700 28px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#jack .pb-miss-time { font: 500 28px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-miss-sub { font: 500 28px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0 52px; }
 #jack .pb-lines { margin-top: 32px; max-width: 520px; }
 #jack .pb-lines p {
-  font: 500 20px/1.45 Inter, system-ui, sans-serif;
+  font: 500 28px/1.45 Inter, system-ui, sans-serif;
   color: var(--os-ink);
   margin: 0;
   padding: 18px 0;
@@ -393,7 +396,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #jack .pb-lines p:last-child { border-bottom: none; }
 #jack .pb-lines p strong { color: var(--os-red); font-weight: 700; }
-#jack .pb-disclaimer { margin-top: auto; padding-top: 28px; font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-disclaimer { margin-top: auto; padding-top: 28px; font: 500 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #scale .pb-scale2 {
   position: relative;
@@ -405,15 +408,15 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #scale .pb-scale2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #scale .pb-scale2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#scale .pb-scale2-head { margin: 84px 0 0; font: 700 68px/1.06 Inter, system-ui, sans-serif; color: var(--os-ink); }
-#scale .pb-scale2-rule { border: 0; height: 1px; background: var(--os-rule); margin: 28px 0 0; width: 100%; }
+#scale .pb-scale2-head { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.06 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#scale .pb-scale2-rule { border: 0; height: 1px; background: var(--os-rule); margin: 220px 0 0; width: 100%; }
 #scale .pb-scale2-cols {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   align-items: center;
   min-height: 400px;
-  margin-top: 32px;
+  margin-top: 0;
 }
 #scale .pb-scale2-v { background: var(--os-rule); width: 1px; align-self: stretch; }
 #scale .pb-scale2-col {
@@ -431,29 +434,40 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   font-variant-numeric: tabular-nums;
   margin: 0;
 }
-#scale .pb-scale2-col .n27 { color: var(--os-green); }
+#scale .pb-scale2-col .n27 { color: #111111; }
 #scale .pb-scale2-col .n82 { color: var(--os-red); }
-#scale .pb-scale2-col .txt { font: 500 20px/1.42 Inter, system-ui, sans-serif; color: var(--os-body); margin: 20px 0 0; max-width: 380px; }
-#scale .pb-src { margin-top: auto; padding-top: 24px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#scale .pb-scale2-col .txt { font: 500 28px/1.42 Inter, system-ui, sans-serif; color: var(--os-body); margin: 20px 0 0; max-width: 380px; }
+#scale .pb-src { margin-top: auto; padding-top: 24px; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #impact .pb-impact2 {
   position: relative;
   min-height: 1080px;
   box-sizing: border-box;
   padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-#impact .pb-impact2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#impact .pb-impact2-k { position: absolute; top: 64px; left: 120px; right: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); text-align: left; }
 #impact .pb-impact2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#impact .pb-impact2-top { margin: 84px 0 0; max-width: 900px; }
-#impact .pb-impact2-line { font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
-#impact .pb-impact2-hero { font: 800 72px/0.95 Inter, system-ui, sans-serif; letter-spacing: -0.04em; margin: 8px 0 0; color: var(--os-ink); }
-#impact .pb-impact2-hero .amt { color: var(--os-red); }
-#impact .pb-impact2-after { font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 8px 0 0; }
+#impact .pb-impact2-top { margin: 48px 0 0; max-width: 1000px; }
+#impact .pb-impact2-line { font: 500 36px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
+#impact .pb-impact2-hero {
+  font: 800 160px/0.95 Inter, system-ui, sans-serif;
+  letter-spacing: -0.04em;
+  margin: 8px 0 0;
+  color: #D93A2B;
+}
+#impact .pb-impact2-hero .amt { color: #D93A2B; }
+#impact .pb-impact2-hero .word { font-weight: 800; color: #D93A2B; }
+#impact .pb-impact2-after { font: 500 36px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 8px 0 0; }
 #impact .pb-impact2-hr { display: none; }
-#impact .pb-impact2-bot { margin-top: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-#impact .pb-impact2-loss { font: 800 64px/1 Inter, system-ui, sans-serif; color: var(--os-red); margin: 0; font-variant-numeric: tabular-nums; }
-#impact .pb-impact2-meta { font: 500 20px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; max-width: 520px; }
-#impact .pb-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#impact .pb-impact2-bot { margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+#impact .pb-impact2-loss { font: 800 140px/1 Inter, system-ui, sans-serif; color: #D93A2B; margin: 0; font-variant-numeric: tabular-nums; }
+#impact .pb-impact2-meta { font: 500 36px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; max-width: 720px; }
+#impact .pb-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); text-align: center; }
 
 /* Dark solution slides */
 #phone.sol-reveal-slide, #loop, #demo.sol-slide {
@@ -469,9 +483,9 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
   gap: 48px;
-  align-items: start;
+  align-items: center;
 }
-#phone .sol-ref-copy { position: relative; padding-top: 0; }
+#phone .sol-ref-copy { position: relative; padding-top: 0; display: flex; flex-direction: column; justify-content: center; min-height: calc(1080px - 220px); }
 #phone .sol-ref-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #phone .sol-ref-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
 #phone .sol-ref-head { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 700px; }
@@ -482,14 +496,14 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   gap: 12px 18px;
   padding: 20px 0;
   border-top: 1px solid #2a2e36;
-  font: 500 18px/1.5 Inter, system-ui, sans-serif;
+  font: 500 32px/1.5 Inter, system-ui, sans-serif;
   color: var(--os-muted);
 }
-#phone .sol-ref-list .rn { font: 600 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-green-d); }
-#phone .sol-ref-list strong { display: block; font: 600 20px/1.35 Inter, system-ui, sans-serif; color: #f5f5f2; margin-bottom: 4px; }
-#phone .sol-ref-foot { margin-top: 24px; font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); display: flex; align-items: center; gap: 10px; }
-#phone .sol-ref-foot::before { content: ''; width: 6px; height: 6px; background: var(--os-green-d); flex: none; }
-#phone .sol-ref-art { display: flex; align-items: center; justify-content: center; min-height: 360px; padding-top: 48px; }
+#phone .sol-ref-list .rn { font: 600 28px/1.2 Inter, system-ui, sans-serif; color: var(--os-green-d); }
+#phone .sol-ref-list strong { display: block; font: 600 32px/1.35 Inter, system-ui, sans-serif; color: #f5f5f2; margin-bottom: 4px; }
+#phone .sol-ref-foot { margin-top: 24px; font: 500 28px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); display: flex; align-items: center; gap: 10px; }
+#phone .sol-ref-foot::before { content: ''; width: 6px; height: 6px; background: var(--os-green-d); flex: none; border-radius: 50%; }
+#phone .sol-ref-art { display: flex; align-items: center; justify-content: center; min-height: 360px; padding-top: 0; }
 #phone .sol-ref-art img { width: min(360px, 34vw); height: auto; display: block; }
 
 #loop .sol-how {
@@ -499,6 +513,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   padding: 120px 120px 100px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 #loop .sol-how-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #loop .sol-how-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
@@ -510,18 +525,18 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   gap: 32px 36px;
   flex: none;
 }
-#loop .sol-how-col .num { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
-#loop .sol-how-col h3 { font: 700 22px/1.2 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 0; }
+#loop .sol-how-col .num { font: 600 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
+#loop .sol-how-col h3 { font: 700 40px/1.2 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 0; }
 #loop .sol-how-col h3.job { color: var(--os-green-d); }
-#loop .sol-how-col p { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0; max-width: 320px; }
+#loop .sol-how-col p { font: 500 26px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0; max-width: 320px; }
 #loop .sol-how-urgent {
   margin-top: 28px;
   padding: 18px 20px;
   border: 1px solid #2a2e36;
   flex: none;
 }
-#loop .sol-how-urgent strong { font: 700 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-red); margin-right: 8px; }
-#loop .sol-how-urgent span { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: #e8e8e4; }
+#loop .sol-how-urgent strong { font: 700 28px/1.35 Inter, system-ui, sans-serif; color: var(--os-red); margin-right: 8px; }
+#loop .sol-how-urgent span { font: 500 28px/1.45 Inter, system-ui, sans-serif; color: #e8e8e4; }
 
 #demo .sol-demo {
   min-height: 1080px;
@@ -535,12 +550,12 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #demo .sol-demo > div:first-child { position: relative; }
 #demo .sol-demo-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #demo .sol-demo-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
-#demo .sol-demo-head { font: 700 56px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 640px; }
-#demo .sol-demo-sub { font: 500 20px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
+#demo .sol-demo-head { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 640px; }
+#demo .sol-demo-sub { font: 500 28px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
 #demo .sol-demo-frame { margin-top: 24px; border: 1px solid #2a2e36; overflow: hidden; background: #000; }
 #demo .sol-demo-stage { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
 #demo .sol-demo-stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-#demo .sol-demo-rk { font: 600 20px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 84px 0 16px; }
+#demo .sol-demo-rk { font: 600 28px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 84px 0 16px; }
 #demo .sol-demo-watch { list-style: none; margin: 0; padding: 0; border-top: 1px solid #2a2e36; }
 #demo .sol-demo-watch li {
   display: grid;
@@ -548,11 +563,11 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   gap: 12px;
   padding: 18px 0;
   border-bottom: 1px solid #2a2e36;
-  font: 500 18px/1.35 Inter, system-ui, sans-serif;
+  font: 500 28px/1.35 Inter, system-ui, sans-serif;
   color: #e8e8e4;
 }
-#demo .sol-demo-watch span { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-green-d); }
-#demo .sol-demo-punch { margin-top: 28px; font: 600 22px/1.3 Inter, system-ui, sans-serif; color: #f5f5f2; }
+#demo .sol-demo-watch span { font: 600 22px/1 Inter, system-ui, sans-serif; color: var(--os-green-d); }
+#demo .sol-demo-punch { margin-top: 28px; font: 600 28px/1.3 Inter, system-ui, sans-serif; color: #f5f5f2; }
 #demo .sol-demo-punch em { font-style: normal; color: var(--os-green-d); font-weight: 700; }
 #demo .demo-lede { display: none !important; }
 
@@ -573,8 +588,8 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #model .bm2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #model .bm2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#model .bm2-h1 { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 84px 0 0; max-width: 960px; }
-#model .bm2-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; margin-top: 32px; }
+#model .bm2-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.06 Inter, system-ui, sans-serif; color: var(--os-ink); max-width: none; }
+#model .bm2-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; margin-top: 220px; flex: 1; min-height: 0; }
 #model .bm2-card {
   border: 2px solid var(--os-rule);
   padding: 28px 24px 24px;
@@ -583,21 +598,21 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   background: var(--os-paper);
 }
 #model .bm2-card--solo { border-color: var(--os-green); border-width: 2px; }
-#model .bm2-tier { font: 600 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; }
+#model .bm2-tier { font: 600 28px/1.35 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; }
 #model .bm2-name--solo { color: var(--os-green); font-weight: 700; }
 #model .bm2-audience { font-weight: 500; color: var(--os-body); }
-#model .bm2-price { font: 800 44px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 14px 0 0; }
-#model .bm2-price span { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin-left: 4px; }
+#model .bm2-price { font: 800 64px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 14px 0 0; }
+#model .bm2-price span { font: 600 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin-left: 4px; }
 #model .bm2-feats { list-style: none; margin: 16px 0 0; padding: 0; flex: 1; }
-#model .bm2-feats li { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-body); padding: 6px 0; }
-#model .bm2-foot { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--os-rule); font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-body); }
+#model .bm2-feats li { font: 500 32px/1.45 Inter, system-ui, sans-serif; color: var(--os-body); padding: 6px 0; }
+#model .bm2-foot { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--os-rule); font: 500 28px/1.45 Inter, system-ui, sans-serif; color: var(--os-body); }
 #model .bm2-foot em { font-style: normal; color: var(--os-green); font-weight: 700; }
 #model .bm2-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 32px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--os-rule); }
-#model .bm2-mv { font: 800 34px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; }
+#model .bm2-mv { font: 800 64px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; }
 #model .bm2-mv em { font-style: normal; color: var(--os-green); }
 #model .bm2-mv-suffix { font-size: 0.5em; font-weight: 600; color: var(--os-muted); margin-left: 4px; }
-#model .bm2-ms { font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 8px 0 0; }
-#model .bm2-note { margin-top: auto; padding-top: 24px; font: 400 17px/1.5 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#model .bm2-ms { font: 500 22px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 8px 0 0; }
+#model .bm2-note { margin-top: auto; padding-top: 24px; font: 400 22px/1.5 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #market .m10-wrap {
   position: relative;
@@ -607,11 +622,12 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   display: flex;
   flex-direction: column;
 }
-#market .m10-main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 420px); gap: 32px 40px; align-items: start; margin-top: 32px; }
+#market .m10-main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 420px); gap: 32px 40px; align-items: start; margin-top: 32px; min-height: 0; }
 #market .m10-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #market .m10-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#market .m10-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 84px 0 0; }
+#market .m10-h1 { position: absolute; top: 120px; left: 120px; right: 560px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; color: var(--os-ink); }
 #market .m10-rows { margin-top: 16px; }
+#market .m10-left { margin-top: 200px; }
 #market .m10-r {
   display: grid;
   grid-template-columns: 40px 1fr minmax(160px, 200px);
@@ -622,22 +638,22 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #market .m10-r:last-child { border-bottom: 1px solid var(--os-rule); }
 #market .m10-dot { width: 32px; height: 32px; margin-top: 4px; }
-#market .m10-k { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
-#market .m10-w { font: 600 22px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
-#market .m10-s { font: 400 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 6px 0 0; }
-#market .m10-v { font: 700 36px/1 Inter, system-ui, sans-serif; text-align: right; color: var(--os-ink); margin: 0; }
+#market .m10-k { font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#market .m10-w { font: 600 28px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#market .m10-s { font: 400 28px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 6px 0 0; }
+#market .m10-v { font: 700 64px/1 Inter, system-ui, sans-serif; text-align: right; color: var(--os-ink); margin: 0; }
 #market .m10-r--som .m10-v, #market .m10-r--som .m10-k { color: var(--os-green); }
-#market .m10-fact { font: 600 20px/1.3 Inter, system-ui, sans-serif; color: var(--os-ink); margin-top: 24px; max-width: 900px; }
+#market .m10-fact { font: 600 28px/1.3 Inter, system-ui, sans-serif; color: var(--os-ink); margin-top: 24px; max-width: 900px; }
 #market .m10-fact b { color: var(--os-green); }
 #market .m10-circles { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1; margin-top: 84px; justify-self: end; }
 #market .m10-c { position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10%; box-sizing: border-box; border-radius: 50%; }
-#market .m10-c span { font: 700 28px/1 Inter, system-ui, sans-serif; color: var(--os-ink); }
-#market .m10-c small { display: block; font: 500 18px/1 Inter, system-ui, sans-serif; margin-top: 6px; color: var(--os-body); }
+#market .m10-c span { font: 700 64px/1 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#market .m10-c small { display: block; font: 500 22px/1 Inter, system-ui, sans-serif; margin-top: 6px; color: var(--os-body); }
 #market .m10-c1 { width: 100%; height: 100%; background: #D7EEE3; }
 #market .m10-c2 { width: 68%; height: 68%; background: #9FD9C4; }
 #market .m10-c3 { width: 36%; height: 36%; background: var(--os-green); padding-bottom: 18%; }
 #market .m10-c3 span, #market .m10-c3 small { color: #fff; }
-#market .m10-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+#market .m10-src { margin-top: auto; padding-top: 20px; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
 
 #compete .c11-wrap {
   position: relative;
@@ -649,23 +665,23 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #compete .c11-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #compete .c11-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#compete .c11-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
-#compete .c11-table-wrap { flex: 1; margin-top: 28px; overflow: auto; min-height: 0; }
+#compete .c11-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
+#compete .c11-table-wrap { flex: 1; margin-top: 200px; overflow: auto; min-height: 0; }
 #compete .c11-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-#compete .c11-table th { font: 600 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-body); text-align: center; padding: 0 6px 12px; vertical-align: bottom; }
+#compete .c11-table th { font: 600 22px/1.2 Inter, system-ui, sans-serif; color: var(--os-body); text-align: center; padding: 0 6px 12px; vertical-align: bottom; }
 #compete .c11-table td { border-top: 1px solid var(--os-rule); padding: 10px 6px; text-align: center; vertical-align: middle; }
 #compete .c11-table tr:last-child td { border-bottom: 1px solid var(--os-rule); }
-#compete .c11-name { font: 600 18px/1.15 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; text-align: left; }
-#compete .c11-name small { display: block; font: 400 18px/1.25 Inter, system-ui, sans-serif; color: var(--os-muted); margin-top: 4px; }
+#compete .c11-name { font: 600 28px/1.15 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; text-align: left; }
+#compete .c11-name small { display: block; font: 400 22px/1.25 Inter, system-ui, sans-serif; color: var(--os-muted); margin-top: 4px; }
 #compete tr.c11-us td { background: rgba(15, 157, 110, 0.07); }
 #compete tr.c11-us td:first-child { border-left: 3px solid var(--os-green); }
-#compete .c11-ck { display: inline-grid; place-content: center; width: 40px; height: 40px; background: var(--os-grey-bar); }
+#compete .c11-ck { display: inline-grid; place-content: center; width: 40px; height: 40px; background: var(--os-grey-bar); border-radius: 50%; }
 #compete tr.c11-us .c11-ck { background: var(--os-green); }
-#compete .c11-ck svg { width: 20px; height: 20px; display: block; }
+#compete .c11-ck svg { width: 22px; height: 22px; display: block; }
 #compete .c11-ck svg path { stroke: #111111; }
 #compete tr.c11-us .c11-ck svg path { stroke: #fff; }
 #compete .c11-no { width: 20px; height: 3px; background: var(--os-rule); display: inline-block; vertical-align: middle; }
-#compete .c11-src { margin-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#compete .c11-src { margin-top: 20px; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #gtm .c12-wrap {
   position: relative;
@@ -677,8 +693,8 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #gtm .c12-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #gtm .c12-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#gtm .c12-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
-#gtm .c12-timeline { flex: 1; margin-top: 32px; min-height: 0; }
+#gtm .c12-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
+#gtm .c12-timeline { flex: 1; margin-top: 200px; min-height: 0; }
 #gtm .c12-steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -708,6 +724,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   width: 52px;
   height: 52px;
   border: 2px solid var(--os-muted);
+  border-radius: 50%;
   display: grid;
   place-content: center;
   background: var(--os-paper);
@@ -715,16 +732,16 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #gtm .c12-s.c12-done .c12-dot { background: var(--os-green); border-color: var(--os-green); }
 #gtm .c12-s.c12-goal .c12-dot { border-color: var(--os-green); }
-#gtm .c12-when { font: 500 18px/1.15 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
+#gtm .c12-when { font: 500 28px/1.15 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
 #gtm .c12-s.c12-done .c12-when { color: var(--os-green); }
-#gtm .c12-what { font: 600 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 10px 0 0; }
-#gtm .c12-num { font: 700 40px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 10px 0 0; }
-#gtm .c12-num small { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#gtm .c12-what { font: 600 28px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 10px 0 0; }
+#gtm .c12-num { font: 700 64px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 10px 0 0; }
+#gtm .c12-num small { font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #gtm .c12-s.c12-done .c12-num, #gtm .c12-s.c12-goal .c12-num { color: var(--os-green); }
 #gtm .c12-bar { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--os-rule); display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-#gtm .c12-bar-t { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
-#gtm .c12-bar-v { font: 700 24px/1.25 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
-#gtm .c12-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+#gtm .c12-bar-t { font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#gtm .c12-bar-v { font: 700 28px/1.25 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#gtm .c12-src { margin-top: auto; padding-top: 20px; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
 
 /* Finance */
 #finance .fin-wrap {
@@ -737,7 +754,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #finance .fin-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #finance .fin-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#finance .fin-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
+#finance .fin-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
 #finance .fin-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
@@ -747,10 +764,10 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   min-height: 0;
   align-items: stretch;
 }
-#finance .fin-chart-box { border: 1px solid var(--os-rule); padding: 20px 16px 16px; display: flex; flex-direction: column; min-height: 0; }
-#finance .fin-chart-title { font: 500 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0 0 12px; }
-#finance .fin-chart-svg { width: 100%; flex: 1; min-height: 300px; }
-#finance .fin-legend { display: flex; gap: 24px; margin-top: 10px; font: 500 17px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#finance .fin-chart-box { border: none; padding: 8px 0 0; display: flex; flex-direction: column; min-height: 0; }
+#finance .fin-chart-title { font: 500 28px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 200px 0 12px; }
+#finance .fin-chart-svg { width: 100%; flex: 1; min-height: 320px; overflow: visible; }
+#finance .fin-legend { display: flex; gap: 24px; margin-top: 10px; font: 500 22px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #finance .fin-leg-rev::before, #finance .fin-leg-cost::before {
   content: '';
   display: inline-block;
@@ -762,66 +779,68 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #finance .fin-leg-rev::before { background: var(--os-green); }
 #finance .fin-leg-cost::before { background: var(--os-grey-bar); }
 #finance .fin-side { display: flex; flex-direction: column; gap: 28px; justify-content: center; padding-left: 8px; }
-#finance .fin-side dt { font: 500 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
-#finance .fin-side dd { font: 700 40px/1.1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
-#finance .fin-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+#finance .fin-side dt { font: 500 22px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#finance .fin-side dd { font: 700 64px/1.1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#finance .fin-src { margin-top: auto; padding-top: 20px; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
 
 #team.inv-slide { position: relative; min-height: 1080px; }
 #team .t15-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #team .t15-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
 #team .t15-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
-#team .t15-founders { position: absolute; left: 120px; right: 120px; top: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+#team .t15-founders { position: absolute; left: 120px; right: 120px; top: 280px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 #team .t15-avatar {
-  width: 180px; height: 180px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
   display: grid; place-content: center;
   font: 700 48px/1 Inter, system-ui, sans-serif;
   color: var(--os-muted);
   background: var(--os-rule);
 }
-#team .t15-nm { font: 700 32px/1.1 Inter, system-ui, sans-serif; margin: 20px 0 0; }
-#team .t15-role { font: 600 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-green); margin: 8px 0 0; }
+#team .t15-nm { font: 700 36px/1.1 Inter, system-ui, sans-serif; margin: 20px 0 0; }
+#team .t15-role { font: 600 24px/1.2 Inter, system-ui, sans-serif; color: var(--os-green); margin: 8px 0 0; }
 #team .t15-pts { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--os-rule); }
-#team .t15-pts li { font: 400 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); padding: 10px 0; border-bottom: 1px solid var(--os-rule); }
-#team .t15-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#team .t15-pts li { font: 400 24px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); padding: 10px 0; border-bottom: 1px solid var(--os-rule); }
+#team .t15-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 22px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #advisors.inv-slide { position: relative; min-height: 1080px; }
 #advisors .d16-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #advisors .d16-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
 #advisors .d16-h1 { position: absolute; top: 120px; left: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
-#advisors .d16-grid { position: absolute; left: 120px; right: 120px; top: 240px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+#advisors .d16-grid { position: absolute; left: 120px; right: 120px; top: 280px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
 #advisors .d16-pic {
-  width: 260px; height: 260px; max-width: 100%; margin: 0 auto;
+  width: 200px; height: 200px; max-width: 100%; margin: 0 auto;
   position: relative; overflow: hidden;
+  border-radius: 50%;
   display: grid; place-content: center;
   background: var(--os-rule);
 }
 #advisors .d16-init { font: 700 64px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #advisors .d16-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-#advisors .d16-n2 { font: 700 28px/1.1 Inter, system-ui, sans-serif; margin: 28px 0 0; }
-#advisors .d16-d2 { font: 400 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-body); margin: 10px 0 0; }
-#advisors .d16-orgs { position: absolute; left: 120px; right: 120px; top: 780px; border-top: 1px solid var(--os-rule); padding-top: 22px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
-#advisors .d16-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#advisors .d16-n2 { font: 700 32px/1.1 Inter, system-ui, sans-serif; margin: 28px 0 0; }
+#advisors .d16-d2 { font: 400 24px/1.4 Inter, system-ui, sans-serif; color: var(--os-body); margin: 10px 0 0; }
+#advisors .d16-orgs { position: absolute; left: 120px; right: 120px; top: 780px; border-top: 1px solid var(--os-rule); padding-top: 22px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font: 500 24px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#advisors .d16-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 22px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #ask.slide { position: relative; min-height: 1080px; font-family: Inter, system-ui, sans-serif; }
 #ask .a14-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #ask .a14-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
 #ask .a14-h1 { position: absolute; top: 120px; left: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
-#ask .a14-big { position: absolute; top: 205px; left: 120px; max-width: 880px; font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
+#ask .a14-big { position: absolute; top: 205px; left: 120px; max-width: 880px; font: 500 28px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
 #ask .a14-stack { position: absolute; top: 280px; left: 120px; width: 800px; height: 6px; display: flex; gap: 2px; }
 #ask .a14-list { position: absolute; top: 310px; left: 120px; width: 800px; }
 #ask .a14-r { display: grid; grid-template-columns: 14px 1fr auto; gap: 16px; align-items: center; border-top: 1px solid var(--os-rule); padding: 16px 0; }
 #ask .a14-n { font: 600 22px/1.1 Inter, system-ui, sans-serif; margin: 0; color: var(--os-ink); }
-#ask .a14-d { font: 400 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 4px 0 0; }
+#ask .a14-d { font: 400 22px/1.2 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 4px 0 0; }
 #ask .a14-amt { font: 700 32px/1 Inter, system-ui, sans-serif; margin: 0; color: var(--os-ink); }
 #ask .a14-tot { display: flex; justify-content: space-between; border-top: 2px solid var(--os-ink); padding-top: 14px; margin-top: 4px; font: 700 22px/1 Inter, system-ui, sans-serif; }
 #ask .a14-panel { position: absolute; top: 280px; left: 1000px; right: 120px; }
-#ask .a14-ph { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
+#ask .a14-ph { font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
 #ask .a14-panel > div { border-top: 1px solid var(--os-rule); padding: 18px 0; }
-#ask .a14-pt { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
-#ask .a14-pv { font: 700 44px/1 Inter, system-ui, sans-serif; margin: 8px 0 0; color: var(--os-ink); }
+#ask .a14-pt { font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#ask .a14-pv { font: 700 64px/1 Inter, system-ui, sans-serif; margin: 8px 0 0; color: var(--os-ink); }
 #ask .a14-pv.a14-grn { color: var(--os-green); }
-#ask .a14-ps { font: 400 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 6px 0 0; }
-#ask .a14-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#ask .a14-ps { font: 400 28px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 6px 0 0; }
+#ask .a14-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 22px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
 </style>
 
 </head>
@@ -1205,38 +1224,55 @@ html, body { font-family: Inter, system-ui, sans-serif; }
       <div class="fin-grid" data-anim="rise" data-delay=".14">
         <div class="fin-chart-box">
           <p class="fin-chart-title">Revenue vs. cost (annual)</p>
-          <svg class="fin-chart-svg" viewBox="0 0 720 320" role="img" aria-label="Revenue and cost by year 2027 through 2031">
-            <line x1="48" y1="280" x2="680" y2="280" stroke="#E6E4DE" stroke-width="1"/>
-            <text x="48" y="44" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$800K</text>
-            <text x="48" y="104" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$600K</text>
-            <text x="48" y="164" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$400K</text>
-            <text x="48" y="224" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$200K</text>
-            <text x="48" y="276" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$0</text>
-            <!-- 2027 -->
-            <rect x="72" y="267" width="28" height="13" fill="#0F9D6E"/>
-            <rect x="104" y="254" width="28" height="26" fill="#C5C3BC"/>
+          <svg class="fin-chart-svg" viewBox="0 0 760 360" role="img" aria-label="Revenue and cost by year 2027 through 2031" overflow="visible">
+            <line x1="56" y1="280" x2="704" y2="280" stroke="#E6E4DE" stroke-width="1"/>
+            <text x="40" y="48" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$800K</text>
+            <text x="40" y="108" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$600K</text>
+            <text x="40" y="168" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$400K</text>
+            <text x="40" y="228" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$200K</text>
+            <text x="40" y="283" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$0</text>
+            <!-- Bars: shared scale $0–$800K, plot height 240px, baseline y=280 -->
+            <!-- 2027 rev $52K cost $86K -->
+            <rect x="104" y="264.4" width="28" height="15.6" fill="#0F9D6E"/>
+            <rect x="136" y="254.2" width="28" height="25.8" fill="#C5C3BC"/>
+            <text x="118" y="260" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$52K</text>
+            <text x="150" y="248" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$86K</text>
             <!-- 2028 -->
-            <rect x="176" y="228" width="28" height="52" fill="#0F9D6E"/>
-            <rect x="208" y="207" width="28" height="73" fill="#C5C3BC"/>
+            <rect x="224" y="224.2" width="28" height="55.8" fill="#0F9D6E"/>
+            <rect x="256" y="221.8" width="28" height="58.2" fill="#C5C3BC"/>
+            <text x="238" y="220" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$186K</text>
+            <text x="270" y="216" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$194K</text>
             <!-- 2029 -->
-            <rect x="280" y="168" width="28" height="112" fill="#0F9D6E"/>
-            <rect x="312" y="137" width="28" height="143" fill="#C5C3BC"/>
+            <rect x="344" y="168.4" width="28" height="111.6" fill="#0F9D6E"/>
+            <rect x="376" y="185.5" width="28" height="94.5" fill="#C5C3BC"/>
+            <text x="358" y="164" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$372K</text>
+            <text x="390" y="180" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$315K</text>
             <!-- 2030 -->
-            <rect x="384" y="112" width="28" height="168" fill="#0F9D6E"/>
-            <rect x="416" y="76" width="28" height="204" fill="#C5C3BC"/>
+            <rect x="464" y="105.4" width="28" height="174.6" fill="#0F9D6E"/>
+            <rect x="496" y="146.2" width="28" height="133.8" fill="#C5C3BC"/>
+            <text x="478" y="100" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$582K</text>
+            <text x="510" y="140" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$446K</text>
             <!-- 2031 -->
-            <rect x="488" y="76" width="28" height="204" fill="#0F9D6E"/>
-            <rect x="520" y="34" width="28" height="246" fill="#C5C3BC"/>
-            <text x="100" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2027</text>
-            <text x="204" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2028</text>
-            <text x="308" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2029</text>
-            <text x="412" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2030</text>
-            <text x="516" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2031</text>
-            <text x="100" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$34K · 55 shops</text>
-            <text x="204" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$8K · 140</text>
-            <text x="308" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$57K · 250</text>
-            <text x="412" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$136K · 360</text>
-            <text x="516" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$212K · 460</text>
+            <rect x="584" y="45.4" width="28" height="234.6" fill="#0F9D6E"/>
+            <rect x="616" y="108.7" width="28" height="171.3" fill="#C5C3BC"/>
+            <text x="598" y="40" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$782K</text>
+            <text x="630" y="104" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$571K</text>
+            <!-- Column labels -->
+            <text x="136" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2027</text>
+            <text x="136" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">55 shops</text>
+            <text x="136" y="348" font-size="16" fill="#D93A2B" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$34K</text>
+            <text x="256" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2028</text>
+            <text x="256" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">140 shops</text>
+            <text x="256" y="348" font-size="16" fill="#D93A2B" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$8K</text>
+            <text x="376" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2029</text>
+            <text x="376" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">250 shops</text>
+            <text x="376" y="348" font-size="16" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$57K</text>
+            <text x="496" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2030</text>
+            <text x="496" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">360 shops</text>
+            <text x="496" y="348" font-size="16" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$136K</text>
+            <text x="616" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2031</text>
+            <text x="616" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">460 shops</text>
+            <text x="616" y="348" font-size="16" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$212K</text>
           </svg>
           <div class="fin-legend"><span class="fin-leg-rev">Revenue</span><span class="fin-leg-cost">Cost</span></div>
         </div>
