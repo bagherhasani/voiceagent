@@ -205,6 +205,9 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 </style>
 <style id="open-slot-theme">
 /* Open Slot deck theme — Inter only; do not override .dk-* */
+:root {
+  --dk-ui-accent: #0F9D6E;
+}
 .deck {
   --os-paper: #FAFAF7;
   --os-dark: #0E1116;
@@ -222,7 +225,7 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
   --dk-number-font: Inter, system-ui, sans-serif;
   --dk-mark: rgba(15, 157, 110, 0.35);
   --dk-strike: var(--os-red);
-  --dk-ui-accent: var(--os-green);
+  --dk-ui-accent: #0F9D6E;
   --dk-ov-accent: var(--os-green);
 }
 
@@ -342,7 +345,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
 #jack .pb-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   min-height: 1080px;
   align-items: stretch;
 }
@@ -350,6 +353,15 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   position: relative;
   background: #2d2e32;
   min-height: 1080px;
+  overflow: hidden;
+}
+#jack .pb-split-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(15, 17, 22, 0) 0%, rgba(15, 17, 22, 0.22) 55%, rgba(250, 250, 247, 0.52) 100%);
 }
 #jack .pb-split-photo img {
   position: absolute;
@@ -357,43 +369,121 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 42% 38%;
   display: block;
 }
 #jack .pb-split-photo .ph-fill { display: none !important; }
+#jack .pb-split-photo.is-missing .ph-fill {
+  display: flex !important;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  box-sizing: border-box;
+  font: 500 18px/1.5 Inter, system-ui, sans-serif;
+  color: rgba(245, 245, 242, 0.75);
+  background: #2d2e32;
+}
 #jack .pb-split-copy {
   position: relative;
   box-sizing: border-box;
-  padding: 120px 120px 100px;
+  padding: 88px 96px 72px 92px;
   min-height: 1080px;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid var(--os-rule);
+  background: linear-gradient(165deg, #fff 0%, var(--os-paper) 48%, #f3f2ee 100%);
 }
-#jack .pb-split-k { position: absolute; top: 64px; left: 0; right: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-split-k {
+  position: static;
+  margin: 0 0 18px;
+  font: 500 22px/1 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+  letter-spacing: 0.01em;
+}
 #jack .pb-split-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#jack .pb-split-head { font: 700 68px/1.08 Inter, system-ui, sans-serif; letter-spacing: -0.035em; color: var(--os-ink); margin: 84px 0 0; max-width: 520px; }
-#jack .pb-split-head + .pb-split-head { margin-top: 4px; }
-#jack .pb-miss {
-  margin-top: 36px;
-  border: 1px solid var(--os-rule);
-  padding: 18px 20px;
-  max-width: 480px;
+#jack .pb-split-head {
+  font: 700 64px/1.05 Inter, system-ui, sans-serif;
+  letter-spacing: -0.038em;
+  color: var(--os-ink);
+  margin: 0;
+  max-width: 540px;
 }
-#jack .pb-miss-icon { width: 40px; height: 40px; display: grid; place-items: center; background: var(--os-green); flex-shrink: 0; }
+#jack .pb-split-head + .pb-split-head { margin-top: 2px; }
+#jack .pb-miss {
+  margin-top: 32px;
+  max-width: 500px;
+  border: 1px solid rgba(230, 228, 222, 0.95);
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+#jack .pb-miss-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+#jack .pb-miss-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--os-green-d), var(--os-green));
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(15, 157, 110, 0.35);
+}
 #jack .pb-miss-icon svg { width: 22px; height: 22px; color: #fff; }
-#jack .pb-miss-title { font: 700 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); }
-#jack .pb-miss-time { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
-#jack .pb-miss-sub { font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0 52px; }
-#jack .pb-lines { margin-top: 32px; max-width: 520px; }
+#jack .pb-miss-body { flex: 1; min-width: 0; }
+#jack .pb-miss-line1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#jack .pb-miss-title { font: 700 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#jack .pb-miss-time {
+  font: 600 15px/1 Inter, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--os-muted);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(138, 138, 133, 0.12);
+}
+#jack .pb-miss-sub { font: 500 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0; }
+#jack .pb-lines {
+  margin-top: 28px;
+  max-width: 520px;
+  border: 1px solid var(--os-rule);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.65);
+}
 #jack .pb-lines p {
   font: 500 20px/1.45 Inter, system-ui, sans-serif;
   color: var(--os-ink);
   margin: 0;
-  padding: 18px 0;
+  padding: 17px 22px;
   border-bottom: 1px solid var(--os-rule);
 }
-#jack .pb-lines p:last-child { border-bottom: none; }
+#jack .pb-lines p:last-child {
+  border-bottom: none;
+  background: rgba(217, 58, 43, 0.06);
+  box-shadow: inset 3px 0 0 var(--os-red);
+}
 #jack .pb-lines p strong { color: var(--os-red); font-weight: 700; }
-#jack .pb-disclaimer { margin-top: auto; padding-top: 28px; font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-disclaimer {
+  margin-top: auto;
+  padding-top: 32px;
+  font: 500 16px/1.45 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+  max-width: 420px;
+}
 
 #scale .pb-scale2 {
   position: relative;
@@ -431,7 +521,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   font-variant-numeric: tabular-nums;
   margin: 0;
 }
-#scale .pb-scale2-col .n27 { color: var(--os-green); }
+#scale .pb-scale2-col .n27 { color: #111111; }
 #scale .pb-scale2-col .n82 { color: var(--os-red); }
 #scale .pb-scale2-col .txt { font: 500 20px/1.42 Inter, system-ui, sans-serif; color: var(--os-body); margin: 20px 0 0; max-width: 380px; }
 #scale .pb-src { margin-top: auto; padding-top: 24px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
@@ -659,7 +749,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #compete .c11-name small { display: block; font: 400 18px/1.25 Inter, system-ui, sans-serif; color: var(--os-muted); margin-top: 4px; }
 #compete tr.c11-us td { background: rgba(15, 157, 110, 0.07); }
 #compete tr.c11-us td:first-child { border-left: 3px solid var(--os-green); }
-#compete .c11-ck { display: inline-grid; place-content: center; width: 40px; height: 40px; background: var(--os-grey-bar); }
+#compete .c11-ck { display: inline-grid; place-content: center; width: 40px; height: 40px; background: var(--os-grey-bar); border-radius: 50%; }
 #compete tr.c11-us .c11-ck { background: var(--os-green); }
 #compete .c11-ck svg { width: 20px; height: 20px; display: block; }
 #compete .c11-ck svg path { stroke: #111111; }
@@ -708,6 +798,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   width: 52px;
   height: 52px;
   border: 2px solid var(--os-muted);
+  border-radius: 50%;
   display: grid;
   place-content: center;
   background: var(--os-paper);
@@ -737,7 +828,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #finance .fin-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #finance .fin-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#finance .fin-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
+#finance .fin-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
 #finance .fin-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
@@ -747,10 +838,10 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   min-height: 0;
   align-items: stretch;
 }
-#finance .fin-chart-box { border: 1px solid var(--os-rule); padding: 20px 16px 16px; display: flex; flex-direction: column; min-height: 0; }
-#finance .fin-chart-title { font: 500 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0 0 12px; }
-#finance .fin-chart-svg { width: 100%; flex: 1; min-height: 300px; }
-#finance .fin-legend { display: flex; gap: 24px; margin-top: 10px; font: 500 17px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#finance .fin-chart-box { border: none; padding: 8px 0 0; display: flex; flex-direction: column; min-height: 0; }
+#finance .fin-chart-title { font: 500 28px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 200px 0 12px; }
+#finance .fin-chart-svg { width: 100%; flex: 1; min-height: 320px; overflow: visible; }
+#finance .fin-legend { display: flex; gap: 24px; margin-top: 10px; font: 500 22px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #finance .fin-leg-rev::before, #finance .fin-leg-cost::before {
   content: '';
   display: inline-block;
@@ -762,9 +853,9 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #finance .fin-leg-rev::before { background: var(--os-green); }
 #finance .fin-leg-cost::before { background: var(--os-grey-bar); }
 #finance .fin-side { display: flex; flex-direction: column; gap: 28px; justify-content: center; padding-left: 8px; }
-#finance .fin-side dt { font: 500 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
-#finance .fin-side dd { font: 700 40px/1.1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
-#finance .fin-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+#finance .fin-side dt { font: 500 22px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#finance .fin-side dd { font: 700 64px/1.1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#finance .fin-src { margin-top: auto; padding-top: 20px; font: 400 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
 
 #team.inv-slide { position: relative; min-height: 1080px; }
 #team .t15-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
@@ -772,6 +863,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #team .t15-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
 #team .t15-founders { position: absolute; left: 120px; right: 120px; top: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 #team .t15-avatar {
+  border-radius: 50%;
   width: 180px; height: 180px;
   display: grid; place-content: center;
   font: 700 48px/1 Inter, system-ui, sans-serif;
@@ -790,6 +882,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #advisors .d16-h1 { position: absolute; top: 120px; left: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
 #advisors .d16-grid { position: absolute; left: 120px; right: 120px; top: 240px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
 #advisors .d16-pic {
+  border-radius: 50%;
   width: 260px; height: 260px; max-width: 100%; margin: 0 auto;
   position: relative; overflow: hidden;
   display: grid; place-content: center;
@@ -856,7 +949,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     <div class="pb-wrap">
       <div class="pb-split">
         <div class="pb-split-photo" data-anim="fade" data-delay=".06">
-          <img src="assets/jack-ac.jpg" alt="" width="960" height="1080" loading="lazy" decoding="async" onload="this.nextElementSibling &amp;&amp; (this.nextElementSibling.style.display='none')" onerror="this.remove()">
+          <img src="./assets/jackac-repair.jpg" alt="HVAC technician servicing a rooftop unit at sunset" width="540" height="360" loading="lazy" decoding="async" onerror="this.closest('.pb-split-photo')?.classList.add('is-missing');">
           <div class="ph-fill">Real photo of a Tulsa HVAC tech on a rooftop unit<br><span>full-bleed · no rounded corners · no overlay</span></div>
         </div>
         <div class="pb-split-copy">
@@ -864,16 +957,14 @@ html, body { font-family: Inter, system-ui, sans-serif; }
           <h2 class="pb-split-head" data-anim="mask" data-delay=".1">Jack's on a roof.</h2>
           <h2 class="pb-split-head" data-anim="mask" data-delay=".14">His phone is ringing.</h2>
           <div class="pb-miss" data-anim="rise" data-delay=".22">
-            <div class="pb-miss-top">
-              <div style="display:flex;align-items:flex-start;gap:0;flex:1;">
-                <div class="pb-miss-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg></div>
-                <div>
-                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;">
-                    <span class="pb-miss-title">Missed call</span>
-                    <span class="pb-miss-time">11:04 AM</span>
-                  </div>
-                  <p class="pb-miss-sub">(918) 555-0142 · No voicemail</p>
+            <div class="pb-miss-row">
+              <div class="pb-miss-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg></div>
+              <div class="pb-miss-body">
+                <div class="pb-miss-line1">
+                  <span class="pb-miss-title">Missed call</span>
+                  <span class="pb-miss-time">11:04 AM</span>
                 </div>
+                <p class="pb-miss-sub">(918) 555-0142 · No voicemail</p>
               </div>
             </div>
           </div>
@@ -921,7 +1012,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
       <hr class="pb-impact2-hr" data-anim="fade" data-delay=".36">
       <div class="pb-impact2-bot" data-anim="rise" data-delay=".44">
         <p class="pb-impact2-loss" data-anim="count" data-delay=".5">$189,068</p>
-        <p class="pb-impact2-meta">lost per contractor, per year,<br>across 130,000 home-service calls.</p>
+        <p class="pb-impact2-meta">lost per contractor, per year.</p>
       </div>
       <p class="pb-src" data-anim="fade" data-delay=".85">Sources: Angi, average HVAC repair, 2025 · NextPhone analysis of 130,175 calls from 45 contractors</p>
     </div>
@@ -1134,7 +1225,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
           </tbody>
         </table>
       </div>
-      <p class="c11-src" data-anim="fade" data-delay=".34">Rosie: booking requires a higher plan than $49; self-serve · Jobber: requires a Jobber plan, $29 + $0.79/conversation · Sameday: from $449/mo, best for $1M+ shops on ServiceTitan · Avoca: enterprise, est. $1,000–$3,500/mo, setup takes weeks · Sameday: calls live ~30 min into guided setup · Public pricing pages and reviews, Oct–Nov 2026</p>
+      <p class="c11-src" data-anim="fade" data-delay=".34">Rosie: booking requires a higher plan than $49; self-serve · Jobber: requires a Jobber plan, $29 + $0.79/conversation · Sameday: from $449/mo, best for $1M+ shops on ServiceTitan, ~30 min guided setup · Avoca: enterprise, est. $1,000–$3,500/mo, setup takes weeks · Public pricing pages and reviews, Oct–Nov 2026</p>
     </div>
     <aside class="notes"><p><strong>15 seconds:</strong> Avoca and Sameday serve big companies. Jobber only works if you switch software. Rosie makes you set it up yourself, and its cheap plan doesn't book jobs. Open Slot is built for the small shop: it books jobs, keeps your number, costs $129, and we set it up with you in an hour.</p><p><strong>Before pitch day:</strong> Start Twilio texting registration for Open Slot this week (can take up to 5 business days). Build a setup template in Vapi so the 1-hour promise holds.</p></aside>
   </section>
@@ -1156,7 +1247,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
             <div class="c12-dot"></div>
             <p class="c12-when">Jan–Mar 2027</p>
             <p class="c12-what">Tulsa pilots</p>
-            <p class="c12-num">10<small>shops</small></p>
+            <p class="c12-num">10<small>free pilots</small></p>
           </div>
           <div class="c12-s" data-anim="rise" data-delay=".2">
             <div class="c12-dot"></div>
@@ -1169,6 +1260,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
             <p class="c12-when">Jul–Sep 2027</p>
             <p class="c12-what">Oklahoma City</p>
             <p class="c12-num">40<small>paying</small></p>
+            <p class="c12-when">only after 25 paying in Tulsa</p>
           </div>
           <div class="c12-s c12-goal" data-anim="rise" data-delay=".28">
             <div class="c12-dot"></div>
@@ -1181,7 +1273,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
       <div class="c12-bar" data-anim="fade" data-delay=".34">
         <div>
           <p class="c12-bar-t">How</p>
-          <p class="c12-bar-v">Door-to-door + referrals</p>
+          <p class="c12-bar-v">Door-to-door · supply houses · referrals</p>
         </div>
         <div>
           <p class="c12-bar-t">Pace</p>
@@ -1196,7 +1288,6 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     </div>
     <aside class="notes">
       <p><strong>Say out loud:</strong> We visit 15 shops a week, door to door, with a 14-day trial. About 30% of trials convert, so it costs us roughly $83 to win a shop.</p>
-      <p><strong>Next slide:</strong> Financial model — still need a decision: Year 5, 460 or 680 customers?</p>
     </aside>
   </section>
 
@@ -1208,38 +1299,55 @@ html, body { font-family: Inter, system-ui, sans-serif; }
       <div class="fin-grid" data-anim="rise" data-delay=".14">
         <div class="fin-chart-box">
           <p class="fin-chart-title">Revenue vs. cost (annual)</p>
-          <svg class="fin-chart-svg" viewBox="0 0 720 320" role="img" aria-label="Revenue and cost by year 2027 through 2031">
-            <line x1="48" y1="280" x2="680" y2="280" stroke="#E6E4DE" stroke-width="1"/>
-            <text x="48" y="44" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$800K</text>
-            <text x="48" y="104" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$600K</text>
-            <text x="48" y="164" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$400K</text>
-            <text x="48" y="224" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$200K</text>
-            <text x="48" y="276" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$0</text>
-            <!-- 2027 -->
-            <rect x="72" y="267" width="28" height="13" fill="#0F9D6E"/>
-            <rect x="104" y="254" width="28" height="26" fill="#C5C3BC"/>
+          <svg class="fin-chart-svg" viewBox="0 0 760 360" role="img" aria-label="Revenue and cost by year 2027 through 2031" overflow="visible">
+            <line x1="56" y1="280" x2="704" y2="280" stroke="#E6E4DE" stroke-width="1"/>
+            <text x="40" y="48" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$800K</text>
+            <text x="40" y="108" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$600K</text>
+            <text x="40" y="168" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$400K</text>
+            <text x="40" y="228" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$200K</text>
+            <text x="40" y="283" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$0</text>
+            <!-- Bars: shared scale $0–$800K, plot height 240px, baseline y=280 -->
+            <!-- 2027 rev $52K cost $86K -->
+            <rect x="104" y="264.4" width="28" height="15.6" fill="#0F9D6E"/>
+            <rect x="136" y="254.2" width="28" height="25.8" fill="#C5C3BC"/>
+            <text x="118" y="260" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$52K</text>
+            <text x="150" y="248" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$86K</text>
             <!-- 2028 -->
-            <rect x="176" y="228" width="28" height="52" fill="#0F9D6E"/>
-            <rect x="208" y="207" width="28" height="73" fill="#C5C3BC"/>
+            <rect x="224" y="224.2" width="28" height="55.8" fill="#0F9D6E"/>
+            <rect x="256" y="221.8" width="28" height="58.2" fill="#C5C3BC"/>
+            <text x="238" y="220" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$186K</text>
+            <text x="270" y="216" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$194K</text>
             <!-- 2029 -->
-            <rect x="280" y="168" width="28" height="112" fill="#0F9D6E"/>
-            <rect x="312" y="137" width="28" height="143" fill="#C5C3BC"/>
+            <rect x="344" y="168.4" width="28" height="111.6" fill="#0F9D6E"/>
+            <rect x="376" y="185.5" width="28" height="94.5" fill="#C5C3BC"/>
+            <text x="358" y="164" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$372K</text>
+            <text x="390" y="180" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$315K</text>
             <!-- 2030 -->
-            <rect x="384" y="112" width="28" height="168" fill="#0F9D6E"/>
-            <rect x="416" y="76" width="28" height="204" fill="#C5C3BC"/>
+            <rect x="464" y="105.4" width="28" height="174.6" fill="#0F9D6E"/>
+            <rect x="496" y="146.2" width="28" height="133.8" fill="#C5C3BC"/>
+            <text x="478" y="100" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$582K</text>
+            <text x="510" y="140" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$446K</text>
             <!-- 2031 -->
-            <rect x="488" y="76" width="28" height="204" fill="#0F9D6E"/>
-            <rect x="520" y="34" width="28" height="246" fill="#C5C3BC"/>
-            <text x="100" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2027</text>
-            <text x="204" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2028</text>
-            <text x="308" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2029</text>
-            <text x="412" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2030</text>
-            <text x="516" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2031</text>
-            <text x="100" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$34K · 55 shops</text>
-            <text x="204" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$8K · 140</text>
-            <text x="308" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$57K · 250</text>
-            <text x="412" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$136K · 360</text>
-            <text x="516" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$212K · 460</text>
+            <rect x="584" y="45.4" width="28" height="234.6" fill="#0F9D6E"/>
+            <rect x="616" y="108.7" width="28" height="171.3" fill="#C5C3BC"/>
+            <text x="598" y="40" font-size="13" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$782K</text>
+            <text x="630" y="104" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">$571K</text>
+            <!-- Column labels -->
+            <text x="136" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2027</text>
+            <text x="136" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">55 shops</text>
+            <text x="136" y="348" font-size="16" fill="#D93A2B" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$34K</text>
+            <text x="256" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2028</text>
+            <text x="256" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">140 shops</text>
+            <text x="256" y="348" font-size="16" fill="#D93A2B" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$8K</text>
+            <text x="376" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2029</text>
+            <text x="376" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">250 shops</text>
+            <text x="376" y="348" font-size="16" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$57K</text>
+            <text x="496" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2030</text>
+            <text x="496" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">360 shops</text>
+            <text x="496" y="348" font-size="16" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$136K</text>
+            <text x="616" y="304" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2031</text>
+            <text x="616" y="326" font-size="16" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">460 shops</text>
+            <text x="616" y="348" font-size="16" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$212K</text>
           </svg>
           <div class="fin-legend"><span class="fin-leg-rev">Revenue</span><span class="fin-leg-cost">Cost</span></div>
         </div>
@@ -1249,7 +1357,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
           <div><dt>Cash needed</dt><dd>$120K</dd></div>
         </dl>
       </div>
-      <p class="fin-src" data-anim="fade" data-delay=".32">Illustrative model · revenue and costs as modeled for 2027–2031</p>
+      <p class="fin-src" data-anim="fade" data-delay=".32">Projection, not results · Revenue = avg. shops × $1,908/yr · 3% of shops cancel per month · Costs = 49% cost of service + founder pay + tools + $25 per trial · No hires: founders sell</p>
     </div>
     <aside class="notes"><p>Walk bars left to right: revenue (green) vs cost (grey), profit and shop count under each year. Right column: margin, break-even, raise.</p></aside>
   </section>
@@ -1369,8 +1477,8 @@ html, body { font-family: Inter, system-ui, sans-serif; }
       </div>
       <div>
         <p class="a14-pt">Plan: 460 shops by 2031</p>
-        <p class="a14-pv">2.4×</p>
-        <p class="a14-ps">Your 12% ≈ $290K</p>
+        <p class="a14-pv">2.9×</p>
+        <p class="a14-ps">Your 12% ≈ $350K</p>
       </div>
       <div>
         <p class="a14-pt">At 1,600 shops</p>
@@ -1379,7 +1487,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
       </div>
     </div>
     <p class="a14-src" data-anim="fade" data-delay=".32">Projection, not results · 2031 value = $878K ARR × 3.3 (median for private software companies under $5M ARR, Aventis Advisors 2026) = ~$2.9M · 10× case: 1,600 shops × $1,908 = $3.0M ARR × 3.3 = ~$10M · Half-speed case: half as many new shops in 2027–28, lowest cash −$115K · Post-money $1M</p>
-    <aside class="notes"><p>$120K for 12% · post-money $1M. Walk the four budget rows; buffer if half speed. Right column: path to profit 2029, base exit math (460 shops), upside (1,600). Source line has multiples and caveats. If asked, contrast old $150K deck — this is the current ask.</p></aside>
+    <aside class="notes"><p>$120K for 12% · post-money $1M. Walk the four budget rows; buffer if half speed. Right column: path to profit 2029, base exit math (460 shops), upside (1,600). Source line has multiples and caveats.</p></aside>
   </section>
 
 </div>
@@ -3449,7 +3557,8 @@ Deck.slide('demo', { setup(el) {
   if (!v || v._os) return; v._os = 1;
   v.addEventListener('ended', () => { try { Deck.next(); } catch (e) {} });
 } });
-Deck.slide('ask', { active: 4.2, setup: armHandset, frame: (el, st) => paintHandset(el, st, 'book') });
+/* #ask is investment layout only — old handset hook expected .g-hero/.g-wave; omit hook so slide renders. */
+Deck.slide('ask', {});
 
 function phoneSVG(build) {
   const d = delay => build ? ` data-anim="draw" data-delay="${delay}"` : '';
