@@ -233,6 +233,25 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
 .slide { box-sizing: border-box; }
 
+/* Full-slide story tints (subtle) — problem warm · solution green wash · keep typography unchanged */
+#jack.prob-light.slide--cue-problem,
+#scale.prob-light.slide--cue-problem,
+#impact.prob-light.slide--cue-problem {
+  background:
+    radial-gradient(120% 95% at 92% 4%, rgba(217, 58, 43, 0.26) 0%, transparent 58%),
+    linear-gradient(185deg, rgba(217, 58, 43, 0.14) 0%, rgba(217, 58, 43, 0.04) 38%, transparent 72%),
+    linear-gradient(175deg, #fff5f3 0%, #fde8e4 42%, var(--os-paper) 100%);
+}
+/* Solution chunk — light + clearly green (title, phone, demo) */
+#title.slide.slide--sol-light,
+#phone.sol-reveal-slide.slide--cue-solution.slide--sol-light,
+#demo.sol-slide.slide--sol-light.slide--cue-solution {
+  background:
+    radial-gradient(115% 85% at 50% -10%, rgba(43, 196, 138, 0.28) 0%, transparent 60%),
+    linear-gradient(170deg, rgba(15, 157, 110, 0.14) 0%, rgba(43, 196, 138, 0.04) 42%, transparent 68%),
+    linear-gradient(175deg, #f4fbf7 0%, #e8f5ef 38%, var(--os-paper) 100%);
+}
+
 .os-k {
   position: absolute;
   top: 64px;
@@ -333,14 +352,34 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #title .t1-byline {
   font: 500 20px/1.45 Inter, system-ui, sans-serif;
   color: var(--os-muted);
-  margin: 20px 0 0;
+  margin: 0;
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  bottom: 48px;
+  text-align: center;
 }
 
-/* Light problem */
+/* Title — light; full background comes from solution-chunk gradient block above */
+#title.slide.slide--sol-light {
+  color: var(--os-ink);
+}
+#title.slide.slide--sol-light .t1,
+#title.slide.slide--sol-light .t1-stage {
+  background: transparent;
+}
+#title.slide.slide--sol-light .t1-brand { color: var(--os-ink); }
+#title.slide.slide--sol-light .t1-head { color: var(--os-ink); }
+
+/* Light problem (base — cue-problem overrides with layered tint above when both classes) */
 #jack.prob-light, #scale.prob-light, #impact.prob-light {
-  background: var(--os-paper);
   color: var(--os-ink);
   font-family: Inter, system-ui, sans-serif;
+}
+#jack.prob-light:not(.slide--cue-problem),
+#scale.prob-light:not(.slide--cue-problem),
+#impact.prob-light:not(.slide--cue-problem) {
+  background: var(--os-paper);
 }
 
 #jack .pb-split {
@@ -362,6 +401,10 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   pointer-events: none;
   z-index: 1;
   background: linear-gradient(90deg, rgba(15, 17, 22, 0) 0%, rgba(15, 17, 22, 0.22) 55%, rgba(250, 250, 247, 0.52) 100%);
+}
+
+#jack.prob-light.slide--cue-problem .pb-split-photo::after {
+  background: linear-gradient(90deg, rgba(217, 58, 43, 0.14) 0%, rgba(217, 58, 43, 0.06) 45%, rgba(253, 236, 232, 0.62) 100%);
 }
 #jack .pb-split-photo img {
   position: absolute;
@@ -524,6 +567,67 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #scale .pb-scale2-col .n27 { color: #111111; }
 #scale .pb-scale2-col .n82 { color: var(--os-red); }
 #scale .pb-scale2-col .txt { font: 500 20px/1.42 Inter, system-ui, sans-serif; color: var(--os-body); margin: 20px 0 0; max-width: 380px; }
+/* Scale slide: phones = unanswered fraction · bar = % who move on */
+#scale .pb-scale2-col .n27--third {
+  font: 800 clamp(72px, 12vw, 160px)/0.92 Inter, system-ui, sans-serif;
+  letter-spacing: -0.04em;
+  color: var(--os-ink);
+  margin: 0;
+}
+#scale .scale-phone-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 16px;
+  margin: 24px 0 0;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#scale .scale-phone {
+  width: 64px;
+  height: 76px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+#scale .scale-phone svg {
+  width: 38px;
+  height: auto;
+  display: block;
+}
+#scale .scale-phone--ok {
+  background: rgba(15, 157, 110, 0.1);
+  border: 2px solid rgba(15, 157, 110, 0.45);
+  color: var(--os-green);
+}
+#scale .scale-phone--miss {
+  background: rgba(217, 58, 43, 0.12);
+  border: 2px solid rgba(217, 58, 43, 0.55);
+  color: var(--os-red);
+}
+#scale .scale-bar-wrap {
+  width: 100%;
+  max-width: 320px;
+  margin: 24px auto 0;
+}
+#scale .scale-bar {
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.08);
+  overflow: hidden;
+  border: 1px solid var(--os-rule);
+  box-sizing: border-box;
+}
+#scale .scale-bar-fill {
+  display: block;
+  height: 100%;
+  width: 82%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--os-red), #e85a4a);
+}
 #scale .pb-src { margin-top: auto; padding-top: 24px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
 
 #impact .pb-impact2 {
@@ -534,21 +638,40 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 }
 #impact .pb-impact2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #impact .pb-impact2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#impact .pb-impact2-top { margin: 84px 0 0; max-width: 900px; }
-#impact .pb-impact2-line { font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
-#impact .pb-impact2-hero { font: 800 72px/0.95 Inter, system-ui, sans-serif; letter-spacing: -0.04em; margin: 8px 0 0; color: var(--os-ink); }
-#impact .pb-impact2-hero .amt { color: var(--os-red); }
-#impact .pb-impact2-after { font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 8px 0 0; }
-#impact .pb-impact2-hr { display: none; }
-#impact .pb-impact2-bot { margin-top: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-#impact .pb-impact2-loss { font: 800 64px/1 Inter, system-ui, sans-serif; color: var(--os-red); margin: 0; font-variant-numeric: tabular-nums; }
-#impact .pb-impact2-meta { font: 500 20px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; max-width: 520px; }
-#impact .pb-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#impact .pb-impact2-title {
+  margin: 96px 0 0;
+  max-width: 1100px;
+  font: 800 clamp(48px, 5.6vw, 88px)/1.05 Inter, system-ui, sans-serif;
+  letter-spacing: -0.038em;
+  color: var(--os-ink);
+  white-space: nowrap;
+}
+#impact .pb-impact2-simple {
+  margin: 36px 0 0;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vh, 72px);
+}
+#impact .pb-impact2-line-big {
+  font: 700 clamp(40px, 4.8vw, 68px)/1.12 Inter, system-ui, sans-serif;
+  letter-spacing: -0.032em;
+  color: var(--os-ink);
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 14px 18px;
+  white-space: nowrap;
+}
+#impact .pb-impact2-line-big .eq { font-weight: 600; color: var(--os-muted); }
+#impact .pb-impact2-line-big .amt { font-weight: 800; color: var(--os-red); font-variant-numeric: tabular-nums; }
 
-/* Dark solution slides */
-#phone.sol-reveal-slide, #loop, #demo.sol-slide {
-  background: var(--os-dark);
-  color: #e8e8e4;
+/* Solution chunk — light typography (phone + demo) */
+#title.slide.slide--sol-light,
+#phone.sol-reveal-slide.slide--sol-light,
+#demo.sol-slide.slide--sol-light {
+  color: var(--os-ink);
   font-family: Inter, system-ui, sans-serif;
 }
 
@@ -564,91 +687,87 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #phone .sol-ref-copy { position: relative; padding-top: 0; }
 #phone .sol-ref-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #phone .sol-ref-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
-#phone .sol-ref-head { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 700px; }
-#phone .sol-ref-list { list-style: none; margin: 32px 0 0; padding: 0; max-width: 640px; }
+#phone .sol-ref-head { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 8px; max-width: 700px; }
+#phone .sol-ref-list { list-style: none; margin: 48px 0 0; padding: 0; max-width: 680px; }
 #phone .sol-ref-list li {
   display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px 18px;
-  padding: 20px 0;
+  grid-template-columns: 72px 1fr;
+  gap: 8px 22px;
+  align-items: center;
+  padding: 28px 0;
   border-top: 1px solid #2a2e36;
   font: 500 18px/1.5 Inter, system-ui, sans-serif;
   color: var(--os-muted);
 }
-#phone .sol-ref-list .rn { font: 600 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-green-d); }
-#phone .sol-ref-list strong { display: block; font: 600 20px/1.35 Inter, system-ui, sans-serif; color: #f5f5f2; margin-bottom: 4px; }
+#phone .sol-ref-list .sol-ref-ico {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: rgba(43, 196, 138, 0.12);
+  border: 1px solid rgba(43, 196, 138, 0.35);
+  color: var(--os-green-d);
+  box-sizing: border-box;
+}
+#phone .sol-ref-list .sol-ref-ico svg { width: 44px; height: 44px; display: block; }
+#phone .sol-ref-list strong { display: block; font: 600 22px/1.35 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 0; }
 #phone .sol-ref-foot { margin-top: 24px; font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); display: flex; align-items: center; gap: 10px; }
 #phone .sol-ref-foot::before { content: ''; width: 6px; height: 6px; background: var(--os-green-d); flex: none; }
 #phone .sol-ref-art { display: flex; align-items: center; justify-content: center; min-height: 360px; padding-top: 48px; }
 #phone .sol-ref-art img { width: min(360px, 34vw); height: auto; display: block; }
 
-#loop .sol-how {
-  position: relative;
+#phone.sol-reveal-slide.slide--sol-light .sol-ref-k b { color: var(--os-ink); }
+#phone.sol-reveal-slide.slide--sol-light .sol-ref-head { color: var(--os-ink); }
+#phone.sol-reveal-slide.slide--sol-light .sol-ref-list li {
+  border-top-color: var(--os-rule);
+  color: var(--os-body);
+}
+#phone.sol-reveal-slide.slide--sol-light .sol-ref-list strong { color: var(--os-ink); }
+
+
+#demo .sol-demo {
   min-height: 1080px;
   box-sizing: border-box;
   padding: 120px 120px 100px;
   display: flex;
   flex-direction: column;
 }
-#loop .sol-how-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
-#loop .sol-how-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
-#loop .sol-how-head { font: 700 68px/1.08 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 1100px; }
-#loop .sol-how-rule { border: 0; height: 1px; background: #2a2e36; margin: 28px 0 32px; width: 100%; }
-#loop .sol-how-cols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px 36px;
-  flex: none;
-}
-#loop .sol-how-col .num { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
-#loop .sol-how-col h3 { font: 700 22px/1.2 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 0; }
-#loop .sol-how-col h3.job { color: var(--os-green-d); }
-#loop .sol-how-col p { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0; max-width: 320px; }
-#loop .sol-how-urgent {
-  margin-top: 28px;
-  padding: 18px 20px;
-  border: 1px solid #2a2e36;
-  flex: none;
-}
-#loop .sol-how-urgent strong { font: 700 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-red); margin-right: 8px; }
-#loop .sol-how-urgent span { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: #e8e8e4; }
-
-#demo .sol-demo {
-  min-height: 1080px;
-  box-sizing: border-box;
-  padding: 120px 120px 100px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-  gap: 40px 48px;
-  align-items: start;
-}
-#demo .sol-demo > div:first-child { position: relative; }
+#demo .sol-demo-main { position: relative; width: 100%; max-width: 1240px; margin: 0 auto; }
 #demo .sol-demo-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #demo .sol-demo-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
-#demo .sol-demo-head { font: 700 56px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 640px; }
-#demo .sol-demo-sub { font: 500 20px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
-#demo .sol-demo-frame { margin-top: 24px; border: 1px solid #2a2e36; overflow: hidden; background: #000; }
+#demo .sol-demo-head { font: 700 clamp(44px, 4.4vw, 72px)/1.08 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; }
+#demo .sol-demo-frame {
+  margin-top: 28px;
+  border: 1px solid #2a2e36;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
 #demo .sol-demo-stage { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
 #demo .sol-demo-stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-#demo .sol-demo-rk { font: 600 20px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 84px 0 16px; }
-#demo .sol-demo-watch { list-style: none; margin: 0; padding: 0; border-top: 1px solid #2a2e36; }
-#demo .sol-demo-watch li {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 12px;
-  padding: 18px 0;
-  border-bottom: 1px solid #2a2e36;
-  font: 500 18px/1.35 Inter, system-ui, sans-serif;
-  color: #e8e8e4;
-}
-#demo .sol-demo-watch span { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-green-d); }
-#demo .sol-demo-punch { margin-top: 28px; font: 600 22px/1.3 Inter, system-ui, sans-serif; color: #f5f5f2; }
-#demo .sol-demo-punch em { font-style: normal; color: var(--os-green-d); font-weight: 700; }
-#demo .demo-lede { display: none !important; }
+
+
+/* Demo — light theme */
+#demo.sol-slide.slide--sol-light .sol-demo-k b { color: var(--os-ink); }
+#demo.sol-slide.slide--sol-light .sol-demo-head { color: var(--os-ink); }
+#demo.sol-slide.slide--sol-light .sol-demo-frame { border-color: var(--os-rule); }
 
 /* Investor light */
-#model.inv-slide, #market.inv-slide, #compete.inv-slide, #gtm.inv-slide, #finance.inv-slide, #team.inv-slide, #advisors.inv-slide, #ask.slide {
+#model.inv-slide, #compete.inv-slide, #gtm.inv-slide, #finance.inv-slide, #team.inv-slide, #advisors.inv-slide, #ask.slide {
   background: var(--os-paper);
+  color: var(--os-ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Market: full-slide neutral slate wash (no third “semantic” color — reads as data / scope) */
+#market.inv-slide {
+  position: relative;
+  background:
+    radial-gradient(110% 75% at 12% 0%, rgba(78, 104, 118, 0.09) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(95, 115, 130, 0.055) 0%, transparent 48%),
+    var(--os-paper);
   color: var(--os-ink);
   font-family: Inter, system-ui, sans-serif;
 }
@@ -873,21 +992,112 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #team.inv-slide { position: relative; min-height: 1080px; }
 #team .t15-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #team .t15-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#team .t15-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
-#team .t15-founders { position: absolute; left: 120px; right: 120px; top: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+#team .t15-h1 {
+  position: absolute;
+  top: 118px;
+  left: 120px;
+  right: 120px;
+  margin: 0 auto;
+  max-width: 920px;
+  font: 700 62px/1.06 Inter, system-ui, sans-serif;
+  letter-spacing: -0.035em;
+  text-align: center;
+  text-wrap: balance;
+}
+#team .t15-founders {
+  position: absolute;
+  left: 50%;
+  top: 250px;
+  transform: translateX(-50%);
+  width: min(1000px, calc(100% - 240px));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 3.5vw, 44px);
+  align-items: stretch;
+  box-sizing: border-box;
+}
+#team .t15-card {
+  margin: 0;
+  min-width: 0;
+  padding: 30px 28px 26px;
+  border-radius: 22px;
+  background: linear-gradient(165deg, #fff 0%, var(--os-paper) 52%, #f4f3ef 100%);
+  border: 1px solid var(--os-rule);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 18px 50px rgba(14, 17, 22, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 #team .t15-avatar {
   border-radius: 50%;
-  width: 180px; height: 180px;
-  display: grid; place-content: center;
-  font: 700 48px/1 Inter, system-ui, sans-serif;
+  width: 216px;
+  height: 216px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  font: 700 52px/1 Inter, system-ui, sans-serif;
   color: var(--os-muted);
-  background: var(--os-rule);
+  background: linear-gradient(145deg, #f0eeea, var(--os-rule));
+  box-shadow:
+    0 0 0 4px #fff,
+    0 10px 32px rgba(14, 17, 22, 0.1);
 }
-#team .t15-nm { font: 700 32px/1.1 Inter, system-ui, sans-serif; margin: 20px 0 0; }
-#team .t15-role { font: 600 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-green); margin: 8px 0 0; }
-#team .t15-pts { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--os-rule); }
-#team .t15-pts li { font: 400 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); padding: 10px 0; border-bottom: 1px solid var(--os-rule); }
-#team .t15-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#team .t15-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  display: block;
+  z-index: 1;
+}
+#team .t15-avatar--baqer img {
+  object-position: 50% 62%;
+}
+#team .t15-avatar--isaac img {
+  object-position: 50% 42%;
+}
+#team .t15-ph { position: relative; z-index: 0; }
+#team .t15-nm { font: 700 30px/1.12 Inter, system-ui, sans-serif; margin: 16px 0 0; letter-spacing: -0.02em; }
+#team .t15-role {
+  font: 600 18px/1.35 Inter, system-ui, sans-serif;
+  color: #2a5c48;
+  margin: 10px 0 0;
+  max-width: 34ch;
+}
+#team .t15-pts {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 18px 0 0;
+  width: 100%;
+  border-top: 1px solid rgba(230, 228, 222, 0.95);
+  text-align: left;
+  align-self: stretch;
+}
+#team .t15-pts li {
+  font: 400 17px/1.38 Inter, system-ui, sans-serif;
+  color: var(--os-body);
+  padding: 9px 0;
+  border-bottom: 1px solid var(--os-rule);
+}
+#team .t15-pts li:last-child { border-bottom: 0; padding-bottom: 0; }
+#team .t15-src {
+  position: absolute;
+  bottom: 44px;
+  left: 120px;
+  right: 120px;
+  margin: 0;
+  font: 400 17px/1.45 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+  text-align: center;
+  text-wrap: balance;
+}
 
 #advisors.inv-slide { position: relative; min-height: 1080px; }
 #advisors .d16-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
@@ -937,13 +1147,13 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 <body>
 <div class="deck" data-transition="camera" data-lift=".5" data-chrome="none" data-hold="2.8">
 
-  <section class="slide" id="title" data-title="Open Slot AI" data-pos="0 0" data-hold="5">
+  <section class="slide slide--sol-light" id="title" data-title="Open Slot AI" data-pos="0 0" data-hold="5">
     <div class="t1">
       <div class="t1-stage">
         <div class="t1-hero">
           <div class="t1-mascot-wrap">
             <div class="t1-mascot-rig" data-anim="scale" data-delay=".08" data-dur="1.05">
-              <img class="t1-mascot" src="assets/mark.png" width="400" height="400" alt="">
+              <img class="t1-mascot" src="./assets/mark.png" width="400" height="400" alt="">
             </div>
           </div>
         </div>
@@ -951,14 +1161,14 @@ html, body { font-family: Inter, system-ui, sans-serif; }
           <p class="t1-brand" data-anim="mask" data-delay=".22" data-dur="1.05">Open Slot <span>AI</span></p>
           <h1 class="t1-head" data-anim="mask" data-delay=".42" data-dur="1">Never miss a call.</h1>
           <p class="t1-head-sub" data-anim="mask" data-delay=".52" data-dur=".95">Never miss an <em>opportunity.</em></p>
-          <p class="t1-byline" data-anim="fade" data-delay=".62" data-dur=".8">Baqer Hassani · Isaac Neal · University of Tulsa</p>
         </div>
       </div>
+      <p class="t1-byline" data-anim="fade" data-delay=".62" data-dur=".8">Baqer Hassani · Isaac Neal</p>
     </div>
     <aside class="notes"><p>Say the name: Open Slot AI. Then the two-line promise. Advance to Jack.</p></aside>
   </section>
 
-  <section class="slide prob-light" id="jack" data-title="Meet Jack" data-pos="0 1.12" data-hold="2 1.6 1.6 2.2">
+  <section class="slide prob-light slide--cue-problem" id="jack" data-title="Meet Jack" data-pos="0 1.12" data-hold="2 1.6 1.6 2.2">
     <div class="pb-wrap">
       <div class="pb-split">
         <div class="pb-split-photo" data-anim="fade" data-delay=".06">
@@ -967,46 +1177,67 @@ html, body { font-family: Inter, system-ui, sans-serif; }
         </div>
         <div class="pb-split-copy">
           <p class="pb-split-k" data-anim="fade"><b>02</b> The problem</p>
-          <h2 class="pb-split-head" data-anim="mask" data-delay=".1">Jack's on a roof.</h2>
-          <h2 class="pb-split-head" data-anim="mask" data-delay=".14">His phone is ringing.</h2>
-          <div class="pb-miss" data-anim="rise" data-delay=".22">
-            <div class="pb-miss-row">
-              <div class="pb-miss-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg></div>
-              <div class="pb-miss-body">
-                <div class="pb-miss-line1">
-                  <span class="pb-miss-title">Missed call</span>
-                  <span class="pb-miss-time">11:04 AM</span>
-                </div>
-                <p class="pb-miss-sub">(918) 555-0142 · No voicemail</p>
-              </div>
-            </div>
-          </div>
-          <div class="pb-lines" data-anim="rise" data-delay=".3">
-            <p>Jack runs a four-person HVAC shop in Tulsa.</p>
-            <p>The caller doesn't leave a message.</p>
-            <p><strong>They call the next shop on Google.</strong></p>
+          <h2 class="pb-split-head" data-anim="mask" data-delay=".1">Jack at work:</h2>
+          <div class="pb-lines" data-anim="rise" data-delay=".22">
+            <p>He can't answer the phone.</p>
+            <p>The customer calls the next person.</p>
           </div>
           <p class="pb-disclaimer" data-anim="fade" data-delay=".42">Jack is an illustrative composite.</p>
         </div>
       </div>
     </div>
-    <aside class="notes"><p>Jack runs a four-person HVAC shop in Tulsa. He's on a unit when the truck line rings — same pattern as plumbing. A missed call is usually a missed job.</p><p>Clicks: ring → missed call → next on Google.</p></aside>
+    <aside class="notes"><p>Jack is busy on the job — he can't pick up. The caller moves on to the next name on the list.</p></aside>
   </section>
 
-  <section class="slide prob-light" id="scale" data-title="Jack is not alone" data-pos="0 2.24" data-hold="5">
+  <section class="slide prob-light slide--cue-problem" id="scale" data-title="Jack is not alone" data-pos="0 2.24" data-hold="5">
     <div class="pb-wrap pb-scale2">
       <p class="pb-scale2-k" data-anim="fade"><b>03</b> The problem</p>
       <h2 class="pb-scale2-head" data-anim="mask" data-delay=".1">Jack isn't alone.</h2>
       <hr class="pb-scale2-rule" data-anim="fade" data-delay=".2">
       <div class="pb-scale2-cols" data-anim="rise" data-delay=".28">
         <div class="pb-scale2-col">
-          <p class="n27" data-anim="count" data-delay=".32">27%</p>
-          <p class="txt">of home-service calls go unanswered.</p>
+          <p class="n27 n27--third" data-anim="mask" data-delay=".32">1 in 4</p>
+          <div class="scale-phone-row" aria-hidden="true">
+            <div class="scale-phone scale-phone--miss" title="Unanswered">
+              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="24" cy="38" r="2" fill="currentColor"/>
+                <path d="M18 18h12M18 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+                <path d="M16 44L32 28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M32 44L16 28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="scale-phone scale-phone--ok" title="Answered">
+              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="24" cy="38" r="2" fill="currentColor"/>
+                <path d="M17 28l4 4 10-10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="scale-phone scale-phone--ok" title="Answered">
+              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="24" cy="38" r="2" fill="currentColor"/>
+                <path d="M17 28l4 4 10-10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="scale-phone scale-phone--ok" title="Answered">
+              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="24" cy="38" r="2" fill="currentColor"/>
+                <path d="M17 28l4 4 10-10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <p class="txt">calls to home services go unanswered.</p>
         </div>
         <div class="pb-scale2-v" aria-hidden="true"></div>
         <div class="pb-scale2-col">
           <p class="n82" data-anim="count" data-delay=".4">82%</p>
-          <p class="txt">of callers call a competitor when no one answers.</p>
+          <div class="scale-bar-wrap" aria-hidden="true">
+            <div class="scale-bar"><span class="scale-bar-fill"></span></div>
+          </div>
+          <p class="txt">of customers call the next business.</p>
         </div>
       </div>
       <p class="pb-src" data-anim="fade" data-delay=".75">Sources: Invoca home services call data · CallRail survey of 1,000 U.S. consumers, 2025</p>
@@ -1014,80 +1245,42 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     <aside class="notes"><p>Invoca: unanswered share in home services. CallRail: consumer behavior when a business doesn't pick up. If a judge asks, point to the slide footer — don't cite clinic-only stats.</p></aside>
   </section>
 
-  <section class="slide prob-light" id="impact" data-title="When Jack misses, they move on" data-pos="0 3.36" data-hold="5">
+  <section class="slide prob-light slide--cue-problem" id="impact" data-title="Hidden cost of one missed call" data-pos="0 3.36" data-hold="5">
     <div class="pb-wrap pb-impact2">
       <p class="pb-impact2-k" data-anim="fade"><b>04</b> The problem</p>
-      <div class="pb-impact2-top">
-        <p class="pb-impact2-line" data-anim="rise" data-delay=".12">Every missed call is a</p>
-        <p class="pb-impact2-hero" data-anim="mask" data-delay=".2"><span class="amt">$350</span> <span class="word">job</span></p>
-        <p class="pb-impact2-after" data-anim="rise" data-delay=".28">handed to a competitor.</p>
+      <h2 class="pb-impact2-title" data-anim="mask" data-delay=".06" data-dur="1">Hidden cost of one missed call</h2>
+      <div class="pb-impact2-simple">
+        <p class="pb-impact2-line-big" data-anim="mask" data-delay=".16"><span class="eq">one missed call in HVAC = </span><span class="eq">−</span><span class="amt">$350</span><span class="eq"> loss</span></p>
+        <p class="pb-impact2-line-big" data-anim="rise" data-delay=".28"><span class="eq">for one contractor = one year </span><span class="eq">−</span><span class="amt" data-anim="count" data-delay=".4">$190,000</span></p>
       </div>
-      <hr class="pb-impact2-hr" data-anim="fade" data-delay=".36">
-      <div class="pb-impact2-bot" data-anim="rise" data-delay=".44">
-        <p class="pb-impact2-loss" data-anim="count" data-delay=".5">$189,068</p>
-        <p class="pb-impact2-meta">lost per contractor, per year.</p>
-      </div>
-      <p class="pb-src" data-anim="fade" data-delay=".85">Sources: Angi, average HVAC repair, 2025 · NextPhone analysis of 130,175 calls from 45 contractors</p>
     </div>
     <aside class="notes"><p>Walk the $350 illustrative repair, then the aggregated loss figure from the cited analyses. If a judge challenges NextPhone or Angi, acknowledge these are third-party estimates — not your measured jack revenue.</p></aside>
   </section>
 
-  <section class="slide sol-reveal-slide" id="phone" data-title="Open Slot AI" data-pos="3 0" data-transition="tear" data-hold="2.4 2">
+  <section class="slide sol-reveal-slide slide--cue-solution slide--sol-light" id="phone" data-title="Open Slot AI" data-pos="3 0" data-transition="tear" data-hold="2.4 2">
     <div class="sol-ref">
       <div class="sol-ref-copy">
         <p class="sol-ref-k" data-anim="fade"><b>05</b> The solution</p>
-        <h2 class="sol-ref-head" data-anim="mask" data-delay=".1">Open Slot answers every call Jack can't.</h2>
+        <h2 class="sol-ref-head" data-anim="mask" data-delay=".1">Our solution is an AI receptionist.</h2>
         <ul class="sol-ref-list">
-          <li data-anim="rise" data-delay=".2"><span class="rn">01</span><div><strong>Picks up on the first ring, 24/7.</strong></div></li>
-          <li data-anim="rise" data-delay=".28"><span class="rn">02</span><div><strong>Books the job into Jack's calendar before they hang up.</strong></div></li>
-          <li data-anim="rise" data-delay=".36"><span class="rn">03</span><div><strong>Texts Jack the details right away.</strong></div></li>
+          <li data-anim="rise" data-delay=".2"><span class="sol-ref-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.4"/><path d="M24 14v11l8 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg></span><div><strong>It picks up day or night — any time.</strong></div></li>
+          <li data-anim="rise" data-delay=".28"><span class="sol-ref-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 28V14a3 3 0 013-3h22a3 3 0 013 3v8a3 3 0 01-3 3H18l-6 6v-6H9a3 3 0 01-3-3z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M22 32h17a3 3 0 003-3v-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><div><strong>It talks to the customer and understands what they need.</strong></div></li>
+          <li data-anim="rise" data-delay=".36"><span class="sol-ref-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="10" width="32" height="30" rx="4" stroke="currentColor" stroke-width="2.2"/><path d="M8 18h32M16 8v8M32 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 28l4 4 10-10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>It schedules a meeting with the customer.</strong></div></li>
         </ul>
         <p class="sol-ref-foot" data-anim="fade" data-delay=".46">Working prototype today</p>
       </div>
       <div class="sol-ref-art" data-anim="scale" data-delay=".16" data-dur="1">
-        <img class="sol-mascot" src="assets/mark.png" width="400" height="400" alt="">
+        <img class="sol-mascot" src="./assets/mark.png" width="400" height="400" alt="">
       </div>
     </div>
     <aside class="notes"><p>Booked only when the calendar returns an event id.</p></aside>
   </section>
-
-  <section class="slide" id="loop" data-title="How it works" data-pos="3 1.12" data-transition="camera" data-hold="2.8">
-    <div class="sol-how">
-      <p class="sol-how-k" data-anim="fade"><b>06</b> How it works</p>
-      <h2 class="sol-how-head" data-anim="mask" data-delay=".08">Nothing changes for Jack. He just stops missing calls.</h2>
-      <hr class="sol-how-rule" data-anim="fade" data-delay=".16">
-      <div class="sol-how-cols" data-anim="rise" data-delay=".22">
-        <div class="sol-how-col">
-          <p class="num">1</p>
-          <h3>Customer calls</h3>
-          <p>Jack's same number. Nothing new to install.</p>
-        </div>
-        <div class="sol-how-col">
-          <p class="num">2</p>
-          <h3>Open Slot answers</h3>
-          <p>Asks what's wrong, where, and how urgent.</p>
-        </div>
-        <div class="sol-how-col">
-          <p class="num">3</p>
-          <h3 class="job">Job booked</h3>
-          <p>On Jack's calendar. Details texted to his phone.</p>
-        </div>
-      </div>
-      <div class="sol-how-urgent" data-anim="fade" data-delay=".5">
-        <strong>Emergency?</strong><span>Gas, flooding, no heat. The call goes straight to Jack's cell.</span>
-      </div>
-    </div>
-    <aside class="notes"><p>Emergency routing is shop-defined. Calendar booking only after event id.</p></aside>
-  </section>
-
-
-  <section class="slide sol-slide" id="demo" data-title="See it work" data-pos="3 1.86" data-transition="whip" data-hold="2 45">
+  <section class="slide sol-slide slide--cue-solution slide--sol-light" id="demo" data-title="See it work" data-pos="3 1.12" data-transition="whip" data-hold="2 45">
     <div class="sol-demo">
-      <div>
-        <p class="sol-demo-k" data-anim="fade"><b>07</b> Demo</p>
-        <h2 class="sol-demo-head" data-anim="mask" data-delay=".08">Watch it take the call.</h2>
-        <p class="sol-demo-sub" data-anim="fade" data-delay=".14">A customer calls. Their AC just stopped working.</p>
-        <div class="sol-demo-frame" data-anim="scale" data-delay=".2">
+      <div class="sol-demo-main">
+        <p class="sol-demo-k" data-anim="fade"><b>06</b> Demo</p>
+        <h2 class="sol-demo-head" data-anim="mask" data-delay=".08">Demo</h2>
+        <div class="sol-demo-frame" data-anim="scale" data-delay=".16">
           <div class="sol-demo-stage">
             <video id="os-demo" poster="assets/demo-poster.jpg" playsinline controls preload="metadata" data-no-advance>
               <source src="assets/open-slot-demofinal.mp4" type="video/mp4">
@@ -1095,22 +1288,13 @@ html, body { font-family: Inter, system-ui, sans-serif; }
           </div>
         </div>
       </div>
-      <div class="sol-demo-right">
-        <p class="sol-demo-rk" data-anim="fade" data-delay=".28">Watch for</p>
-        <ul class="sol-demo-watch">
-          <li data-anim="rise" data-delay=".32"><span>1</span> It answers on the first ring</li>
-          <li data-anim="rise" data-delay=".38"><span>2</span> It books the job</li>
-          <li data-anim="rise" data-delay=".44"><span>3</span> Jack gets the text</li>
-        </ul>
-        <p class="sol-demo-punch" data-anim="fade" data-delay=".52">That's a <em>$350 job</em> Jack keeps.</p>
-      </div>
     </div>
-    <aside class="notes"><p>Video shows the concept UI; no duplicate HTML overlay. Booked only when calendar confirms.</p></aside>
+    <aside class="notes"><p>Live demo — narrate while the video or live product runs.</p></aside>
   </section>
 
   <section class="slide inv-slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="3.4">
     <div class="inv-wrap">
-      <p class="bm2-k" data-anim="fade"><b>08</b> Business model</p>
+      <p class="bm2-k" data-anim="fade"><b>07</b> Business model</p>
       <h2 class="bm2-h1" data-anim="mask" data-delay=".06">Shops pay us monthly.</h2>
       <div class="bm2-plans">
         <article class="bm2-card bm2-card--solo" data-anim="rise" data-delay=".14">
@@ -1154,7 +1338,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     <div class="m10-wrap">
       <div class="m10-main">
       <div class="m10-left">
-      <p class="m10-label" data-anim="fade"><b>09</b> Market</p>
+      <p class="m10-label" data-anim="fade"><b>08</b> Market</p>
       <h2 class="m10-h1" data-anim="mask" data-delay=".06">111,207 shops have Jack's problem.</h2>
       <div class="m10-rows" data-anim="rise" data-delay=".14">
         <div class="m10-r">
@@ -1199,7 +1383,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   </section>
   <section class="slide inv-slide" id="compete" data-title="Competitive advantage" data-pos="3 2.21" data-transition="camera" data-hold="3.4">
     <div class="c11-wrap">
-      <p class="c11-label" data-anim="fade"><b>10</b> Competition</p>
+      <p class="c11-label" data-anim="fade"><b>09</b> Competition</p>
       <h2 class="c11-h1" data-anim="mask" data-delay=".06">How we compare.</h2>
       <div class="c11-table-wrap">
         <table class="c11-table" data-anim="rise" data-delay=".14">
@@ -1245,7 +1429,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
   <section class="slide inv-slide" id="gtm" data-title="Go-to-market" data-pos="3 2.24" data-transition="tear" data-hold="3.6">
     <div class="c12-wrap">
-      <p class="c12-label" data-anim="fade"><b>11</b> Go-to-market</p>
+      <p class="c12-label" data-anim="fade"><b>10</b> Go-to-market</p>
       <h2 class="c12-h1" data-anim="mask" data-delay=".06">Tulsa first, then Oklahoma.</h2>
       <div class="c12-timeline" data-anim="fade" data-delay=".1">
         <div class="c12-steps">
@@ -1306,7 +1490,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
   <section class="slide inv-slide" id="finance" data-title="Financial model" data-pos="3 2.28" data-transition="camera" data-hold="3.8">
     <div class="fin-wrap">
-      <p class="fin-label" data-anim="fade"><b>12</b> Financial model</p>
+      <p class="fin-label" data-anim="fade"><b>11</b> Financial model</p>
       <h2 class="fin-h1" data-anim="mask" data-delay=".06">Profitable in year 3.</h2>
       <div class="fin-grid" data-anim="rise" data-delay=".14">
         <div class="fin-chart-box">
@@ -1361,67 +1545,61 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
 
   <section class="slide inv-slide" id="team" data-title="Team" data-pos="3 2.32" data-transition="camera" data-hold="3.4">
-    <p class="t15-label" data-anim="fade"><b>13</b> Team</p>
-    <h2 class="t15-h1" data-anim="mask" data-delay=".06">Two engineers. We built it ourselves.</h2>
+    <p class="t15-label" data-anim="fade"><b>12</b> Team</p>
+    <h2 class="t15-h1" data-anim="mask" data-delay=".06">Meet our team:</h2>
     <div class="t15-founders" data-anim="rise" data-delay=".12">
-      <div>
-        <div class="t15-avatar" data-anim="scale" data-delay=".16">BH</div>
+      <article class="t15-card">
+        <div class="t15-avatar t15-avatar--baqer" data-anim="scale" data-delay=".16"><span class="t15-ph" aria-hidden="true">BH</span><img src="./assets/Bagher%20copy.png" alt="Baqer Hassani" width="512" height="512" loading="lazy" decoding="async" onload="var s=this.previousElementSibling;if(s)s.style.visibility='hidden'" onerror="this.remove()"></div>
         <p class="t15-nm">Baqer Hassani</p>
         <p class="t15-role">Co-Founder · Software &amp; Computer Engineer</p>
         <ul class="t15-pts">
-          <li>Senior, Computer Science · University of Tulsa</li>
+          <li>Senior · Computer Science</li>
           <li>Software engineering intern · Meta &amp; MLH</li>
-          <li>2+ years software engineering research · Institute for Robotics &amp; Autonomy</li>
-          <li>Previous JOLT Challenge winner</li>
+          <li>Software &amp; robotics research</li>
+          <li>JOLT Idea Challenge winner</li>
         </ul>
-      </div>
-      <div>
-        <div class="t15-avatar" data-anim="scale" data-delay=".2">IN</div>
+      </article>
+      <article class="t15-card">
+        <div class="t15-avatar t15-avatar--isaac" data-anim="scale" data-delay=".2"><span class="t15-ph" aria-hidden="true">IN</span><img src="./assets/pic_issac.jpg" alt="Isaac Neal" width="800" height="600" loading="lazy" decoding="async" onload="var s=this.previousElementSibling;if(s)s.style.visibility='hidden'" onerror="this.remove()"></div>
         <p class="t15-nm">Isaac Neal</p>
         <p class="t15-role">Co-Founder · Electrical &amp; Computer Engineer</p>
         <ul class="t15-pts">
-          <li>Electrical &amp; Computer Engineering · Business minor · TU</li>
-          <li>RATS Combat Robotics Lead</li>
-          <li>Research into autonomous RC vehicles</li>
+          <li>Dual-degree EE &amp; CE</li>
+          <li>Business minor</li>
+          <li>RATS lead · embedded systems &amp; autonomous vehicles</li>
         </ul>
-      </div>
+      </article>
     </div>
-    <p class="t15-src" data-anim="fade" data-delay=".28">Both founders sell door-to-door in Tulsa · University of Tulsa</p>
-    <aside class="notes"><p>Swap BH / IN for headshots when assets are ready. Two engineers, TU, door-to-door GTM — keep it tight.</p></aside>
+    <aside class="notes"><p>Meet the team — keep it tight.</p></aside>
   </section>
 
 
   <section class="slide inv-slide" id="advisors" data-title="Advisors" data-pos="3 2.36" data-transition="camera" data-hold="3.2">
-    <p class="d16-label" data-anim="fade"><b>14</b> Advisors</p>
+    <p class="d16-label" data-anim="fade"><b>13</b> Advisors</p>
     <h2 class="d16-h1" data-anim="mask" data-delay=".06">Advisory Board</h2>
     <div class="d16-grid" data-anim="rise" data-delay=".12">
       <div class="d16-col">
-        <div class="d16-pic" data-anim="scale" data-delay=".16"><span class="d16-init">CW</span><img src="assets/chris-wright.jpg" onerror="this.remove()" alt=""></div>
+        <div class="d16-pic" data-anim="scale" data-delay=".16"><span class="d16-init">CW</span><img src="./assets/chris_wright.png" onerror="this.remove()" alt=""></div>
         <p class="d16-n2">Chris Wright, PhD</p>
-        <p class="d16-d2">Director of Entrepreneurship<br>University of Tulsa</p>
+        <p class="d16-d2">Director of Entrepreneurship</p>
       </div>
       <div class="d16-col">
-        <div class="d16-pic" data-anim="scale" data-delay=".2"><span class="d16-init">BK</span><img src="assets/bradford-kerst.jpg" onerror="this.remove()" alt=""></div>
+        <div class="d16-pic" data-anim="scale" data-delay=".2"><span class="d16-init">BK</span><img src="./assets/bradford.jpg" onerror="this.remove()" alt=""></div>
         <p class="d16-n2">Bradford Kerst, PhD</p>
-        <p class="d16-d2">Research Engineer, Robotics R&amp;D<br>Institute for Robotics &amp; Autonomy</p>
+        <p class="d16-d2">Technical advisor</p>
       </div>
       <div class="d16-col">
-        <div class="d16-pic" data-anim="scale" data-delay=".24"><span class="d16-init">DE</span><img src="assets/dallas-e.jpg" onerror="this.remove()" alt=""></div>
+        <div class="d16-pic" data-anim="scale" data-delay=".24"><span class="d16-init">DE</span><img src="./assets/dallas-elleman-headshot.png" onerror="this.remove()" alt=""></div>
         <p class="d16-n2">Dallas E.</p>
-        <p class="d16-d2">PhD Student, Cyber Studies<br>TU Cyber Fellows</p>
+        <p class="d16-d2">Technical advisor<br>President, AI Club &amp; MLH</p>
       </div>
     </div>
-    <div class="d16-orgs" data-anim="fade" data-delay=".28">
-      <span>The University of Tulsa</span>
-      <span>TU Cyber Fellows</span>
-      <span>Institute for Robotics &amp; Autonomy</span>
-    </div>
-    <p class="d16-src" data-anim="fade" data-delay=".32">+ Tulsa HVAC shop owner · trade advisor, recruiting now</p>
-    <aside class="notes"><p>One line each if asked. Trade advisor is actively being recruited — say it plainly.</p></aside>
+    <p class="d16-src" data-anim="fade" data-delay=".32">+ Tulsa HVAC shop owner · trade advisor</p>
+    <aside class="notes"><p>One line each if asked.</p></aside>
   </section>
 
   <section class="slide" id="ask" data-title="Investment ask" data-pos="3 2.44" data-transition="tear" data-hold="4.2">
-    <p class="a14-label" data-anim="fade"><b>15</b> Investment ask</p>
+    <p class="a14-label" data-anim="fade"><b>14</b> Investment ask</p>
     <h2 class="a14-h1" data-anim="mask" data-delay=".06">We're raising $120K.</h2>
     <p class="a14-big" data-anim="fade" data-delay=".1"><b>For 12% of Open Slot.</b> It gets us to profit, even at half speed.</p>
     <div class="a14-stack" data-anim="rise" data-delay=".14" aria-hidden="true">
@@ -3586,7 +3764,6 @@ Deck.slide('phone', {
   },
 });
 
-Deck.slide('loop', { ambient: 12 });
 
 Deck.slide('road', {
   steps: 3,
