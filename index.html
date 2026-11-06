@@ -6,7 +6,7 @@
 <title>Open Slot AI · Tulsa Pitch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@500;600;700;800&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style id="deck-kit-css">
 /*! deck-kit runtime styles · MIT. Mechanics only: the look of a deck lives in its own <style>. */
 html, body { margin: 0; height: 100%; overflow: hidden; background: var(--dk-letterbox, #000); }
@@ -203,686 +203,646 @@ body.dk-presenter { background: #111; color: #eee; overflow: hidden; }
 .dk-page > .dk-layer { display: block; }
 @media print { html, body { overflow: visible !important; height: auto !important; } }
 </style>
-<style>
-/* Open Slot · dark product (#0B1220) · emerald brand */
-:root {
-  --paper: #0B1220; --slip: #121110; --ink: #f5f0e8; --muted: #8a8278; --rule: #2a2622; --soft: #1a1816;
-  --hot: #EF4444; --hot-text: #EF4444; --yes: #10B981; --on-hot: #1a0f08;
-  --glass: #0a0908; --glass-ink: #f6f1e8; --hot-glass: #ffc7ad; --yes-glass: #b8fff0;
-  --display: 'Schibsted Grotesk', Arial, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --dk-letterbox: #000; --dk-progress: var(--hot); --dk-number: var(--muted); --dk-number-font: var(--mono);
-  --dk-mark: #3a2010; --dk-strike: var(--hot); --dk-ui-accent: var(--hot); --dk-ov-accent: var(--yes);
+<style id="open-slot-theme">
+/* Open Slot deck theme — Inter only; do not override .dk-* */
+.deck {
+  --os-paper: #FAFAF7;
+  --os-dark: #0E1116;
+  --os-ink: #111111;
+  --os-body: #4A4A4A;
+  --os-muted: #8A8A85;
+  --os-rule: #E6E4DE;
+  --os-green: #0F9D6E;
+  --os-green-d: #2BC48A;
+  --os-red: #D93A2B;
+  --os-grey-bar: #C5C3BC;
+  --dk-letterbox: #000;
+  --dk-progress: var(--os-green);
+  --dk-number: var(--os-muted);
+  --dk-number-font: Inter, system-ui, sans-serif;
+  --dk-mark: rgba(15, 157, 110, 0.35);
+  --dk-strike: var(--os-red);
+  --dk-ui-accent: var(--os-green);
+  --dk-ov-accent: var(--os-green);
 }
 
-/* Investor problem chapter */
-.slide.prob-light { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif;
-  --ink: #0F172A; --muted: #64748B; --rule: #E2E8F0; --yes: #10B981; --hot-text: #EF4444; }
-.slide.prob-light .yes { color: #10B981; }
-.slide.prob-light em.loss { color: #EF4444; font-style: normal; font-weight: 700; }
-.slide.prob-light .brand-top, .slide.prob-light .hero-title { color: #0F172A; font-family: 'Inter', sans-serif; }
-.slide.prob-light .pill, .slide.prob-light .eyebrow, .slide.prob-light .lede { color: #64748B; }
-.slide.prob-light .pill { border-color: #E2E8F0; }
-.pb-wrap { min-height: 1080px; padding: 88px 140px 72px; box-sizing: border-box; display: flex; flex-direction: column; }
-.pb-label { font: 600 14px/1 'IBM Plex Mono', monospace; letter-spacing: .32em; text-transform: uppercase; color: #10B981; margin: 0; }
-.pb-head { font: 800 clamp(42px, 4vw, 60px)/1.1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 24px 0 0; max-width: 580px; }
-.pb-head.wide { max-width: 880px; }
-.pb-bottom { font: 700 clamp(22px, 2vw, 28px)/1.3 'Inter', sans-serif; color: #EF4444; margin: auto 0 0; padding-top: 40px; max-width: 520px; }
-.pb-jack .pb-head { max-width: 620px; }
-.pb-fact { font: 500 clamp(20px, 1.85vw, 26px)/1.45 'Inter', sans-serif; color: #334155; margin: 28px 0 0; max-width: 620px; }
-.pb-fact em.loss { color: #EF4444; font-style: normal; font-weight: 700; }
-.pb-jack { flex: 1; display: grid; grid-template-columns: 38fr 62fr; gap: 48px; align-items: stretch; margin-top: 4px; }
-.pb-jack .pb-copy { display: flex; flex-direction: column; min-height: 640px; }
-.pb-photo { position: relative; border-radius: 12px; overflow: hidden; background: #E2E8F0; min-height: 680px; }
-.pb-photo .ph-fill { min-height: 680px; display: grid; place-content: center; text-align: center; color: #64748B; font: 600 20px/1.35 'Inter', sans-serif; padding: 24px; }
-.pb-photo img { width: 100%; height: 100%; min-height: 680px; object-fit: cover; display: block; }
-.call-chip { position: absolute; left: 24px; bottom: 24px; padding: 12px 18px; border-radius: 10px; background: #fff; box-shadow: 0 8px 32px rgba(15,23,42,.12); font: 600 17px/1 'Inter', sans-serif; color: #0F172A; display: flex; align-items: center; gap: 10px; }
-.call-chip i { width: 8px; height: 8px; border-radius: 50%; background: #EF4444; animation: pb-pulse 1.1s ease infinite; }
-@keyframes pb-pulse { 50% { opacity: .35; } }
-.pb-scale-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 20px 0; }
-.pb-stat { font: 800 clamp(100px, 11vw, 140px)/.82 'Inter', sans-serif; letter-spacing: -.04em; color: #0F172A; margin: 20px 0 0; font-variant-numeric: tabular-nums; }
-.pb-stat em { font-style: normal; }
-.pb-sub { font: 500 clamp(22px, 2vw, 26px)/1.35 'Inter', sans-serif; color: #64748B; margin: 12px 0 0; max-width: 640px; }
-.pb-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
-.pb-chips span { font: 600 13px/1 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: #64748B; padding: 10px 16px; border: 1px solid #E2E8F0; border-radius: 999px; background: #fff; }
-.pb-src { font: 500 14px/1.45 'IBM Plex Mono', monospace; color: #64748B; margin-top: auto; padding-top: 24px; }
-.pb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 32px; }
-.pb-col { border-top: 2px solid #E2E8F0; padding-top: 24px; }
-.pb-col .num { font: 800 clamp(88px, 8vw, 112px)/.85 'Inter', sans-serif; margin: 0; color: #0F172A; font-variant-numeric: tabular-nums; letter-spacing: -.03em; }
-.pb-col .txt { font: 500 clamp(20px, 1.85vw, 24px)/1.4 'Inter', sans-serif; color: #64748B; margin: 14px 0 0; max-width: 480px; }
-.pb-kicker { font: 700 clamp(28px, 2.6vw, 40px)/1.15 'Inter', sans-serif; letter-spacing: -.02em; color: #0F172A; margin: 20px 0 0; max-width: 720px; }
-.pb-subhead { font: 600 clamp(22px, 2vw, 28px)/1.35 'Inter', sans-serif; color: #334155; margin: 14px 0 0; max-width: 820px; }
-.pb-stat-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; align-items: stretch; }
-.pb-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 28px 26px 32px; box-shadow: 0 12px 40px rgba(15,23,42,.06); display: flex; flex-direction: column; min-height: 220px; }
-.pb-card .num { font: 800 clamp(52px, 5vw, 72px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0; font-variant-numeric: tabular-nums; }
-.pb-card .num.sm { font-size: clamp(36px, 3.2vw, 48px); line-height: 1.15; }
-.pb-card .txt { font: 500 clamp(17px, 1.5vw, 20px)/1.45 'Inter', sans-serif; color: #64748B; margin: 16px 0 0; flex: 1; }
-.pb-card--hero { background: linear-gradient(145deg, #0F172A 0%, #1e293b 100%); border-color: #0F172A; box-shadow: 0 16px 48px rgba(15,23,42,.25); }
-.pb-card--hero .num { color: #10B981; }
-.pb-card--hero .txt { color: #94A3B8; }
-.pb-takeaway { font: 700 clamp(24px, 2.2vw, 30px)/1.35 'Inter', sans-serif; color: #0F172A; margin-top: 36px; max-width: 920px; }
-.pb-takeaway em { font-style: normal; color: #10B981; font-weight: 700; }
+html, body { font-family: Inter, system-ui, sans-serif; }
 
-/* Problem chapter UI: one label, one headline, one proof block, source footer */
-.pb-lede { font: 600 clamp(22px, 2vw, 28px)/1.35 'Inter', sans-serif; color: #64748B; margin: 12px 0 0; max-width: 520px; }
-.pb-story { list-style: none; margin: 36px 0 0; padding: 0; max-width: 560px; display: flex; flex-direction: column; gap: 0; border-left: 3px solid #E2E8F0; }
-.pb-story li { position: relative; padding: 0 0 28px 28px; font: 600 clamp(21px, 1.95vw, 26px)/1.4 'Inter', sans-serif; color: #334155; }
-.pb-story li:last-child { padding-bottom: 0; }
-.pb-story li::before { content: ''; position: absolute; left: -6px; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: #CBD5E1; border: 2px solid #F8FAFC; }
-.pb-story li.is-hit { color: #0F172A; }
-.pb-story li.is-hit em.time { color: #10B981; font-style: normal; font-weight: 700; }
-.pb-story li.is-loss { color: #EF4444; font-weight: 700; }
-.pb-story li.is-loss::before { background: #EF4444; }
-.pb-disclaimer { font: 500 12px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; margin: auto 0 0; padding-top: 32px; max-width: 520px; letter-spacing: .04em; }
-.pb-jack { grid-template-columns: 44fr 56fr; gap: 56px; margin-top: 8px; }
-.pb-scale-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 8px 0 24px; max-width: 920px; }
-.pb-scale-panel .pb-stat { margin-top: 28px; color: #0F172A; }
-.pb-scale-panel .pb-stat em { color: #10B981; }
-.pb-bridge { font: 600 clamp(20px, 1.85vw, 24px)/1.4 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; max-width: 780px; }
-.pb-chips span.pb-chip--focus { color: #0F172A; border-color: #10B981; background: rgba(16,185,129,.08); box-shadow: 0 0 0 1px rgba(16,185,129,.15); }
-.pb-impact-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 8px; }
-.pb-src-split { font: 500 13px/1.5 'IBM Plex Mono', monospace; color: #64748B; margin-top: 16px; max-width: 1100px; }
+.slide { box-sizing: border-box; }
 
-
-
-/* —— Business model (light, investor) —— */
-#model.bm-slide { background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
-.bm-wrap { min-height: 1080px; padding: 64px 120px 48px; box-sizing: border-box; display: flex; flex-direction: column; }
-.bm-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; }
-.bm-top-copy { flex: 1; max-width: 920px; }
-.bm-label { font: 600 14px/1 'IBM Plex Mono', monospace; letter-spacing: .32em; text-transform: uppercase; color: #10B981; margin: 0; }
-.bm-head { font: 800 clamp(40px, 3.8vw, 56px)/1.08 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 20px 0 0; max-width: 820px; }
-.bm-sub { font: 500 clamp(20px, 1.85vw, 24px)/1.4 'Inter', sans-serif; color: #64748B; margin: 14px 0 0; max-width: 640px; }
-.bm-mark { flex: none; width: 88px; height: 88px; object-fit: contain; opacity: .92; filter: drop-shadow(0 12px 28px rgba(16,185,129,.2)); margin-top: 8px; }
-.bm-main { flex: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; margin-top: 40px; align-items: stretch; }
-.bm-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-content: start; }
-.bm-plan { background: #fff; border: 1px solid #E2E8F0; border-radius: 18px; padding: 26px 24px 28px; box-shadow: 0 10px 36px rgba(15,23,42,.06); }
-.bm-plan--growth { border: 2px solid #10B981; box-shadow: 0 0 0 1px rgba(16,185,129,.1), 0 14px 44px rgba(16,185,129,.14); }
-.bm-plan-tier { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; color: #64748B; margin: 0; }
-.bm-plan-price { font: 800 clamp(36px, 3.2vw, 44px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 12px 0 0; font-variant-numeric: tabular-nums; }
-.bm-plan-price span { font: 600 18px/1 'Inter', sans-serif; color: #64748B; letter-spacing: 0; }
-.bm-plan ul { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.bm-plan li { font: 500 15px/1.35 'Inter', sans-serif; color: #475569; padding-left: 14px; position: relative; }
-.bm-plan li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: #10B981; }
-.bm-roi { background: #fff; border: 1px solid #E2E8F0; border-radius: 18px; padding: 28px 32px 32px; box-shadow: 0 10px 36px rgba(15,23,42,.06); display: flex; flex-direction: column; justify-content: center; }
-.bm-roi-k { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0; }
-.bm-roi-lead { font: 700 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 16px 0 0; max-width: 420px; }
-.bm-roi-lead em { font-style: normal; color: #10B981; font-weight: 800; }
-.bm-roi-note { font: 500 13px/1.45 'Inter', sans-serif; color: #94A3B8; margin: 8px 0 0; }
-.bm-roi-stack { margin: 28px 0 0; display: flex; flex-direction: column; gap: 12px; max-width: 380px; }
-.bm-roi-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font: 600 clamp(18px, 1.65vw, 22px)/1.3 'Inter', sans-serif; color: #334155; font-variant-numeric: tabular-nums; }
-.bm-roi-row b { font-weight: 800; color: #0F172A; }
-.bm-roi-row.minus { color: #64748B; }
-.bm-roi-row.minus b { color: #64748B; font-weight: 700; }
-.bm-roi-eq { margin-top: 8px; padding-top: 20px; border-top: 2px solid #E2E8F0; display: flex; justify-content: space-between; align-items: baseline; }
-.bm-roi-eq span { font: 700 18px/1 'Inter', sans-serif; color: #0F172A; }
-.bm-roi-eq b { font: 800 clamp(40px, 3.6vw, 52px)/1 'Inter', sans-serif; color: #10B981; letter-spacing: -.03em; }
-.bm-roi-punch { font: 700 clamp(19px, 1.75vw, 22px)/1.35 'Inter', sans-serif; color: #0F172A; margin: 24px 0 0; max-width: 440px; }
-.bm-roi-punch em { font-style: normal; color: #10B981; }
-.bm-bottom { margin-top: 36px; padding-top: 28px; border-top: 1px solid #E2E8F0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; align-items: end; }
-.bm-metrics { display: flex; gap: 48px; flex-wrap: wrap; }
-.bm-metric { min-width: 140px; }
-.bm-metric-val { font: 800 clamp(44px, 4vw, 56px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; }
-.bm-metric-val em { font-style: normal; color: #10B981; }
-.bm-metric-lbl { font: 500 14px/1.4 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; max-width: 220px; }
-.bm-foot { font: 500 11px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; margin: 0; grid-column: 1 / -1; max-width: 1100px; }
-
-
-/* —— Investor slides 7–9 (Open Slot · JOLT) —— */
-#model.inv-slide, #market.inv-slide, #beachhead.inv-slide, #gtm.inv-slide, #finance.inv-slide, #team.inv-slide, #advisors.inv-slide {
-  background: #F8FAFC; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif;
+.os-k {
+  position: absolute;
+  top: 64px;
+  left: 120px;
+  margin: 0;
+  font: 500 22px/1 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
 }
-.inv-wrap {
-  min-height: 1080px; box-sizing: border-box; padding: 56px 88px 44px;
-  display: flex; flex-direction: column;
+.os-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+
+.os-h1 {
+  position: absolute;
+  top: 120px;
+  left: 120px;
+  right: 120px;
+  margin: 0;
+  font: 700 68px/1.05 Inter, system-ui, sans-serif;
+  letter-spacing: -0.035em;
+  color: var(--os-ink);
 }
-.inv-kicker { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .22em; text-transform: uppercase; color: #94A3B8; margin: 0; }
-.inv-h1 { font: 800 clamp(36px, 3.5vw, 52px)/1.08 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 14px 0 0; max-width: 920px; }
-.inv-sub { font: 500 clamp(17px, 1.55vw, 21px)/1.4 'Inter', sans-serif; color: #64748B; margin: 12px 0 0; max-width: 640px; }
-.inv-foot { font: 500 10px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; margin: auto 0 0; padding-top: 16px; max-width: 1200px; }
 
-/* Slide 7 — business model · calculation hero */
-.s7-main { flex: 1; display: grid; grid-template-columns: 55fr 45fr; gap: 40px; margin-top: 28px; align-items: stretch; min-height: 0; }
-.s7-story { display: flex; flex-direction: column; justify-content: center; padding: 8px 0; }
-.s7-flow { max-width: 440px; }
-.s7-step { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 14px 0; border-bottom: 1px solid #E2E8F0; }
-.s7-step:last-child { border-bottom: none; }
-.s7-amt { font: 800 clamp(40px, 3.8vw, 56px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; }
-.s7-amt--sub { font-size: clamp(32px, 3vw, 44px); color: #475569; }
-.s7-amt--minus { color: #64748B; }
-.s7-amt--win { color: #10B981; font-size: clamp(44px, 4vw, 60px); }
-.s7-cap { font: 500 15px/1.35 'Inter', sans-serif; color: #64748B; max-width: 360px; }
-.s7-arrow { text-align: center; font: 700 20px/1 'Inter', sans-serif; color: #CBD5E1; padding: 6px 0; letter-spacing: .05em; }
-.s7-tagline { margin-top: 20px; font: 700 clamp(18px, 1.65vw, 22px)/1.35 'Inter', sans-serif; color: #0F172A; max-width: 400px; }
-.s7-tagline em { font-style: normal; color: #10B981; }
-.s7-charge { display: flex; flex-direction: column; justify-content: center; gap: 14px; border-left: 1px solid #E2E8F0; padding-left: 36px; }
-.s7-charge-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; color: #64748B; margin: 0 0 8px; }
-.s7-tier { background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; padding: 18px 20px 20px; box-shadow: 0 4px 20px rgba(15,23,42,.04); }
-.s7-tier--growth { border-color: rgba(16,185,129,.35); background: linear-gradient(135deg, #fff 0%, rgba(16,185,129,.04) 100%); }
-.s7-tier-head { font: 700 13px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; margin: 0; }
-.s7-tier-price { font: 800 28px/1 'Inter', sans-serif; color: #0F172A; margin: 8px 0 0; }
-.s7-tier ul { margin: 12px 0 0; padding: 0; list-style: none; }
-.s7-tier li { font: 500 14px/1.4 'Inter', sans-serif; color: #475569; padding: 5px 0 5px 12px; position: relative; }
-.s7-tier li::before { content: ''; position: absolute; left: 0; top: 11px; width: 4px; height: 4px; border-radius: 50%; background: #10B981; }
-.s7-strip { margin-top: 24px; padding: 20px 28px; background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-.s7-metrics { display: flex; gap: 48px; }
-.s7-metric b { display: block; font: 800 36px/1 'Inter', sans-serif; color: #0F172A; letter-spacing: -.02em; }
-.s7-metric span { font: 500 13px/1.35 'Inter', sans-serif; color: #64748B; margin-top: 6px; display: block; max-width: 200px; }
-.s7-disc { font: 500 10px/1.4 'IBM Plex Mono', monospace; color: #94A3B8; max-width: 420px; flex: 1; min-width: 200px; }
-
-/* Slide 8 — market · stepped editorial */
-.s8-main { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 20px; gap: 0; }
-.s8-level { display: grid; grid-template-columns: 120px 1fr; gap: 28px; align-items: center; padding: 22px 28px; border-left: 4px solid #E2E8F0; background: #fff; margin-bottom: 2px; }
-.s8-level--tam { border-left-color: #CBD5E1; }
-.s8-level--sam {
-  border-left-color: #10B981; padding: 36px 32px; margin: 8px 0;
-  background: linear-gradient(90deg, rgba(16,185,129,.08) 0%, #fff 45%);
-  box-shadow: 0 12px 40px rgba(15,23,42,.06);
+.os-src {
+  position: absolute;
+  bottom: 40px;
+  left: 120px;
+  right: 120px;
+  margin: 0;
+  font: 400 17px/1.45 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
 }
-.s8-level--som { border-left-color: #059669; background: rgba(16,185,129,.06); padding: 20px 28px; }
-.s8-tag { font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0; }
-.s8-level--sam .s8-tag { color: #10B981; }
-.s8-val { font: 800 clamp(36px, 3.5vw, 48px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; margin: 0; }
-.s8-level--sam .s8-val { font-size: clamp(56px, 5.5vw, 80px); color: #059669; }
-.s8-level--som .s8-val { font-size: clamp(32px, 3vw, 42px); color: #047857; }
-.s8-desc { font: 600 clamp(16px, 1.45vw, 19px)/1.4 'Inter', sans-serif; color: #334155; margin: 8px 0 0; max-width: 780px; }
-.s8-meta { font: 500 14px/1.45 'Inter', sans-serif; color: #64748B; margin: 6px 0 0; }
-.s8-punch { text-align: center; font: 800 clamp(26px, 2.4vw, 36px)/1.2 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 28px 0 0; padding: 0 40px; }
-.s8-punch em { font-style: normal; color: #10B981; }
 
-/* Slide 9 — beachhead · place + persona */
-.s9-main { flex: 1; display: grid; grid-template-columns: 52fr 48fr; gap: 48px; margin-top: 24px; align-items: stretch; min-height: 0; }
-.s9-local { display: flex; flex-direction: column; justify-content: center; }
-.s9-num { font: 800 clamp(120px, 11vw, 160px)/.82 'Inter', sans-serif; letter-spacing: -.04em; color: #10B981; margin: 0; font-variant-numeric: tabular-nums; }
-.s9-num-cap { font: 600 clamp(18px, 1.65vw, 22px)/1.35 'Inter', sans-serif; color: #334155; margin: 12px 0 0; max-width: 400px; }
-.s9-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; margin-top: 28px; max-width: 400px; background: #E2E8F0; }
-.s9-bar i { display: block; height: 100%; }
-.s9-bar i:first-child { width: 74.8%; background: #10B981; }
-.s9-bar i:last-child { flex: 1; background: #6EE7B7; }
-.s9-bar-key { display: flex; gap: 24px; margin-top: 14px; font: 600 14px/1.35 'Inter', sans-serif; color: #475569; flex-wrap: wrap; }
-.s9-bar-key span::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-.s9-bar-key span:first-child::before { background: #10B981; }
-.s9-bar-key span:last-child::before { background: #6EE7B7; }
-.s9-pct { font: 600 15px/1.4 'Inter', sans-serif; color: #64748B; margin-top: 20px; max-width: 420px; }
-.s9-right { display: flex; align-items: center; justify-content: center; min-height: 0; }
-.s9-persona {
-  width: 100%; max-width: 480px; background: #fff; border: 1px solid #E2E8F0; border-radius: 20px;
-  padding: 32px 32px 28px; box-shadow: 0 16px 48px rgba(15,23,42,.07);
+/* Title — dark, robot only */
+#title.slide {
+  background: var(--os-dark);
+  color: #e8e8e4;
+  font-family: Inter, system-ui, sans-serif;
 }
-.s9-persona-lead { font: 700 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; color: #0F172A; margin: 0 0 24px; }
-.s9-scene {
-  height: 140px; border-radius: 12px; background: linear-gradient(145deg, #F1F5F9 0%, #E2E8F0 100%);
-  display: flex; align-items: center; justify-content: center; gap: 28px; margin-bottom: 24px;
+#title .t1 {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: var(--os-dark);
 }
-.s9-scene svg { flex: none; }
-.s9-persona-lines { list-style: none; margin: 0; padding: 0; border-top: 1px solid #E2E8F0; }
-.s9-persona-lines li {
-  font: 600 17px/1.45 'Inter', sans-serif; color: #334155; padding: 16px 0; border-bottom: 1px solid #F1F5F9;
-  display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: start;
+#title .t1-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  min-height: 1080px;
+  padding: 120px 120px 100px;
+  box-sizing: border-box;
 }
-.s9-persona-lines li span {
-  font: 700 10px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #10B981; padding-top: 4px;
+#title .t1-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
 }
-.s9-persona-note { font: 500 12px/1.4 'IBM Plex Mono', monospace; color: #94A3B8; margin: 16px 0 0; }
-.s9-expand { margin-top: 22px; padding-top: 22px; border-top: 1px solid #E2E8F0; text-align: center; }
-.s9-route { display: flex; justify-content: center; align-items: center; gap: 16px 24px; flex-wrap: wrap; font: 800 14px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; }
-.s9-route .on { color: #10B981; font-size: 16px; }
-.s9-route .off { color: #0F172A; opacity: .45; }
-.s9-route i { font-style: normal; color: #CBD5E1; font-weight: 700; }
-
-/* Slide 10 — competitive analysis grid (reference layout) */
-#compete.inv-slide { background: #FAFAF8; color: #0F172A; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
-#compete .inv-wrap { padding: 52px 72px 36px; }
-.s10-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; margin-bottom: 8px; }
-.s10-title { font: 500 clamp(34px, 3.2vw, 48px)/1.1 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 0; }
-.s10-tagline { font: 600 clamp(17px, 1.5vw, 20px)/1.35 'Inter', sans-serif; color: #475569; margin: 10px 0 0; max-width: 720px; }
-.s10-logo { width: 72px; height: 72px; object-fit: contain; flex: none; margin-top: 4px; }
-.s10-main { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; margin-top: 20px; }
-.s10-grid-wrap { background: #fff; border: 2.5px solid #0F172A; margin: 0 auto; width: 100%; max-width: 1680px; box-sizing: border-box; }
-.s10-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.s10-grid th, .s10-grid td { border: 2px solid #0F172A; vertical-align: middle; }
-.s10-grid thead th {
-  font: 500 clamp(15px, 1.35vw, 19px)/1.35 'Inter', sans-serif; color: #334155; text-align: center;
-  padding: 22px 14px; font-weight: 500; background: #fff;
+#title .t1-mascot-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.s10-grid thead th:first-child { border-bottom: 2px solid #0F172A; background: #fff; }
-.s10-grid tbody td { padding: 0; height: 88px; text-align: center; background: #fff; }
-.s10-grid tbody td.s10-co { text-align: left; padding: 12px 20px; height: auto; min-height: 88px; }
-.s10-co-us img { width: 56px; height: 56px; display: block; }
-.s10-co-name { font: 700 clamp(17px, 1.5vw, 22px)/1.2 'Inter', sans-serif; color: #0F172A; margin: 0; letter-spacing: -.01em; }
-.s10-co-name--jobber { font-size: clamp(15px, 1.35vw, 19px); font-weight: 800; letter-spacing: -.02em; }
-.s10-co-name--smith { font-weight: 700; }
-.s10-co-name--sameday { font: 800 clamp(16px, 1.45vw, 20px)/1 'IBM Plex Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
-.s10-mark { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; margin: 0 auto; }
-.s10-mark svg { width: 22px; height: 22px; }
-.s10-mark--yes { background: #10B981; color: #fff; box-shadow: 0 2px 0 rgba(5,150,105,.35); }
-.s10-mark--muted { background: #94A3B8; color: #fff; opacity: .85; }
-.s10-mark--road { background: #10B981; color: #fff; position: relative; }
-.s10-mark--road::after {
-  content: 'R'; position: absolute; right: -4px; bottom: -2px; width: 16px; height: 16px; border-radius: 50%;
-  background: #0F172A; color: #fff; font: 700 9px/16px 'IBM Plex Mono', monospace; text-align: center;
+#title .t1-glow, #title .t1-ring, #title .t1-orbit, #title .t1-wave, #title .t1-scan, #title .t1-mascot-shine { display: none !important; }
+#title .t1-mascot {
+  width: min(400px, 38vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
-.s10-close { text-align: center; margin-top: 28px; font: 800 clamp(22px, 2vw, 28px)/1.25 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; }
-.s10-close em { font-style: normal; color: #10B981; }
-
-.s9-close { text-align: center; font: 700 clamp(17px, 1.55vw, 20px)/1.4 'Inter', sans-serif; color: #0F172A; margin-top: 14px; }
-/* Slide 11 — go-to-market · trial centerpiece */
-#gtm.inv-slide { background: #F8FAFC; }
-.s11-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; margin-top: 18px; min-height: 0; }
-.s11-hero {
-  display: grid; grid-template-columns: 1fr auto; gap: 32px 48px; align-items: center;
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 55%, #0F172A 100%);
-  border-radius: 22px; padding: 40px 48px 36px; color: #F8FAFC;
-  box-shadow: 0 20px 56px rgba(15,23,42,.18); position: relative; overflow: hidden;
+#title .t1-copy { padding: 0; max-width: 560px; }
+#title .t1-brand {
+  font: 800 clamp(52px, 5vw, 88px)/0.95 Inter, system-ui, sans-serif;
+  letter-spacing: -0.038em;
+  color: #f5f5f2;
+  margin: 0;
 }
-.s11-hero::after {
-  content: ''; position: absolute; left: -60px; bottom: -80px; width: 320px; height: 320px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(16,185,129,.25) 0%, transparent 68%); pointer-events: none;
+#title .t1-brand span { color: var(--os-green-d); }
+#title .t1-head {
+  font: 700 clamp(36px, 3.2vw, 52px)/1.06 Inter, system-ui, sans-serif;
+  letter-spacing: -0.032em;
+  color: #f5f5f2;
+  margin: 28px 0 0;
 }
-.s11-hero-copy { position: relative; z-index: 1; }
-.s11-hero-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: #94A3B8; margin: 0 0 12px; }
-.s11-hero-big { font: 900 clamp(64px, 7vw, 108px)/.92 'Inter', sans-serif; letter-spacing: -.04em; margin: 0; color: #F8FAFC; }
-.s11-hero-big span { color: #34D399; }
-.s11-hero-sub { font: 600 clamp(18px, 1.65vw, 24px)/1.35 'Inter', sans-serif; color: #CBD5E1; margin: 14px 0 0; }
-.s11-hero-note { font: 500 13px/1.45 'Inter', sans-serif; color: #94A3B8; margin: 12px 0 0; max-width: 520px; }
-.s11-perks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; min-width: 240px; }
-.s11-perks li {
-  font: 600 15px/1.35 'Inter', sans-serif; color: #F8FAFC; padding: 14px 18px; border-radius: 12px;
-  background: rgba(248,250,252,.08); border: 1px solid rgba(248,250,252,.14);
+#title .t1-head-sub {
+  font: 500 22px/1.35 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+  margin: 16px 0 0;
 }
-.s11-perks li strong { display: block; font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: #10B981; margin-bottom: 6px; }
-.s11-funnel-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; color: #64748B; margin: 0 0 14px; text-align: center; }
-.s11-funnel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-.s11-step { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px 22px 20px; box-shadow: 0 6px 24px rgba(15,23,42,.05); }
-.s11-step-num { font: 700 12px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; color: #10B981; margin: 0 0 10px; }
-.s11-step-t { font: 800 clamp(22px, 2vw, 28px)/1.15 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0; }
-.s11-step-d { font: 500 14px/1.45 'Inter', sans-serif; color: #64748B; margin: 10px 0 0; }
-.s11-step-d em { font-style: normal; font-weight: 600; color: #334155; }
-.s11-arrow { display: none; }
-.s11-road { background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; padding: 18px 28px; text-align: center; }
-.s11-road-k { font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #94A3B8; margin: 0 0 10px; }
-.s11-road-line { display: flex; justify-content: center; align-items: center; gap: 16px 28px; flex-wrap: wrap; font: 800 clamp(15px, 1.35vw, 18px)/1 'IBM Plex Mono', monospace; letter-spacing: .06em; color: #0F172A; }
-.s11-road-line i { font-style: normal; color: #10B981; font-size: 20px; }
-.s11-road-line .dim { color: #64748B; font-weight: 600; }
-.s11-emote { text-align: center; font: 700 clamp(17px, 1.55vw, 21px)/1.4 'Inter', sans-serif; color: #334155; margin: 0; padding: 0 40px; }
-.s11-emote em { font-style: normal; color: #059669; }
-
-/* Slide 12 — financial model */
-#finance.inv-slide { background: #F8FAFC; }
-.s12-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; margin-top: 16px; min-height: 0; }
-.s12-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.s12-kpi { background: #fff; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px 24px 20px; box-shadow: 0 8px 28px rgba(15,23,42,.05); }
-.s12-kpi--hero { border-color: rgba(16,185,129,.4); background: linear-gradient(135deg, #fff 0%, rgba(16,185,129,.06) 100%); }
-.s12-kpi b { display: block; font: 800 clamp(36px, 3.4vw, 52px)/1 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; font-variant-numeric: tabular-nums; }
-.s12-kpi--hero b { color: #059669; font-size: clamp(40px, 3.8vw, 56px); }
-.s12-kpi span { display: block; font: 600 13px/1.35 'Inter', sans-serif; color: #64748B; margin-top: 8px; max-width: 220px; }
-.s12-main { display: grid; grid-template-columns: 58fr 42fr; gap: 28px; align-items: stretch; min-height: 0; }
-.s12-chart-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 18px; padding: 24px 28px 20px; box-shadow: 0 8px 32px rgba(15,23,42,.05); display: flex; flex-direction: column; }
-.s12-chart-k { font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .16em; text-transform: uppercase; color: #64748B; margin: 0 0 16px; }
-.s12-chart { flex: 1; min-height: 260px; }
-.s12-chart svg { width: 100%; height: 100%; display: block; }
-.s12-chart-y { font: 500 11px/1 'IBM Plex Mono', monospace; fill: #94A3B8; }
-.s12-chart-x { font: 600 12px/1 'Inter', sans-serif; fill: #475569; }
-.s12-chart-val { font: 700 11px/1 'IBM Plex Mono', monospace; fill: #059669; }
-.s12-table-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,23,42,.05); display: flex; flex-direction: column; }
-.s12-table { width: 100%; border-collapse: collapse; }
-.s12-table th { text-align: left; font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; padding: 14px 16px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
-.s12-table td { padding: 13px 16px; border-bottom: 1px solid #F1F5F9; font: 600 15px/1.3 'Inter', sans-serif; color: #0F172A; font-variant-numeric: tabular-nums; }
-.s12-table td:last-child { color: #059669; font-weight: 700; }
-.s12-table tr:last-child td { border-bottom: none; background: rgba(16,185,129,.06); }
-.s12-table-note { font: 500 11px/1.45 'IBM Plex Mono', monospace; color: #94A3B8; padding: 12px 16px 14px; margin-top: auto; border-top: 1px solid #F1F5F9; }
-.s12-assump { display: flex; flex-wrap: wrap; gap: 10px 12px; justify-content: center; }
-.s12-assump span { font: 600 12px/1.35 'Inter', sans-serif; color: #334155; background: #fff; border: 1px solid #E2E8F0; border-radius: 999px; padding: 8px 14px; }
-.s12-assump span em { font-style: normal; color: #10B981; font-weight: 700; }
-.s12-tagline { text-align: center; font: 700 clamp(16px, 1.45vw, 19px)/1.4 'Inter', sans-serif; color: #475569; margin: 0; }
-.s12-arr { text-align: center; font: 500 12px/1.45 'IBM Plex Mono', monospace; color: #64748B; margin: 0; max-width: 960px; margin-left: auto; margin-right: auto; }
-
-/* Slide 13 — founding team */
-#team.inv-slide { background: #FAFAF8; }
-.s13-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 4px; }
-.s13-title { font: 500 clamp(34px, 3.2vw, 48px)/1.08 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 0; }
-.s13-logo { width: 64px; height: 64px; object-fit: contain; flex: none; }
-.s13-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; margin-top: 12px; min-height: 0; }
-.s13-lead { font: 800 clamp(28px, 2.5vw, 40px)/1.12 'Inter', sans-serif; letter-spacing: -.035em; color: #0F172A; margin: 0; max-width: 920px; }
-.s13-lead-sub { font: 600 clamp(16px, 1.45vw, 19px)/1.4 'Inter', sans-serif; color: #475569; margin: 10px 0 0; }
-.s13-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 56px; align-items: start; }
-.s13-person { display: grid; grid-template-columns: 200px 1fr; gap: 24px 28px; align-items: start; }
-.s13-photo { width: 200px; height: 200px; border-radius: 50%; overflow: hidden; background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 100%); border: 3px solid #fff; box-shadow: 0 12px 36px rgba(15,23,42,.12); flex: none; }
-.s13-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.s13-ph { width: 100%; height: 100%; display: grid; place-content: center; text-align: center; padding: 16px; box-sizing: border-box; font: 600 13px/1.45 'Inter', sans-serif; color: #64748B; }
-.s13-ph span { display: block; font: 500 11px/1.35 'IBM Plex Mono', monospace; color: #94A3B8; margin-top: 8px; }
-.s13-name { font: 800 clamp(26px, 2.2vw, 34px)/1.15 'Inter', sans-serif; letter-spacing: -.03em; color: #0F172A; margin: 0; padding-bottom: 10px; border-bottom: 2px solid #0F172A; }
-.s13-tag { font: 600 13px/1.4 'Inter', sans-serif; color: #10B981; margin: 12px 0 0; }
-.s13-list { list-style: none; margin: 16px 0 0; padding: 0; }
-.s13-list li { font: 500 16px/1.45 'Inter', sans-serif; color: #334155; padding: 7px 0 7px 18px; position: relative; }
-.s13-list li::before { content: '•'; position: absolute; left: 0; color: #10B981; font-weight: 700; }
-.s13-roles { margin-top: 8px; font: 600 14px/1.45 'Inter', sans-serif; color: #64748B; }
-.s13-advisor { text-align: center; font: 600 14px/1.45 'Inter', sans-serif; color: #64748B; background: #fff; border: 1px dashed #CBD5E1; border-radius: 12px; padding: 14px 20px; max-width: 720px; margin: 0 auto; }
-.s13-advisor em { font-style: normal; color: #0F172A; font-weight: 700; }
-
-/* Slide 14 — advisory board */
-#advisors.inv-slide { background: #FAFAF8; }
-.s14-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
-.s14-title { font: 500 clamp(38px, 3.5vw, 52px)/1.05 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 0; }
-.s14-logo { width: 64px; height: 64px; object-fit: contain; flex: none; }
-.s14-body { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 24px; min-height: 0; }
-.s14-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 48px; align-items: start; max-width: 1560px; margin: 0 auto; width: 100%; }
-.s14-card { text-align: center; display: flex; flex-direction: column; align-items: center; }
-.s14-photo { width: 220px; height: 220px; border-radius: 50%; overflow: hidden; background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 100%); box-shadow: 0 14px 40px rgba(15,23,42,.1); margin: 0 auto; }
-.s14-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.s14-ph { width: 100%; height: 100%; display: grid; place-content: center; padding: 18px; box-sizing: border-box; font: 600 13px/1.45 'Inter', sans-serif; color: #64748B; }
-.s14-ph span { display: block; font: 500 10px/1.35 'IBM Plex Mono', monospace; color: #94A3B8; margin-top: 8px; word-break: break-all; }
-.s14-name { font: 800 clamp(22px, 2vw, 28px)/1.2 'Inter', sans-serif; letter-spacing: -.02em; color: #0F172A; margin: 22px 0 0; max-width: 320px; }
-.s14-line { font: 500 15px/1.45 'Inter', sans-serif; color: #64748B; margin: 8px 0 0; max-width: 300px; }
-.s14-orgs { margin-top: 36px; display: flex; justify-content: center; align-items: center; gap: 40px 56px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid #E2E8F0; }
-.s14-org { font: 700 13px/1.35 'Inter', sans-serif; letter-spacing: -.01em; color: #475569; text-align: center; max-width: 200px; }
-
-
-
-
-/* —— II · Solution (dark, simple) —— */
-#phone.sol-reveal-slide { padding: 0; }
-.sol-reveal { min-height: 1080px; padding: 80px 140px 72px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-family: 'Inter', system-ui, sans-serif; }
-.sol-reveal .sol-label { margin-bottom: 48px; }
-.sol-reveal .sol-mascot-panel { min-height: auto; margin: 0 0 36px; }
-.sol-reveal .sol-mascot-panel::before { width: 420px; height: 420px; }
-.sol-reveal .sol-mascot-panel img { width: min(400px, 36vw); }
-.sol-reveal .sol-brand { font: 800 clamp(56px, 5.5vw, 88px)/1 'Inter', sans-serif; letter-spacing: -.038em; color: #F8FAFC; margin: 0; }
-.sol-reveal .sol-brand span { color: #10B981; }
-.sol-reveal .sol-hook { font: 600 clamp(28px, 2.8vw, 44px)/1.2 'Inter', sans-serif; color: #F8FAFC; margin: 32px 0 0; max-width: 720px; }
-.sol-reveal .sol-hook em { font-style: normal; color: #10B981; font-weight: 700; }
-
-.sol-reveal--split { flex-direction: row; justify-content: center; align-items: center; gap: clamp(48px, 6vw, 100px); text-align: left; padding: 88px 120px 80px; }
-.sol-reveal--split .sol-copy { flex: 1; max-width: 620px; min-width: 0; }
-.sol-reveal--split .sol-mascot-panel { flex: 0 0 auto; margin: 0; }
-.sol-reveal--split .sol-label { margin-bottom: 24px; }
-.sol-reveal--split .sol-body { font: 500 clamp(19px, 1.75vw, 23px)/1.55 'Inter', sans-serif; color: #94A3B8; margin: 28px 0 0; max-width: 580px; }
-.sol-feats { list-style: none; margin: 36px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
-.sol-feats li { font: 600 clamp(20px, 1.85vw, 24px)/1.3 'Inter', sans-serif; color: #F8FAFC; padding-left: 18px; border-left: 3px solid #10B981; }
-
-.sol-reveal .sol-three { font: 600 13px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: #64748B; margin: 40px 0 0; }
-.sol-steps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; max-width: 1200px; width: 100%; }
-.sol-step-card { text-align: left; padding: 32px 28px; border-radius: 16px; border: 1px solid rgba(248,250,252,.1); background: rgba(15,23,42,.4); }
-.sol-step-card .n { display: block; font: 700 14px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; color: #10B981; margin: 0 0 16px; }
-.sol-step-card h3 { font: 700 clamp(24px, 2.2vw, 30px)/1.15 'Inter', sans-serif; color: #F8FAFC; margin: 0; }
-
-#loop { background: radial-gradient(ellipse 90% 70% at 50% 42%, #152238 0%, #0B1220 50%, #060910 100%); }
-.sol-flow-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 0 64px 56px; box-sizing: border-box; }
-.sol-flow-wrap .sol-headline { text-align: center; margin-top: 8px; font-size: clamp(48px, 4.5vw, 72px); }
-.sol-flow-lede { font: 500 clamp(20px, 1.85vw, 26px)/1.4 'Inter', sans-serif; color: #64748B; text-align: center; margin: 16px 0 0; letter-spacing: .02em; }
-.sol-flow-stage { position: relative; width: 100%; max-width: 1540px; margin-top: 56px; padding: 0 24px; box-sizing: border-box; }
-.sol-flow-track { position: absolute; left: 8%; right: 8%; top: 78px; width: 84%; height: 6px; margin: 0 auto; display: block; pointer-events: none; z-index: 0; }
-.sol-flow { position: relative; z-index: 1; display: flex; align-items: flex-start; justify-content: center; gap: 0; width: 100%; }
-.sol-flow-node { flex: 1; max-width: 360px; text-align: center; padding: 0 16px; }
-.sol-flow-visual { position: relative; width: 156px; height: 156px; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 36px; background: linear-gradient(160deg, rgba(30,41,59,.85) 0%, rgba(11,18,32,.95) 100%); border: 1px solid rgba(148,163,184,.15); box-shadow: 0 20px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06); transition: transform .35s ease; }
-.sol-flow-node--hero .sol-flow-visual { width: 172px; height: 172px; border-color: rgba(16,185,129,.45); box-shadow: 0 0 0 1px rgba(16,185,129,.2), 0 24px 60px rgba(16,185,129,.18), inset 0 1px 0 rgba(255,255,255,.08); }
-.sol-flow-visual::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; background: radial-gradient(circle at 50% 0%, rgba(16,185,129,.12), transparent 55%); pointer-events: none; }
-.sol-flow-icon { width: 64px; height: 64px; color: #F8FAFC; stroke: #E2E8F0; stroke-width: 2.2; }
-.sol-flow-icon--bot { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(16,185,129,.35)); }
-.sol-flow-num { position: absolute; right: -8px; bottom: -8px; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(145deg, #34d399, #10B981); color: #022c22; font: 800 22px/1 'Inter', sans-serif; box-shadow: 0 0 0 5px #0B1220, 0 8px 24px rgba(16,185,129,.4); }
-.sol-flow-t { font: 700 clamp(26px, 2.35vw, 34px)/1.15 'Inter', sans-serif; color: #F8FAFC; margin: 32px 0 0; letter-spacing: -.02em; }
-.sol-flow-sub { font: 500 17px/1.35 'Inter', sans-serif; color: #64748B; margin: 10px 0 0; }
-.sol-flow-arrow { flex: 0 0 56px; display: flex; align-items: center; justify-content: center; padding-top: 58px; opacity: .9; }
-.sol-flow-arrow svg { width: 44px; height: 44px; stroke: #10B981; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(16,185,129,.35)); }
-.sol-flow-foot { text-align: center; margin-top: 52px; font: 600 clamp(22px, 2vw, 28px)/1.3 'Inter', sans-serif; color: #10B981; letter-spacing: -.01em; }
-
-.sol-step-card p { font: 500 18px/1.45 'Inter', sans-serif; color: #94A3B8; margin: 12px 0 0; }
-
-#phone, #loop, #demo.sol-slide { padding: 0; }
-.sol { min-height: 1080px; box-sizing: border-box; padding: 88px 140px 72px; display: flex; flex-direction: column; font-family: 'Inter', system-ui, sans-serif; }
-.sol-label { font: 600 14px/1 'IBM Plex Mono', monospace; letter-spacing: .32em; text-transform: uppercase; color: #10B981; margin: 0; }
-.sol .kick { margin-bottom: 28px; }
-.sol-grid { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 420px); gap: 56px; align-items: center; }
-.sol-bridge { font: 600 clamp(20px, 1.85vw, 26px)/1.3 'Inter', sans-serif; color: #94A3B8; margin: 0 0 16px; }
-.sol-head { font: 800 clamp(52px, 5vw, 76px)/1.02 'Inter', sans-serif; letter-spacing: -.038em; color: #F8FAFC; margin: 0; max-width: 640px; }
-.sol-head .yes { color: #10B981; }
-.sol-sub { font: 700 clamp(28px, 2.6vw, 40px)/1.15 'Inter', sans-serif; color: #CBD5E1; margin: 14px 0 0; }
-.sol-punch { font: 700 clamp(24px, 2.2vw, 32px)/1.35 'Inter', sans-serif; color: #F8FAFC; margin: 32px 0 0; max-width: 560px; }
-.sol-punch em { font-style: normal; color: #10B981; }
-.sol-body { font: 500 clamp(20px, 1.85vw, 24px)/1.5 'Inter', sans-serif; color: #94A3B8; margin: 20px 0 0; max-width: 540px; }
-.sol-mascot-panel { position: relative; display: flex; align-items: center; justify-content: center; min-height: 420px; }
-.sol-mascot-panel::before { content: ''; position: absolute; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,.2) 0%, transparent 70%); filter: blur(12px); }
-.sol-tagline { font: 700 clamp(26px, 2.4vw, 36px)/1.25 'Inter', sans-serif; color: #F8FAFC; margin: 28px 0 0; max-width: 520px; }
-.sol-tagline em { font-style: normal; color: #10B981; }
-.sol-powered { font: 500 14px/1 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748B; margin: 10px 0 0; }
-.sol-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0; padding: 0; list-style: none; }
-.sol-chips li { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: #CBD5E1; padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(148,163,184,.25); background: rgba(15,23,42,.5); }
-.sol-mascot-panel img { position: relative; width: min(340px, 100%); height: auto; display: block; filter: drop-shadow(0 24px 48px rgba(16,185,129,.25)); }
-.sol-work { max-width: 1200px; }
-.sol-work .sol-headline { font: 800 clamp(44px, 4.2vw, 64px)/1.06 'Inter', sans-serif; letter-spacing: -.032em; color: #F8FAFC; margin: 20px 0 0; max-width: 900px; }
-.sol-work .sol-lede { font: 600 clamp(22px, 2vw, 28px)/1.35 'Inter', sans-serif; color: #64748B; margin: 14px 0 0; }
-.sol-steps { margin-top: 48px; display: flex; flex-direction: column; gap: 0; max-width: 960px; }
-.sol-step { display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid rgba(248,250,252,.1); align-items: start; }
-.sol-step:first-child { border-top: none; padding-top: 0; }
-.sol-step .n { width: 48px; height: 48px; border-radius: 50%; background: #10B981; color: #041510; font: 700 22px/48px 'IBM Plex Mono', monospace; text-align: center; }
-.sol-step h3 { font: 700 clamp(26px, 2.4vw, 34px)/1.2 'Inter', sans-serif; color: #F8FAFC; margin: 0; }
-.sol-step p { font: 500 clamp(18px, 1.65vw, 22px)/1.45 'Inter', sans-serif; color: #94A3B8; margin: 8px 0 0; max-width: 720px; }
-.sol-step p.quote { color: #CBD5E1; font-style: italic; }
-.sol-foot { font: 700 clamp(26px, 2.4vw, 34px)/1.3 'Inter', sans-serif; color: #10B981; margin-top: 40px; max-width: 720px; }
-#demo.sol-slide .sol-headline { font: 800 clamp(48px, 4.5vw, 72px)/1.02 'Inter', sans-serif; color: #F8FAFC; margin: 16px 0 0; max-width: 1000px; }
-#demo .demo-wrap { top: 260px; height: 580px; }
-#demo .demo-lede { position: absolute; left: 140px; top: 868px; font: 500 22px/1.4 'Inter', sans-serif; color: #94A3B8; max-width: 1100px; }
-
-.deck { background: var(--paper); color: var(--ink); font-family: var(--display); }
-.slide { padding: 100px 140px 80px; }
-.art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
-.kick { font: 600 20px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0; }
-.kick b { color: var(--hot-text); font-weight: 600; }
-h1, h2, h3 { font-family: var(--display); letter-spacing: -.04em; margin: 0; }
-h2 { font-weight: 800; font-size: 96px; line-height: .98; margin-top: 28px; max-width: 1200px; }
-h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
-.body { font: 500 36px/1.25 var(--display); margin: 0; max-width: 880px; }
-.small { font: 500 22px/1.4 var(--mono); color: var(--muted); margin: 0; }
-.abs { position: absolute; }
-.hot { color: var(--hot-text); } .yes { color: var(--yes); }
-.disp { font-family: var(--display); font-weight: 800; letter-spacing: -.03em; line-height: .9; }
-.hero { font: 800 300px/.82 var(--display); letter-spacing: -.04em; font-variant-numeric: tabular-nums; color: var(--ink); }
-.art text { font-family: var(--display); font-size: 26px; fill: var(--ink); }
-.art .lab { font-family: var(--mono); font-size: 22px; fill: var(--muted); }
-.art .val { font-size: 30px; font-weight: 700; }
-.handset { position: absolute; left: 1180px; top: 180px; width: 520px; height: 790px; }
-.bezel { position: absolute; inset: 0; border-radius: 68px; background: #141210; border: 2px solid #2f2a24; box-shadow: 0 0 120px rgba(255, 122, 61, .12); }
-.ear { position: absolute; left: 185px; top: 28px; width: 130px; height: 12px; border-radius: 8px; background: #3b3329; }
-.side { position: absolute; right: -5px; top: 168px; width: 8px; height: 86px; border-radius: 4px; background: #2a2622; }
-.glass { position: absolute; left: 22px; right: 22px; top: 64px; bottom: 22px; border-radius: 44px; background: var(--glass); padding: 36px 32px 32px; box-sizing: border-box; }
-.g-top { display: flex; justify-content: space-between; align-items: center; font: 600 22px/1 var(--mono); letter-spacing: .16em; color: var(--glass-ink); }
-.g-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--hot-glass); }
-.g-wave { width: 100%; height: 110px; margin-top: 48px; }
-.g-hero { margin-top: 18px; font: 800 88px/.9 var(--display); letter-spacing: -.045em; color: var(--hot-glass); }
-.g-sub { margin-top: 18px; min-height: 64px; font: 500 26px/1.35 var(--mono); color: var(--glass-ink); }
-.callouts { position: absolute; left: 1000px; top: 400px; width: 760px; display: grid; gap: 32px; }
-.callouts > div { display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; align-items: start; }
-.badge { width: 48px; height: 48px; border-radius: 50%; background: var(--yes); color: #041510; font: 700 24px/48px var(--mono); text-align: center; }
-.callouts h3 { margin: 0 0 6px; font-size: 44px; }
-.callouts p { font: 500 28px/1.3 var(--display); margin: 0; color: var(--muted); }
-#phone { padding: 0; overflow: visible; }
-.prod-shell { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, 400px); gap: clamp(48px, 5vw, 96px); align-items: center; min-height: 100%; box-sizing: border-box; padding: 92px 120px 88px 140px; }
-.prod-copy { min-width: 0; max-width: 1040px; }
-#phone .kick { margin-bottom: 36px; }
-#phone .label-yes { margin: 0; }
-#phone .label-line { margin-top: 20px; }
-.prod-hero { font: 800 clamp(56px, 5.4vw, 84px)/1.04 var(--display); letter-spacing: -.038em; max-width: 980px; margin: 32px 0 0; }
-.prod-list { margin-top: clamp(40px, 4.5vh, 64px); display: flex; flex-direction: column; max-width: 920px; }
-.prod-row { display: grid; grid-template-columns: 52px 1fr; column-gap: 22px; align-items: center; padding: clamp(28px, 3.2vh, 40px) 0; border-top: 1px solid rgba(255,255,255,.14); box-sizing: border-box; transform-origin: left center; }
-.prod-row:first-child { border-top: none; padding-top: 0; }
-.prod-row:last-child { padding-bottom: 0; }
-.prod-row b { font: 800 clamp(40px, 3.6vw, 52px)/1.12 var(--display); letter-spacing: -.028em; margin: 0; color: var(--ink); display: block; }
-.prod-row b em { font-style: normal; color: var(--yes); font-weight: 800; }
-.prod-n { width: 48px; height: 48px; border-radius: 50%; background: var(--hot); color: #1a0a04; font: 700 22px/48px var(--mono); text-align: center; flex: none; transform-origin: center; }
-.prod-phone-wrap { width: 100%; max-width: 400px; justify-self: end; align-self: center; filter: drop-shadow(0 32px 80px rgba(0,0,0,.45)); }
-.prod-phone-wrap .device { position: relative; width: 100%; aspect-ratio: 420 / 640; margin: 0; }
-
-.node { position: absolute; width: 300px; min-height: 160px; border: 2px solid var(--rule); border-radius: 20px; background: var(--slip); box-sizing: border-box; padding: 24px; }
-.node b { display: block; font: 800 48px/1 var(--display); }
-.node span { display: block; margin-top: 10px; font: 500 26px/1.3 var(--display); color: var(--muted); }
-.node.yes { border-color: var(--yes); box-shadow: 0 0 40px rgba(46, 230, 197, .08); }
-.node.hot { border-color: var(--hot); }
-.node.wide { width: 400px; }
-.log { position: absolute; left: 140px; top: 420px; width: 1640px; }
-.log-row { display: grid; grid-template-columns: 140px 1fr 280px 240px; align-items: center; min-height: 120px; border-top: 2px solid var(--rule); font-size: 30px; padding: 8px 20px 8px 0; box-sizing: border-box; }
-.log-row em[data-anim] { transform-origin: right center; }
-.log-row em { font: 800 48px/1 var(--display); font-style: normal; color: var(--hot); text-align: right; }
-.log-row span { color: var(--muted); }
-.shifts { position: absolute; left: 140px; top: 420px; width: 1640px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
-.shifts .k { font: 600 20px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--yes); margin: 0 0 12px; }
-.shifts p { font: 500 28px/1.35 var(--display); margin: 12px 0 0; color: var(--muted); max-width: 480px; }
-.checks { position: absolute; left: 920px; top: 400px; width: 860px; margin: 0; padding: 0; list-style: none; display: grid; gap: 24px; }
-.checks li { font: 600 34px/1.25 var(--display); padding-left: 56px; position: relative; }
-.checks li::before { content: ''; position: absolute; left: 0; top: 8px; width: 26px; height: 14px; border-left: 5px solid var(--yes); border-bottom: 5px solid var(--yes); transform: rotate(-45deg); }
-.slip { position: absolute; left: 120px; top: 100px; width: 720px; padding: 48px 44px 36px; box-sizing: border-box; background: #f4efe6; color: #1a1612; border: 3px solid #1a1612; border-radius: 4px; font: 500 26px/1.35 var(--mono); }
-.slip::before { content: ''; position: absolute; top: -20px; left: 50%; width: 140px; height: 26px; margin-left: -70px; border: 3px solid #1a1612; border-radius: 8px; background: #c9c1b2; }
-.sl-top { display: flex; justify-content: space-between; align-items: baseline; }
-.sl-top b { font: 800 52px/1 var(--display); }
-.sl-top span { font: 600 20px/1 var(--mono); letter-spacing: .16em; }
-.sl-sub { color: #5c5446; letter-spacing: .08em; font-size: 20px; margin: 10px 0 0; }
-.sl-rule { border-top: 2px dashed #b3aa99; margin: 20px 0; }
-.sl-row { display: grid; grid-template-columns: 140px 1fr; gap: 10px; padding: 6px 0; }
-.sl-row span { color: #5c5446; }
-.sl-k { font: 600 20px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #5c5446; margin: 0 0 8px; }
-.sl-line { font: 700 30px/1.3 var(--mono); margin: 0; min-height: 38px; }
-.slip .hot { color: #a8300a; } .slip .yes { color: #136b3a; }
-.focus { position: absolute; left: 140px; top: 440px; width: 780px; display: grid; gap: 32px; }
-.focus b { display: block; font: 800 52px/1.05 var(--display); }
-.focus span { display: block; margin-top: 6px; font: 500 28px/1.35 var(--display); color: var(--muted); }
-.demo-wrap { position: absolute; left: 140px; top: 280px; width: 1640px; height: 640px; border-radius: 24px; overflow: hidden; border: 2px solid var(--rule); background: #000; box-shadow: 0 0 80px rgba(46, 230, 197, .06); }
-.demo-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.demo-cap { position: absolute; left: 140px; top: 940px; font: 500 28px/1.3 var(--display); color: var(--muted); max-width: 1200px; }
-.prob-head { position: absolute; left: 140px; right: 140px; top: 72px; display: flex; justify-content: space-between; align-items: center; font: 500 20px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0; }
-.prob-head b { color: var(--ink); letter-spacing: .18em; }
-.label-yes { font: 600 22px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--yes); margin: 0; }
-.label-line { width: 72px; height: 3px; background: var(--yes); margin: 18px 0 0; transform-origin: left center; }
-.statement { font: 800 72px/1.05 var(--display); letter-spacing: -.04em; max-width: 1540px; margin: 28px 0 0; }
-.statement-lg { font-size: 96px; line-height: .98; max-width: 1480px; }
-.loss-band { position: absolute; left: 140px; right: 140px; top: 378px; }
-.loss-num { font: 800 112px/.88 var(--display); letter-spacing: -.04em; color: var(--hot); margin: 0 0 8px; font-variant-numeric: tabular-nums; }
-.loss-copy { font: 500 28px/1.35 var(--display); color: var(--ink); margin: 0 0 8px; max-width: 1500px; }
-.loss-copy b { color: var(--yes); font-weight: 700; }
-.source-tag { font: 500 20px/1.35 var(--mono); color: var(--muted); letter-spacing: .02em; margin: 0; max-width: 1500px; }
-.stat-grid { position: absolute; left: 140px; right: 140px; top: 598px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 72px; align-items: start; }
-#insight .stat-grid { top: 400px; }
-.stat-col { max-width: 500px; }
-.stat-num { font: 800 120px/.88 var(--display); letter-spacing: -.045em; margin: 0; font-variant-numeric: tabular-nums; }
-.stat-num.yes { color: var(--yes); }
-.stat-num.ink { color: var(--ink); }
-.stat-copy { font: 500 28px/1.4 var(--display); color: var(--muted); margin: 22px 0 0; max-width: 440px; }
-.statement-mid { font: 800 80px/1.02 var(--display); letter-spacing: -.04em; max-width: 1320px; margin: 22px 0 0; }
-.gaps-lede { position: absolute; left: 140px; bottom: 108px; max-width: 900px; font: 500 32px/1.45 var(--display); color: var(--muted); margin: 0; }
-.prob-foot { position: absolute; left: 140px; right: 140px; bottom: 72px; font-size: 26px; line-height: 1.4; font: 500 30px/1.45 var(--display); color: var(--muted); max-width: 1500px; margin: 0; }
-#dies, #gaps, #insight, #lost { padding: 140px 140px 100px; }
-#lost { padding: 88px 100px 72px; }
-.pain-grid { position: absolute; left: 100px; right: 100px; top: 88px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-.pain-card { background: #f7f7f5; color: #1a2b40; border-radius: 14px; min-height: 220px; padding: 36px 32px 32px; box-sizing: border-box; box-shadow: 0 18px 50px rgba(0,0,0,.28); }
-.pain-card svg { display: block; width: 56px; height: 56px; margin-bottom: 28px; }
-.pain-card b { display: block; font: 700 26px/1.25 var(--display); letter-spacing: -.01em; color: #1a2b40; }
-.pain-card span { display: block; margin-top: 6px; font: 700 26px/1.25 var(--display); color: #1a2b40; }
-.pain-banner { position: absolute; left: 100px; right: 100px; bottom: 72px; min-height: 280px; border-radius: 6px; background: linear-gradient(90deg, rgba(230,230,228,.94) 0%, rgba(230,230,228,.94) 46%, rgba(230,230,228,.55) 100%); padding: 48px 56px; box-sizing: border-box; }
-.pain-banner h2 { font: 800 64px/1.02 var(--display); letter-spacing: -.03em; color: #1a2b40; margin: 0; max-width: 720px; }
-.pain-banner p { margin: 22px 0 0; font: 600 34px/1.35 var(--display); color: #1a2b40; max-width: 920px; }
-.pain-banner .stat { color: #0d6b55; font-weight: 800; }
-#leak { padding: 110px 140px 88px; }
-.mega-num { font: 800  clamp(160px, 14vw, 240px)/.82 var(--display); letter-spacing: -.045em; color: var(--hot); margin: 18px 0 0; font-variant-numeric: tabular-nums; }
-.mega-line { font: 800 76px/1.02 var(--display); letter-spacing: -.04em; max-width: 1400px; margin: 20px 0 0; }
-.mega-sub { font: 500 32px/1.4 var(--display); color: var(--ink); max-width: 1200px; margin: 28px 0 0; }
-.mega-sub b { color: var(--yes); font-weight: 700; }
-.mega-bridge { font: 500 28px/1.4 var(--display); color: var(--muted); max-width: 1100px; margin: 22px 0 0; }
-.mega-src { position: absolute; left: 140px; bottom: 76px; max-width: 1640px; font: 500 20px/1.4 var(--mono); color: var(--muted); margin: 0; }
-
-/* —— Title · Open Slot AI (split hero) —— */
-#title { padding: 0; overflow: hidden; font-family: 'Inter', system-ui, sans-serif; background: #0B1220; }
-.t1 { position: relative; min-height: 1080px; box-sizing: border-box; display: flex; flex-direction: column; padding: 64px 88px 52px;
-  background: radial-gradient(ellipse 85% 70% at 28% 48%, #152238 0%, #0B1220 45%, #060910 100%); }
-.t1::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(16,185,129,.05) 0%, transparent 38%, transparent 62%, rgba(16,185,129,.04) 100%); pointer-events: none; }
-.t1::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 72% 38%, rgba(16,185,129,.06) 0%, transparent 48%); pointer-events: none; }
-.t1-frame { position: absolute; inset: 40px 56px; pointer-events: none; z-index: 0; }
-.t1-corner { position: absolute; width: 56px; height: 56px; border-color: rgba(16,185,129,.22); border-style: solid; opacity: .7; }
-.t1-corner--tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
-.t1-corner--tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
-.t1-corner--bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
-.t1-corner--br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
-.t1-vline { position: absolute; top: 120px; bottom: 120px; width: 1px; background: linear-gradient(180deg, transparent, rgba(148,163,184,.12) 18%, rgba(148,163,184,.12) 82%, transparent); pointer-events: none; z-index: 0; }
-.t1-vline--l { left: 52%; opacity: .55; }
-.t1-vline--r { right: 88px; opacity: .25; }
-.t1-pill { position: absolute; top: 56px; right: 88px; z-index: 3; font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: #94A3B8; padding: 8px 14px; border: 1px solid rgba(248,250,252,.1); border-radius: 999px; }
-.t1-meta { position: absolute; left: 88px; bottom: 48px; z-index: 3; font: 600 11px/1 'IBM Plex Mono', monospace; letter-spacing: .18em; text-transform: uppercase; color: #475569; margin: 0; }
-.t1-stage { position: relative; z-index: 1; flex: 1; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: clamp(32px, 4vw, 72px); align-items: center; width: 100%; max-width: 1740px; margin: 0 auto; }
-.t1-hero { position: relative; display: flex; align-items: center; justify-content: center; min-height: min(760px, 72vh); }
-.t1-mascot-wrap { position: relative; width: min(520px, 46vw); height: min(480px, 44vw); max-width: 560px; max-height: 520px; perspective: 980px; display: flex; align-items: center; justify-content: center; margin: 0; }
-.t1-glow { position: absolute; left: 50%; top: 50%; width: 420px; height: 420px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(16,185,129,.26) 0%, rgba(16,185,129,.08) 40%, transparent 72%); filter: blur(10px); pointer-events: none; z-index: 0; }
-.t1-ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; border: 1px solid rgba(16,185,129,.28); box-shadow: 0 0 32px rgba(16,185,129,.1), inset 0 0 24px rgba(16,185,129,.05); pointer-events: none; z-index: 1; }
-.t1-ring--a { width: 380px; height: 380px; border-style: dashed; opacity: .55; }
-.t1-ring--b { width: 310px; height: 310px; opacity: .75; }
-.t1-ring--c { width: 240px; height: 240px; border-color: rgba(52,211,153,.35); opacity: .45; }
-.t1-orbit { position: absolute; inset: -8%; pointer-events: none; z-index: 2; }
-.t1-orbit i { position: absolute; left: 50%; top: 50%; width: 0; height: 0; animation: t1-orbit-spin var(--d, 9s) linear infinite; animation-delay: var(--p, 0s); }
-.t1-orbit i::after { content: ''; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #34d399; box-shadow: 0 0 16px rgba(52,211,153,.95), 0 0 32px rgba(16,185,129,.4); transform: translateX(var(--r, 132px)); }
-.t1-orbit i:nth-child(1) { --r: 198px; --d: 11s; --p: -.4s; }
-.t1-orbit i:nth-child(2) { --r: 158px; --d: 8.2s; --p: -2.1s; }
-.t1-orbit i:nth-child(3) { --r: 228px; --d: 13s; --p: -5.6s; }
-.t1-orbit i:nth-child(4) { --r: 128px; --d: 6.4s; --p: -1.2s; }
-.t1-orbit i:nth-child(5) { --r: 248px; --d: 15s; --p: -7s; }
-.t1-orbit i:nth-child(6) { --r: 108px; --d: 5.5s; --p: -.8s; }
-@keyframes t1-orbit-spin { to { transform: rotate(360deg); } }
-.t1-wave { position: absolute; left: 50%; bottom: 8%; width: min(420px, 90%); height: 64px; transform: translateX(-50%); z-index: 4; opacity: .85; pointer-events: none; }
-.t1-wave path { fill: none; stroke: url(#t1-wave-grad); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(16,185,129,.5)); }
-.t1-wave-wide { position: absolute; left: 5%; right: 5%; bottom: 14%; height: 48px; z-index: 0; opacity: .35; pointer-events: none; }
-.t1-wave-wide path { fill: none; stroke: rgba(16,185,129,.35); stroke-width: 1.5; stroke-linecap: round; }
-.t1-scan { position: absolute; left: 50%; top: 14%; width: min(280px, 55%); height: 2px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(52,211,153,.55), transparent); opacity: 0; pointer-events: none; z-index: 5; mix-blend-mode: screen; }
-.t1-mascot-rig { position: relative; z-index: 3; transform-style: preserve-3d; will-change: transform; }
-.t1-mascot { width: min(400px, 36vw); height: auto; display: block; margin: 0 auto; transform-style: preserve-3d; will-change: transform, filter; }
-.t1-mascot-shine { position: absolute; left: 50%; top: 50%; width: min(360px, 34vw); height: min(360px, 34vw); transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(255,255,255,.16) 0%, transparent 55%); pointer-events: none; z-index: 4; mix-blend-mode: soft-light; }
-.t1-live { position: absolute; left: 0; top: 12%; z-index: 6; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 14px; border: 1px solid rgba(16,185,129,.22); background: rgba(11,18,32,.72); backdrop-filter: blur(10px); font: 600 13px/1 'IBM Plex Mono', monospace; letter-spacing: .06em; color: #CBD5E1; box-shadow: 0 12px 40px rgba(0,0,0,.35); }
-.t1-live i { width: 9px; height: 9px; border-radius: 50%; background: #10B981; box-shadow: 0 0 12px rgba(16,185,129,.9); flex-shrink: 0; }
-.t1-live b { color: #F8FAFC; font-weight: 600; }
-.t1-stat { position: absolute; right: -4%; bottom: 18%; z-index: 6; text-align: right; padding: 16px 20px; border-radius: 14px; border: 1px solid rgba(248,250,252,.08); background: rgba(15,23,42,.55); backdrop-filter: blur(8px); max-width: 220px; }
-.t1-stat .k { font: 600 10px/1 'IBM Plex Mono', monospace; letter-spacing: .14em; text-transform: uppercase; color: #64748B; margin: 0 0 6px; }
-.t1-stat .v { font: 700 22px/1.1 'Inter', sans-serif; color: #F8FAFC; margin: 0; }
-.t1-stat .v em { font-style: normal; color: #10B981; }
-@media (prefers-reduced-motion: reduce) {
-  .t1-orbit i { animation: none; opacity: .35; }
+#title .t1-head-sub em { font-style: normal; color: var(--os-green-d); font-weight: 600; }
+#title .t1-byline {
+  font: 500 20px/1.45 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+  margin: 20px 0 0;
 }
-.t1-copy { text-align: left; padding: 24px 0 24px clamp(8px, 2vw, 32px); }
-.t1-eyebrow { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .2em; text-transform: uppercase; color: #64748B; margin: 0 0 20px; }
-.t1-brand { font: 800 clamp(60px, 5.8vw, 96px)/.95 'Inter', sans-serif; letter-spacing: -.038em; color: #F8FAFC; margin: 0; }
-.t1-brand span { color: #10B981; font-weight: 800; }
-.t1-rule { width: 72px; height: 3px; background: linear-gradient(90deg, #10B981, rgba(16,185,129,.15)); margin: 28px 0 0; border-radius: 2px; }
-.t1-head { font: 800 clamp(44px, 4vw, 64px)/1.06 'Inter', sans-serif; letter-spacing: -.032em; color: #F8FAFC; margin: 36px 0 0; max-width: 640px; }
-.t1-head-sub { font: 600 clamp(26px, 2.4vw, 38px)/1.18 'Inter', sans-serif; letter-spacing: -.02em; color: #64748B; margin: 12px 0 0; max-width: 640px; }
-.t1-head-sub em { font-style: normal; color: #10B981; font-weight: 600; }
-.t1-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 32px 0 0; padding: 0; list-style: none; }
-.t1-chips li { font: 600 12px/1 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: #94A3B8; padding: 10px 14px; border-radius: 999px; border: 1px solid rgba(148,163,184,.2); background: rgba(15,23,42,.45); }
-.t1-chips li strong { color: #10B981; font-weight: 600; }
-.t1-tag { font: 500 19px/1.5 'Inter', sans-serif; color: #94A3B8; margin: 28px 0 0; max-width: 520px; }
 
+/* Light problem */
+#jack.prob-light, #scale.prob-light, #impact.prob-light {
+  background: var(--os-paper);
+  color: var(--os-ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#jack .pb-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 1080px;
+  align-items: stretch;
+}
+#jack .pb-split-photo {
+  position: relative;
+  background: #2d2e32;
+  min-height: 1080px;
+}
+#jack .pb-split-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#jack .pb-split-photo .ph-fill { display: none !important; }
+#jack .pb-split-copy {
+  position: relative;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  min-height: 1080px;
+  display: flex;
+  flex-direction: column;
+}
+#jack .pb-split-k { position: absolute; top: 64px; left: 0; right: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-split-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#jack .pb-split-head { font: 700 68px/1.08 Inter, system-ui, sans-serif; letter-spacing: -0.035em; color: var(--os-ink); margin: 84px 0 0; max-width: 520px; }
+#jack .pb-split-head + .pb-split-head { margin-top: 4px; }
+#jack .pb-miss {
+  margin-top: 36px;
+  border: 1px solid var(--os-rule);
+  padding: 18px 20px;
+  max-width: 480px;
+}
+#jack .pb-miss-icon { width: 40px; height: 40px; display: grid; place-items: center; background: var(--os-green); flex-shrink: 0; }
+#jack .pb-miss-icon svg { width: 22px; height: 22px; color: #fff; }
+#jack .pb-miss-title { font: 700 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#jack .pb-miss-time { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .pb-miss-sub { font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0 52px; }
+#jack .pb-lines { margin-top: 32px; max-width: 520px; }
+#jack .pb-lines p {
+  font: 500 20px/1.45 Inter, system-ui, sans-serif;
+  color: var(--os-ink);
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--os-rule);
+}
+#jack .pb-lines p:last-child { border-bottom: none; }
+#jack .pb-lines p strong { color: var(--os-red); font-weight: 700; }
+#jack .pb-disclaimer { margin-top: auto; padding-top: 28px; font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+#scale .pb-scale2 {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#scale .pb-scale2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#scale .pb-scale2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#scale .pb-scale2-head { margin: 84px 0 0; font: 700 68px/1.06 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#scale .pb-scale2-rule { border: 0; height: 1px; background: var(--os-rule); margin: 28px 0 0; width: 100%; }
+#scale .pb-scale2-cols {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: center;
+  min-height: 400px;
+  margin-top: 32px;
+}
+#scale .pb-scale2-v { background: var(--os-rule); width: 1px; align-self: stretch; }
+#scale .pb-scale2-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+}
+#scale .pb-scale2-col .n27,
+#scale .pb-scale2-col .n82 {
+  font: 800 200px/0.88 Inter, system-ui, sans-serif;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+#scale .pb-scale2-col .n27 { color: var(--os-green); }
+#scale .pb-scale2-col .n82 { color: var(--os-red); }
+#scale .pb-scale2-col .txt { font: 500 20px/1.42 Inter, system-ui, sans-serif; color: var(--os-body); margin: 20px 0 0; max-width: 380px; }
+#scale .pb-src { margin-top: auto; padding-top: 24px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+#impact .pb-impact2 {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+}
+#impact .pb-impact2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#impact .pb-impact2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#impact .pb-impact2-top { margin: 84px 0 0; max-width: 900px; }
+#impact .pb-impact2-line { font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
+#impact .pb-impact2-hero { font: 800 72px/0.95 Inter, system-ui, sans-serif; letter-spacing: -0.04em; margin: 8px 0 0; color: var(--os-ink); }
+#impact .pb-impact2-hero .amt { color: var(--os-red); }
+#impact .pb-impact2-after { font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 8px 0 0; }
+#impact .pb-impact2-hr { display: none; }
+#impact .pb-impact2-bot { margin-top: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+#impact .pb-impact2-loss { font: 800 64px/1 Inter, system-ui, sans-serif; color: var(--os-red); margin: 0; font-variant-numeric: tabular-nums; }
+#impact .pb-impact2-meta { font: 500 20px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; max-width: 520px; }
+#impact .pb-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+/* Dark solution slides */
+#phone.sol-reveal-slide, #loop, #demo.sol-slide {
+  background: var(--os-dark);
+  color: #e8e8e4;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#phone .sol-ref {
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  gap: 48px;
+  align-items: start;
+}
+#phone .sol-ref-copy { position: relative; padding-top: 0; }
+#phone .sol-ref-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#phone .sol-ref-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
+#phone .sol-ref-head { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 700px; }
+#phone .sol-ref-list { list-style: none; margin: 32px 0 0; padding: 0; max-width: 640px; }
+#phone .sol-ref-list li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px 18px;
+  padding: 20px 0;
+  border-top: 1px solid #2a2e36;
+  font: 500 18px/1.5 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+}
+#phone .sol-ref-list .rn { font: 600 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-green-d); }
+#phone .sol-ref-list strong { display: block; font: 600 20px/1.35 Inter, system-ui, sans-serif; color: #f5f5f2; margin-bottom: 4px; }
+#phone .sol-ref-foot { margin-top: 24px; font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); display: flex; align-items: center; gap: 10px; }
+#phone .sol-ref-foot::before { content: ''; width: 6px; height: 6px; background: var(--os-green-d); flex: none; }
+#phone .sol-ref-art { display: flex; align-items: center; justify-content: center; min-height: 360px; padding-top: 48px; }
+#phone .sol-ref-art img { width: min(360px, 34vw); height: auto; display: block; }
+
+#loop .sol-how {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#loop .sol-how-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#loop .sol-how-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
+#loop .sol-how-head { font: 700 68px/1.08 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 1100px; }
+#loop .sol-how-rule { border: 0; height: 1px; background: #2a2e36; margin: 28px 0 32px; width: 100%; }
+#loop .sol-how-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 36px;
+  flex: none;
+}
+#loop .sol-how-col .num { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
+#loop .sol-how-col h3 { font: 700 22px/1.2 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 0; }
+#loop .sol-how-col h3.job { color: var(--os-green-d); }
+#loop .sol-how-col p { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0; max-width: 320px; }
+#loop .sol-how-urgent {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 1px solid #2a2e36;
+  flex: none;
+}
+#loop .sol-how-urgent strong { font: 700 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-red); margin-right: 8px; }
+#loop .sol-how-urgent span { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: #e8e8e4; }
+
+#demo .sol-demo {
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 40px 48px;
+  align-items: start;
+}
+#demo .sol-demo > div:first-child { position: relative; }
+#demo .sol-demo-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#demo .sol-demo-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
+#demo .sol-demo-head { font: 700 56px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 0; max-width: 640px; }
+#demo .sol-demo-sub { font: 500 20px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
+#demo .sol-demo-frame { margin-top: 24px; border: 1px solid #2a2e36; overflow: hidden; background: #000; }
+#demo .sol-demo-stage { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+#demo .sol-demo-stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+#demo .sol-demo-rk { font: 600 20px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 84px 0 16px; }
+#demo .sol-demo-watch { list-style: none; margin: 0; padding: 0; border-top: 1px solid #2a2e36; }
+#demo .sol-demo-watch li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #2a2e36;
+  font: 500 18px/1.35 Inter, system-ui, sans-serif;
+  color: #e8e8e4;
+}
+#demo .sol-demo-watch span { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-green-d); }
+#demo .sol-demo-punch { margin-top: 28px; font: 600 22px/1.3 Inter, system-ui, sans-serif; color: #f5f5f2; }
+#demo .sol-demo-punch em { font-style: normal; color: var(--os-green-d); font-weight: 700; }
+#demo .demo-lede { display: none !important; }
+
+/* Investor light */
+#model.inv-slide, #market.inv-slide, #compete.inv-slide, #gtm.inv-slide, #finance.inv-slide, #team.inv-slide, #advisors.inv-slide, #ask.slide {
+  background: var(--os-paper);
+  color: var(--os-ink);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#model .inv-wrap {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#model .bm2-k { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#model .bm2-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#model .bm2-h1 { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 84px 0 0; max-width: 960px; }
+#model .bm2-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; margin-top: 32px; }
+#model .bm2-card {
+  border: 2px solid var(--os-rule);
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--os-paper);
+}
+#model .bm2-card--solo { border-color: var(--os-green); border-width: 2px; }
+#model .bm2-tier { font: 600 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; }
+#model .bm2-name--solo { color: var(--os-green); font-weight: 700; }
+#model .bm2-audience { font-weight: 500; color: var(--os-body); }
+#model .bm2-price { font: 800 44px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 14px 0 0; }
+#model .bm2-price span { font: 600 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin-left: 4px; }
+#model .bm2-feats { list-style: none; margin: 16px 0 0; padding: 0; flex: 1; }
+#model .bm2-feats li { font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-body); padding: 6px 0; }
+#model .bm2-foot { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--os-rule); font: 500 18px/1.45 Inter, system-ui, sans-serif; color: var(--os-body); }
+#model .bm2-foot em { font-style: normal; color: var(--os-green); font-weight: 700; }
+#model .bm2-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 32px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--os-rule); }
+#model .bm2-mv { font: 800 34px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; }
+#model .bm2-mv em { font-style: normal; color: var(--os-green); }
+#model .bm2-mv-suffix { font-size: 0.5em; font-weight: 600; color: var(--os-muted); margin-left: 4px; }
+#model .bm2-ms { font: 500 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 8px 0 0; }
+#model .bm2-note { margin-top: auto; padding-top: 24px; font: 400 17px/1.5 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+#market .m10-wrap {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#market .m10-main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 420px); gap: 32px 40px; align-items: start; margin-top: 32px; }
+#market .m10-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#market .m10-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#market .m10-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 84px 0 0; }
+#market .m10-rows { margin-top: 16px; }
+#market .m10-r {
+  display: grid;
+  grid-template-columns: 40px 1fr minmax(160px, 200px);
+  gap: 16px 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--os-rule);
+  align-items: start;
+}
+#market .m10-r:last-child { border-bottom: 1px solid var(--os-rule); }
+#market .m10-dot { width: 32px; height: 32px; margin-top: 4px; }
+#market .m10-k { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#market .m10-w { font: 600 22px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#market .m10-s { font: 400 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 6px 0 0; }
+#market .m10-v { font: 700 36px/1 Inter, system-ui, sans-serif; text-align: right; color: var(--os-ink); margin: 0; }
+#market .m10-r--som .m10-v, #market .m10-r--som .m10-k { color: var(--os-green); }
+#market .m10-fact { font: 600 20px/1.3 Inter, system-ui, sans-serif; color: var(--os-ink); margin-top: 24px; max-width: 900px; }
+#market .m10-fact b { color: var(--os-green); }
+#market .m10-circles { position: relative; width: 100%; max-width: 400px; aspect-ratio: 1; margin-top: 84px; justify-self: end; }
+#market .m10-c { position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10%; box-sizing: border-box; border-radius: 50%; }
+#market .m10-c span { font: 700 28px/1 Inter, system-ui, sans-serif; color: var(--os-ink); }
+#market .m10-c small { display: block; font: 500 18px/1 Inter, system-ui, sans-serif; margin-top: 6px; color: var(--os-body); }
+#market .m10-c1 { width: 100%; height: 100%; background: #D7EEE3; }
+#market .m10-c2 { width: 68%; height: 68%; background: #9FD9C4; }
+#market .m10-c3 { width: 36%; height: 36%; background: var(--os-green); padding-bottom: 18%; }
+#market .m10-c3 span, #market .m10-c3 small { color: #fff; }
+#market .m10-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+
+#compete .c11-wrap {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#compete .c11-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#compete .c11-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#compete .c11-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
+#compete .c11-table-wrap { flex: 1; margin-top: 28px; overflow: auto; min-height: 0; }
+#compete .c11-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+#compete .c11-table th { font: 600 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-body); text-align: center; padding: 0 6px 12px; vertical-align: bottom; }
+#compete .c11-table td { border-top: 1px solid var(--os-rule); padding: 10px 6px; text-align: center; vertical-align: middle; }
+#compete .c11-table tr:last-child td { border-bottom: 1px solid var(--os-rule); }
+#compete .c11-name { font: 600 18px/1.15 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 0; text-align: left; }
+#compete .c11-name small { display: block; font: 400 18px/1.25 Inter, system-ui, sans-serif; color: var(--os-muted); margin-top: 4px; }
+#compete tr.c11-us td { background: rgba(15, 157, 110, 0.07); }
+#compete tr.c11-us td:first-child { border-left: 3px solid var(--os-green); }
+#compete .c11-ck { display: inline-grid; place-content: center; width: 40px; height: 40px; background: var(--os-grey-bar); }
+#compete tr.c11-us .c11-ck { background: var(--os-green); }
+#compete .c11-ck svg { width: 20px; height: 20px; display: block; }
+#compete .c11-ck svg path { stroke: #111111; }
+#compete tr.c11-us .c11-ck svg path { stroke: #fff; }
+#compete .c11-no { width: 20px; height: 3px; background: var(--os-rule); display: inline-block; vertical-align: middle; }
+#compete .c11-src { margin-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+#gtm .c12-wrap {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#gtm .c12-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#gtm .c12-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#gtm .c12-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
+#gtm .c12-timeline { flex: 1; margin-top: 32px; min-height: 0; }
+#gtm .c12-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px 16px;
+  position: relative;
+}
+#gtm .c12-steps::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 26px;
+  height: 2px;
+  background: var(--os-rule);
+}
+#gtm .c12-steps::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  width: 18%;
+  top: 26px;
+  height: 2px;
+  background: var(--os-green);
+}
+#gtm .c12-s { text-align: center; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+#gtm .c12-dot {
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--os-muted);
+  display: grid;
+  place-content: center;
+  background: var(--os-paper);
+  box-sizing: border-box;
+}
+#gtm .c12-s.c12-done .c12-dot { background: var(--os-green); border-color: var(--os-green); }
+#gtm .c12-s.c12-goal .c12-dot { border-color: var(--os-green); }
+#gtm .c12-when { font: 500 18px/1.15 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 14px 0 0; }
+#gtm .c12-s.c12-done .c12-when { color: var(--os-green); }
+#gtm .c12-what { font: 600 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 10px 0 0; }
+#gtm .c12-num { font: 700 40px/1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 10px 0 0; }
+#gtm .c12-num small { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#gtm .c12-s.c12-done .c12-num, #gtm .c12-s.c12-goal .c12-num { color: var(--os-green); }
+#gtm .c12-bar { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--os-rule); display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+#gtm .c12-bar-t { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#gtm .c12-bar-v { font: 700 24px/1.25 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#gtm .c12-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+
+/* Finance */
+#finance .fin-wrap {
+  position: relative;
+  min-height: 1080px;
+  box-sizing: border-box;
+  padding: 120px 120px 100px;
+  display: flex;
+  flex-direction: column;
+}
+#finance .fin-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#finance .fin-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#finance .fin-h1 { font: 700 68px/1.05 Inter, system-ui, sans-serif; margin: 84px 0 0; }
+#finance .fin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 40px 48px;
+  margin-top: 32px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+#finance .fin-chart-box { border: 1px solid var(--os-rule); padding: 20px 16px 16px; display: flex; flex-direction: column; min-height: 0; }
+#finance .fin-chart-title { font: 500 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0 0 12px; }
+#finance .fin-chart-svg { width: 100%; flex: 1; min-height: 300px; }
+#finance .fin-legend { display: flex; gap: 24px; margin-top: 10px; font: 500 17px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#finance .fin-leg-rev::before, #finance .fin-leg-cost::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+#finance .fin-leg-rev::before { background: var(--os-green); }
+#finance .fin-leg-cost::before { background: var(--os-grey-bar); }
+#finance .fin-side { display: flex; flex-direction: column; gap: 28px; justify-content: center; padding-left: 8px; }
+#finance .fin-side dt { font: 500 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#finance .fin-side dd { font: 700 40px/1.1 Inter, system-ui, sans-serif; color: var(--os-ink); margin: 8px 0 0; }
+#finance .fin-src { margin-top: auto; padding-top: 20px; font: 400 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); border-top: 1px solid var(--os-rule); }
+
+#team.inv-slide { position: relative; min-height: 1080px; }
+#team .t15-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#team .t15-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#team .t15-h1 { position: absolute; top: 120px; left: 120px; right: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
+#team .t15-founders { position: absolute; left: 120px; right: 120px; top: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+#team .t15-avatar {
+  width: 180px; height: 180px;
+  display: grid; place-content: center;
+  font: 700 48px/1 Inter, system-ui, sans-serif;
+  color: var(--os-muted);
+  background: var(--os-rule);
+}
+#team .t15-nm { font: 700 32px/1.1 Inter, system-ui, sans-serif; margin: 20px 0 0; }
+#team .t15-role { font: 600 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-green); margin: 8px 0 0; }
+#team .t15-pts { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--os-rule); }
+#team .t15-pts li { font: 400 18px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); padding: 10px 0; border-bottom: 1px solid var(--os-rule); }
+#team .t15-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+#advisors.inv-slide { position: relative; min-height: 1080px; }
+#advisors .d16-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#advisors .d16-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#advisors .d16-h1 { position: absolute; top: 120px; left: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
+#advisors .d16-grid { position: absolute; left: 120px; right: 120px; top: 240px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+#advisors .d16-pic {
+  width: 260px; height: 260px; max-width: 100%; margin: 0 auto;
+  position: relative; overflow: hidden;
+  display: grid; place-content: center;
+  background: var(--os-rule);
+}
+#advisors .d16-init { font: 700 64px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#advisors .d16-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#advisors .d16-n2 { font: 700 28px/1.1 Inter, system-ui, sans-serif; margin: 28px 0 0; }
+#advisors .d16-d2 { font: 400 18px/1.4 Inter, system-ui, sans-serif; color: var(--os-body); margin: 10px 0 0; }
+#advisors .d16-orgs { position: absolute; left: 120px; right: 120px; top: 780px; border-top: 1px solid var(--os-rule); padding-top: 22px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#advisors .d16-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
+
+#ask.slide { position: relative; min-height: 1080px; font-family: Inter, system-ui, sans-serif; }
+#ask .a14-label { position: absolute; top: 64px; left: 120px; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#ask .a14-label b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#ask .a14-h1 { position: absolute; top: 120px; left: 120px; margin: 0; font: 700 68px/1.05 Inter, system-ui, sans-serif; }
+#ask .a14-big { position: absolute; top: 205px; left: 120px; max-width: 880px; font: 500 22px/1.35 Inter, system-ui, sans-serif; color: var(--os-body); margin: 0; }
+#ask .a14-stack { position: absolute; top: 280px; left: 120px; width: 800px; height: 6px; display: flex; gap: 2px; }
+#ask .a14-list { position: absolute; top: 310px; left: 120px; width: 800px; }
+#ask .a14-r { display: grid; grid-template-columns: 14px 1fr auto; gap: 16px; align-items: center; border-top: 1px solid var(--os-rule); padding: 16px 0; }
+#ask .a14-n { font: 600 22px/1.1 Inter, system-ui, sans-serif; margin: 0; color: var(--os-ink); }
+#ask .a14-d { font: 400 18px/1.2 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 4px 0 0; }
+#ask .a14-amt { font: 700 32px/1 Inter, system-ui, sans-serif; margin: 0; color: var(--os-ink); }
+#ask .a14-tot { display: flex; justify-content: space-between; border-top: 2px solid var(--os-ink); padding-top: 14px; margin-top: 4px; font: 700 22px/1 Inter, system-ui, sans-serif; }
+#ask .a14-panel { position: absolute; top: 280px; left: 1000px; right: 120px; }
+#ask .a14-ph { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 10px; }
+#ask .a14-panel > div { border-top: 1px solid var(--os-rule); padding: 18px 0; }
+#ask .a14-pt { font: 500 18px/1 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0; }
+#ask .a14-pv { font: 700 44px/1 Inter, system-ui, sans-serif; margin: 8px 0 0; color: var(--os-ink); }
+#ask .a14-pv.a14-grn { color: var(--os-green); }
+#ask .a14-ps { font: 400 18px/1.3 Inter, system-ui, sans-serif; color: var(--os-body); margin: 6px 0 0; }
+#ask .a14-src { position: absolute; bottom: 40px; left: 120px; right: 120px; margin: 0; font: 400 17px/1.4 Inter, system-ui, sans-serif; color: var(--os-muted); }
 </style>
+
 </head>
 <body>
-<div class="deck" data-transition="camera" data-lift=".5" data-chrome="number" data-hold="2.8">
+<div class="deck" data-transition="camera" data-lift=".5" data-chrome="none" data-hold="2.8">
 
   <section class="slide" id="title" data-title="Open Slot AI" data-pos="0 0" data-hold="5">
     <div class="t1">
       <div class="t1-stage">
         <div class="t1-hero">
           <div class="t1-mascot-wrap">
-            <div class="t1-glow" aria-hidden="true"></div>
-            <div class="t1-ring t1-ring--a" aria-hidden="true"></div>
-            <div class="t1-ring t1-ring--b" aria-hidden="true"></div>
-            <div class="t1-ring t1-ring--c" aria-hidden="true"></div>
-            <div class="t1-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <svg class="t1-wave" viewBox="0 0 320 56" aria-hidden="true">
-              <defs><linearGradient id="t1-wave-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(16,185,129,0)"/><stop offset="50%" stop-color="#34d399"/><stop offset="100%" stop-color="rgba(16,185,129,0)"/></linearGradient></defs>
-              <path d="M0,28 L320,28"/>
-            </svg>
-            <div class="t1-scan" aria-hidden="true"></div>
             <div class="t1-mascot-rig" data-anim="scale" data-delay=".08" data-dur="1.05">
               <img class="t1-mascot" src="assets/mark.png" width="400" height="400" alt="">
             </div>
-            <div class="t1-mascot-shine" aria-hidden="true"></div>
           </div>
         </div>
         <div class="t1-copy">
           <p class="t1-brand" data-anim="mask" data-delay=".22" data-dur="1.05">Open Slot <span>AI</span></p>
           <h1 class="t1-head" data-anim="mask" data-delay=".42" data-dur="1">Never miss a call.</h1>
           <p class="t1-head-sub" data-anim="mask" data-delay=".52" data-dur=".95">Never miss an <em>opportunity.</em></p>
+          <p class="t1-byline" data-anim="fade" data-delay=".62" data-dur=".8">Baqer Hassani · Isaac Neal · University of Tulsa</p>
         </div>
       </div>
     </div>
@@ -891,569 +851,532 @@ h3 { font-weight: 700; font-size: 48px; line-height: 1.05; }
 
   <section class="slide prob-light" id="jack" data-title="Meet Jack" data-pos="0 1.12" data-hold="2 1.6 1.6 2.2">
     <div class="pb-wrap">
-      <p class="pb-label" data-anim="fade">Problem · 01 · Story</p>
-      <div class="pb-jack">
-        <div class="pb-copy">
-          <h2 class="pb-head" data-anim="mask" data-delay=".1">Meet Jack.</h2>
-          <p class="pb-lede" data-anim="fade" data-delay=".18">Four people. Tulsa HVAC.</p>
-          <ol class="pb-story">
-            <li class="is-hit" data-step="1" data-anim="left" data-delay=".08"><em class="time">11:04 AM</em> — He's on a roof unit. The line rings.</li>
-            <li data-step="2" data-anim="left" data-delay=".08">Voicemail. No message left.</li>
-            <li class="is-loss" data-step="3" data-anim="left" data-delay=".08">They call the next name on Google.</li>
-          </ol>
-          <p class="pb-disclaimer" data-anim="fade" data-delay=".5">Illustrative composite — not a customer.</p>
+      <div class="pb-split">
+        <div class="pb-split-photo" data-anim="fade" data-delay=".06">
+          <img src="assets/jack-ac.jpg" alt="" width="960" height="1080" loading="lazy" decoding="async" onload="this.nextElementSibling &amp;&amp; (this.nextElementSibling.style.display='none')" onerror="this.remove()">
+          <div class="ph-fill">Real photo of a Tulsa HVAC tech on a rooftop unit<br><span>full-bleed · no rounded corners · no overlay</span></div>
         </div>
-        <div class="pb-photo" data-anim="scale" data-delay=".22">
-          <div class="ph-fill">Photo · Jack · HVAC tech<br><span style="font-size:14px;font-weight:500">assets/jack-ac.jpg</span></div>
-          <div class="call-chip" data-anim="pop" data-delay=".12"><i></i>Incoming call</div>
+        <div class="pb-split-copy">
+          <p class="pb-split-k" data-anim="fade"><b>02</b> The problem</p>
+          <h2 class="pb-split-head" data-anim="mask" data-delay=".1">Jack's on a roof.</h2>
+          <h2 class="pb-split-head" data-anim="mask" data-delay=".14">His phone is ringing.</h2>
+          <div class="pb-miss" data-anim="rise" data-delay=".22">
+            <div class="pb-miss-top">
+              <div style="display:flex;align-items:flex-start;gap:0;flex:1;">
+                <div class="pb-miss-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z" fill="currentColor"/></svg></div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;">
+                    <span class="pb-miss-title">Missed call</span>
+                    <span class="pb-miss-time">11:04 AM</span>
+                  </div>
+                  <p class="pb-miss-sub">(918) 555-0142 · No voicemail</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pb-lines" data-anim="rise" data-delay=".3">
+            <p>Jack runs a four-person HVAC shop in Tulsa.</p>
+            <p>The caller doesn't leave a message.</p>
+            <p><strong>They call the next shop on Google.</strong></p>
+          </div>
+          <p class="pb-disclaimer" data-anim="fade" data-delay=".42">Jack is an illustrative composite.</p>
         </div>
       </div>
     </div>
-    <aside class="notes"><p>Jack runs a four-person HVAC shop in Tulsa. He's on a unit when the truck line rings — same pattern as plumbing: Plumbers earn money under a sink, not next to a phone. So the phone goes unanswered. A missed call is usually a missed job, and a single job can be worth a few hundred dollars, more for an emergency at 11pm.</p><p>Clicks: ring → voicemail → next on Google. Say the plumber paragraph verbatim while they read the beats.</p></aside>
+    <aside class="notes"><p>Jack runs a four-person HVAC shop in Tulsa. He's on a unit when the truck line rings — same pattern as plumbing. A missed call is usually a missed job.</p><p>Clicks: ring → missed call → next on Google.</p></aside>
   </section>
 
   <section class="slide prob-light" id="scale" data-title="Jack is not alone" data-pos="0 2.24" data-hold="5">
-    <div class="pb-wrap">
-      <p class="pb-label" data-anim="fade">Problem · 02 · Scale</p>
-      <div class="pb-scale-panel">
-        <h2 class="pb-head wide" data-anim="mask" data-delay=".1">Jack isn't alone.</h2>
-        <p class="pb-bridge" data-anim="fade" data-delay=".2">Millions of calls go unanswered every year.</p>
-        <p class="pb-stat" data-anim="count" data-delay=".32">50 <em>MILLION+</em></p>
-        <p class="pb-sub" data-anim="rise" data-delay=".5">Customer calls go unanswered annually across CallRail's platform.</p>
-        <div class="pb-chips" data-stagger=".08">
-          <span class="pb-chip--focus" data-anim="fade" data-delay=".62">Home services</span>
-          <span data-anim="fade" data-delay=".68">Healthcare</span>
-          <span data-anim="fade" data-delay=".74">Restaurants</span>
+    <div class="pb-wrap pb-scale2">
+      <p class="pb-scale2-k" data-anim="fade"><b>03</b> The problem</p>
+      <h2 class="pb-scale2-head" data-anim="mask" data-delay=".1">Jack isn't alone.</h2>
+      <hr class="pb-scale2-rule" data-anim="fade" data-delay=".2">
+      <div class="pb-scale2-cols" data-anim="rise" data-delay=".28">
+        <div class="pb-scale2-col">
+          <p class="n27" data-anim="count" data-delay=".32">27%</p>
+          <p class="txt">of home-service calls go unanswered.</p>
+        </div>
+        <div class="pb-scale2-v" aria-hidden="true"></div>
+        <div class="pb-scale2-col">
+          <p class="n82" data-anim="count" data-delay=".4">82%</p>
+          <p class="txt">of callers call a competitor when no one answers.</p>
         </div>
       </div>
-      <p class="pb-src" data-anim="fade" data-delay=".88">Source: CallRail, 2025 platform reporting.</p>
+      <p class="pb-src" data-anim="fade" data-delay=".75">Sources: Invoca home services call data · CallRail survey of 1,000 U.S. consumers, 2025</p>
     </div>
-    <aside class="notes"><p>Bridge from Jack: one truck, one town — then this number. Home services is us; other verticals show the platform is wide, not that we claim clinic stats.</p></aside>
+    <aside class="notes"><p>Invoca: unanswered share in home services. CallRail: consumer behavior when a business doesn't pick up. If a judge asks, point to the slide footer — don't cite clinic-only stats.</p></aside>
   </section>
 
   <section class="slide prob-light" id="impact" data-title="When Jack misses, they move on" data-pos="0 3.36" data-hold="5">
-    <div class="pb-wrap pb-impact-wrap">
-      <p class="pb-label" data-anim="fade">Problem · 03 · Economics</p>
-      <div class="pb-impact-body">
-        <h2 class="pb-head wide" data-anim="mask" data-delay=".1">The caller behavior shift</h2>
-        <p class="pb-subhead" data-anim="fade" data-delay=".16">When Jack doesn't answer, they call someone else.</p>
-        <p class="pb-bridge" data-anim="fade" data-delay=".22">Customers expect an answer now — not tomorrow.</p>
-        <div class="pb-stat-cards">
-        <article class="pb-card" data-anim="rise" data-delay=".32">
-          <p class="num" data-anim="count" data-delay=".36">82%</p>
-          <p class="txt">Of surveyed consumers would call a competitor when a business doesn't answer.</p>
-        </article>
-        <article class="pb-card" data-anim="rise" data-delay=".4">
-          <p class="num sm">Next on the list</p>
-          <p class="txt">After hours, calls go to voicemail and most people do not leave one. They call the next plumber on the list.</p>
-        </article>
-        <article class="pb-card pb-card--hero" data-anim="rise" data-delay=".48">
-          <p class="num" data-anim="count" data-delay=".52">$161K</p>
-          <p class="txt">Average annual missed-revenue estimate reported by surveyed SMB professionals (CallRail, self-reported).</p>
-        </article>
+    <div class="pb-wrap pb-impact2">
+      <p class="pb-impact2-k" data-anim="fade"><b>04</b> The problem</p>
+      <div class="pb-impact2-top">
+        <p class="pb-impact2-line" data-anim="rise" data-delay=".12">Every missed call is a</p>
+        <p class="pb-impact2-hero" data-anim="mask" data-delay=".2"><span class="amt">$350</span> <span class="word">job</span></p>
+        <p class="pb-impact2-after" data-anim="rise" data-delay=".28">handed to a competitor.</p>
       </div>
-      <p class="pb-takeaway" data-anim="rise" data-delay=".75">The work is there. Nobody is free to answer it.</p>
+      <hr class="pb-impact2-hr" data-anim="fade" data-delay=".36">
+      <div class="pb-impact2-bot" data-anim="rise" data-delay=".44">
+        <p class="pb-impact2-loss" data-anim="count" data-delay=".5">$189,068</p>
+        <p class="pb-impact2-meta">lost per contractor, per year,<br>across 130,000 home-service calls.</p>
       </div>
-      <p class="pb-src-split" data-anim="fade" data-delay=".95">Sources: CallRail 2025 consumer survey (82%) · CallRail 2022 SMB survey ($161K avg., self-reported).</p>
+      <p class="pb-src" data-anim="fade" data-delay=".85">Sources: Angi, average HVAC repair, 2025 · NextPhone analysis of 130,175 calls from 45 contractors</p>
     </div>
-    <aside class="notes"><p>After hours, calls go to voicemail and most people do not leave one. They call the next plumber on the list. The work is there. Nobody is free to answer it.</p><p>Say bullet 2 verbatim after walking the three cards. Do not use clinic-only stats from other decks (25–35%, 75–80% voicemail, $100k practice) unless you have a home-services source.</p></aside>
+    <aside class="notes"><p>Walk the $350 illustrative repair, then the aggregated loss figure from the cited analyses. If a judge challenges NextPhone or Angi, acknowledge these are third-party estimates — not your measured jack revenue.</p></aside>
   </section>
 
   <section class="slide sol-reveal-slide" id="phone" data-title="Open Slot AI" data-pos="3 0" data-transition="tear" data-hold="2.4 2">
-    <div class="sol-reveal sol-reveal--split">
-      <div class="sol-copy">
-        <p class="sol-label" data-anim="fade">Solution</p>
-        <p class="sol-brand" data-anim="mask" data-delay=".12">Open Slot <span>AI</span></p>
-        <p class="sol-body" data-anim="fade" data-delay=".24">An AI-powered voice receptionist that answers customer calls, collects service requests, and helps schedule appointments—even when the owner is busy.</p>
-        <ul class="sol-feats">
-          <li data-anim="rise" data-delay=".38">Available 24/7</li>
-          <li data-anim="rise" data-delay=".46">Natural conversations</li>
-          <li data-anim="rise" data-delay=".54">Appointment scheduling</li>
+    <div class="sol-ref">
+      <div class="sol-ref-copy">
+        <p class="sol-ref-k" data-anim="fade"><b>05</b> The solution</p>
+        <h2 class="sol-ref-head" data-anim="mask" data-delay=".1">Open Slot answers every call Jack can't.</h2>
+        <ul class="sol-ref-list">
+          <li data-anim="rise" data-delay=".2"><span class="rn">01</span><div><strong>Picks up on the first ring, 24/7.</strong></div></li>
+          <li data-anim="rise" data-delay=".28"><span class="rn">02</span><div><strong>Books the job into Jack's calendar before they hang up.</strong></div></li>
+          <li data-anim="rise" data-delay=".36"><span class="rn">03</span><div><strong>Texts Jack the details right away.</strong></div></li>
         </ul>
+        <p class="sol-ref-foot" data-anim="fade" data-delay=".46">Working prototype today</p>
       </div>
-      <div class="sol-mascot-panel" data-anim="scale" data-delay=".18" data-dur="1">
-        <img class="sol-mascot" src="assets/mark.png" width="400" height="400" alt="Open Slot AI">
+      <div class="sol-ref-art" data-anim="scale" data-delay=".16" data-dur="1">
+        <img class="sol-mascot" src="assets/mark.png" width="400" height="400" alt="">
       </div>
     </div>
-    <aside class="notes"><p>Remember Jack? Jack fixes ACs — Open Slot answers the line. Say the on-screen paragraph in your own words if needed. Booked only when the calendar confirms.</p></aside>
+    <aside class="notes"><p>Booked only when the calendar returns an event id.</p></aside>
   </section>
 
   <section class="slide" id="loop" data-title="How it works" data-pos="3 1.12" data-transition="camera" data-hold="2.8">
-    <div class="sol sol-flow-wrap">
-      <p class="sol-label" data-anim="fade">How it works</p>
-      <h2 class="sol-headline" data-anim="mask" data-delay=".06">Three steps.</h2>
-      <p class="sol-flow-lede" data-anim="fade" data-delay=".14">Call · Answer · Calendar</p>
-      <div class="sol-flow-stage">
-        <svg class="sol-flow-track" viewBox="0 0 1000 6" preserveAspectRatio="none" aria-hidden="true">
-          <line x1="0" y1="3" x2="1000" y2="3" stroke="rgba(16,185,129,.12)" stroke-width="6"/>
-          <line class="sol-flow-pulse" x1="0" y1="3" x2="1000" y2="3" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-dasharray="12 28" opacity=".75"/>
-        </svg>
-        <div class="sol-flow">
-          <div class="sol-flow-node" data-anim="pop" data-delay=".22">
-            <div class="sol-flow-visual">
-              <svg class="sol-flow-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M18 10h12a3 3 0 013 3v22a3 3 0 01-3 3H18a3 3 0 01-3-3V13a3 3 0 013-3z" stroke="currentColor" stroke-width="2.2"/><circle cx="24" cy="35" r="1.5" fill="#10B981"/><path d="M28 6c3 2 5 5 6 9" stroke="#10B981" stroke-width="2" stroke-linecap="round"/><path d="M32 5c4 3 7 7 8 12" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" opacity=".6"/></svg>
-              <span class="sol-flow-num">1</span>
-            </div>
-            <p class="sol-flow-t">Customer calls</p>
-            <p class="sol-flow-sub">Jack is on a job</p>
-          </div>
-          <span class="sol-flow-arrow" data-anim="fade" data-delay=".38" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 24h28M28 14l10 10-10 10"/></svg></span>
-          <div class="sol-flow-node sol-flow-node--hero" data-anim="pop" data-delay=".48">
-            <div class="sol-flow-visual">
-              <img class="sol-flow-icon sol-flow-icon--bot" src="assets/mark.png" width="72" height="72" alt="">
-              <span class="sol-flow-num">2</span>
-            </div>
-            <p class="sol-flow-t">Open Slot answers</p>
-            <p class="sol-flow-sub">Always on the line</p>
-          </div>
-          <span class="sol-flow-arrow" data-anim="fade" data-delay=".58" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 24h28M28 14l10 10-10 10"/></svg></span>
-          <div class="sol-flow-node" data-anim="pop" data-delay=".68">
-            <div class="sol-flow-visual">
-              <svg class="sol-flow-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="7" y="11" width="34" height="30" rx="5" stroke="currentColor" stroke-width="2.2"/><path d="M7 19h34" stroke="currentColor" stroke-width="2.2"/><path d="M15 7v6M33 7v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M15 27l4 4 8-9" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="sol-flow-num">3</span>
-            </div>
-            <p class="sol-flow-t">On the calendar</p>
-            <p class="sol-flow-sub">When it confirms</p>
-          </div>
+    <div class="sol-how">
+      <p class="sol-how-k" data-anim="fade"><b>06</b> How it works</p>
+      <h2 class="sol-how-head" data-anim="mask" data-delay=".08">Nothing changes for Jack. He just stops missing calls.</h2>
+      <hr class="sol-how-rule" data-anim="fade" data-delay=".16">
+      <div class="sol-how-cols" data-anim="rise" data-delay=".22">
+        <div class="sol-how-col">
+          <p class="num">1</p>
+          <h3>Customer calls</h3>
+          <p>Jack's same number. Nothing new to install.</p>
+        </div>
+        <div class="sol-how-col">
+          <p class="num">2</p>
+          <h3>Open Slot answers</h3>
+          <p>Asks what's wrong, where, and how urgent.</p>
+        </div>
+        <div class="sol-how-col">
+          <p class="num">3</p>
+          <h3 class="job">Job booked</h3>
+          <p>On Jack's calendar. Details texted to his phone.</p>
         </div>
       </div>
-      <p class="sol-flow-foot" data-anim="fade" data-delay=".82">Jack keeps working.</p>
+      <div class="sol-how-urgent" data-anim="fade" data-delay=".5">
+        <strong>Emergency?</strong><span>Gas, flooding, no heat. The call goes straight to Jack's cell.</span>
+      </div>
     </div>
-    <aside class="notes"><p>Point left to right along the glowing line. Booked only when the calendar returns an event id.</p></aside>
+    <aside class="notes"><p>Emergency routing is shop-defined. Calendar booking only after event id.</p></aside>
   </section>
 
 
   <section class="slide sol-slide" id="demo" data-title="See it work" data-pos="3 1.86" data-transition="whip" data-hold="2 45">
-    <div class="sol" style="padding-bottom:0;min-height:auto;padding-top:88px;text-align:center">
-      <p class="sol-label" data-anim="fade">Solution · Demo</p>
-      <h2 class="sol-headline" data-anim="mask" data-delay=".1" style="margin-left:auto;margin-right:auto">See Open Slot AI work.</h2>
-      <p class="sol-lede" data-anim="fade" data-delay=".18" style="margin-left:auto;margin-right:auto">Fiction caller · real prototype</p>
+    <div class="sol-demo">
+      <div>
+        <p class="sol-demo-k" data-anim="fade"><b>07</b> Demo</p>
+        <h2 class="sol-demo-head" data-anim="mask" data-delay=".08">Watch it take the call.</h2>
+        <p class="sol-demo-sub" data-anim="fade" data-delay=".14">A customer calls. Their AC just stopped working.</p>
+        <div class="sol-demo-frame" data-anim="scale" data-delay=".2">
+          <div class="sol-demo-stage">
+            <video id="os-demo" poster="assets/demo-poster.jpg" playsinline controls preload="metadata" data-no-advance>
+              <source src="assets/open-slot-demofinal.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="sol-demo-right">
+        <p class="sol-demo-rk" data-anim="fade" data-delay=".28">Watch for</p>
+        <ul class="sol-demo-watch">
+          <li data-anim="rise" data-delay=".32"><span>1</span> It answers on the first ring</li>
+          <li data-anim="rise" data-delay=".38"><span>2</span> It books the job</li>
+          <li data-anim="rise" data-delay=".44"><span>3</span> Jack gets the text</li>
+        </ul>
+        <p class="sol-demo-punch" data-anim="fade" data-delay=".52">That's a <em>$350 job</em> Jack keeps.</p>
+      </div>
     </div>
-    <div class="demo-wrap" data-anim="scale" data-delay=".28">
-      <video id="os-demo" poster="assets/demo-poster.jpg" playsinline controls preload="metadata" data-no-advance>
-        <source src="assets/open-slot-demofinal.mp4" type="video/mp4">
-      </video>
-    </div>
-    <p class="demo-lede" data-anim="fade" data-delay=".4" style="text-align:center;left:140px;right:140px;width:auto">Press play (~30s)</p>
-    <aside class="notes"><p>Before: imagine calling Jack's shop. After: customer called, Open Slot handled it — Jack never put down his tools.</p></aside>
+    <aside class="notes"><p>Video shows the concept UI; no duplicate HTML overlay. Booked only when calendar confirms.</p></aside>
   </section>
 
   <section class="slide inv-slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="3.4">
     <div class="inv-wrap">
-      <p class="inv-kicker" data-anim="fade">Open Slot · 07 · Business model</p>
-      <h2 class="inv-h1" data-anim="mask" data-delay=".06">One recovered job could pay for the month.</h2>
-      <p class="inv-sub" data-anim="fade" data-delay=".12">Predictable subscriptions for service businesses.</p>
-      <div class="s7-main">
-        <div class="s7-story" data-anim="rise" data-delay=".18">
-          <div class="s7-flow">
-            <div class="s7-step"><p class="s7-amt">$350</p><p class="s7-cap">Illustrative HVAC repair revenue</p></div>
-            <p class="s7-arrow" aria-hidden="true">↓</p>
-            <div class="s7-step"><p class="s7-amt s7-amt--sub">$175</p><p class="s7-cap">Gross profit at 50% job margin</p></div>
-            <p class="s7-arrow" aria-hidden="true">↓</p>
-            <div class="s7-step"><p class="s7-amt s7-amt--minus">− $129</p><p class="s7-cap">Open Slot Solo subscription</p></div>
-            <p class="s7-arrow" aria-hidden="true">↓</p>
-            <div class="s7-step"><p class="s7-amt s7-amt--win">$46 left over</p><p class="s7-cap">Before other incremental costs · job must be incremental</p></div>
-          </div>
-          <p class="s7-tagline">One extra completed repair could <em>cover the subscription.</em></p>
+      <p class="bm2-k" data-anim="fade"><b>08</b> Business model</p>
+      <h2 class="bm2-h1" data-anim="mask" data-delay=".06">Shops pay us monthly.</h2>
+      <div class="bm2-plans">
+        <article class="bm2-card bm2-card--solo" data-anim="rise" data-delay=".14">
+          <p class="bm2-tier"><span class="bm2-name--solo">Solo</span> <span class="bm2-audience">1–4 person shops</span></p>
+          <p class="bm2-price">$129<span>/mo</span></p>
+          <ul class="bm2-feats">
+            <li>250 minutes (~80 calls*)</li>
+            <li>Answers 24/7 · books jobs · texts owner</li>
+          </ul>
+          <p class="bm2-foot">Our cost ~$56 · <em>we keep ~$73 (57%)</em></p>
+        </article>
+        <article class="bm2-card" data-anim="rise" data-delay=".2">
+          <p class="bm2-tier"><span class="bm2-name--growth">Growth</span> <span class="bm2-audience">5–10 person shops</span></p>
+          <p class="bm2-price">$229<span>/mo</span></p>
+          <ul class="bm2-feats">
+            <li>600 minutes (~200 calls*)</li>
+            <li>Everything in Solo · priority support</li>
+          </ul>
+          <p class="bm2-foot">Our cost ~$130 · <em>we keep ~$99 (43%)</em></p>
+        </article>
+      </div>
+      <div class="bm2-metrics" data-anim="fade" data-delay=".28">
+        <div>
+          <p class="bm2-mv">$159<span class="bm2-mv-suffix">/mo</span></p>
+          <p class="bm2-ms">Average shop · if 70% pick Solo, 30% Growth</p>
         </div>
-        <div class="s7-charge" data-anim="rise" data-delay=".26">
-          <p class="s7-charge-k">How we charge</p>
-          <div class="s7-tier">
-            <p class="s7-tier-head">Solo · $129/month</p>
-            <p class="s7-tier-price">250 call minutes</p>
-            <ul>
-              <li>24/7 AI answering</li>
-              <li>Service requests &amp; notifications</li>
-            </ul>
-          </div>
-          <div class="s7-tier s7-tier--growth">
-            <p class="s7-tier-head">Growth · $229/month</p>
-            <p class="s7-tier-price">600 call minutes</p>
-            <ul>
-              <li>Calendar booking</li>
-              <li>Priority support</li>
-            </ul>
-          </div>
+        <div>
+          <p class="bm2-mv"><em>~51%</em></p>
+          <p class="bm2-ms">Gross margin · across both plans, every minute used</p>
+        </div>
+        <div>
+          <p class="bm2-mv">$105K</p>
+          <p class="bm2-ms">Year 1 target · ARR at 55 shops by year end</p>
         </div>
       </div>
-      <div class="s7-strip" data-anim="fade" data-delay=".34">
-        <div class="s7-metrics">
-          <div class="s7-metric"><b>$159</b><span>Modeled monthly revenue per customer</span></div>
-          <div class="s7-metric"><b>~58%</b><span>Modeled contribution margin</span></div>
-        </div>
-        <p class="s7-disc">Proposed pricing and illustrative economics. Assumes a $350 job, 50% job gross margin, and modeled service costs; not actual sales results.</p>
-      </div>
+      <p class="bm2-note" data-anim="fade" data-delay=".36">Extra minutes $0.25 · *at ~3 min/call · Cost ≈ $0.20/min (Vapi $0.05 + Twilio $0.0085 + speech/AI/voice) + card fees 2.9% + $0.30</p>
     </div>
-    <aside class="notes"><p>Walk the calculation left to right. We have not charged these plans yet. Contribution margin is not net profit.</p></aside>
+    <aside class="notes"><p>Illustrative unit economics — not billed history. Gross margin blends Solo/Growth at stated mix; Year 1 ARR is a target, not revenue yet.</p></aside>
   </section>
 
   <section class="slide inv-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
-    <div class="inv-wrap">
-      <p class="inv-kicker" data-anim="fade">Open Slot · 08 · Market opportunity</p>
-      <h2 class="inv-h1" data-anim="mask" data-delay=".06">A $246M starting market. We need less than 1%.</h2>
-      <p class="inv-sub" data-anim="fade" data-delay=".12">Starting with independent HVAC and plumbing contractors.</p>
-      <div class="s8-main">
-        <article class="s8-level s8-level--tam" data-anim="rise" data-delay=".16">
-          <p class="s8-tag">TAM</p>
+    <div class="m10-wrap">
+      <div class="m10-main">
+      <div class="m10-left">
+      <p class="m10-label" data-anim="fade"><b>09</b> Market</p>
+      <h2 class="m10-h1" data-anim="mask" data-delay=".06">111,207 shops have Jack's problem.</h2>
+      <div class="m10-rows" data-anim="rise" data-delay=".14">
+        <div class="m10-r">
+          <i class="m10-dot" style="background:var(--m10-c1)" aria-hidden="true"></i>
           <div>
-            <p class="s8-val">$974M</p>
-            <p class="s8-desc">510,263 small U.S. plumbing, HVAC, and electrical operators / establishments</p>
-            <p class="s8-meta">Fewer than 10 employees · broader trade lane</p>
+            <p class="m10-k">TAM</p>
+            <p class="m10-w">HVAC, plumbing + electrical shops</p>
+            <p class="m10-s">194,549 U.S. shops with staff</p>
           </div>
-        </article>
-        <article class="s8-level s8-level--sam" data-anim="rise" data-delay=".24">
-          <p class="s8-tag">SAM · our focus</p>
-          <div>
-            <p class="s8-val">$246M</p>
-            <p class="s8-desc">128,764 priority U.S. HVAC and plumbing prospects</p>
-            <p class="s8-meta">Size and receipt filters · initial target segment</p>
-          </div>
-        </article>
-        <article class="s8-level s8-level--som" data-anim="rise" data-delay=".32">
-          <p class="s8-tag">Year 5 target</p>
-          <div>
-            <p class="s8-val">$878K ARR</p>
-            <p class="s8-desc">460 paying customers · 0.36% of modeled SAM prospects</p>
-            <p class="s8-meta">Five-year goal — not revenue today</p>
-          </div>
-        </article>
-      </div>
-      <p class="s8-punch" data-anim="rise" data-delay=".4">We don't need the entire market. We need <em>460 customers.</em></p>
-      <p class="inv-foot">Source: U.S. Census Bureau CBP 2023, NES 2024. Estimates use proposed $159/mo × 12. TAM/SAM = modeled prospect counts; SOM = five-year target.</p>
-    </div>
-    <aside class="notes"><p>510,263 TAM; 128,764 SAM; 460 customer SOM. Less than 1% of SAM. Prospect pools, not verified buyers.</p></aside>
-  </section>
-
-  <section class="slide inv-slide" id="beachhead" data-title="Beachhead market" data-pos="3 2.18" data-transition="camera" data-hold="3.2">
-    <div class="inv-wrap">
-      <p class="inv-kicker" data-anim="fade">Open Slot · 09 · Beachhead</p>
-      <h2 class="inv-h1" data-anim="mask" data-delay=".06">Our first customers are right here in Tulsa.</h2>
-      <p class="inv-sub" data-anim="fade" data-delay=".12">Independent HVAC and plumbing companies with fewer than 10 employees.</p>
-      <div class="s9-main">
-        <div class="s9-local" data-anim="rise" data-delay=".18">
-          <p class="s9-num" data-anim="count" data-delay=".24">325</p>
-          <p class="s9-num-cap">Small HVAC and plumbing employer establishments · Tulsa metro</p>
-          <div class="s9-bar" aria-hidden="true"><i></i><i></i></div>
-          <div class="s9-bar-key">
-            <span>243 with &lt;5 employees</span>
-            <span>82 with 5–9 employees</span>
-          </div>
-          <p class="s9-pct">77% of Tulsa's 424 employer HVAC/plumbing establishments have fewer than 10 employees.</p>
+          <p class="m10-v">$371M</p>
         </div>
-        <div class="s9-right" data-anim="rise" data-delay=".26">
-          <div class="s9-persona">
-            <p class="s9-persona-lead">Businesses like Jack's.</p>
-            <div class="s9-scene" aria-hidden="true">
-              <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="28" stroke="#94A3B8" stroke-width="2"/><path d="M36 22v20M28 34h16" stroke="#64748B" stroke-width="2.5" stroke-linecap="round"/><path d="M24 48c0-8 5-14 12-14s12 6 12 14" stroke="#64748B" stroke-width="2" stroke-linecap="round"/></svg>
-              <svg width="56" height="88" viewBox="0 0 56 88" fill="none"><rect x="8" y="4" width="40" height="80" rx="8" stroke="#0F172A" stroke-width="2.2"/><circle cx="28" cy="68" r="2" fill="#10B981"/><path d="M38 12c2 2 3.5 4.5 4 7.5" stroke="#10B981" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <ul class="s9-persona-lines">
-              <li><span>WHO</span> Owner-operated HVAC and plumbing shops</li>
-              <li><span>PAIN</span> On the job. Calls go unanswered.</li>
-              <li><span>VALUE</span> Recover jobs without hiring a receptionist</li>
-            </ul>
-            <p class="s9-persona-note">Illustrative persona · not a paying customer</p>
+        <div class="m10-r">
+          <i class="m10-dot" style="background:var(--m10-c2)" aria-hidden="true"></i>
+          <div>
+            <p class="m10-k">SAM</p>
+            <p class="m10-w">HVAC + plumbing shops</p>
+            <p class="m10-s">111,207 U.S. shops with staff</p>
           </div>
+          <p class="m10-v">$212M</p>
+        </div>
+        <div class="m10-r m10-r--som">
+          <i class="m10-dot" style="background:var(--m10-c3)" aria-hidden="true"></i>
+          <div>
+            <p class="m10-k">SOM · where we start</p>
+            <p class="m10-w">Small Tulsa HVAC + plumbing shops</p>
+            <p class="m10-s">325 shops with fewer than 10 people</p>
+          </div>
+          <p class="m10-v">$620K</p>
         </div>
       </div>
-      <div class="s9-expand" data-anim="fade" data-delay=".36">
-        <p class="s9-route"><span class="on">Tulsa</span><i>→</i><span class="off">Oklahoma</span><i>→</i><span class="off">Nationwide</span></p>
-        <p class="s9-close">Start local. Prove the value. Scale nationally.</p>
+      <p class="m10-fact" data-anim="fade" data-delay=".28"><b>77%</b> of Tulsa's 424 HVAC and plumbing shops have fewer than 10 people. That's Jack.</p>
       </div>
-      <p class="inv-foot">U.S. Census CBP 2023, Tulsa MSA, NAICS 238220. Establishments only; excludes nonemployer firms. Not confirmed qualified customers.</p>
+      <div class="m10-circles" aria-hidden="true">
+        <div class="m10-c m10-c1"><div><span>$371M</span><small>TAM</small></div></div>
+        <div class="m10-c m10-c2"><div><span>$212M</span><small>SAM</small></div></div>
+        <div class="m10-c m10-c3"><div><span>$620K</span><small>SOM</small></div></div>
+      </div>
+      </div>
+      <p class="m10-src" data-anim="fade" data-delay=".34">Shop counts: U.S. Census, County Business Patterns 2023 (NAICS 238220, 238210) · $ / year = shops × $1,908 (avg $159/mo × 12) · Circles not to scale</p>
     </div>
-    <aside class="notes"><p>Jack is an illustrative composite — not a paying customer. 243 + 82 = 325. Start Tulsa, learn, expand.</p></aside>
+    <aside class="notes"><p>TAM adds electrical (NAICS 238210); SAM is HVAC+plumbing only. Dollar figures use modeled $159/mo × 12 — illustrative. SOM = Tulsa beachhead pool × same ARPA; not revenue today.</p></aside>
   </section>
-
   <section class="slide inv-slide" id="compete" data-title="Competitive advantage" data-pos="3 2.21" data-transition="camera" data-hold="3.4">
-    <div class="inv-wrap">
-      <div class="s10-head" data-anim="fade">
-        <div>
-          <h2 class="s10-title" data-anim="mask" data-delay=".04">Competitive Analysis</h2>
-          <p class="s10-tagline" data-anim="fade" data-delay=".1">Others answer calls. We focus on winning jobs.</p>
-        </div>
-        <img class="s10-logo" src="assets/mark.png" width="72" height="72" alt="Open Slot AI">
+    <div class="c11-wrap">
+      <p class="c11-label" data-anim="fade"><b>10</b> Competition</p>
+      <h2 class="c11-h1" data-anim="mask" data-delay=".06">How we compare.</h2>
+      <div class="c11-table-wrap">
+        <table class="c11-table" data-anim="rise" data-delay=".14">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Built for<br>1–10 person shops</th>
+              <th scope="col">Books jobs on<br>the entry plan</th>
+              <th scope="col">No new software<br>to switch to</th>
+              <th scope="col">Under<br>$150 / month</th>
+              <th scope="col">Set up for you<br>in about 1 hour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="c11-us">
+              <td><p class="c11-name">Open Slot<small>$129 / mo</small></p></td>
+              <td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td>
+            </tr>
+            <tr>
+              <td><p class="c11-name">Rosie<small>DIY answering bot · from $49</small></p></td>
+              <td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+              <td><p class="c11-name">Jobber Receptionist<small>needs a Jobber plan</small></p></td>
+              <td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td>
+            </tr>
+            <tr>
+              <td><p class="c11-name">Sameday<small>for $1M+ shops · from $449</small></p></td>
+              <td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td>
+            </tr>
+            <tr>
+              <td><p class="c11-name">Avoca<small>for 20+ dispatcher companies</small></p></td>
+              <td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-no" aria-hidden="true"></i></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="s10-main">
-        <div class="s10-grid-wrap" data-anim="rise" data-delay=".16">
-          <table class="s10-grid">
-            <colgroup>
-              <col style="width:19%">
-              <col style="width:16.2%">
-              <col style="width:16.2%">
-              <col style="width:16.2%">
-              <col style="width:16.2%">
-              <col style="width:16.2%">
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">AI call answering</th>
-                <th scope="col">Independent HVAC / plumbing focus</th>
-                <th scope="col">Owner-first line forwarding</th>
-                <th scope="col">Verified appointment scheduling</th>
-                <th scope="col">Measurable owner workflow</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="s10-co s10-co-us"><img src="assets/mark.png" width="56" height="56" alt="Open Slot AI"></td>
-                <td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--yes"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
-              </tr>
-              <tr>
-                <td class="s10-co"><p class="s10-co-name">Rosie</p></td>
-                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td class="s10-co"><p class="s10-co-name">Goodcall</p></td>
-                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td class="s10-co"><p class="s10-co-name s10-co-name--smith">Smith.ai</p></td>
-                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td></td><td></td>
-              </tr>
-              <tr>
-                <td class="s10-co"><p class="s10-co-name s10-co-name--sameday">Sameday AI</p></td>
-                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td>
-              </tr>
-              <tr>
-                <td class="s10-co"><p class="s10-co-name s10-co-name--jobber">Jobber Receptionist</p></td>
-                <td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td><td></td><td><span class="s10-mark s10-mark--muted"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5l4 4 8-9" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="s10-close" data-anim="fade" data-delay=".32">From missed call to <em>measurable</em> business opportunity.</p>
-      </div>
-      <p class="inv-foot">Gray checks = advertised overlap on positioning, not a scorecard. Green row = Open Slot workflow (R = roadmap). Competitor info from official sites, Nov 2026.</p>
+      <p class="c11-src" data-anim="fade" data-delay=".34">Rosie: booking requires a higher plan than $49; self-serve · Jobber: requires a Jobber plan, $29 + $0.79/conversation · Sameday: from $449/mo, best for $1M+ shops on ServiceTitan · Avoca: enterprise, est. $1,000–$3,500/mo, setup takes weeks · Sameday: calls live ~30 min into guided setup · Public pricing pages and reviews, Oct–Nov 2026</p>
     </div>
-    <aside class="notes"><p>We are not claiming we beat Rosie on price or Smith on humans. Our bet is workflow for owner-operators: forward the line, escalate on their rules, book when the calendar confirms, eventually report recovered jobs. Say roadmap honestly.</p></aside>
+    <aside class="notes"><p><strong>15 seconds:</strong> Avoca and Sameday serve big companies. Jobber only works if you switch software. Rosie makes you set it up yourself, and its cheap plan doesn't book jobs. Open Slot is built for the small shop: it books jobs, keeps your number, costs $129, and we set it up with you in an hour.</p><p><strong>Before pitch day:</strong> Start Twilio texting registration for Open Slot this week (can take up to 5 business days). Build a setup template in Vapi so the 1-hour promise holds.</p></aside>
   </section>
-
 
 
   <section class="slide inv-slide" id="gtm" data-title="Go-to-market" data-pos="3 2.24" data-transition="tear" data-hold="3.6">
-    <div class="inv-wrap">
-      <p class="inv-kicker" data-anim="fade">Open Slot · 11 · Go-to-market strategy</p>
-      <h2 class="inv-h1" data-anim="mask" data-delay=".06">Don't take our word for it. Let Open Slot answer.</h2>
-      <p class="inv-sub" data-anim="fade" data-delay=".12">A 14-day free trial lets small contractors experience the value before paying.</p>
-      <div class="s11-body">
-        <div class="s11-hero" data-anim="rise" data-delay=".18">
-          <div class="s11-hero-copy">
-            <p class="s11-hero-k">Proposed offer · not live self-serve signup</p>
-            <p class="s11-hero-big"><span>14</span> DAYS FREE</p>
-            <p class="s11-hero-sub">100 call minutes · No credit card · No commitment</p>
-            <p class="s11-hero-note">Real calls on their forwarded line. If minutes run out, routing falls back to the owner — calls are not dropped.</p>
+    <div class="c12-wrap">
+      <p class="c12-label" data-anim="fade"><b>11</b> Go-to-market</p>
+      <h2 class="c12-h1" data-anim="mask" data-delay=".06">Tulsa first, then Oklahoma.</h2>
+      <div class="c12-timeline" data-anim="fade" data-delay=".1">
+        <div class="c12-steps">
+          <div class="c12-s c12-done" data-anim="rise" data-delay=".12">
+            <div class="c12-dot"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <p class="c12-when">Nov 2026</p>
+            <p class="c12-what">Product works</p>
+            <p class="c12-num"><svg class="c12-num-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><small>done</small></p>
           </div>
-          <ul class="s11-perks">
-            <li><strong>Trial</strong>Enough time for real inbound volume</li>
-            <li><strong>Minutes</strong>100 included · controlled usage</li>
-            <li><strong>Number</strong>Keep the line they publish · switch back anytime</li>
-            <li><strong>Day 15</strong>$129 Solo or stop · no auto-bill without yes</li>
-          </ul>
+          <div class="c12-s" data-anim="rise" data-delay=".16">
+            <div class="c12-dot"></div>
+            <p class="c12-when">Jan–Mar 2027</p>
+            <p class="c12-what">Tulsa pilots</p>
+            <p class="c12-num">10<small>shops</small></p>
+          </div>
+          <div class="c12-s" data-anim="rise" data-delay=".2">
+            <div class="c12-dot"></div>
+            <p class="c12-when">Apr–Jun 2027</p>
+            <p class="c12-what">Paid launch</p>
+            <p class="c12-num">25<small>paying</small></p>
+          </div>
+          <div class="c12-s" data-anim="rise" data-delay=".24">
+            <div class="c12-dot"></div>
+            <p class="c12-when">Jul–Sep 2027</p>
+            <p class="c12-what">Oklahoma City</p>
+            <p class="c12-num">40<small>paying</small></p>
+          </div>
+          <div class="c12-s c12-goal" data-anim="rise" data-delay=".28">
+            <div class="c12-dot"></div>
+            <p class="c12-when">Dec 2027</p>
+            <p class="c12-what">$105K ARR</p>
+            <p class="c12-num">55<small>paying</small></p>
+          </div>
         </div>
-        <p class="s11-funnel-k" data-anim="fade" data-delay=".24">Customer acquisition funnel · Tulsa first</p>
-        <div class="s11-funnel" data-anim="rise" data-delay=".28">
-          <article class="s11-step"><p class="s11-step-num">01 · Try</p><p class="s11-step-t">5 pilots</p><p class="s11-step-d"><em>Five</em> Tulsa HVAC/plumbing shops · 14-day guided setup · forward selected calls</p></article>
-          <article class="s11-step"><p class="s11-step-num">02 · Prove</p><p class="s11-step-t">Show results</p><p class="s11-step-d">Answered calls, qualified requests, and calendar writes they can verify on day 14</p></article>
-          <article class="s11-step"><p class="s11-step-num">03 · Convert</p><p class="s11-step-t">Subscribe</p><p class="s11-step-d">$129/mo Solo or $229/mo Growth · extend to 30 days if call volume is too thin</p></article>
-        </div>
-        <div class="s11-road" data-anim="fade" data-delay=".36">
-          <p class="s11-road-k">Planned milestones · not achieved</p>
-          <p class="s11-road-line"><span class="dim">5 pilots</span><i>→</i><span>25 paying customers</span><i>→</i><span>Oklahoma expansion</span></p>
-        </div>
-        <p class="s11-emote" data-anim="fade" data-delay=".42">We don't have to convince Jack that AI works — we can <em>show him</em> what Open Slot does on his line.</p>
       </div>
-      <p class="inv-foot">Trial is free to the shop, not free to Open Slot (usage, setup labor, telephony). Capacity, fallback routing, and signup automation subject to operational readiness. ~$14 max AI usage per pilot at $0.14/min planning assumption.</p>
+      <div class="c12-bar" data-anim="fade" data-delay=".34">
+        <div>
+          <p class="c12-bar-t">How</p>
+          <p class="c12-bar-v">Door-to-door + referrals</p>
+        </div>
+        <div>
+          <p class="c12-bar-t">Pace</p>
+          <p class="c12-bar-v">15 shop visits / week</p>
+        </div>
+        <div>
+          <p class="c12-bar-t">Cost to win a shop</p>
+          <p class="c12-bar-v">≈ $83</p>
+        </div>
+      </div>
+      <p class="c12-src" data-anim="fade" data-delay=".4">14-day trial, card required · 55 paying ÷ 30% trial-to-paid (ChartMogul 2026) ≈ 183 trials · Cost to win ≈ $25 trial ÷ 30% · Tulsa: Census CBP 2023</p>
     </div>
-    <aside class="notes"><p>Start with five personally managed Tulsa pilots. No credit card, no commitment. Day 1: you configure services and routing; Jack keeps his number. Days 1–14: real calls; if minutes cap, revert routing safely. Day 14: review counts and any verified bookings. Day 15: $129 or stop. Rosie advertises 7-day trial; others use 14-day — we are proposing 14 with 100 minutes. The win is retention after trial, not the trial itself. Zero paying shops today.</p></aside>
+    <aside class="notes">
+      <p><strong>Say out loud:</strong> We visit 15 shops a week, door to door, with a 14-day trial. About 30% of trials convert, so it costs us roughly $83 to win a shop.</p>
+      <p><strong>Next slide:</strong> Financial model — still need a decision: Year 5, 460 or 680 customers?</p>
+    </aside>
   </section>
 
 
   <section class="slide inv-slide" id="finance" data-title="Financial model" data-pos="3 2.28" data-transition="camera" data-hold="3.8">
-    <div class="inv-wrap">
-      <p class="inv-kicker" data-anim="fade">Open Slot · 12 · Financial model</p>
-      <h2 class="inv-h1" data-anim="mask" data-delay=".06">A path to $1 million in annual revenue.</h2>
-      <p class="inv-sub" data-anim="fade" data-delay=".1" style="max-width:880px">Subscription-led growth. Disciplined costs. A scalable sales strategy.</p>
-      <div class="s12-body">
-        <div class="s12-kpis" data-anim="rise" data-delay=".16">
-          <div class="s12-kpi s12-kpi--hero"><b>$150K</b><span>Proposed pre-seed raise · fund commercial launch (not the JOLT prize pool)</span></div>
-          <div class="s12-kpi"><b>$100K+</b><span>Year 1 subscription revenue target · ~55–65 paying shops ramped</span></div>
-          <div class="s12-kpi"><b>$1.03M</b><span>Year 5 revenue in growth scenario · 680 customers EOY</span></div>
+    <div class="fin-wrap">
+      <p class="fin-label" data-anim="fade"><b>12</b> Financial model</p>
+      <h2 class="fin-h1" data-anim="mask" data-delay=".06">Profitable in year 3.</h2>
+      <div class="fin-grid" data-anim="rise" data-delay=".14">
+        <div class="fin-chart-box">
+          <p class="fin-chart-title">Revenue vs. cost (annual)</p>
+          <svg class="fin-chart-svg" viewBox="0 0 720 320" role="img" aria-label="Revenue and cost by year 2027 through 2031">
+            <line x1="48" y1="280" x2="680" y2="280" stroke="#E6E4DE" stroke-width="1"/>
+            <text x="48" y="44" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$800K</text>
+            <text x="48" y="104" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$600K</text>
+            <text x="48" y="164" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$400K</text>
+            <text x="48" y="224" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$200K</text>
+            <text x="48" y="276" font-size="18" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$0</text>
+            <!-- 2027 -->
+            <rect x="72" y="267" width="28" height="13" fill="#0F9D6E"/>
+            <rect x="104" y="254" width="28" height="26" fill="#C5C3BC"/>
+            <!-- 2028 -->
+            <rect x="176" y="228" width="28" height="52" fill="#0F9D6E"/>
+            <rect x="208" y="207" width="28" height="73" fill="#C5C3BC"/>
+            <!-- 2029 -->
+            <rect x="280" y="168" width="28" height="112" fill="#0F9D6E"/>
+            <rect x="312" y="137" width="28" height="143" fill="#C5C3BC"/>
+            <!-- 2030 -->
+            <rect x="384" y="112" width="28" height="168" fill="#0F9D6E"/>
+            <rect x="416" y="76" width="28" height="204" fill="#C5C3BC"/>
+            <!-- 2031 -->
+            <rect x="488" y="76" width="28" height="204" fill="#0F9D6E"/>
+            <rect x="520" y="34" width="28" height="246" fill="#C5C3BC"/>
+            <text x="100" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2027</text>
+            <text x="204" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2028</text>
+            <text x="308" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2029</text>
+            <text x="412" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2030</text>
+            <text x="516" y="300" font-size="18" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif">2031</text>
+            <text x="100" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$34K · 55 shops</text>
+            <text x="204" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">−$8K · 140</text>
+            <text x="308" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$57K · 250</text>
+            <text x="412" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$136K · 360</text>
+            <text x="516" y="318" font-size="17" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">+$212K · 460</text>
+          </svg>
+          <div class="fin-legend"><span class="fin-leg-rev">Revenue</span><span class="fin-leg-cost">Cost</span></div>
         </div>
-        <div class="s12-main" data-anim="rise" data-delay=".22">
-          <div class="s12-chart-card">
-            <p class="s12-chart-k">Proposed revenue growth · avg active customers × $159/mo</p>
-            <div class="s12-chart">
-              <svg viewBox="0 0 640 280" role="img" aria-label="Bar chart of proposed annual revenue from Year 1 through Year 5">
-                <text class="s12-chart-y" x="8" y="36">$1.2M</text>
-                <text class="s12-chart-y" x="8" y="96">$900K</text>
-                <text class="s12-chart-y" x="8" y="156">$600K</text>
-                <text class="s12-chart-y" x="8" y="216">$300K</text>
-                <text class="s12-chart-y" x="8" y="252">$0</text>
-                <line x1="52" y1="32" x2="52" y2="248" stroke="#E2E8F0" stroke-width="1"/>
-                <line x1="52" y1="248" x2="620" y2="248" stroke="#E2E8F0" stroke-width="1"/>
-                <line x1="52" y1="92" x2="620" y2="92" stroke="#F1F5F9" stroke-width="1"/>
-                <line x1="52" y1="152" x2="620" y2="152" stroke="#F1F5F9" stroke-width="1"/>
-                <line x1="52" y1="212" x2="620" y2="212" stroke="#F1F5F9" stroke-width="1"/>
-                <rect x="88" y="230" width="72" height="18" rx="6" fill="#94A3B8"/>
-                <rect x="196" y="209" width="72" height="39" rx="6" fill="#64748B"/>
-                <rect x="304" y="172" width="72" height="76" rx="6" fill="#10B981" opacity=".55"/>
-                <rect x="412" y="93" width="72" height="155" rx="6" fill="#10B981" opacity=".75"/>
-                <rect x="520" y="36" width="72" height="212" rx="6" fill="#059669"/>
-                <text class="s12-chart-val" x="124" y="222" text-anchor="middle">$100K</text>
-                <text class="s12-chart-val" x="232" y="201" text-anchor="middle">$230K</text>
-                <text class="s12-chart-val" x="340" y="164" text-anchor="middle">$420K</text>
-                <text class="s12-chart-val" x="448" y="85" text-anchor="middle">$860K</text>
-                <text class="s12-chart-val" x="556" y="28" text-anchor="middle">$1.03M</text>
-                <text class="s12-chart-x" x="124" y="268" text-anchor="middle">Year 1</text>
-                <text class="s12-chart-x" x="232" y="268" text-anchor="middle">Year 2</text>
-                <text class="s12-chart-x" x="340" y="268" text-anchor="middle">Year 3</text>
-                <text class="s12-chart-x" x="448" y="268" text-anchor="middle">Year 4</text>
-                <text class="s12-chart-x" x="556" y="268" text-anchor="middle">Year 5</text>
-              </svg>
-            </div>
-          </div>
-          <div class="s12-table-card">
-            <table class="s12-table">
-              <thead><tr><th>Year</th><th>Customers (EOY)</th><th>Revenue</th></tr></thead>
-              <tbody>
-                <tr><td>Year 1</td><td>55</td><td>$100K</td></tr>
-                <tr><td>Year 2</td><td>120</td><td>$230K</td></tr>
-                <tr><td>Year 3</td><td>220</td><td>$420K</td></tr>
-                <tr><td>Year 4</td><td>450</td><td>$860K</td></tr>
-                <tr><td>Year 5</td><td>680</td><td>$1.03M</td></tr>
-              </tbody>
-            </table>
-            <p class="s12-table-note">Year 1 ≈ $159/mo × ramped active customers · Year 4 operating break-even target · 680 EOY ≈ $1.03M earned in Y5</p>
-          </div>
-        </div>
-        <div class="s12-assump" data-anim="fade" data-delay=".3">
-          <span><em>$159</em> avg/mo · Solo &amp; Growth mix</span>
-          <span>14-day free trials → paid</span>
-          <span><em>~58%</em> modeled contribution margin</span>
-          <span>~40 new payers/mo in Y5 · ~3% churn</span>
-          <span><em>$150K</em> pre-seed · trials, sales, ops · not the $25K competition prize pool</span>
-        </div>
-        <p class="s12-arr" data-anim="fade" data-delay=".34">680 customers × $159/mo ≈ <strong>$1.30M ARR</strong> at Year 5 exit · distinct from ~$1.03M revenue recognized in Year 5.</p>
+        <dl class="fin-side" data-anim="fade" data-delay=".24">
+          <div><dt>Gross margin</dt><dd>51%</dd></div>
+          <div><dt>Break-even</dt><dd>2029</dd></div>
+          <div><dt>Cash needed</dt><dd>$120K</dd></div>
+        </dl>
       </div>
-      <p class="inv-foot">Illustrative forecast only — not traction or a guarantee. Hurricane/JOLT distributes ~$25,000 in prizes across winning teams; that is not our $150K pre-seed ask. Requires trial conversion, referrals, and disciplined spend.</p>
+      <p class="fin-src" data-anim="fade" data-delay=".32">Illustrative model · revenue and costs as modeled for 2027–2031</p>
     </div>
-    <aside class="notes"><p>Walk the customer ladder: 55, 120, 220, 450, 680 — tied to $100K Year 1 and $150K pre-seed for launch (pilots, first hire, telephony/AI usage, light marketing). Prize pool ≠ investment round. Break-even targeted Year 4. Zero paying customers today. Year 5 needs ~40 net new paying shops per month at ~3% churn — ambitious. Break-even targeted Year 4 if we control headcount and marketing. ARR at exit is higher than revenue earned in Year 5 because customers ramp through the year. Zero paying customers today. If judges push, say this is the scenario we are trying to earn, not a forecast we have data for.</p></aside>
+    <aside class="notes"><p>Walk bars left to right: revenue (green) vs cost (grey), profit and shop count under each year. Right column: margin, break-even, raise.</p></aside>
   </section>
 
 
-  <section class="slide inv-slide" id="team" data-title="Founding team" data-pos="3 2.32" data-transition="camera" data-hold="3.4">
-    <div class="inv-wrap">
-      <div class="s13-head" data-anim="fade">
-        <p class="s13-title" data-anim="mask" data-delay=".04">Founding Team</p>
-        <img class="s13-logo" src="assets/mark.png" width="64" height="64" alt="">
+  <section class="slide inv-slide" id="team" data-title="Team" data-pos="3 2.32" data-transition="camera" data-hold="3.4">
+    <p class="t15-label" data-anim="fade"><b>13</b> Team</p>
+    <h2 class="t15-h1" data-anim="mask" data-delay=".06">Two engineers. We built it ourselves.</h2>
+    <div class="t15-founders" data-anim="rise" data-delay=".12">
+      <div>
+        <div class="t15-avatar" data-anim="scale" data-delay=".16">BH</div>
+        <p class="t15-nm">Baqer Hassani</p>
+        <p class="t15-role">Co-Founder · Software &amp; Computer Engineer</p>
+        <ul class="t15-pts">
+          <li>Senior, Computer Science · University of Tulsa</li>
+          <li>Software engineering intern · Meta &amp; MLH</li>
+          <li>2+ years software engineering research · Institute for Robotics &amp; Autonomy</li>
+          <li>Previous JOLT Challenge winner</li>
+        </ul>
       </div>
-      <p class="s13-lead" data-anim="mask" data-delay=".08">Built by people who know how to build reliable systems.</p>
-      <p class="s13-lead-sub" data-anim="fade" data-delay=".12">We personally lead product development and Tulsa pilot onboarding.</p>
-      <div class="s13-body">
-        <div class="s13-row" data-anim="rise" data-delay=".18">
-          <article class="s13-person">
-            <div class="s13-photo" data-anim="scale" data-delay=".22">
-              <div class="s13-ph">Headshot<span>assets/founder.jpg</span></div>
-            </div>
-            <div>
-              <h3 class="s13-name">Baqer Hassani</h3>
-              <p class="s13-tag">Co-Founder · Open Slot AI</p>
-              <p class="s13-roles">AI · Software engineering · Infrastructure</p>
-              <ul class="s13-list">
-                <li>University of Tulsa · Computer Science</li>
-                <li>Meta × MLH · Software reliability &amp; production infrastructure</li>
-                <li>AI &amp; robotics · Intelligent software &amp; automation</li>
-                <li>Previous JOLT Challenge winner · startup experience</li>
-              </ul>
-            </div>
-          </article>
-          <article class="s13-person">
-            <div class="s13-photo" data-anim="scale" data-delay=".28">
-              <div class="s13-ph">Headshot<span>assets/isaac-neal.jpg</span></div>
-            </div>
-            <div>
-              <h3 class="s13-name">Isaac Neal</h3>
-              <p class="s13-tag">Co-Founder · Open Slot AI</p>
-              <p class="s13-roles">Electrical engineering · Computer engineering</p>
-              <ul class="s13-list">
-                <li>University of Tulsa · EE &amp; Computer Engineering</li>
-                <li>Systems integration · hardware–software interfaces</li>
-                <li>Building automation &amp; intelligent systems</li>
-                <li>Engineering lead on prototype infrastructure</li>
-              </ul>
-            </div>
-          </article>
-        </div>
+      <div>
+        <div class="t15-avatar" data-anim="scale" data-delay=".2">IN</div>
+        <p class="t15-nm">Isaac Neal</p>
+        <p class="t15-role">Co-Founder · Electrical &amp; Computer Engineer</p>
+        <ul class="t15-pts">
+          <li>Electrical &amp; Computer Engineering · Business minor · TU</li>
+          <li>RATS Combat Robotics Lead</li>
+          <li>Research into autonomous RC vehicles</li>
+        </ul>
       </div>
-      <p class="inv-foot">Replace placeholder headshots before competition.</p>
     </div>
-    <aside class="notes"><p>15–20 seconds: We're CS and EE/CompE at the University of Tulsa. I've shipped through Meta's MLH fellowship and robotics work, and I've won JOLT before. Isaac builds the systems layer with us. We're building Open Slot because small shops deserve the same reliability big companies buy — and we'll run the first Tulsa pilots ourselves. Don't invent advisors on stage; say HVAC advisor is who we're recruiting.</p></aside>
+    <p class="t15-src" data-anim="fade" data-delay=".28">Both founders sell door-to-door in Tulsa · University of Tulsa</p>
+    <aside class="notes"><p>Swap BH / IN for headshots when assets are ready. Two engineers, TU, door-to-door GTM — keep it tight.</p></aside>
   </section>
 
 
-  <section class="slide inv-slide" id="advisors" data-title="Advisory board" data-pos="3 2.36" data-transition="camera" data-hold="3.2">
-    <div class="inv-wrap">
-      <div class="s14-head" data-anim="fade">
-        <h2 class="s14-title" data-anim="mask" data-delay=".04">Advisory Board</h2>
-        <img class="s14-logo" src="assets/mark.png" width="64" height="64" alt="">
+  <section class="slide inv-slide" id="advisors" data-title="Advisors" data-pos="3 2.36" data-transition="camera" data-hold="3.2">
+    <p class="d16-label" data-anim="fade"><b>14</b> Advisors</p>
+    <h2 class="d16-h1" data-anim="mask" data-delay=".06">Advisory Board</h2>
+    <div class="d16-grid" data-anim="rise" data-delay=".12">
+      <div class="d16-col">
+        <div class="d16-pic" data-anim="scale" data-delay=".16"><span class="d16-init">CW</span><img src="assets/chris-wright.jpg" onerror="this.remove()" alt=""></div>
+        <p class="d16-n2">Chris Wright, PhD</p>
+        <p class="d16-d2">Director of Entrepreneurship<br>University of Tulsa</p>
       </div>
-      <div class="s14-body">
-        <div class="s14-grid" data-anim="rise" data-delay=".16">
-          <article class="s14-card">
-            <div class="s14-photo" data-anim="scale" data-delay=".2">
-              <div class="s14-ph">Photo<span>assets/chris-wright.jpg</span></div>
-            </div>
-            <h3 class="s14-name">Chris Wright, PhD</h3>
-            <p class="s14-line">Director of Entrepreneurship</p>
-            <p class="s14-line">The University of Tulsa</p>
-          </article>
-          <article class="s14-card">
-            <div class="s14-photo" data-anim="scale" data-delay=".26">
-              <div class="s14-ph">Photo<span>assets/dallas-e.jpg</span></div>
-            </div>
-            <h3 class="s14-name">Dallas E.</h3>
-            <p class="s14-line">PhD Student · Cyber Studies</p>
-            <p class="s14-line">Secure &amp; trustworthy AI · University of Tulsa Cyber Fellows</p>
-          </article>
-          <article class="s14-card">
-            <div class="s14-photo" data-anim="scale" data-delay=".32">
-              <div class="s14-ph">Photo<span>assets/bradford-kerst.jpg</span></div>
-            </div>
-            <h3 class="s14-name">Bradford Kerst, PhD</h3>
-            <p class="s14-line">Research Engineer · Robotics R&amp;D</p>
-            <p class="s14-line">UT Institute for Robotics &amp; Automation · NSF I-Corps alum</p>
-          </article>
-        </div>
-        <div class="s14-orgs" data-anim="fade" data-delay=".38">
-          <p class="s14-org">The University of Tulsa</p>
-          <p class="s14-org">TU Cyber Fellows</p>
-          <p class="s14-org">Institute for Robotics &amp; Automation</p>
-        </div>
+      <div class="d16-col">
+        <div class="d16-pic" data-anim="scale" data-delay=".2"><span class="d16-init">BK</span><img src="assets/bradford-kerst.jpg" onerror="this.remove()" alt=""></div>
+        <p class="d16-n2">Bradford Kerst, PhD</p>
+        <p class="d16-d2">Research Engineer, Robotics R&amp;D<br>Institute for Robotics &amp; Autonomy</p>
       </div>
-      <p class="inv-foot">Advisors listed with permission. HVAC trade mentor still being recruited separately from this board.</p>
+      <div class="d16-col">
+        <div class="d16-pic" data-anim="scale" data-delay=".24"><span class="d16-init">DE</span><img src="assets/dallas-e.jpg" onerror="this.remove()" alt=""></div>
+        <p class="d16-n2">Dallas E.</p>
+        <p class="d16-d2">PhD Student, Cyber Studies<br>TU Cyber Fellows</p>
+      </div>
     </div>
-    <aside class="notes"><p>Chris Wright — entrepreneurship and startup formation at TU. Dallas — cyber / trustworthy AI lens on what we ship. Bradford — robotics, I-Corps, building things that work in the real world. One sentence each; don't overclaim formal advisory agreements if you only have informal mentorship — say these are TU mentors supporting Open Slot.</p></aside>
+    <div class="d16-orgs" data-anim="fade" data-delay=".28">
+      <span>The University of Tulsa</span>
+      <span>TU Cyber Fellows</span>
+      <span>Institute for Robotics &amp; Autonomy</span>
+    </div>
+    <p class="d16-src" data-anim="fade" data-delay=".32">+ Tulsa HVAC shop owner · trade advisor, recruiting now</p>
+    <aside class="notes"><p>One line each if asked. Trade advisor is actively being recruited — say it plainly.</p></aside>
   </section>
 
-  <section class="slide" id="ask" data-title="The ask" data-pos="3 2.44" data-transition="tear" data-hold="4.2">
-    <p class="kick" data-anim="fade"><b>VI</b> · The ask</p>
-    <h2 data-fit="2" data-anim="mask" data-delay=".1" style="max-width:1000px">$150,000 pre-seed<br>to fund a serious commercial launch.</h2>
-    <p class="body" style="margin-top:36px; max-width:980px" data-anim="rise" data-delay=".45">Year 1 target: $100K+ subscription revenue · Tulsa pilots first.</p>
-    <p class="small" style="margin-top:28px; max-width:980px" data-anim="fade" data-delay=".7">Proposed pricing from $129/mo · zero paying shops today · JOLT prize pool is not this raise.</p>
-    <p class="body" style="margin-top:36px" data-anim="fade" data-delay=".9"><b>Open Slot AI · Tulsa, Oklahoma</b></p>
-    <div class="handset" data-anim="scale" data-delay=".2">
-      <div class="bezel"><i class="ear"></i><i class="side"></i>
-        <div class="glass">
-          <div class="g-top"><span>OPEN SLOT</span><i class="g-dot"></i></div>
-          <svg class="g-wave" viewBox="0 0 320 96"></svg>
-          <div class="g-hero">BOOKED</div>
-          <div class="g-sub">evt_8k2q</div>
+  <section class="slide" id="ask" data-title="Investment ask" data-pos="3 2.44" data-transition="tear" data-hold="4.2">
+    <p class="a14-label" data-anim="fade"><b>15</b> Investment ask</p>
+    <h2 class="a14-h1" data-anim="mask" data-delay=".06">We're raising $120K.</h2>
+    <p class="a14-big" data-anim="fade" data-delay=".1"><b>For 12% of Open Slot.</b> It gets us to profit, even at half speed.</p>
+    <div class="a14-stack" data-anim="rise" data-delay=".14" aria-hidden="true">
+      <i style="flex:40;background:#0F9D6E"></i>
+      <i style="flex:30;background:#5DBF9C"></i>
+      <i style="flex:15;background:#A8DCC6"></i>
+      <i style="flex:35;background:#D9D6CF"></i>
+    </div>
+    <div class="a14-list" data-anim="rise" data-delay=".18">
+      <div class="a14-r">
+        <span class="a14-sw" style="background:#0F9D6E"></span>
+        <div>
+          <p class="a14-n">Founders selling full-time</p>
+          <p class="a14-d">2027</p>
         </div>
+        <p class="a14-amt">$40K</p>
+      </div>
+      <div class="a14-r">
+        <span class="a14-sw" style="background:#5DBF9C"></span>
+        <div>
+          <p class="a14-n">Phone, AI &amp; software</p>
+          <p class="a14-d">2 years</p>
+        </div>
+        <p class="a14-amt">$30K</p>
+      </div>
+      <div class="a14-r">
+        <span class="a14-sw" style="background:#A8DCC6"></span>
+        <div>
+          <p class="a14-n">Winning shops</p>
+          <p class="a14-d">trials, flyers, gas</p>
+        </div>
+        <p class="a14-amt">$15K</p>
+      </div>
+      <div class="a14-r">
+        <span class="a14-sw" style="background:#D9D6CF"></span>
+        <div>
+          <p class="a14-n">Safety buffer</p>
+          <p class="a14-d">if growth is half the plan</p>
+        </div>
+        <p class="a14-amt">$35K</p>
+      </div>
+      <div class="a14-tot"><span>Total</span><span>$120K</span></div>
+    </div>
+    <div class="a14-panel" data-anim="fade" data-delay=".26">
+      <p class="a14-ph">What you get back</p>
+      <div>
+        <p class="a14-pt">Profitable</p>
+        <p class="a14-pv a14-grn">2029</p>
+        <p class="a14-ps">No new round needed</p>
+      </div>
+      <div>
+        <p class="a14-pt">Plan: 460 shops by 2031</p>
+        <p class="a14-pv">2.4×</p>
+        <p class="a14-ps">Your 12% ≈ $290K</p>
+      </div>
+      <div>
+        <p class="a14-pt">At 1,600 shops</p>
+        <p class="a14-pv a14-grn">10×</p>
+        <p class="a14-ps">Just 1.4% of the 111K shops</p>
       </div>
     </div>
-    <aside class="notes"><p>Primary ask: $150K pre-seed to run 14-day trials at scale, cover usage and telephony, add part-time GTM/support, and reach $100K+ Year 1 subscription revenue. Secondary: ten Tulsa owner intros to validate pricing and workflow. Clarify if asked: Hurricane Pitch ~$25K total prizes across teams — separate from building the company. Handset BOOKED is prototype fiction. Put contact info on slide. Then stop.</p></aside>
+    <p class="a14-src" data-anim="fade" data-delay=".32">Projection, not results · 2031 value = $878K ARR × 3.3 (median for private software companies under $5M ARR, Aventis Advisors 2026) = ~$2.9M · 10× case: 1,600 shops × $1,908 = $3.0M ARR × 3.3 = ~$10M · Half-speed case: half as many new shops in 2027–28, lowest cash −$115K · Post-money $1M</p>
+    <aside class="notes"><p>$120K for 12% · post-money $1M. Walk the four budget rows; buffer if half speed. Right column: path to profit 2029, base exit math (460 shops), upside (1,600). Source line has multiples and caveats. If asked, contrast old $150K deck — this is the current ask.</p></aside>
   </section>
 
 </div>
@@ -3543,7 +3466,7 @@ function phoneSVG(build) {
 Deck.slide('phone', {
   ambient: 24,
   setup(el) {
-    el._solMascot = el.querySelector('.sol-mascot');
+    el._solMascot = el.querySelector('.sol-ref-art .sol-mascot, .sol-mascot');
   },
   frame(el, st) {
     const m = el._solMascot;
@@ -3554,21 +3477,7 @@ Deck.slide('phone', {
   },
 });
 
-Deck.slide('loop', {
-  ambient: 24,
-  setup(el) {
-    el._flowPulse = el.querySelector('.sol-flow-pulse');
-    el._heroVis = el.querySelector('.sol-flow-node--hero .sol-flow-visual');
-  },
-  frame(el, st) {
-    const T = st.T;
-    if (el._flowPulse) el._flowPulse.style.strokeDashoffset = String(-T * 45);
-    if (el._heroVis) {
-      const s = 1 + 0.025 * (0.5 + 0.5 * Math.sin(T * 2.2));
-      el._heroVis.style.transform = `scale(${s.toFixed(4)})`;
-    }
-  },
-});
+Deck.slide('loop', { ambient: 12 });
 
 Deck.slide('road', {
   steps: 3,
