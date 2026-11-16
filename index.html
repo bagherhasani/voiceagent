@@ -234,13 +234,15 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 .slide { box-sizing: border-box; }
 
 /* Full-slide story tints (subtle) — problem warm · solution green wash · keep typography unchanged */
-#jack.prob-light.slide--cue-problem,
 #scale.prob-light.slide--cue-problem,
 #impact.prob-light.slide--cue-problem {
   background:
     radial-gradient(120% 95% at 92% 4%, rgba(217, 58, 43, 0.26) 0%, transparent 58%),
     linear-gradient(185deg, rgba(217, 58, 43, 0.14) 0%, rgba(217, 58, 43, 0.04) 38%, transparent 72%),
     linear-gradient(175deg, #fff5f3 0%, #fde8e4 42%, var(--os-paper) 100%);
+}
+#jack.prob-light.slide--cue-problem {
+  background: var(--os-paper);
 }
 /* Solution chunk — light + clearly green (title, phone, demo) */
 #title.slide.slide--sol-light,
@@ -382,151 +384,127 @@ html, body { font-family: Inter, system-ui, sans-serif; }
   background: var(--os-paper);
 }
 
-#jack .pb-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-  min-height: 1080px;
-  align-items: stretch;
-}
-#jack .pb-split-photo {
+#jack .jack-story {
   position: relative;
-  background: #2d2e32;
-  min-height: 1080px;
+  height: 1080px;
+  box-sizing: border-box;
+  padding: 56px 90px 48px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  color: var(--os-ink);
 }
-#jack .pb-split-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(15, 17, 22, 0) 0%, rgba(15, 17, 22, 0.22) 55%, rgba(250, 250, 247, 0.52) 100%);
+#jack .jack-story-k { margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
+#jack .jack-story-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
+#jack .jack-story-title {
+  margin: 18px 0 0;
+  font: 800 96px/1 Inter, system-ui, sans-serif;
+  letter-spacing: -0.04em;
+  color: var(--os-ink);
 }
-
-#jack.prob-light.slide--cue-problem .pb-split-photo::after {
-  background: linear-gradient(90deg, rgba(217, 58, 43, 0.14) 0%, rgba(217, 58, 43, 0.06) 45%, rgba(253, 236, 232, 0.62) 100%);
+#jack .jack-flow {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr 64px 1fr;
+  align-items: start;
 }
-#jack .pb-split-photo img {
-  position: absolute;
-  inset: 0;
+#jack .jack-card { position: relative; min-width: 0; }
+#jack .jack-card-img {
+  height: 400px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #e6e4de;
+}
+#jack .jack-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 32%;
   display: block;
 }
-#jack .pb-split-photo .ph-fill { display: none !important; }
-#jack .pb-split-photo.is-missing .ph-fill {
-  display: flex !important;
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-  box-sizing: border-box;
-  font: 500 18px/1.5 Inter, system-ui, sans-serif;
-  color: rgba(245, 245, 242, 0.75);
-  background: #2d2e32;
-}
-#jack .pb-split-copy {
+#jack .jack-card-img img.crop { transform: scale(1.06); }
+#jack .jack-cap {
   position: relative;
+  margin: -34px 18px 0;
+  min-height: 132px;
   box-sizing: border-box;
-  padding: 88px 96px 72px 92px;
-  min-height: 1080px;
+  padding: 18px 20px;
   display: flex;
-  flex-direction: column;
-  border-left: 1px solid var(--os-rule);
-  background: linear-gradient(165deg, #fff 0%, var(--os-paper) 48%, #f3f2ee 100%);
-}
-#jack .pb-split-k {
-  position: static;
-  margin: 0 0 18px;
-  font: 500 22px/1 Inter, system-ui, sans-serif;
-  color: var(--os-muted);
-  letter-spacing: 0.01em;
-}
-#jack .pb-split-k b { color: var(--os-ink); font-weight: 600; margin-right: 12px; }
-#jack .pb-split-head {
-  font: 700 64px/1.05 Inter, system-ui, sans-serif;
-  letter-spacing: -0.038em;
-  color: var(--os-ink);
-  margin: 0;
-  max-width: 540px;
-}
-#jack .pb-split-head + .pb-split-head { margin-top: 2px; }
-#jack .pb-miss {
-  margin-top: 32px;
-  max-width: 500px;
-  border: 1px solid rgba(230, 228, 222, 0.95);
-  border-radius: 14px;
-  padding: 20px 22px 18px;
+  align-items: center;
+  gap: 14px;
   background: #fff;
-  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  border: 1px solid var(--os-rule);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(17, 17, 17, 0.07);
+  font: 700 40px/1.2 Inter, system-ui, sans-serif;
+  color: var(--os-ink);
 }
-#jack .pb-miss-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-#jack .pb-miss-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+#jack .jack-num {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(145deg, var(--os-green-d), var(--os-green));
-  flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(15, 157, 110, 0.35);
+  background: var(--os-ink);
+  color: #fff;
+  font: 700 28px/1 Inter, system-ui, sans-serif;
 }
-#jack .pb-miss-icon svg { width: 22px; height: 22px; color: #fff; }
-#jack .pb-miss-body { flex: 1; min-width: 0; }
-#jack .pb-miss-line1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-#jack .pb-miss-title { font: 700 20px/1.2 Inter, system-ui, sans-serif; color: var(--os-ink); }
-#jack .pb-miss-time {
-  font: 600 15px/1 Inter, system-ui, sans-serif;
-  font-variant-numeric: tabular-nums;
-  color: var(--os-muted);
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(138, 138, 133, 0.12);
-}
-#jack .pb-miss-sub { font: 500 17px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 10px 0 0; }
-#jack .pb-lines {
-  margin-top: 28px;
-  max-width: 520px;
-  border: 1px solid var(--os-rule);
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.65);
-}
-#jack .pb-lines p {
-  font: 500 20px/1.45 Inter, system-ui, sans-serif;
+#jack .jack-arrow {
+  align-self: start;
+  margin-top: 160px;
   color: var(--os-ink);
-  margin: 0;
-  padding: 17px 22px;
-  border-bottom: 1px solid var(--os-rule);
+  display: grid;
+  place-items: center;
 }
-#jack .pb-lines p:last-child {
-  border-bottom: none;
-  background: rgba(217, 58, 43, 0.06);
-  box-shadow: inset 3px 0 0 var(--os-red);
-}
-#jack .pb-lines p strong { color: var(--os-red); font-weight: 700; }
-#jack .pb-disclaimer {
+#jack .jack-arrow svg { width: 52px; height: 52px; }
+#jack .jack-banner {
   margin-top: auto;
-  padding-top: 32px;
-  font: 500 16px/1.45 Inter, system-ui, sans-serif;
-  color: var(--os-muted);
-  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 22px 36px;
+  border-radius: 20px;
+  background: rgba(217, 58, 43, 0.09);
 }
+#jack .jack-banner-ico {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--os-red);
+  color: #fff;
+}
+#jack .jack-banner-ico svg { width: 56px; height: 56px; }
+#jack .jack-banner-text {
+  margin: 0;
+  font: 800 84px/1.05 Inter, system-ui, sans-serif;
+  letter-spacing: -0.035em;
+  color: var(--os-ink);
+}
+#jack .jack-banner-text em { font-style: normal; color: var(--os-red); }
+
+#compete.slide { background: #fdfefd; }
+#compete .compete-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+#ask.slide { background: #fdfefd; }
+  #ask .ask-full { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  #why.slide { background: #fdfefd; }
+  #why .why-full { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  #market.slide { background: #fdfefd; }
+#market .market-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+#model.slide { background: #fdfefd; }
+#model .model-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+#phone.slide { background: #fcfdfc; }
+#phone .solution-full {
+  position: absolute; left: 50%; top: 0; height: 100%; width: auto; transform: translateX(-50%); display: block;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+}
+#impact.slide { background: #fff; }
+#impact .impact-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+#scale.slide { background: #0a1a3a; }
+#scale .scale-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
 #scale .pb-scale2 {
   position: relative;
@@ -688,7 +666,8 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 #phone .sol-ref-k { position: absolute; top: -56px; left: 0; margin: 0; font: 500 22px/1 Inter, system-ui, sans-serif; color: var(--os-muted); }
 #phone .sol-ref-k b { color: #e8e8e4; font-weight: 600; margin-right: 12px; }
 #phone .sol-ref-head { font: 700 68px/1.06 Inter, system-ui, sans-serif; color: #f5f5f2; margin: 84px 0 8px; max-width: 700px; }
-#phone .sol-ref-list { list-style: none; margin: 48px 0 0; padding: 0; max-width: 680px; }
+#phone .sol-ref-lead { font: 500 22px/1.45 Inter, system-ui, sans-serif; color: var(--os-muted); margin: 0 0 12px; max-width: 680px; }
+#phone .sol-ref-list { list-style: none; margin: 28px 0 0; padding: 0; max-width: 680px; }
 #phone .sol-ref-list li {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -720,6 +699,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
 #phone.sol-reveal-slide.slide--sol-light .sol-ref-k b { color: var(--os-ink); }
 #phone.sol-reveal-slide.slide--sol-light .sol-ref-head { color: var(--os-ink); }
+#phone.sol-reveal-slide.slide--sol-light .sol-ref-lead { color: var(--os-body); }
 #phone.sol-reveal-slide.slide--sol-light .sol-ref-list li {
   border-top-color: var(--os-rule);
   color: var(--os-body);
@@ -1168,112 +1148,52 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     <aside class="notes"><p>Say the name: Open Slot AI. Then the two-line promise. Advance to Jack.</p></aside>
   </section>
 
-  <section class="slide prob-light slide--cue-problem" id="jack" data-title="Meet Jack" data-pos="0 1.12" data-hold="2 1.6 1.6 2.2">
-    <div class="pb-wrap">
-      <div class="pb-split">
-        <div class="pb-split-photo" data-anim="fade" data-delay=".06">
-          <img src="./assets/jack_ac_final.png" alt="HVAC technician on a ladder at height working on equipment; incoming call on phone" width="1122" height="1402" loading="lazy" decoding="async" onerror="this.closest('.pb-split-photo')?.classList.add('is-missing');">
-          <div class="ph-fill">Real photo of a Tulsa HVAC tech on a rooftop unit<br><span>full-bleed · no rounded corners · no overlay</span></div>
+  <section class="slide prob-light slide--cue-problem" id="jack" data-title="Meet Jack" data-pos="0 1.12" data-hold="2.4 1.6 1.6 2.4">
+    <div class="jack-story">
+      <p class="jack-story-k" data-anim="fade"><b>02</b> The problem</p>
+      <h2 class="jack-story-title" data-anim="mask" data-delay=".06">Meet Jack</h2>
+      <div class="jack-flow">
+        <div class="jack-card" data-anim="rise" data-delay=".14">
+          <div class="jack-card-img"><img src="./assets/jack_ac_final.png" alt="" style="object-position:50% 24%"></div>
+          <p class="jack-cap"><span class="jack-num">1</span><span>Jack is fixing an AC.</span></p>
         </div>
-        <div class="pb-split-copy">
-          <p class="pb-split-k" data-anim="fade"><b>02</b> The problem</p>
-          <h2 class="pb-split-head" data-anim="mask" data-delay=".1">Jack at work:</h2>
-          <div class="pb-lines" data-anim="rise" data-delay=".22">
-            <p>He can't answer the phone.</p>
-            <p>The customer calls the next person.</p>
-          </div>
-          <p class="pb-disclaimer" data-anim="fade" data-delay=".42">Jack is an illustrative composite.</p>
+        <div class="jack-arrow" data-step="1" data-anim="fade" data-delay=".05"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 24h30M26 11l13 13-13 13" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="jack-card" data-step="1" data-anim="rise" data-delay=".1">
+          <div class="jack-card-img"><img class="crop" src="./assets/jack-story-2.jpg" alt=""></div>
+          <p class="jack-cap"><span class="jack-num">2</span><span>A new customer calls.</span></p>
+        </div>
+        <div class="jack-arrow" data-step="2" data-anim="fade" data-delay=".05"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 24h30M26 11l13 13-13 13" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="jack-card" data-step="2" data-anim="rise" data-delay=".1">
+          <div class="jack-card-img"><img src="./assets/jack-story-3.jpg" alt="" style="object-position:100% 50%"></div>
+          <p class="jack-cap"><span class="jack-num">3</span><span>Jack can't answer. The customer goes with someone else.</span></p>
         </div>
       </div>
+      <div class="jack-banner" data-step="3" data-anim="rise" data-delay=".05">
+        <span class="jack-banner-ico"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M13 9l6 2 2 8-4 3c2 5 6 9 11 11l3-4 8 2 2 6c-1 3-4 5-8 5C22 42 6 26 7 14c0-3 3-5 6-5z" fill="currentColor"/><path d="M8 40L40 8" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></span>
+        <p class="jack-banner-text">One missed call = <em>One lost customer.</em></p>
+      </div>
     </div>
-    <aside class="notes"><p>Jack is busy on the job — he can't pick up. The caller moves on to the next name on the list.</p></aside>
+    <aside class="notes"><p>Jack is a small HVAC owner in Tulsa (illustrative composite, not a real customer). Click 1: a new customer calls. Click 2: Jack can't answer, so the customer goes to another company. Click 3: one missed call is one lost customer.</p></aside>
   </section>
 
-  <section class="slide prob-light slide--cue-problem" id="scale" data-title="Jack is not alone" data-pos="0 2.24" data-hold="5">
-    <div class="pb-wrap pb-scale2">
-      <p class="pb-scale2-k" data-anim="fade"><b>03</b> The problem</p>
-      <h2 class="pb-scale2-head" data-anim="mask" data-delay=".1">Jack isn't alone.</h2>
-      <hr class="pb-scale2-rule" data-anim="fade" data-delay=".2">
-      <div class="pb-scale2-cols" data-anim="rise" data-delay=".28">
-        <div class="pb-scale2-col">
-          <p class="n27 n27--third" data-anim="mask" data-delay=".32">1 in 4</p>
-          <div class="scale-phone-row" aria-hidden="true">
-            <div class="scale-phone scale-phone--miss" title="Unanswered">
-              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
-                <circle cx="24" cy="38" r="2" fill="currentColor"/>
-                <path d="M18 18h12M18 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".35"/>
-                <path d="M16 44L32 28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                <path d="M32 44L16 28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="scale-phone scale-phone--ok" title="Answered">
-              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
-                <circle cx="24" cy="38" r="2" fill="currentColor"/>
-                <path d="M17 28l4 4 10-10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="scale-phone scale-phone--ok" title="Answered">
-              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
-                <circle cx="24" cy="38" r="2" fill="currentColor"/>
-                <path d="M17 28l4 4 10-10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="scale-phone scale-phone--ok" title="Answered">
-              <svg viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="12" y="4" width="24" height="40" rx="5" stroke="currentColor" stroke-width="2.5"/>
-                <circle cx="24" cy="38" r="2" fill="currentColor"/>
-                <path d="M17 28l4 4 10-10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </div>
-          <p class="txt">calls to home services go unanswered.</p>
-        </div>
-        <div class="pb-scale2-v" aria-hidden="true"></div>
-        <div class="pb-scale2-col">
-          <p class="n82" data-anim="count" data-delay=".4">82%</p>
-          <div class="scale-bar-wrap" aria-hidden="true">
-            <div class="scale-bar"><span class="scale-bar-fill"></span></div>
-          </div>
-          <p class="txt">of customers call the next business.</p>
-        </div>
-      </div>
-      <p class="pb-src" data-anim="fade" data-delay=".75">Sources: Invoca home services call data · CallRail survey of 1,000 U.S. consumers, 2025</p>
-    </div>
-    <aside class="notes"><p>Invoca: unanswered share in home services. CallRail: consumer behavior when a business doesn't pick up. If a judge asks, point to the slide footer — don't cite clinic-only stats.</p></aside>
+  <section class="slide slide--cue-problem" id="scale" data-title="Jack is not alone" data-pos="0 2.24" data-hold="5">
+    <img class="scale-full" src="./assets/problem_open_slot.png" alt="27% of small business calls go unanswered. 82% of surveyed consumers would call a competitor. Sources: Invoca (2024); CallRail consumer survey (2025).">
+    <aside class="notes"><p>27% of small business calls go unanswered (Invoca). 82% of surveyed consumers would call a competitor (CallRail). Tie back to Jack: one missed call goes to the next shop.</p></aside>
   </section>
 
-  <section class="slide prob-light slide--cue-problem" id="impact" data-title="Hidden cost of one missed call" data-pos="0 3.36" data-hold="5">
-    <div class="pb-wrap pb-impact2">
-      <p class="pb-impact2-k" data-anim="fade"><b>04</b> The problem</p>
-      <h2 class="pb-impact2-title" data-anim="mask" data-delay=".06" data-dur="1">Hidden cost of one missed call</h2>
-      <div class="pb-impact2-simple">
-        <p class="pb-impact2-line-big" data-anim="mask" data-delay=".16"><span class="eq">one missed call in HVAC = </span><span class="eq">−</span><span class="amt">$350</span><span class="eq"> loss</span></p>
-        <p class="pb-impact2-line-big" data-anim="rise" data-delay=".28"><span class="eq">for one contractor = one year </span><span class="eq">−</span><span class="amt" data-anim="count" data-delay=".4">$190,000</span></p>
-      </div>
-    </div>
-    <aside class="notes"><p>Walk the $350 illustrative repair, then the aggregated loss figure from the cited analyses. If a judge challenges NextPhone or Angi, acknowledge these are third-party estimates — not your measured jack revenue.</p></aside>
+  <section class="slide slide--cue-problem" id="impact" data-title="Hidden cost of one missed call" data-pos="0 3.36" data-hold="5">
+    <img class="impact-full" src="./assets/hideen_cost_financial.png" alt="The hidden cost of one missed call. $190,000 lost per year by one small business. 36 million plus unanswered business calls every year. Source: CallRail, The Cost of Missed Calls research, 2025.">
+    <aside class="notes"><p>$190,000 lost per year by one small business, and 36 million+ unanswered business calls every year (CallRail, The Cost of Missed Calls research, 2025). The 36M figure is annualized from 3 million+ missed calls per month on CallRail's platform. Bridge: one missed HVAC call is about a $350 job.</p></aside>
   </section>
 
-  <section class="slide sol-reveal-slide slide--cue-solution slide--sol-light" id="phone" data-title="Open Slot AI" data-pos="3 0" data-transition="tear" data-hold="2.4 2">
-    <div class="sol-ref">
-      <div class="sol-ref-copy">
-        <p class="sol-ref-k" data-anim="fade"><b>05</b> The solution</p>
-        <h2 class="sol-ref-head" data-anim="mask" data-delay=".1">Our solution is an AI receptionist.</h2>
-        <ul class="sol-ref-list">
-          <li data-anim="rise" data-delay=".2"><span class="sol-ref-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.4"/><path d="M24 14v11l8 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2.2" fill="currentColor"/></svg></span><div><strong>It picks up day or night — any time.</strong></div></li>
-          <li data-anim="rise" data-delay=".28"><span class="sol-ref-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 28V14a3 3 0 013-3h22a3 3 0 013 3v8a3 3 0 01-3 3H18l-6 6v-6H9a3 3 0 01-3-3z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M22 32h17a3 3 0 003-3v-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><div><strong>It talks to the customer and understands what they need.</strong></div></li>
-          <li data-anim="rise" data-delay=".36"><span class="sol-ref-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="10" width="32" height="30" rx="4" stroke="currentColor" stroke-width="2.2"/><path d="M8 18h32M16 8v8M32 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 28l4 4 10-10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>It schedules a meeting with the customer.</strong></div></li>
-        </ul>
-        <p class="sol-ref-foot" data-anim="fade" data-delay=".46">Working prototype today</p>
-      </div>
-      <div class="sol-ref-art" data-anim="scale" data-delay=".16" data-dur="1">
-        <img class="sol-mascot" src="./assets/mark.png" width="400" height="400" alt="">
-      </div>
-    </div>
-    <aside class="notes"><p>Booked only when the calendar returns an event id.</p></aside>
+  <section class="slide slide--cue-problem" id="why" data-title="Why small businesses miss calls" data-pos="0 4.48" data-hold="5">
+    <img class="why-full" src="./assets/why_miss_calls.png" alt="Why do small businesses miss calls? Busy on the job, after hours, high cost of a receptionist ($45K to $60K a year), voicemail falls short (85% of unanswered callers leave no message, Quo 2026). The reality: missed calls often turn into lost business.">
+    <aside class="notes"><p>So why does Jack miss calls? He's under a sink or on a roof. Calls come in evenings and weekends. A full-time receptionist costs $45 to 60K a year. And 85% of people who get voicemail don't leave a message. Source: Quo, 2026.</p></aside>
+  </section>
+
+  <section class="slide slide--cue-solution" id="phone" data-title="Open Slot AI" data-pos="3 0" data-transition="tear" data-hold="5">
+    <img class="solution-full" src="./assets/solution.png" alt="Open Slot AI, your AI receptionist for small businesses. Answers calls 24/7, talks naturally, books appointments directly to your Google Calendar, and sends you a text with each new booking. Turn more calls into booked jobs.">
+    <aside class="notes"><p>Open Slot AI is an AI receptionist for small businesses. It connects to your business phone number and answers when you turn it on. It answers 24/7, talks naturally and collects the details, books straight into Google Calendar, and texts you each new booking. Booked only when the calendar returns an event id.</p></aside>
   </section>
   <section class="slide sol-slide slide--cue-solution slide--sol-light" id="demo" data-title="See it work" data-pos="3 1.12" data-transition="whip" data-hold="2 45">
     <div class="sol-demo">
@@ -1292,260 +1212,23 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     <aside class="notes"><p>Live demo — narrate while the video or live product runs.</p></aside>
   </section>
 
-  <section class="slide inv-slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="3.4">
-    <div class="inv-wrap">
-      <p class="bm2-k" data-anim="fade"><b>07</b> Business model</p>
-      <h2 class="bm2-h1" data-anim="mask" data-delay=".06">Shops pay us monthly.</h2>
-      <div class="bm2-plans">
-        <article class="bm2-card bm2-card--solo" data-anim="rise" data-delay=".14">
-          <p class="bm2-tier"><span class="bm2-name--solo">Solo</span> <span class="bm2-audience">1–4 person shops</span></p>
-          <p class="bm2-price">$129<span>/mo</span></p>
-          <ul class="bm2-feats">
-            <li>250 minutes (~80 calls*)</li>
-            <li>Answers 24/7 · books jobs · texts owner</li>
-          </ul>
-          <p class="bm2-foot">Less than one missed $350 job a month.</p>
-        </article>
-        <article class="bm2-card" data-anim="rise" data-delay=".2">
-          <p class="bm2-tier"><span class="bm2-name--growth">Growth</span> <span class="bm2-audience">5–10 person shops</span></p>
-          <p class="bm2-price">$229<span>/mo</span></p>
-          <ul class="bm2-feats">
-            <li>600 minutes (~200 calls*)</li>
-            <li>Everything in Solo · priority support</li>
-          </ul>
-        </article>
-      </div>
-      <div class="bm2-metrics" data-anim="fade" data-delay=".28">
-        <div>
-          <p class="bm2-mv">$159<span class="bm2-mv-suffix">/mo</span></p>
-          <p class="bm2-ms">What the average shop pays</p>
-        </div>
-        <div>
-          <p class="bm2-mv"><em>~51%</em></p>
-          <p class="bm2-ms">Gross margin, after phone &amp; AI costs</p>
-        </div>
-        <div>
-          <p class="bm2-mv">$105K</p>
-          <p class="bm2-ms">Yearly revenue at 55 shops, end of 2027</p>
-        </div>
-      </div>
-      <p class="bm2-note" data-anim="fade" data-delay=".36">Extra minutes $0.25 · *assumes ~3 minutes per call</p>
-    </div>
-    <aside class="notes"><p>Illustrative unit economics — not billed history. Gross margin blends Solo/Growth at stated mix; Year 1 ARR is a target, not revenue yet.</p></aside>
+  <section class="slide" id="model" data-title="Business model" data-pos="3 2.05" data-transition="tear" data-hold="4">
+    <img class="model-full" src="./assets/business_model.png" alt="Business model. Solo, for 1 to 4 person shops: $129 per month. Growth, for 5 to 10 person shops: $229 per month.">
+    <aside class="notes"><p>Solo is $129 a month for 1 to 4 person shops. Growth is $229 a month for 5 to 10 person shops. Less than one missed $350 job a month. Illustrative pricing, not billed history.</p></aside>
   </section>
 
-  <section class="slide inv-slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="3.4">
-    <div class="m10-wrap">
-      <div class="m10-main">
-      <div class="m10-left">
-      <p class="m10-label" data-anim="fade"><b>08</b> Market</p>
-      <h2 class="m10-h1" data-anim="mask" data-delay=".06">111,207 shops have Jack's problem.</h2>
-      <div class="m10-rows" data-anim="rise" data-delay=".14">
-        <div class="m10-r">
-          <i class="m10-dot" style="background:var(--m10-c1)" aria-hidden="true"></i>
-          <div>
-            <p class="m10-k">TAM</p>
-            <p class="m10-w">HVAC, plumbing + electrical shops</p>
-            <p class="m10-s">194,549 U.S. shops with staff</p>
-          </div>
-          <p class="m10-v">$371M</p>
-        </div>
-        <div class="m10-r">
-          <i class="m10-dot" style="background:var(--m10-c2)" aria-hidden="true"></i>
-          <div>
-            <p class="m10-k">SAM</p>
-            <p class="m10-w">HVAC + plumbing shops</p>
-            <p class="m10-s">111,207 U.S. shops with staff</p>
-          </div>
-          <p class="m10-v">$212M</p>
-        </div>
-        <div class="m10-r m10-r--som">
-          <i class="m10-dot" style="background:var(--m10-c3)" aria-hidden="true"></i>
-          <div>
-            <p class="m10-k">SOM · where we start</p>
-            <p class="m10-w">Small Tulsa HVAC + plumbing shops</p>
-            <p class="m10-s">325 shops with fewer than 10 people</p>
-          </div>
-          <p class="m10-v">$620K</p>
-        </div>
-      </div>
-      <p class="m10-fact" data-anim="fade" data-delay=".28"><b>77%</b> of Tulsa's 424 HVAC and plumbing shops have fewer than 10 people. That's Jack.</p>
-      </div>
-      <div class="m10-circles" aria-hidden="true">
-        <div class="m10-c m10-c1"></div>
-        <div class="m10-c m10-c2"></div>
-        <div class="m10-c m10-c3"></div>
-      </div>
-      </div>
-      <p class="m10-src" data-anim="fade" data-delay=".34">Shop counts: U.S. Census County Business Patterns 2023 · Dollar figures ≈ shops × $1,908/yr blended ARPA · Circles not to scale</p>
-    </div>
-    <aside class="notes"><p>TAM adds electrical (NAICS 238210); SAM is HVAC+plumbing only. Dollar figures use modeled $159/mo × 12 — illustrative. SOM = Tulsa beachhead pool × same ARPA; not revenue today.</p></aside>
+  <section class="slide" id="market" data-title="Market opportunity" data-pos="3 2.12" data-transition="camera" data-hold="4">
+    <img class="market-full" src="./assets/makrt_size.png" alt="Market opportunity. TAM $3.31 billion: 1.73 million small service firms. SAM $163 million: 85,458 HVAC and plumbing locations. SOM $1.91 million: 1,000 customers, year 5 target. Modeled at $159 per month per customer. Sources: SBA 2025 Small Business Profile; U.S. Census CBP 2023.">
+    <aside class="notes"><p>TAM $3.31B: 1.73M small service firms (SBA 2025). SAM $163M: 85,458 HVAC and plumbing locations (Census CBP 2023). SOM $1.91M: 1,000 customers, a Year 5 target, not a forecast. All modeled at $159 a month per customer. Dollar figures are illustrative, not revenue today.</p></aside>
   </section>
-  <section class="slide inv-slide" id="compete" data-title="Competitive advantage" data-pos="3 2.21" data-transition="camera" data-hold="3.4">
-    <div class="c11-wrap">
-      <p class="c11-label" data-anim="fade"><b>09</b> Competition</p>
-      <h2 class="c11-h1" data-anim="mask" data-delay=".06">How we compare.</h2>
-      <div class="c11-table-wrap">
-        <table class="c11-table" data-anim="rise" data-delay=".14">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Built for<br>1–10 person shops</th>
-              <th scope="col">Books jobs on<br>the entry plan</th>
-              <th scope="col">No new software<br>to switch to</th>
-              <th scope="col">Under<br>$150 / month</th>
-              <th scope="col">Set up for you<br>in about 1 hour</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="c11-us">
-              <td><p class="c11-name">Open Slot<small>$129 / mo</small></p></td>
-              <td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td>
-            </tr>
-            <tr>
-              <td><p class="c11-name">Rosie<small>DIY answering bot</small></p></td>
-              <td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td>
-            </tr>
-            <tr>
-              <td><p class="c11-name">Jobber Receptionist<small>needs a Jobber plan</small></p></td>
-              <td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td>
-            </tr>
-            <tr>
-              <td><p class="c11-name">Sameday<small>for $1M+ shops</small></p></td>
-              <td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td>
-            </tr>
-            <tr>
-              <td><p class="c11-name">Avoca<small>for 20+ dispatcher companies</small></p></td>
-              <td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-ck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-no" aria-hidden="true"></i></td><td><i class="c11-no" aria-hidden="true"></i></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="c11-src" data-anim="fade" data-delay=".34">Sources: public pricing pages and reviews, Oct–Nov 2026</p>
-    </div>
-    <aside class="notes"><p><strong>15 seconds:</strong> Avoca and Sameday serve big companies. Jobber only works if you switch software. Rosie makes you set it up yourself, and its cheap plan doesn't book jobs. Open Slot is built for the small shop: it books jobs, keeps your number, costs $129, and we set it up with you in an hour.</p><p><strong>Before pitch day:</strong> Start Twilio texting registration for Open Slot this week (can take up to 5 business days). Build a setup template in Vapi so the 1-hour promise holds.</p></aside>
-  </section>
-
-
-  <section class="slide inv-slide" id="gtm" data-title="Go-to-market" data-pos="3 2.24" data-transition="tear" data-hold="3.6">
-    <div class="c12-wrap">
-      <p class="c12-label" data-anim="fade"><b>10</b> Go-to-market</p>
-      <h2 class="c12-h1" data-anim="mask" data-delay=".06">Tulsa first, then Oklahoma.</h2>
-      <div class="c12-timeline" data-anim="fade" data-delay=".1">
-        <div class="c12-steps">
-          <div class="c12-s c12-done" data-anim="rise" data-delay=".12">
-            <div class="c12-dot"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="c12-when">Nov 2026</p>
-            <p class="c12-what">Product works</p>
-            <p class="c12-num"><svg class="c12-num-ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><small>done</small></p>
-          </div>
-          <div class="c12-s" data-anim="rise" data-delay=".16">
-            <div class="c12-dot"></div>
-            <p class="c12-when">Jan–Mar 2027</p>
-            <p class="c12-what">Tulsa pilots</p>
-            <p class="c12-num">10<small>free pilots</small></p>
-          </div>
-          <div class="c12-s" data-anim="rise" data-delay=".2">
-            <div class="c12-dot"></div>
-            <p class="c12-when">Apr–Jun 2027</p>
-            <p class="c12-what">Paid launch</p>
-            <p class="c12-num">25<small>paying</small></p>
-          </div>
-          <div class="c12-s" data-anim="rise" data-delay=".24">
-            <div class="c12-dot"></div>
-            <p class="c12-when">Jul–Sep 2027</p>
-            <p class="c12-what">Oklahoma City</p>
-            <p class="c12-num">40<small>paying</small></p>
-            <p class="c12-when">only after 25 paying in Tulsa</p>
-          </div>
-          <div class="c12-s c12-goal" data-anim="rise" data-delay=".28">
-            <div class="c12-dot"></div>
-            <p class="c12-when">Dec 2027</p>
-            <p class="c12-what">$105K ARR</p>
-            <p class="c12-num">55<small>paying</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="c12-bar" data-anim="fade" data-delay=".34">
-        <div>
-          <p class="c12-bar-t">How</p>
-          <p class="c12-bar-v">Door-to-door · supply houses · referrals</p>
-        </div>
-        <div>
-          <p class="c12-bar-t">Pace</p>
-          <p class="c12-bar-v">15 shop visits / week</p>
-        </div>
-        <div>
-          <p class="c12-bar-t">Cost to win a shop</p>
-          <p class="c12-bar-v">≈ $83</p>
-        </div>
-      </div>
-      <p class="c12-src" data-anim="fade" data-delay=".4">14-day trial, card required · Tulsa shop counts: U.S. Census County Business Patterns 2023</p>
-    </div>
-    <aside class="notes">
-      <p><strong>Say out loud:</strong> We visit 15 shops a week, door to door, with a 14-day trial. About 30% of trials convert, so it costs us roughly $83 to win a shop.</p>
-    </aside>
-  </section>
-
-
-  <section class="slide inv-slide" id="finance" data-title="Financial model" data-pos="3 2.28" data-transition="camera" data-hold="3.8">
-    <div class="fin-wrap">
-      <p class="fin-label" data-anim="fade"><b>11</b> Financial model</p>
-      <h2 class="fin-h1" data-anim="mask" data-delay=".06">Profitable in year 3.</h2>
-      <div class="fin-grid" data-anim="rise" data-delay=".14">
-        <div class="fin-chart-box">
-          <p class="fin-chart-title">Revenue vs. cost</p>
-          <svg class="fin-chart-svg" viewBox="0 0 760 392" role="img" aria-label="Revenue and cost by year 2027 through 2031" overflow="visible">
-            <line x1="56" y1="280" x2="704" y2="280" stroke="#E6E4DE" stroke-width="1"/>
-            <text x="40" y="48" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$800K</text>
-            <text x="40" y="108" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$600K</text>
-            <text x="40" y="168" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$400K</text>
-            <text x="40" y="228" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$200K</text>
-            <text x="40" y="283" font-size="16" fill="#8A8A85" font-family="Inter,system-ui,sans-serif">$0</text>
-            <!-- Bars: $0–$800K scale, baseline y=280 — group centers at x≈134,254,374,494,614 -->
-            <rect x="104" y="264.4" width="28" height="15.6" fill="#0F9D6E"/>
-            <rect x="136" y="254.2" width="28" height="25.8" fill="#C5C3BC"/>
-            <rect x="224" y="224.2" width="28" height="55.8" fill="#0F9D6E"/>
-            <rect x="256" y="221.8" width="28" height="58.2" fill="#C5C3BC"/>
-            <rect x="344" y="168.4" width="28" height="111.6" fill="#0F9D6E"/>
-            <rect x="376" y="185.5" width="28" height="94.5" fill="#C5C3BC"/>
-            <rect x="464" y="105.4" width="28" height="174.6" fill="#0F9D6E"/>
-            <rect x="496" y="146.2" width="28" height="133.8" fill="#C5C3BC"/>
-            <rect x="584" y="45.4" width="28" height="234.6" fill="#0F9D6E"/>
-            <rect x="616" y="108.7" width="28" height="171.3" fill="#C5C3BC"/>
-            <!-- Stacked labels (no long single line — avoids column overlap) -->
-            <text x="134" y="300" font-size="17" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">2027</text>
-            <text x="134" y="322" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">55 shops</text>
-            <text x="134" y="340" font-size="14" fill="#D93A2B" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">−$34K</text>
-            <text x="254" y="300" font-size="17" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">2028</text>
-            <text x="254" y="322" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">140 shops</text>
-            <text x="254" y="340" font-size="14" fill="#D93A2B" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">−$8K</text>
-            <text x="374" y="300" font-size="17" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">2029</text>
-            <text x="374" y="322" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">250 shops</text>
-            <text x="374" y="340" font-size="14" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">+$57K</text>
-            <text x="494" y="300" font-size="17" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">2030</text>
-            <text x="494" y="322" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">360 shops</text>
-            <text x="494" y="340" font-size="14" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">+$136K</text>
-            <text x="614" y="300" font-size="17" fill="#4A4A4A" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">2031</text>
-            <text x="614" y="322" font-size="13" fill="#8A8A85" text-anchor="middle" font-family="Inter,system-ui,sans-serif">460 shops</text>
-            <text x="614" y="340" font-size="14" fill="#0F9D6E" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="600">+$212K</text>
-          </svg>
-          <div class="fin-legend"><span class="fin-leg-rev">Revenue</span><span class="fin-leg-cost">Cost</span></div>
-        </div>
-        <dl class="fin-side" data-anim="fade" data-delay=".24">
-          <div><dt>Gross margin</dt><dd>51%</dd></div>
-          <div><dt>Break-even</dt><dd>2029</dd></div>
-          <div><dt>Cash needed</dt><dd>$120K</dd></div>
-        </dl>
-      </div>
-      <p class="fin-src" data-anim="fade" data-delay=".32">Projection, not results — bars are revenue (green) vs. cost (gray); figures are illustrative.</p>
-    </div>
-    <aside class="notes"><p>Green vs gray bars are revenue and cost; under each year: year, then shops, then net. Right: margin, break-even, raise.</p></aside>
+  <section class="slide" id="compete" data-title="Competitive comparison" data-pos="3 2.21" data-transition="camera" data-hold="4">
+    <img class="compete-full" src="./assets/competivve.png" alt="Competitive comparison. Open Slot, $129 a month, is built for small shops, books appointments, works with your existing number, costs $150 a month or less, and sets up in about 1 hour. Rosie, Jobber Receptionist, Sameday and Avoca each miss at least two of those.">
+    <aside class="notes"><p>Avoca and Sameday serve big companies. Jobber only works if you switch software. Rosie makes you set it up yourself, and its cheap plan doesn't book jobs. Open Slot is built for the small shop: it books jobs, keeps your number, costs $129, and we set it up with you in an hour. Sources: public pricing pages and reviews, Oct-Nov 2026.</p></aside>
   </section>
 
 
   <section class="slide inv-slide" id="team" data-title="Team" data-pos="3 2.32" data-transition="camera" data-hold="3.4">
-    <p class="t15-label" data-anim="fade"><b>12</b> Team</p>
+    <p class="t15-label" data-anim="fade"><b>10</b> Team</p>
     <h2 class="t15-h1" data-anim="mask" data-delay=".06">Meet our team:</h2>
     <div class="t15-founders" data-anim="rise" data-delay=".12">
       <article class="t15-card">
@@ -1575,7 +1258,7 @@ html, body { font-family: Inter, system-ui, sans-serif; }
 
 
   <section class="slide inv-slide" id="advisors" data-title="Advisors" data-pos="3 2.36" data-transition="camera" data-hold="3.2">
-    <p class="d16-label" data-anim="fade"><b>13</b> Advisors</p>
+    <p class="d16-label" data-anim="fade"><b>11</b> Advisors</p>
     <h2 class="d16-h1" data-anim="mask" data-delay=".06">Advisory Board</h2>
     <div class="d16-grid" data-anim="rise" data-delay=".12">
       <div class="d16-col">
@@ -1598,71 +1281,9 @@ html, body { font-family: Inter, system-ui, sans-serif; }
     <aside class="notes"><p>One line each if asked.</p></aside>
   </section>
 
-  <section class="slide" id="ask" data-title="Investment ask" data-pos="3 2.44" data-transition="tear" data-hold="4.2">
-    <p class="a14-label" data-anim="fade"><b>14</b> Investment ask</p>
-    <h2 class="a14-h1" data-anim="mask" data-delay=".06">We're raising $120K.</h2>
-    <p class="a14-big" data-anim="fade" data-delay=".1"><b>For 12% of Open Slot.</b> It gets us to profit, even at half speed.</p>
-    <div class="a14-stack" data-anim="rise" data-delay=".14" aria-hidden="true">
-      <i style="flex:40;background:#0F9D6E"></i>
-      <i style="flex:30;background:#5DBF9C"></i>
-      <i style="flex:15;background:#A8DCC6"></i>
-      <i style="flex:35;background:#D9D6CF"></i>
-    </div>
-    <div class="a14-list" data-anim="rise" data-delay=".18">
-      <div class="a14-r">
-        <span class="a14-sw" style="background:#0F9D6E"></span>
-        <div>
-          <p class="a14-n">Founders selling full-time</p>
-          <p class="a14-d">2027</p>
-        </div>
-        <p class="a14-amt">$40K</p>
-      </div>
-      <div class="a14-r">
-        <span class="a14-sw" style="background:#5DBF9C"></span>
-        <div>
-          <p class="a14-n">Phone, AI &amp; software</p>
-          <p class="a14-d">2 years</p>
-        </div>
-        <p class="a14-amt">$30K</p>
-      </div>
-      <div class="a14-r">
-        <span class="a14-sw" style="background:#A8DCC6"></span>
-        <div>
-          <p class="a14-n">Winning shops</p>
-          <p class="a14-d">trials, flyers, gas</p>
-        </div>
-        <p class="a14-amt">$15K</p>
-      </div>
-      <div class="a14-r">
-        <span class="a14-sw" style="background:#D9D6CF"></span>
-        <div>
-          <p class="a14-n">Safety buffer</p>
-          <p class="a14-d">if growth is half the plan</p>
-        </div>
-        <p class="a14-amt">$35K</p>
-      </div>
-      <div class="a14-tot"><span>Total</span><span>$120K</span></div>
-    </div>
-    <div class="a14-panel" data-anim="fade" data-delay=".26">
-      <p class="a14-ph">What you get back</p>
-      <div>
-        <p class="a14-pt">Profitable</p>
-        <p class="a14-pv a14-grn">2029</p>
-        <p class="a14-ps">No new round needed</p>
-      </div>
-      <div>
-        <p class="a14-pt">Plan: 460 shops by 2031</p>
-        <p class="a14-pv">2.9×</p>
-        <p class="a14-ps">Your 12% ≈ $350K</p>
-      </div>
-      <div>
-        <p class="a14-pt">At 1,600 shops</p>
-        <p class="a14-pv a14-grn">10×</p>
-        <p class="a14-ps">Just 1.4% of the 111K shops</p>
-      </div>
-    </div>
-    <p class="a14-src" data-anim="fade" data-delay=".32">Projection, not results — exit value depends on ARR at exit and the revenue multiple a buyer pays.</p>
-    <aside class="notes"><p>$120K for 12% · post-money $1M. Walk the four budget rows; buffer if half speed. Right column: path to profit 2029, base exit math (460 shops), upside (1,600). Source line has multiples and caveats.</p></aside>
+  <section class="slide" id="ask" data-title="Investment ask" data-pos="3 2.44" data-transition="tear" data-hold="5">
+    <img class="ask-full" src="./assets/investement_ask.png" alt="Investment ask: $120,000. Sales and customers $55,000, product development $35,000, operations $30,000. 12-month goal: 55 paying businesses, $105,000 ARR.">
+    <aside class="notes"><p>We're raising $120K. $55K goes to sales and customers, $35K to product, $30K to operations. 12-month goal: 55 paying businesses, about $105K ARR (55 x ~$159 blended x 12).</p></aside>
   </section>
 
 </div>
